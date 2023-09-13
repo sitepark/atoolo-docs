@@ -1,3 +1,7 @@
+The generated documentation is available at the following URL.
+
+https://sitepark.github.io/atoolo-docs/
+
 The documentation is generated with the static site generator [MkDocs](https://www.mkdocs.org/).
 
 # Install MkDocs
