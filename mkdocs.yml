@@ -1,0 +1,60 @@
+site_name: Atoolo Docs
+site_dir: public
+nav:
+  - Home: index.md
+  - Develop:
+    - develop/index.md
+    - GraphQL API:
+      - develop/graphql/index.md
+      - Get started with GraphQL API: develop/graphql/getting-started.md
+  - Contribute:
+    - contribute/index.md
+extra:
+  status:
+    draft: Draft
+
+# https://squidfunk.github.io/mkdocs-material/reference/
+theme:
+  name: material
+  palette:
+    - primary: custom
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  favicon: images/favicon.ico
+  features:
+    - navigation.indexes
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+extra_css:
+  - stylesheets/extra.css
+markdown_extensions:
+  - toc:
+      title: On this page
+      permalink: "#"
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - attr_list
+  - md_in_html
+  - abbr
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
