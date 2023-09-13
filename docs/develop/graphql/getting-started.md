@@ -30,7 +30,7 @@ composer require --dev overblog/graphiql-bundle
 Atoolo uses PHP 8 attributes to configure the mappings and define the schema.
 
 Change the graphql package configuration
-```yml
+```yaml
 # config/packages/graphql.yaml
 overblog_graphql:
   definitions:
