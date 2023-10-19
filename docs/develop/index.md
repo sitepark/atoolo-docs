@@ -2,6 +2,6 @@
 status: draft
 ---
 
-# Develop with Attolo
+# Develop with Atoolo
 
 - [GraphQL API](graphql/index.md)
