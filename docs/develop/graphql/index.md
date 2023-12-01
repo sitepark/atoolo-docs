@@ -14,6 +14,8 @@ You can view the available resources in the GraphQL API reference. The reference
 
 The GraphQL API endpoint is located at `/graphql`.
 
+The [GraphQL Schema Language Cheat Sheet](https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png) is also helpful.
+
 ## GraphiQL
 
 Explore the GraphQL API with the interactive [GraphiQL Explorer](getting-started.md#graphiql), which would be accessible at the fictitious endpoint `www.example.com` via the following URL.
