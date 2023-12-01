@@ -49,7 +49,7 @@ composer require --dev overblog/graphiql-bundle
 
 ### Commandline
 
-You can run GraphQL queries in a curl query in the command line on your local computer. A GraphQL query can be issued as a POST request to /api/graphql with the query as the payload. You can authorize your query by generating a personal access token to use as the owner token.
+You can run GraphQL queries in a curl query in the command line on your local computer. A GraphQL query can be issued as a POST request to `/graphql with the query as the payload.
 
 With the fictitious endpoint `www.example.com`, the GraphQL endpoint can be reached at the following URL.
 
