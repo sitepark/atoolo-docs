@@ -1,14 +1,10 @@
----
-status: draft
----
-
-# Get started with GraphQL API.
+# Getting started
 
 This guide shows the integration and basic usage of the GraphQL API.
 
 ## Requirements
 
-A Symfony 6.3 project with Symfony-Flex is required. In this project the GraphQL endpoint is set up.
+A Symfony 6.4 project with Symfony-Flex is required. In this project the GraphQL endpoint is set up.
 
 ## Install
 
@@ -34,7 +30,6 @@ composer config --json --merge extra.symfony.endpoint \
 
 The installation is then carried out via `composer require`.
 
-
 ```sh
 composer require atoolo/graphql-search-bundle
 ```
@@ -46,6 +41,10 @@ composer require --dev overblog/graphiql-bundle
 ```
 
 ## Usage
+
+### Basics
+
+To learn the basics of GraphQL, ["Introduction to GraphQL"](https://graphql.org/learn/) is a good place to start.
 
 ### Commandline
 
@@ -60,9 +59,11 @@ curl "https://www.example.com/graphql/" --fail \
     --data '{"query" : "{ ping }"}'
 ```
 
-### TypeScript
+### Clients
 
-The Apollo client can be used to use the GraphQL interface with TypeScript. See [TypeScript with Apollo Client](https://www.apollographql.com/docs/react/development-testing/static-typing/)
+Because GraphQL is a communication pattern, there are many tools to help you get started working which support GraphQL in all sorts of languages.
+
+E.g. for JavaScript clients see [here](https://graphql.org/code/#javascript-client)
 
 ### GraphiQL
 
@@ -72,3 +73,6 @@ With the fictitious endpoint `www.example.com` the GraphiQL can be reached at th
 
 `https://www.example.com/graphiql`
 
+!!! note
+
+    Please note, however, that `APP_ENV=dev` must be set.

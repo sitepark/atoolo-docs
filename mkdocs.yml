@@ -3,15 +3,21 @@ site_dir: public
 nav:
   - Home: index.md
   - Develop:
-    - develop/index.md
-    - GraphQL API:
-      - develop/graphql/index.md
-      - Get started with GraphQL API: develop/graphql/getting-started.md
-      - Search:
-        - develop/graphql/search/index.md
-        - Suggest: develop/graphql/search/suggest.md
+      - develop/index.md
+      - GraphQL API:
+          - develop/graphql/index.md
+          - Getting started: develop/graphql/getting-started.md
+          - Search:
+              - develop/graphql/search/index.md
+              - Filtered search: develop/graphql/search/filtered-search.md
+              - Faceted search: develop/graphql/search/faceted-search.md
+              - Resolve navigation: develop/graphql/search/resolve-navigation-hierarchy.md
+              - Resolve teaser: develop/graphql/search/resolve-teaser.md
+              - Suggest: develop/graphql/search/suggest.md
+              - Indexing: develop/graphql/search/indexing.md
+          - Reference: develop/graphql/reference.md
   - Contribute:
-    - contribute/index.md
+      - contribute/index.md
 extra:
   status:
     draft: Draft
@@ -32,6 +38,9 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   favicon: images/favicon.ico
+  icon:
+    admonition:
+      note: material/alert-circle-outline
   features:
     - navigation.indexes
     - content.code.copy
@@ -59,5 +68,8 @@ markdown_extensions:
   - abbr
   - pymdownx.snippets
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
