@@ -1,7 +1,3 @@
----
-status: draft
----
-
 # Faceted search
 
 A faceted search, also known as faceted filtering, is a search technique that can be applied to various use cases to allow users to easily refine and navigate search results. It works by dividing search results into different categories or facets that are representative features or attributes of the information found.

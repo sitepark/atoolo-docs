@@ -1,7 +1,3 @@
----
-status: draft
----
-
 # Filtered search
 
 Filters can be used to give the user of the website the possibility to narrow down his search by certain criteria that are offered to him. Filters can also be used to limit the search in general if the results can only be returned from a certain area. The CMS IES recognizes various criteria that can be used for this purpose.

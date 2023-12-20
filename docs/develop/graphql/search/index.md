@@ -1,7 +1,3 @@
----
-status: draft
----
-
 # Search
 
 The GraphQL query `search` can be used to search for resources. The aim of this GraphQL query is to fulfill the requirements for a search within the website. The focus here is on full-text searches, filters and facets.
