@@ -233,6 +233,20 @@ filter: [{ and : [
 ]}]
 ```
 
+### Query filter
+
+This filter accepts a query that is passed directly to the search engine. This filter should only be used in absolute exceptions where the fields of the current schema must be specified directly.
+
+!!! warning
+
+    If the schema is changed, the specified queries for these filters may no longer work.
+
+```graphql
+filter: [{
+  query : "sp_objecttype:content"
+}]
+```
+
 ### Filter key
 
 A `key` can also be specified for filters. This is only necessary if the filter only influences the facet search. The key is then used for the faceted search to identify the filters that must not be taken into account. See [Facet search](faceted-search.md)
