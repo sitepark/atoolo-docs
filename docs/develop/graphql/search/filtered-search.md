@@ -41,6 +41,8 @@ filter: [
 }
 ```
 
+Für komplexere filter logik siehe [Complex filter](#complex-filter)
+
 ### Object type filter
 
 Object types describe the different types of pages that are used in the website. These can be, for example, news pages, events, normal content pages or any other types that are part of the project.
@@ -172,6 +174,40 @@ Articles can be marked as achrivated in the CMS. This flag ensures that these ar
     }
   }
 }
+```
+
+### Complex filter
+
+Complex filter queries can be constructed by combining one or more queries using `and`, `or` or `not` queries.
+
+An 'and' or 'or' query expects a list of filters.
+
+```graphql
+filter: [{ and : [
+  { objectTypes: ["news"] },
+  { sites: ["3952"] }
+]}]
+```
+
+These can be combined as required:
+
+```graphql
+filter: [{ and : [
+  { objectTypes: ["news"] },
+  {
+    or : [
+      { groups: ["16811"] },
+      { groups: ["16812"] },
+      { and : [
+          { categories: ["15949"] },
+          { not : {
+            categories: ["15950"]
+          } }
+      ] }
+    ]
+  },
+  { sites: ["3952"] }
+]}]
 ```
 
 ### Filter key
