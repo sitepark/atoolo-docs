@@ -180,7 +180,9 @@ Articles can be marked as achrivated in the CMS. This flag ensures that these ar
 
 Complex filter queries can be constructed by combining one or more queries using `and`, `or` or `not` queries.
 
-An 'and' or 'or' query expects a list of filters.
+An `and` or `or` query expects a list of filters.
+
+#### And
 
 ```graphql
 filter: [{ and : [
@@ -188,6 +190,27 @@ filter: [{ and : [
   { sites: ["3952"] }
 ]}]
 ```
+
+#### Or
+
+```graphql
+filter: [{ or : [
+  { objectTypes: ["news"] },
+  { sites: ["3952"] }
+]}]
+```
+
+#### Not
+
+`not` expects a filter definition
+
+```graphql
+filter: [{ not : {
+  objectTypes: ["news"]
+}}]
+```
+
+#### Combined
 
 These can be combined as required:
 
