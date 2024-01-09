@@ -1,5 +1,6 @@
 site_name: Atoolo Docs
 site_dir: public
+repo_url: https://github.com/sitepark/atoolo-docs
 nav:
   - Home: index.md
   - Develop:
@@ -41,6 +42,7 @@ theme:
   icon:
     admonition:
       note: material/alert-circle-outline
+    repo: fontawesome/brands/github
   features:
     - navigation.indexes
     - content.code.copy
