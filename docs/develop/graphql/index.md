@@ -8,7 +8,7 @@ If you are new to the GraphQL API, see [Getting Started with the GraphQL API](ge
 
 You can view the available resources in the GraphQL API reference. The reference is automatically generated from the GitLab GraphQL schema and written to a Markdown file.
 
-The GraphQL API endpoint is located at `/graphql`.
+The GraphQL API endpoint is located at `/api/graphql`.
 
 The [GraphQL Schema Language Cheat Sheet](https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png) is also helpful.
 

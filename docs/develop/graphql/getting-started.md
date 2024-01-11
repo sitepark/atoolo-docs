@@ -53,7 +53,7 @@ You can run GraphQL queries in a curl query in the command line on your local co
 With the fictitious endpoint `www.example.com`, the GraphQL endpoint can be reached at the following URL.
 
 ```sh
-curl "https://www.example.com/graphql/" --fail \
+curl "https://www.example.com/api/graphql/" --fail \
     --header "Content-Type: application/json" \
     --request POST \
     --data '{"query" : "{ ping }"}'
