@@ -6,11 +6,11 @@ There can be different formats in which the resource is aggregated by the CMS. T
 
 ## Sources
 
-The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-resource](https://github.com/sitepark/atoolo-resource).
+The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-resource](https://github.com/sitepark/atoolo-resource){:target="\_blank"}.
 
 ## Installation
 
-Use [Composer](https://getcomposer.org/) to install this component in your PHP project:
+Use [Composer](https://getcomposer.org/){:target="\_blank"} to install this component in your PHP project:
 
 ```sh
 composer require atoolo/resource

@@ -10,7 +10,7 @@ You can view the available resources in the GraphQL API reference. The reference
 
 The GraphQL API endpoint is located at `/api/graphql`.
 
-The [GraphQL Schema Language Cheat Sheet](https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png) is also helpful.
+The [GraphQL Schema Language Cheat Sheet](https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png){:target="\_blank"} is also helpful.
 
 ## GraphiQL
 
@@ -24,6 +24,6 @@ The documentation of the GraphQL API resources is automatically generated based 
 
 ## Breaking changes
 
-The GraphQL API is [versionless](https://graphql.org/learn/best-practices/#versioning) and changes to the API are primarily backward-compatible.
+The GraphQL API is [versionless](https://graphql.org/learn/best-practices/#versioning){:target="\_blank"} and changes to the API are primarily backward-compatible.
 
 Should the GraphQL API change in a way that is not backward compatible, these changes are called "Breaking Changes" and may involve removing or renaming fields, arguments, or other parts of the schema. When a Breaking Change is created, there will be a transition period where the old from will continue to be supported and marked deprecated. Until a time when the parts marked as deprecated are removed.

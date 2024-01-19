@@ -8,6 +8,12 @@ nav:
       - Components:
           - develop/components/index.md
           - Resource: develop/components/resource.md
+          - Search: develop/components/search.md
+      - Bundle:
+          - develop/bundles/index.md
+          - Security: develop/bundles/security.md
+          - GraphQL Search: develop/bundles/graphql-search.md
+          - CityGov: develop/bundles/citygov.md
       - GraphQL API:
           - develop/graphql/index.md
           - Getting started: develop/graphql/getting-started.md

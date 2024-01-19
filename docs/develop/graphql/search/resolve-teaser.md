@@ -27,7 +27,7 @@ The 'teaser' field is used to determine the teaser of a resource.
 
 In this case, `__typename` and `url` are the only fields that are available for all teaser types. All other fields must be queried individually depending on the teaser type.
 
-This is solved in GraphQL with [Inline Fragments](https://graphql.org/learn/queries/#inline-fragments).
+This is solved in GraphQL with [Inline Fragments](https://graphql.org/learn/queries/#inline-fragments){:target="\_blank"}.
 
 ```graphql
 {
@@ -53,7 +53,7 @@ This is solved in GraphQL with [Inline Fragments](https://graphql.org/learn/quer
 
 The article teaser is the classic teaser that can contain a headline, a text and possibly an asset (e.g. an image).
 
-In the following example, the fields of the article teaser are read out and [Fragments](https://graphql.org/learn/queries/#fragments) is also used.
+In the following example, the fields of the article teaser are read out and [Fragments](https://graphql.org/learn/queries/#fragments){:target="\_blank"} is also used.
 
 See also in the [reference](../reference.md#articleteaser).
 

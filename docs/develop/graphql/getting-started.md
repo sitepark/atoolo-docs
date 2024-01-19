@@ -8,9 +8,9 @@ A Symfony 6.4 project with Symfony-Flex is required. In this project the GraphQL
 
 ## Install
 
-For GraphQl integration the [`overblog/GraphQLBundle`](https://github.com/overblog/GraphQLBundle) Symfony bundle is used.
+For GraphQl integration the [`overblog/GraphQLBundle`](https://github.com/overblog/GraphQLBundle){:target="\_blank"} Symfony bundle is used.
 
-It is integrated via the [Symfony Flex installation](https://github.com/overblog/GraphQLBundle/blob/master/docs/index.md#symfony-flex-installation).
+It is integrated via the [Symfony Flex installation](https://github.com/overblog/GraphQLBundle/blob/master/docs/index.md#symfony-flex-installation){:target="\_blank"}.
 
 The Symfony Flex Recipes from Sitepark must be used to ensure that the configurations are created correctly.
 
@@ -44,7 +44,7 @@ composer require --dev overblog/graphiql-bundle
 
 ### Basics
 
-To learn the basics of GraphQL, ["Introduction to GraphQL"](https://graphql.org/learn/) is a good place to start.
+To learn the basics of GraphQL, ["Introduction to GraphQL"](https://graphql.org/learn/){:target="\_blank"} is a good place to start.
 
 ### Commandline
 
@@ -63,7 +63,7 @@ curl "https://www.example.com/api/graphql/" --fail \
 
 Because GraphQL is a communication pattern, there are many tools to help you get started working which support GraphQL in all sorts of languages.
 
-E.g. for JavaScript clients see [here](https://graphql.org/code/#javascript-client)
+E.g. for JavaScript clients see [here](https://graphql.org/code/#javascript-client){:target="\_blank"}
 
 ### GraphiQL
 
