@@ -4,7 +4,7 @@ status: draft
 
 # Search Component
 
-Provides services with which a Solr index can be filled and searched for [resources](resource.md) via this index.
+Provides services with which a Solr index can be filled and searched for [resources](resource.md) via a index.
 
 ## Sources
 
@@ -19,6 +19,12 @@ composer require atoolo/search
 ```
 
 ## Indexing
+
+To be able to search in a Solr index, it must first be filled. This is done via the indexer.
+
+[Resources](resource.md#the-resource) are indexed. These are stored as files in the file system. The indexer can search an entire directory structure for the resources and thus rebuild an entire index. The resources are loaded via the files and mapped to index documents. The mapping is carried out via document enricher that read the resource data and set the corresponding fields of the index document. The index document are passed to Solr so that they can be indexed. Searches can then be performed on a Solr index created in this way.
+
+An [Indexer service](https://github.com/sitepark/atoolo-search/blob/main/src/Indexer.php){:target="\_blank"} is available for indexing, which can be used to index and remove data from the index.
 
 ### Custom Document Enricher
 
@@ -81,3 +87,94 @@ services:
 ```
 
 ## Searching
+
+You can search the index to find resources. The [SelectSearcher service](https://github.com/sitepark/atoolo-search/blob/main/src/SelectSearcher.php) is available for this purpose.
+
+### Query
+
+The `select()` method expects a [`SelectQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php){:target="\_blank"} object that contains the filter rules, for example. To create a [`SelectQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php){:target="\_blank"} object, only the [`SelectQueryBuilder`](https://github.com/sitepark/atoolo-search/blob/feature/initial-implementation/src/Dto/Search/Query/SelectQueryBuilder.php){:target="\_blank"} must be used to ensure that a valid [`SelectQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php){:target="\_blank"} object is always created.
+
+Example of a query:
+
+```php
+$builder = new SelectQueryBuilder();
+$builder->index('myindex-www')
+  ->text('chocolate')
+
+$query = $builder->build();
+$result = $selectSearcher->select($query);
+```
+
+### Result
+
+Die Suche liefert ein [`SearchResult`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Result/SearchResult.php){:target="\_blank"}-Object, mit dem die Ergebnisse ausgelesen werden können.
+
+Das Ergebnis liefert die Liste der gefundenen Resourcen über die iteriert werden kann.
+
+```php
+foreach ($result as $resource) {
+  echo $resource->getLocation() . "\n";
+}
+```
+
+Wurden in der Query auch Fasetten definiert können diese auch ausgelesen werden:
+
+```php
+foreach ($result->facetGroups as $facetGroup) {
+  echo $facetGroup->key . "\n";
+  foreach ($facetGroup->facets as $facet) {
+    echo $facet->key . ' (' . $facet->hits . ")\n";
+  }
+}
+```
+
+## Searching (More like this)
+
+A "More-Like-This" search is a technique in which a source document or item is used as a reference point to find similar documents in the search index. It is based on extracting characteristics from the source object and searching for other objects that have similar characteristics in order to present relevant results to the user.
+
+The [`MoreLikeThisSearcher`](https://github.com/sitepark/atoolo-search/blob/main/src/MoreLikeThisSearcher.php){:target="\_blank"} service is available for this. The `moreLikeThis()` method expects a [`MoreLikeThisQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/MoreLikeThisQuery.php){:target="\_blank"} object with which the query can be defined.
+
+The search returns a [`SearchResult`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Result/SearchResult.php){:target="\_blank"} object with which the results can be read.
+
+The result returns the list of resources found, which can be iterated over.
+
+```php
+foreach ($result as $resource) {
+  echo $resource->getLocation() . "\n";
+}
+```
+
+## Suggest
+
+A "suggest search" is a search function that automatically displays suggestions or auto-completions to users as they enter search queries.
+
+The [`SuggestSearcher`](https://github.com/sitepark/atoolo-search/blob/main/src/SuggestSearcher.php){:target="\_blank"} service is available for this. The `moreLikeThis()` method expects a [`SuggestQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SuggestQuery.php){:target="\_blank"} object with which the query can be defined.
+
+The search returns a [`SuggestResult`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Result/SuggestResult.php){:target="\_blank"} object with which the results can be read.
+
+```php
+foreach ($result as $suggest) {
+  echo $suggest->term . ' (' . $suggest->hits . ")\n";
+}
+```
+
+## Command line interface
+
+This component also contains Symfony commands that can be integrated into Symfony projects. For this purpose, the service configuration can be integrated into the `services.yaml` in the corresponding project.
+
+`services.xml`
+
+```yaml
+imports:
+  - { resource: ../vendor/atoolo/search/config/commands.yml }
+```
+
+The following commands are then available via `./bin/console`:
+
+| Command                      | Description                      |
+| ---------------------------- | -------------------------------- |
+| `atoolo:dump-index-document` | Dump a index document            |
+| `atoolo:indexer`             | Fill a search index              |
+| `atoolo:mlt`                 | Performs a more-like-this search |
+| `atoolo:search`              | Performs a search                |
+| `atoolo:suggest`             | Performs a suggest search        |
