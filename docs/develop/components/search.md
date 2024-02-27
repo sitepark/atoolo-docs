@@ -107,9 +107,9 @@ $result = $selectSearcher->select($query);
 
 ### Result
 
-Die Suche liefert ein [`SearchResult`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Result/SearchResult.php){:target="\_blank"}-Object, mit dem die Ergebnisse ausgelesen werden können.
+The search returns a [`SearchResult`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Result/SearchResult.php){:target="\_blank"} object, which can be used to read the results.
 
-Das Ergebnis liefert die Liste der gefundenen Resourcen über die iteriert werden kann.
+The result provides the list of resources found that can be iterated over.
 
 ```php
 foreach ($result as $resource) {
@@ -117,7 +117,7 @@ foreach ($result as $resource) {
 }
 ```
 
-Wurden in der Query auch Fasetten definiert können diese auch ausgelesen werden:
+If facets have also been defined in the query, these can also be read out:
 
 ```php
 foreach ($result->facetGroups as $facetGroup) {
