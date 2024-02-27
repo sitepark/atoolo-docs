@@ -33,8 +33,6 @@ Document Enricher allow the document that is passed to Solr for indexing to be e
 The document to be filled must adhere to the schema stored in Solr. Only the fields that are known in the schema can be set. Currently the schema `2.1` is used. The implementation `IndexSchema2xDocument` of the `IndexDocument` interface is available for this purpose. The document enricher must implement the interface `DocumentEnricher`.
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 namespace Atoolo\Examples\Search\Indexer\Enricher;

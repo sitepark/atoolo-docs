@@ -65,6 +65,12 @@ markdown_extensions:
       permalink: "#"
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - pymdownx.highlight:
+      extend_pygments_lang:
+        - name: php
+          lang: php
+          options:
+            startinline: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

@@ -71,8 +71,6 @@ Various `ResourceBaseLocator` implementations are available.
 The constructor expects two arguments. The name of the server variable from which the path is to be read and, optionally, a path for a subdirectory that is appended to the path.
 
 ```php
-<?php
-
 use Atoolo\Resource\ResourceBaseLocator\ServerVarResourceBaseLocator;
 
 $baseLocator = new ServerVarResourceBaseLocator(
@@ -86,8 +84,6 @@ $baseLocator = new ServerVarResourceBaseLocator(
 Here the path is transferred directly to the consturctor
 
 ```php
-<?php
-
 use Atoolo\Resource\ResourceBaseLocator\StaticResourceBaseLocator;
 
 $baseLocator = new StaticResourceBaseLocator(
@@ -100,8 +96,6 @@ $baseLocator = new StaticResourceBaseLocator(
 The `ResourceBaseLocator` can be used to create the `SiteKitLoader`.
 
 ```php
-<?php
-
 use Atoolo\Resource\Loader\SiteKitLoader;
 
 $loader = new SiteKitLoader($baseLocator);
@@ -110,7 +104,6 @@ $loader = new SiteKitLoader($baseLocator);
 Resources can now be loaded.
 
 ```php
-<?php
 $resource = $loader->load('/index.php');
 ```
 
@@ -144,21 +137,18 @@ There is a special case for navigation. Here, every resource (except the homepag
 Create `SiteKitNavigationHierarchyLoader`:
 
 ```php
-<?php
 $hierarchyLoader = new SiteKitNavigationHierarchyLoader($loader);
 ```
 
 or create a `SiteKitResourceHierarchyLoader`. The name of the hierarachy type is still required here. In this case for categories.
 
 ```php
-<?php
 $hierarchyLoader = new SiteKitResourceHierarchyLoader($loader, 'category');
 ```
 
 Once the hierarchy loader has been created, the hierarchies can be queried. For example to load the root.
 
 ```php
-<?php
 $rootResource = $hierarchyLoader->loadRoot('/a/b/c.php')
 ```
 
