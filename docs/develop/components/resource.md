@@ -1,6 +1,6 @@
 # Resource Component
 
-In the Atoolo context, resources from IES (Sitepark's content management system) are aggregated data that can be handled through this library.
+In the Atoolo context, resources from IES (Siteparks content management system) are aggregated data that can be handled through this library.
 
 There can be different formats in which the resource is aggregated by the CMS. The current format is the `SiteKit` format. Here, a PHP file is created for each article in which the data is stored in the form of PHP arrays. The data is read out via the corresponding `ResourceLoader` and made available in a `Resource` object.
 
@@ -15,6 +15,48 @@ Use [Composer](https://getcomposer.org/){:target="\_blank"} to install this comp
 ```sh
 composer require atoolo/resource
 ```
+
+## The Resource
+
+The resource represents a data object published by the IES (Siteparks content management system). This can be an article but also other objects that can be published by CMS.
+
+Eine Resource hat folgende Eigenschaften:
+
+- `location` - The path to the aggregated file
+- `id` - An ID assigned by the CMS for the object
+- `name` - Name of the resource
+- `objectType` - Specifies the type of the object. These types are managed in the CMS.
+- `data` - A generic data object containing the data structure of the resource. Depending on the object type, the schema of the data can be different.
+
+Die Daten werden in einem `DataBag` gehalten, über den sie typisiert ausgelesen werden können. Über eine String mit Punkt-Notation können tiefer verschachtelte Daten aufgefagt werden.
+
+For a given data structure:
+
+```json
+{
+  "init": {
+    "id": 1,
+    "name": "name",
+    "groupPath": [
+      {
+        "id": 123,
+        "name": "A"
+      },
+      {
+        "id": 456,
+        "name": "B"
+      }
+    ]
+  }
+}
+```
+
+The data can be queried as follows, for example.
+
+- `$resource->getData()->getInt('init.id')`
+- `$resource->getData()->getString('init.name', 'Unnamed')`
+- `$resource->getData()->getArray('init.groupPath')`
+- `$resource->getData()->getAssociativeArray('init')`
 
 ## Loading a resource
 
