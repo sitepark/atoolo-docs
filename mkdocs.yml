@@ -8,7 +8,7 @@ nav:
       - Components:
           - develop/components/index.md
           - Resource: develop/components/resource.md
-          - Search: develop/components/search.md
+          - Search: develop/components/search/index.md
       - Bundle:
           - develop/bundles/index.md
           - Security: develop/bundles/security.md
