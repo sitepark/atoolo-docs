@@ -1,12 +1,10 @@
 # Project-specific customizations
 
-This section contains information about customizing the GraphQL API for your project. It includes information about customizing the schema, customizing the resolvers, and adding custom queries and mutations.
+This section contains information about customizing the GraphQL API for your project. It includes information about customizing the schema, customizing the resolvers, and adding custom queries.
 
-## Customizing the schema
+The schema is the structure of the GraphQL API. It defines the types, queries, and mutations that are available to clients. You can customize the schema by adding new types and queries or by modifying existing ones.
 
-The schema is the structure of the GraphQL API. It defines the types, queries, and mutations that are available to clients. You can customize the schema by adding new types, queries, and mutations, or by modifying existing ones.
-
-### Add custom teaser
+## Add custom teaser
 
 For customer-specific object types, it is sometimes necessary to create your own teaser types. GraphQL schema can then be extended for this purpose.
 
@@ -129,7 +127,7 @@ services:
 
 1. :material-information-outline: Additional tagging
 
-### Extending base teaser type
+## Extending base teaser type
 
 You can extend the base `Teaser` type to add custom fields to the teaser type. Changes to the basic teaser type affect all teaser types that extend the 'Teaser' type.
 
@@ -219,3 +217,8 @@ services:
     tags:
       - { name: "atoolo.graphql.resolver", priority: 10 }
 ```
+
+## Custom query
+
+To add a custom query, a new query type must be created. The easiest way to do this is via PHP 8 attributes.
+See also [Annotations & PHP 8 attributes](https://github.com/overblog/GraphQLBundle/blob/master/docs/annotations/index.md#annotations--php-8-attributes)
