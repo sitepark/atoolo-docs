@@ -25,6 +25,7 @@ nav:
               - Resolve teaser: develop/graphql/search/resolve-teaser.md
               - Suggest: develop/graphql/search/suggest.md
               - Indexing: develop/graphql/search/indexing.md
+          - Customization: develop/graphql/customization/index.md
           - Reference: develop/graphql/reference.md
   - Contribute:
       - contribute/index.md
