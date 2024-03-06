@@ -34,7 +34,7 @@ overblog_graphql:
 1. :material-information-outline: The new teaser types are entered here.
 2. :material-information-outline: The configuration directory in which the schema for the teaser is stored is specified here.
 
-There are various ways to define the schema. See also [here](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/type-system/index.md). For example, a GraphQL schema file can be created directly in which the schema is defined. This can look like this, for example:
+There are various ways to define the schema. See also [here](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/type-system/index.md){:target="\_blank"}. For example, a GraphQL schema file can be created directly in which the schema is defined. This can look like this, for example:
 
 `config/graphql/types/schema.types.graphql`
 
@@ -143,7 +143,7 @@ overblog_graphql:
           suffix: ~
 ```
 
-This configuration is used to define the default teaser types that the decorators use. See also the documentation for [Inheritance](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/type-inheritance.md) and the **Decorators** section there.
+This configuration is used to define the default teaser types that the decorators use. See also the documentation for [Inheritance](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/type-inheritance.md){:target="\_blank"} and the **Decorators** section there.
 
 Normally, the definition of the article teaser looks like this, for example:
 `vendor/atoolo/graphql-search-bundle/src/Resources/schema/defaults/ArticleTeaser.defaulttype.yaml`
@@ -221,4 +221,4 @@ services:
 ## Custom query
 
 To add a custom query, a new query type must be created. The easiest way to do this is via PHP 8 attributes.
-See also [Annotations & PHP 8 attributes](https://github.com/overblog/GraphQLBundle/blob/master/docs/annotations/index.md#annotations--php-8-attributes)
+See also [Annotations & PHP 8 attributes](https://github.com/overblog/GraphQLBundle/blob/master/docs/annotations/index.md#annotations--php-8-attributes){:target="\_blank"}
