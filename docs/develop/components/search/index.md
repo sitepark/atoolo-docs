@@ -363,21 +363,33 @@ foreach ($result as $suggest) {
 
 ## Command line interface
 
-This component also contains Symfony commands that can be integrated into Symfony projects. For this purpose, the service configuration can be integrated into the `services.yaml` in the corresponding project.
-
+This component also contains Symfony commands that can be integrated into Symfony projects.
 `services.xml`
 
-```yaml
-imports:
-  - { resource: ../vendor/atoolo/search/config/commands.yml }
+The commands are currently provided via the GraphQL bundle. To do this, the bundle must be integrated into the Symfony project.
+
+The commands provided by Atoolo require the environment variable `RESOURCE_ROOT` in the rules, which defines in which directory the resources are located or which resource channel is currently to be used.
+
+The environment variable can be set manually, but can also be determined automatically if `bin/console` is called via the resource channel path, e.g.
+
+```sh
+/var/www/example.com/www/app/bin/console ...
 ```
 
-The following commands are then available via `./bin/console`:
+or
 
-| Command                      | Description                      |
-| ---------------------------- | -------------------------------- |
-| `atoolo:dump-index-document` | Dump a index document            |
-| `atoolo:indexer`             | Fill a search index              |
-| `atoolo:mlt`                 | Performs a more-like-this search |
-| `atoolo:search`              | Performs a search                |
-| `atoolo:suggest`             | Performs a suggest search        |
+```sh
+cd /var/www/example.com/www/
+app/bin/console ...
+```
+
+The following commands are then available via `bin/console`:
+
+| Command                                    | Description                               |
+| ------------------------------------------ | ----------------------------------------- |
+| `atoolo:dump-index-document`               | Dump a index document                     |
+| `atoolo:indexer`                           | Fill a search index                       |
+| `search:indexer:update-internal-resources` | Update internal resources in search index |
+| `atoolo:mlt`                               | Performs a more-like-this search          |
+| `atoolo:search`                            | Performs a search                         |
+| `atoolo:suggest`                           | Performs a suggest search                 |
