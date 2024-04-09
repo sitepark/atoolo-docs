@@ -18,11 +18,6 @@
 <td></td>
 </tr>
 <tr>
-<td colspan="2" align="right" valign="top">index</td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td></td>
-</tr>
-<tr>
 <td colspan="2" valign="top"><strong>suggest</strong></td>
 <td valign="top"><a href="#suggestresult">SuggestResult</a>!</td>
 <td></td>
@@ -77,15 +72,6 @@
 <td></td>
 </tr>
 <tr>
-<td colspan="2" align="right" valign="top">index</td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td>
-
-index from which the entry is to be deleted
-
-</td>
-</tr>
-<tr>
 <td colspan="2" align="right" valign="top">idList</td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td>
@@ -99,17 +85,14 @@ list of id's of the entries to be deleted
 <td valign="top"><a href="#boolean">Boolean</a>!</td>
 <td></td>
 </tr>
-<tr>
-<td colspan="2" align="right" valign="top">index</td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td></td>
-</tr>
 </tbody>
 </table>
 
 ## Objects
 
 ### ArticleTeaser
+
+An article teaser is a short summary or preview designed to pique the reader's interest by highlighting the main points or most exciting aspects of an article.
 
 <table>
 <thead>
@@ -124,27 +107,47 @@ list of id's of the entries to be deleted
 <tr>
 <td colspan="2" valign="top"><strong>url</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
-<td></td>
+<td>
+
+Teaser URL
+
+</td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>headline</strong></td>
 <td valign="top"><a href="#string">String</a></td>
-<td></td>
+<td>
+
+Teaser headline
+
+</td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
 <td valign="top"><a href="#string">String</a></td>
-<td></td>
+<td>
+
+Teaser text
+
+</td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>asset</strong></td>
 <td valign="top"><a href="#asset">Asset</a></td>
-<td></td>
+<td>
+
+Teaser asset can be e.g. pictures or videos
+
+</td>
 </tr>
 <tr>
 <td colspan="2" align="right" valign="top">variant</td>
 <td valign="top"><a href="#string">String</a>!</td>
-<td></td>
+<td>
+
+The teaser variant is used to decide which image format is to be returned.
+
+</td>
 </tr>
 </tbody>
 </table>
@@ -223,12 +226,102 @@ list of id's of the entries to be deleted
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>path</strong></td>
-<td valign="top">[<a href="#resource">Resource</a>!]!</td>
+<td valign="top">[<a href="#resource">Resource</a>!]</td>
 <td></td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>children</strong></td>
-<td valign="top">[<a href="#resource">Resource</a>!]!</td>
+<td valign="top">[<a href="#resource">Resource</a>!]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### Image
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>copyright</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>caption</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>description</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>alternativeText</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>original</strong></td>
+<td valign="top"><a href="#imagesource">ImageSource</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>characteristic</strong></td>
+<td valign="top"><a href="#imagecharacteristic">ImageCharacteristic</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>sources</strong></td>
+<td valign="top">[<a href="#imagesource">ImageSource</a>!]!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### ImageSource
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>variant</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>url</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>width</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>height</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>mediaQuery</strong></td>
+<td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -288,6 +381,117 @@ list of id's of the entries to be deleted
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>statusLine</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### MediaTeaser
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>url</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+Teaser URL
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>headline</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>text</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>contentType</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>contentLength</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### NewsTeaser
+
+An article teaser is a short summary or preview designed to pique the reader's interest by highlighting the main points or most exciting aspects of an article.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>url</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+Teaser URL
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>headline</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser headline
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>text</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser text
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>asset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td>
+
+Teaser asset can be e.g. pictures or videos
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The teaser variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>date</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
@@ -453,11 +657,6 @@ list of id's of the entries to be deleted
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>index</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td></td>
-</tr>
-<tr>
 <td colspan="2" valign="top"><strong>cleanupThreshold</strong></td>
 <td valign="top"><a href="#int">Int</a></td>
 <td></td>
@@ -488,7 +687,7 @@ list of id's of the entries to be deleted
 <tbody>
 <tr>
 <td colspan="2" valign="top"><strong>key</strong></td>
-<td valign="top"><a href="#string">String</a></td>
+<td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
@@ -570,6 +769,65 @@ list of id's of the entries to be deleted
 <td valign="top"><a href="#boolean">Boolean</a></td>
 <td></td>
 </tr>
+<tr>
+<td colspan="2" valign="top"><strong>and</strong></td>
+<td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>or</strong></td>
+<td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>not</strong></td>
+<td valign="top"><a href="#inputfilter">InputFilter</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>query</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### InputSortCriteria
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>name</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>headline</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>date</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>natural</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>score</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -584,11 +842,6 @@ list of id's of the entries to be deleted
 </tr>
 </thead>
 <tbody>
-<tr>
-<td colspan="2" valign="top"><strong>index</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td></td>
-</tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
 <td valign="top"><a href="#string">String</a></td>
@@ -605,8 +858,18 @@ list of id's of the entries to be deleted
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>queryDefaultOperator</strong></td>
-<td valign="top"><a href="#querydefaultoperator">QueryDefaultOperator</a></td>
+<td colspan="2" valign="top"><strong>lang</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>defaultQueryOperator</strong></td>
+<td valign="top"><a href="#queryoperator">QueryOperator</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>sort</strong></td>
+<td valign="top">[<a href="#inputsortcriteria">InputSortCriteria</a>!]</td>
 <td></td>
 </tr>
 <tr>
@@ -634,18 +897,18 @@ list of id's of the entries to be deleted
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>index</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td></td>
-</tr>
-<tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#string">String</a></td>
+<td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>limit</strong></td>
 <td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lang</strong></td>
+<td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
@@ -658,7 +921,34 @@ list of id's of the entries to be deleted
 
 ## Enums
 
-### QueryDefaultOperator
+### ImageCharacteristic
+
+<table>
+<thead>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>NORMAL</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>INFOGRAPHIC</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>DECORATIVE_IMAGE</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>DECORATIVE_IMAGE_NOT_CUT</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### QueryOperator
 
 <table>
 <thead>
@@ -672,6 +962,25 @@ list of id's of the entries to be deleted
 </tr>
 <tr>
 <td valign="top"><strong>OR</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### SortDirection
+
+<table>
+<thead>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>ASC</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>DESC</strong></td>
 <td></td>
 </tr>
 </tbody>
@@ -753,7 +1062,11 @@ represent free-form human-readable text.
 <tr>
 <td colspan="2" valign="top"><strong>url</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
-<td></td>
+<td>
+
+Teaser URL
+
+</td>
 </tr>
 </tbody>
 </table>
