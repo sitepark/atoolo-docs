@@ -387,9 +387,9 @@ The following commands are then available via `bin/console`:
 
 | Command                                    | Description                               |
 | ------------------------------------------ | ----------------------------------------- |
-| `atoolo:dump-index-document`               | Dump a index document                     |
-| `atoolo:indexer`                           | Fill a search index                       |
+| `search:dump-index-document`               | Dump a index document                     |
+| `search:indexer`                           | Fill a search index                       |
 | `search:indexer:update-internal-resources` | Update internal resources in search index |
-| `atoolo:mlt`                               | Performs a more-like-this search          |
-| `atoolo:search`                            | Performs a search                         |
-| `atoolo:suggest`                           | Performs a suggest search                 |
+| `search:mlt`                               | Performs a more-like-this search          |
+| `search:search`                            | Performs a search                         |
+| `search:suggest`                           | Performs a suggest search                 |
