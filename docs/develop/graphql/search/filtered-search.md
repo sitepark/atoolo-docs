@@ -32,16 +32,20 @@ filter: [
 }
 ```
 
-A filter can also be used multiple times to create an AND filter using two identical filter.
+A filter can also be used multiple times to create an AND filter with two identical filters. In this case, however, the filters must be combined with an `and`.
 
 ```graphql
 filter: [
-   { categories: ["14961"] },
-   { categories: ["14961"] }
-}
+  {
+    and: [
+      {categories:["4749"]},
+      {categories:["4767"]}
+    ]
+  }
+]
 ```
 
-Für komplexere filter logik siehe [Complex filter](#complex-filter)
+For more complex filter logic see [Complex filter](#complex-filter)
 
 ### Object type filter
 

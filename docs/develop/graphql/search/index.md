@@ -11,7 +11,7 @@ For each query via `selectResources`, the index to be searched must be specified
 ## Full text search
 
 To find resources using a full-text search, the text is specified using the input parameter `text`.
-The index is searched for the text and the corresponding hits are returned. The search is performed word by word. If several words (separated by spaces) are entered, an AND search is carried out in the standard case and the hits must contain both words. An OR search can also be carried out. To do this, the input parameter `queryDefaultOperator` must be specified with `OR`:
+The index is searched for the text and the corresponding hits are returned. The search is performed word by word. If several words (separated by spaces) are entered, an 'OR' search is carried out by default and the hits must contain at least one of the words. An `OR` search can also be carried out. To do this, the input parameter `queryDefaultOperator` must be specified with `OR`:
 
 ```graphql
   search(input: {
