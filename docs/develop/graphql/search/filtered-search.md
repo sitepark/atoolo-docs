@@ -53,9 +53,7 @@ Object types describe the different types of pages that are used in the website.
 
 ```graphql
 {
-  search(
-    input: { index: "[client-anchor]-www", filter: [{ objectTypes: ["news"] }] }
-  ) {
+  search(input: { filter: [{ objectTypes: ["news"] }] }) {
     total
     offset
     queryTime
@@ -74,12 +72,7 @@ Content section types are types of sections that are included in a page. These c
 
 ```graphql
 {
-  search(
-    input: {
-      index: "[client-anchor]-www"
-      filter: [{ contentSectionTypes: ["youtube"] }]
-    }
-  ) {
+  search(input: { filter: [{ contentSectionTypes: ["youtube"] }] }) {
     total
     offset
     queryTime
@@ -99,9 +92,7 @@ These categories can be filtered using their ID. The hierarchy of the category i
 
 ```graphql
 {
-  search(
-    input: { index: "[client-anchor]-www", filter: [{ categories: ["15949"] }] }
-  ) {
+  search(input: { filter: [{ categories: ["15949"] }] }) {
     total
     offset
     queryTime
@@ -120,9 +111,7 @@ In the CMS, articles are organized in hierarchical groups. For example, all arti
 
 ```graphql
 {
-  search(
-    input: { index: "[client-anchor]-www", filter: [{ groups: ["16811"] }] }
-  ) {
+  search(input: { filter: [{ groups: ["16811"] }] }) {
     total
     offset
     queryTime
@@ -141,9 +130,7 @@ Several websites can be managed within the CSM. These can be several main websit
 
 ```graphql
 {
-  search(
-    input: { index: "[client-anchor]-www", filter: [{ sites: ["3952"] }] }
-  ) {
+  search(input: { filter: [{ sites: ["3952"] }] }) {
     total
     offset
     queryTime
@@ -162,12 +149,7 @@ Articles can be marked as achrivated in the CMS. This flag ensures that these ar
 
 ```graphql
 {
-  search(
-    input: {
-      index: "[client-anchor]-www"
-      filter: [{ objectTypes: ["news"] }, { archive: true }]
-    }
-  ) {
+  search(input: { filter: [{ objectTypes: ["news"] }, { archive: true }] }) {
     total
     offset
     queryTime

@@ -10,7 +10,7 @@ The 'teaser' field is used to determine the teaser of a resource.
 
 ```graphql
 {
-  search(input: { index: "[client-anchor]-www", text: "movie" }) {
+  search(input: { text: "movie" }) {
     total
     offset
     queryTime
@@ -31,7 +31,7 @@ This is solved in GraphQL with [Inline Fragments](https://graphql.org/learn/quer
 
 ```graphql
 {
-  search(input: { index: "[client-anchor]-www", text: "movie" }) {
+  search(input: { text: "movie" }) {
     total
     offset
     queryTime
@@ -59,7 +59,7 @@ See also in the [reference](../reference.md#articleteaser).
 
 ```graphql
 {
-  search(input: { index: "[client-anchor]-www", text: "movie" }) {
+  search(input: { text: "movie" }) {
     total
     offset
     queryTime

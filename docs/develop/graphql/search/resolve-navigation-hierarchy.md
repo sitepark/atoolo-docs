@@ -10,9 +10,7 @@ The `root` field is used to obtain the root of the navigation.
 
 ```graphql
 {
-  search(
-    input: { index: "[client-anchor]-www", filter: [{ groups: ["1195"] }] }
-  ) {
+  search(input: { filter: [{ groups: ["1195"] }] }) {
     total
     offset
     queryTime
@@ -36,9 +34,7 @@ The example also shows how the parents are determined over two levels.
 
 ```graphql
 {
-  search(
-    input: { index: "[client-anchor]-www", filter: [{ groups: ["1195"] }] }
-  ) {
+  search(input: { filter: [{ groups: ["1195"] }] }) {
     total
     offset
     queryTime
@@ -65,9 +61,7 @@ The subordinate resources in the navigation are queried via the `children` field
 
 ```graphql
 {
-  search(
-    input: { index: "[client-anchor]-www", filter: [{ groups: ["1195"] }] }
-  ) {
+  search(input: { filter: [{ groups: ["1195"] }] }) {
     total
     offset
     queryTime
@@ -89,12 +83,7 @@ The path describes all higher-level parents up to the root element. The returned
 
 ```graphql
 {
-  search(
-    input: {
-      index: "[client-anchor]-www"
-      filter: [{ key: "musterseiten", groups: ["1195"] }]
-    }
-  ) {
+  search(input: { filter: [{ key: "musterseiten", groups: ["1195"] }] }) {
     total
     offset
     queryTime

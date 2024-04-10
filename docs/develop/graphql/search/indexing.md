@@ -4,44 +4,35 @@ Indexing, i.e. filling and updating the search index, is triggered internally an
 
 ## Reindex all documents
 
-One use case is to recreate the entire index. The mutation [`index`](http://127.0.0.1:8000/develop/graphql/reference/#mutation-rootmutation) is used for this. Without specifying `paths`, the entire index is rebuilt. The field `cleanupThreshold` is also important here, which specifies how many documents must have been successfully indexed so that the old documents are also deleted. This ensures that the index is not emptied if a problem occurs during indexing.
+One use case is to recreate the entire index. The mutation [`index`](http://127.0.0.1:8000/develop/graphql/reference/#mutation-rootmutation) is used for this.
 
 ```graphql
 mutation {
-  index(input: { index: "[client-anchor]-www", cleanupThreshold: 1000 }) {
+  index {
     statusLine
   }
 }
 ```
-
-There is also a parameter `chunkSize` which can be used to specify how many documents are read in at once in order to index them. In the standard case, this is `500`. If the memory consumption is too high for this, the value can be reduced. Increasing the value no longer provides a performance advantage.
 
 ## Updating individual documents
 
-If new articles are created or updated in the CMS, they must also be created or updated in the index. This is also done via the mutation [`index`](http://127.0.0.1:8000/develop/graphql/reference/#mutation-rootmutation). However, the paths of the resources that are to be updated must be specified here via the `paths` field. If `paths` is specified, `cleanupThreshold` is not taken into account, as only old versions of the updated documents are deleted.
+If new articles are created or updated in the CMS, they must also be created or updated in the index. This is also done via the mutation [`indexUpdate`](http://127.0.0.1:8000/develop/graphql/reference/#mutation-rootmutation). The paths of the resources to be updated are passed via an array.
 
 ```graphql
 mutation {
-  index(
-    input: {
-      index: "[client-anchor]-www"
-      paths: ["news/438237.php", "events/43212.php"]
-    }
-  ) {
+  indexUpdate(["news/438237.php", "events/43212.php"]) {
     statusLine
   }
 }
 ```
 
-There is also a parameter `chunkSize` which can be used to specify how many documents are read in at once in order to index them. In the standard case, this is `500`. If the memory consumption is too high for this, the value can be reduced. Increasing the value no longer provides a performance advantage.
-
 ## Get Indexing status
 
-Während der Indexer die Dokumente indiziert, kann über die query [`indexerStatus`](http://127.0.0.1:8000/develop/graphql/reference/#query-rootquery) der aktuelle Status abgefragt werden. Z.B. um anzuzeigen wieviele Dokumente bereits indiziert wurde.
+While the indexer is indexing the documents, the current status can be queried using the query [`indexerStatus`](http://127.0.0.1:8000/develop/graphql/reference/#query-rootquery). For example, to show how many documents have already been indexed.
 
 ```graphql
 {
-  indexerStatus(index: "[client-anchor]-www") {
+  indexerStatus {
     statusLine
   }
 }
@@ -53,16 +44,16 @@ The mutation [`indexRemove`](http://127.0.0.1:8000/develop/graphql/reference/#mu
 
 ```graphql
 mutation {
-  indexRemove(index: "[client-anchor]-www", idlist: ["438237", "43212"])
+  indexRemove(idlist: ["438237", "43212"])
 }
 ```
 
 ## Abort indexing
 
-Das indizieren kann abgebrochen werden. Hierbei wird nach jedem Chunk geprüft, ob der Vorgang abgebrochen werden soll. Über die Mutation [`indexAbort`](http://127.0.0.1:8000/develop/graphql/reference/#mutation-rootmutation) wird dafür gesorgt, das das indizieren unterbrochen wird.
+Indexing can be canceled. A check is made after each chunk as to whether the process should be aborted. The mutation [`indexAbort`](http://127.0.0.1:8000/develop/graphql/reference/#mutation-rootmutation) is used to ensure that indexing is interrupted.
 
 ```graphql
 mutation {
-  indexAbort(index: "[client-anchor]-www")
+  indexAbort
 }
 ```

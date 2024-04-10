@@ -15,7 +15,6 @@ The index is searched for the text and the corresponding hits are returned. The 
 
 ```graphql
   search(input: {
-    index:"[client-anchor]-www"
     text: "cacao coffee "
     queryDefaultOperator: OR
   }) {
@@ -27,7 +26,7 @@ Example:
 
 ```graphql
 {
-  search(input: { index: "[client-anchor]-www", text: "chocolate" }) {
+  search(input: { text: "chocolate" }) {
     total
     offset
     queryTime
@@ -68,13 +67,7 @@ Example:
 
 ```graphql
 {
-  search(
-    input: {
-      index: "[client-anchor]-www"
-      text: "chocolate"
-      sort: [{ name: ASC }]
-    }
-  ) {
+  search(input: { text: "chocolate", sort: [{ name: ASC }] }) {
     total
     offset
     queryTime

@@ -6,7 +6,7 @@ A suggest search can be carried out as follows.
 
 ```graphql
 {
-  suggest(input: { index: "[client-anchor]-www", text: "work" }) {
+  suggest(input: { text: "work" }) {
     queryTime
     suggestions {
       term
@@ -46,13 +46,7 @@ The same [filters](filtered-search.md) can be specified for the suggest search a
 
 ```graphql
 {
-  suggest(
-    input: {
-      index: "[client-anchor]-www"
-      text: "holid"
-      filter: [{ groups: ["1195"] }]
-    }
-  ) {
+  suggest(input: { text: "holid", filter: [{ groups: ["1195"] }] }) {
     queryTime
     suggestions {
       term

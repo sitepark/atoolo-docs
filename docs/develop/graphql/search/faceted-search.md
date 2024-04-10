@@ -64,7 +64,6 @@ This is done via the `excludeFilter` parameter. This parameter refers to the `ke
 ```graphql
 search(
   input: {
-    index: "[client-anchor]-www"
     filter: [{ key: "articletypefilter", objectTypes: ["content"] }]
     facets: [
       {
@@ -85,7 +84,6 @@ A complete GraphQL Query could then look like this:
 {
   search(
     input: {
-      index: "[client-anchor]-www"
       filter: [{ key: "articletypefilter", objectTypes: ["content"] }]
       facets: [
         {
@@ -119,7 +117,6 @@ Any number of facets can be specified. An example could look like this:
 {
   search(
     input: {
-      index: "[client-anchor]-www"
       filter: [
         { key: "articletypefilter", objectTypes: ["content"] }
         { key: "sitefilter", sites: ["3952"] }
@@ -161,9 +158,7 @@ Object types describe the different types of pages that are used in the website.
 
 ```graphql
 {
-  search(
-    input: { index: "[client-anchor]-www", facets: [{ objectTypes: ["news"] }] }
-  ) {
+  search(input: { facets: [{ objectTypes: ["news"] }] }) {
     total
     offset
     queryTime
@@ -187,12 +182,7 @@ Content section types are types of sections that are included in a page. These c
 
 ```graphql
 {
-  search(
-    input: {
-      index: "[client-anchor]-www"
-      facets: [{ contentSectionTypes: ["youtube"] }]
-    }
-  ) {
+  search(input: { facets: [{ contentSectionTypes: ["youtube"] }] }) {
     total
     offset
     queryTime
@@ -217,9 +207,7 @@ These categories can be facetted via their ID. The hierarchy of the category is 
 
 ```graphql
 {
-  search(
-    input: { index: "[client-anchor]-www", facets: [{ categories: ["15949"] }] }
-  ) {
+  search(input: { facets: [{ categories: ["15949"] }] }) {
     total
     offset
     queryTime
@@ -243,9 +231,7 @@ In the CMS, articles are organised in hierarchical groups. For example, all arti
 
 ```graphql
 {
-  search(
-    input: { index: "[client-anchor]-www", facets: [{ groups: ["16811"] }] }
-  ) {
+  search(input: { facets: [{ groups: ["16811"] }] }) {
     total
     offset
     queryTime
@@ -264,9 +250,7 @@ Several websites can be managed within the CSM. These can be several main websit
 
 ```graphql
 {
-  search(
-    input: { index: "[client-anchor]-www", facets: [{ sites: ["3952"] }] }
-  ) {
+  search(input: { facets: [{ sites: ["3952"] }] }) {
     total
     offset
     queryTime
