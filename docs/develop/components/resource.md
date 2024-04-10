@@ -26,6 +26,7 @@ Eine Resource hat folgende Eigenschaften:
 - `id` - An ID assigned by the CMS for the object
 - `name` - Name of the resource
 - `objectType` - Specifies the type of the object. These types are managed in the CMS.
+- `lang` - Language of the resource data.
 - `data` - A generic data object containing the data structure of the resource. Depending on the object type, the schema of the data can be different.
 
 Die Daten werden in einem `DataBag` gehalten, über den sie typisiert ausgelesen werden können. Über eine String mit Punkt-Notation können tiefer verschachtelte Daten aufgefagt werden.
@@ -107,6 +108,17 @@ Resources can now be loaded.
 $resource = $loader->load('/index.php');
 ```
 
+### `CachedResourceLoader`
+
+The `CachedResourceLoader` class is used to load resources from a given location and cache them for future use. The cache is stored in memory and is not persistent. The `CachedResourceLoader` wrapped another `ResourceLoader` and caches the resources loaded by the wrapped loader.
+
+```php
+use Atoolo\Resource\Loader\CachedResourceLoader;
+
+$cachedloader = new CachedResourceLoader($loader);
+$resource = $cachedloader->load('/index.php');
+```
+
 ### Using Symfony Dependency Injection
 
 The loader can be defined as a service in Symfony. This allows it to be used via dependency injection.
@@ -124,6 +136,10 @@ services:
     class: Atoolo\Resource\Loader\SiteKitLoader
     arguments:
       - "@atoolo.resource.resourceBaseLocator"
+  atoolo.resource.cachedResourceLoader:
+    class: Atoolo\Resource\Loader\CachedResourceLoader
+    arguments:
+      - "@atoolo.resource.resourceLoader"
 ```
 
 ## Loading resource hierarchy
@@ -168,4 +184,92 @@ atoolo.resource.categoryHierarchyLoader:
   arguments:
     - "@atoolo.resource.resourceLoader"
     - "category"
+```
+
+## Using ResourceHierarchyWalker
+
+The `ResourceHierarchyWalker` class is used to traverse a hierarchy of resources.
+The walker needs a base resource to start with. This can be set with `init()`.
+
+The walker can then be moved up and down in the hierarchy
+with the help of methods like
+
+- `down()`
+- `child()`
+- `up()`
+- `nextSibling()`
+- `previousSibling()`
+- `next()`
+
+With these methods, the walker can only move below the base resource.
+To move above the base resource, the methods `primaryParent()`
+and `parent()` can be used.
+
+The walker can also be used to traverse the entire hierarchy
+with the help of the `walk()` method.
+
+```php
+use Atoolo\Resource\ResourceHierarchyWalker;
+
+$walker = new ResourceHierarchyWalker($hierarchyLoader);
+
+// step by step
+$walker->init('/index.php');
+$walker->down();
+$walker->nextSibling();
+$walker->next();
+// ...
+
+// walk through the hierarchy
+$walker->walk('/index.php', function ($resource) {
+  // do something with the resource
+});
+```
+
+## Using ResourceHierarchyFinder
+
+The `ResourceHierarchyFinder` class is used to find a resource in a hierarchy. Use `findFirst()` to find the first resource that matches the given condition.
+
+```php
+use Atoolo\Resource\ResourceHierarchyFinder;
+
+$finder = new ResourceHierarchyFinder($this->loader);
+$anchor = "anchor-to-find";
+$resource = $finder->findFirst(
+    $location,
+    function ($resource) use ($anchor) {
+        $resourceAnchor =
+            $resource->getData()->getString('init.anchor');
+        return $resourceAnchor === $anchor;
+    }
+);
+```
+
+## Resource Channel
+
+The IES (Sitepark's content management system) recognizes various channels through which resources can be published. A channel is a directory that is always assigned to a specific virtual host.
+
+Diese Komponetene stelle eine `ResourceChannel`-Klasse bereit mit der verschiedene Daten zu einem Channel abgefragt werden können.
+Ein `ResourceChannel` wird über eine `ResourceChannelFactory` erstellt.
+
+```php
+$resourceChannel = $resourceChannelFactory->create();
+```
+
+### Using Symfony Dependency Injection
+
+The resource channel factory can be defined as a service in Symfony. This allows it to be used via dependency injection.
+
+`service.xml`
+
+```yaml
+atoolo.resource.resourceBaseLocator:
+  class: Atoolo\Resource\Loader\ServerVarResourceBaseLocator
+  arguments:
+    - "RESOURCE_ROOT"
+    - "objects"
+atoolo.resource.resourceChannelFactory:
+  class: Atoolo\Resource\SiteKitResourceChannelFactory
+  arguments:
+    - "@atoolo.resource.resourceBaseLocator"
 ```
