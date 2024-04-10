@@ -62,9 +62,18 @@
 <td></td>
 </tr>
 <tr>
-<td colspan="2" align="right" valign="top">input</td>
-<td valign="top"><a href="#indexerinput">IndexerInput</a>!</td>
+<td colspan="2" valign="top"><strong>indexUpdate</strong></td>
+<td valign="top"><a href="#indexerstatus">IndexerStatus</a>!</td>
 <td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">paths</td>
+<td valign="top">[<a href="#string">String</a>!]!</td>
+<td>
+
+List of resource paths that are to be updated.
+
+</td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>indexRemove</strong></td>
@@ -644,35 +653,6 @@ The teaser variant is used to decide which image format is to be returned.
 </table>
 
 ## Inputs
-
-### IndexerInput
-
-<table>
-<thead>
-<tr>
-<th colspan="2" align="left">Field</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong>cleanupThreshold</strong></td>
-<td valign="top"><a href="#int">Int</a></td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>chunkSize</strong></td>
-<td valign="top"><a href="#int">Int</a></td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>paths</strong></td>
-<td valign="top">[<a href="#string">String</a>!]</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
 ### InputFacet
 
