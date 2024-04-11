@@ -37,6 +37,29 @@ Example:
 }
 ```
 
+## Multilingual search
+
+The IES (Sitepark's content management system) supports multilingual resource channels. Editorial content is only ever written in one language and is automatically translated into the other languages by the CMS. A multilingual resource channel then contains several resources for an article, each of which is published in a different language. For the search, a separate full text index is created for each language, which also takes into account language-specific features such as stop words and stemming.
+
+If the publication channel is multilingual, the search is limited to a specific language. The language is specified using the input parameter `lang`. If no 'lang' is specified, the search is carried out in the base language of the channel.
+
+Example:
+
+```graphql
+{
+  search(input: { text: "chocolate", lang: "it" }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+    }
+  }
+}
+```
+
+Of course, the search results are also in the respective language. Regardless of whether a full-text search or a [filter](filtered-search.md) is carried out.
+
 ## Sorting
 
 Sort criteria can be used to specify how the result should be sorted. Multiple sorting criteria can be specified, which are applied to the result one after the other. The second sort criterion is used if the first is the same and so on.
@@ -96,7 +119,6 @@ Additional input parameters are available for extended search functionalities, w
 
 ## TODO
 
-- Sorting
 - Date-filter
 - Spell Checking
 - Error handling
