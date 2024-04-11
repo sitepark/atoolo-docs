@@ -41,7 +41,7 @@ Example:
 
 The IES (Sitepark's content management system) supports multilingual resource channels. Editorial content is only ever written in one language and is automatically translated into the other languages by the CMS. A multilingual resource channel then contains several resources for an article, each of which is published in a different language. For the search, a separate full text index is created for each language, which also takes into account language-specific features such as stop words and stemming.
 
-If the publication channel is multilingual, the search is limited to a specific language. The language is specified using the input parameter `lang`. If no 'lang' is specified, the search is carried out in the base language of the channel.
+If the publication channel is multilingual, the search is limited to a specific language. The language is specified using the input parameter `lang`. If no `lang` is specified, the search is carried out in the base language of the channel.
 
 Example:
 
