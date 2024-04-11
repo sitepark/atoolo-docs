@@ -76,3 +76,9 @@ With the fictitious endpoint `www.example.com` the GraphiQL can be reached at th
 !!! note
 
     Please note, however, that `APP_ENV=dev` must be set.
+
+The GraphiQL interface is not available in production systems. Alternatively, the [GraphQL Playground](https://github.com/graphql/graphql-playground){:target="\_blank"} can be installed as a desktop application. With the fictitious endpoint `www.example.com` the GraphQL Playground needs the URL.
+
+`https://www.example.com/api/graphql/`
+
+The ending slash is necessary and must not be omitted.
