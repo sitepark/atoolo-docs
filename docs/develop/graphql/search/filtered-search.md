@@ -10,7 +10,7 @@ filter: [
 }
 ```
 
-specified. Any number of filters can be defined. The individual filters are AND-linked so that they continue to narrow down the search results.
+specified. Any number of filters can be defined. The individual filters are `AND`-linked so that they continue to narrow down the search results.
 
 A filter can also be used multiple times to create an AND filter with two identical filters.
 
@@ -21,7 +21,7 @@ filter: [
 ]
 ```
 
-For almost all filters, a list of values can be specified according to which this filter should be filtered. These filter values are applied as OR filters. For an OR filter, the values can be summarized in a filter.
+For almost all filters, a list of values can be specified according to which this filter should be filtered. These filter values are applied as `OR` filters. For an `OR` filter, the values can be summarized in a filter.
 
 ```graphql
 filter: [
