@@ -29,83 +29,82 @@ Eine Resource hat folgende Eigenschaften:
 - `lang` - Language of the resource data.
 - `data` - A generic data object containing the data structure of the resource. Depending on the object type, the schema of the data can be different.
 
-Die Daten werden in einem `DataBag` gehalten, über den sie typisiert ausgelesen werden können. Über eine String mit Punkt-Notation können tiefer verschachtelte Daten aufgefagt werden.
+The data is held in a `DataBag`, via which it can be read in a typed form. A string with dot notation can be used to retrieve more deeply nested data.
 
 For a given data structure:
 
 ```json
 {
-  "init": {
-    "id": 1,
-    "name": "name",
-    "groupPath": [
-      {
-        "id": 123,
-        "name": "A"
-      },
-      {
-        "id": 456,
-        "name": "B"
-      }
-    ]
+  "id": 1,
+  "name": "name",
+  "groupPath": [
+    {
+      "id": 123,
+      "name": "A"
+    },
+    {
+      "id": 456,
+      "name": "B"
+    }
+  ],
+  "base": {
+    "teaser": {
+      "date": 1713516141,
+      "headline": "Headline",
+      "text": "Text"
+    }
   }
 }
 ```
 
 The data can be queried as follows, for example.
 
-- `$resource->getData()->getInt('init.id')`
-- `$resource->getData()->getString('init.name', 'Unnamed')`
-- `$resource->getData()->getArray('init.groupPath')`
-- `$resource->getData()->getAssociativeArray('init')`
+- `$resource->data->getInt('base.teaser.date')`
+- `$resource->data->getString('base.teaser.headline', 'Untitled')`
+- `$resource->data->getArray('groupPath')`
+- `$resource->data->getAssociativeArray('base.teaser')`
 
 ## Loading a resource
 
-Resources are loaded via a `ResourceLoader`. Depending on the format in which the data is aggregated, a corresponding ResourceLoader must be used. The current format is the `SiteKit` format. The `Atoolo\Resource\Loader\SiteKitLoader` is available for this. The `SiteKitLoader` also requires a `ResourceBaseLocator` with which the base directory of the stored resources can be determined at runtime.
+Resources are loaded via a `ResourceLoader`. Depending on the format in which the data is aggregated, a corresponding ResourceLoader must be used. The current format is the `SiteKit` format. The `Atoolo\Resource\Loader\SiteKitLoader` is available for this. The `SiteKitLoader` also requires a `ResourceChannel`.
 
-### `ResourceBaseLocator`
+### `ResourceChannel`
 
-Various `ResourceBaseLocator` implementations are available.
+The IES (Sitepark's content management system) recognizes various channels through which resources can be published. A channel is a directory that is always assigned to a specific virtual host.
 
-#### `ServerVarResourceBaseLocator`
-
-The constructor expects two arguments. The name of the server variable from which the path is to be read and, optionally, a path for a subdirectory that is appended to the path.
+A `ResourceChannel` can be created via a `ResourceChannelFactory`.
 
 ```php
-use Atoolo\Resource\ResourceBaseLocator\ServerVarResourceBaseLocator;
-
-$baseLocator = new ServerVarResourceBaseLocator(
-  'RESOURCE_ROOT',
-  'objects'
-);
+$resourceChannel = $resourceChannelFactory->create();
 ```
 
-#### `StaticResourceBaseLocator`
+#### `ResourceChannelFactory`
 
-Here the path is transferred directly to the consturctor
+Die `ResourceChannelFactory` ist ein Interface. Die einzige implementierte Klasse ist die `SiteKitResourceChannelFactory`.
 
 ```php
-use Atoolo\Resource\ResourceBaseLocator\StaticResourceBaseLocator;
+use Atoolo\Resource\SiteKitResourceChannelFactory;
 
-$baseLocator = new StaticResourceBaseLocator(
-  '/var/www/domain.com/www/resources/objects'
-);
+$resourceChannelFactory = new SiteKitResourceChannelFactory($resourceRoot);
+$resourceChannel = $resourceChannelFactory->create();
 ```
 
 ### `SiteKitLoader`
 
-The `ResourceBaseLocator` can be used to create the `SiteKitLoader`.
+The `ResourceChannel` can be used to create the `SiteKitLoader`.
 
 ```php
 use Atoolo\Resource\Loader\SiteKitLoader;
+use Atoolo\Resource\ResourceLocation;
 
-$loader = new SiteKitLoader($baseLocator);
+$loader = new SiteKitLoader($resourceChannel);
 ```
 
 Resources can now be loaded.
 
 ```php
-$resource = $loader->load('/index.php');
+$location = ResourceLocation::of ('/index.php');
+$resource = $loader->load(location);
 ```
 
 ### `CachedResourceLoader`
@@ -114,9 +113,11 @@ The `CachedResourceLoader` class is used to load resources from a given location
 
 ```php
 use Atoolo\Resource\Loader\CachedResourceLoader;
+use Atoolo\Resource\ResourceLocation;
 
 $cachedloader = new CachedResourceLoader($loader);
-$resource = $cachedloader->load('/index.php');
+$location = ResourceLocation::of('/index.php');
+$resource = $cachedloader->load($location);
 ```
 
 ### Using Symfony Dependency Injection
@@ -126,16 +127,24 @@ The loader can be defined as a service in Symfony. This allows it to be used via
 `service.xml`
 
 ```yaml
+parameters:
+  atoolo_resource.resource_root: "%env(RESOURCE_ROOT)%"
+
 services:
-  atoolo.resource.resourceBaseLocator:
-    class: Atoolo\Resource\Loader\ServerVarResourceBaseLocator
+  atoolo.resource.resourceChannelFactory:
+    class: Atoolo\Resource\SiteKitResourceChannelFactory
     arguments:
-      - "RESOURCE_ROOT"
-      - "objects"
+      - "%atoolo_resource.resource_root%"
+
+  atoolo.resource.resourceChannel:
+    class: Atoolo\Resource\SiteKitResourceChannel
+    factory: ["@atoolo.resource.resourceChannelFactory", "create"]
+
   atoolo.resource.resourceLoader:
     class: Atoolo\Resource\Loader\SiteKitLoader
     arguments:
-      - "@atoolo.resource.resourceBaseLocator"
+      - "@atoolo.resource.resourceChannel"
+
   atoolo.resource.cachedResourceLoader:
     class: Atoolo\Resource\Loader\CachedResourceLoader
     arguments:
@@ -165,7 +174,8 @@ $hierarchyLoader = new SiteKitResourceHierarchyLoader($loader, 'category');
 Once the hierarchy loader has been created, the hierarchies can be queried. For example to load the root.
 
 ```php
-$rootResource = $hierarchyLoader->loadRoot('/a/b/c.php')
+$location = ResourceLocation::of('/a/b/c.php');
+$rootResource = $hierarchyLoader->loadRoot($location');
 ```
 
 ### Using Symfony Dependency Injection
@@ -214,14 +224,15 @@ use Atoolo\Resource\ResourceHierarchyWalker;
 $walker = new ResourceHierarchyWalker($hierarchyLoader);
 
 // step by step
-$walker->init('/index.php');
+$location = ResourceLocation::of('/index.php');
+$walker->init($location);
 $walker->down();
 $walker->nextSibling();
 $walker->next();
 // ...
 
 // walk through the hierarchy
-$walker->walk('/index.php', function ($resource) {
+$walker->walk($location, function ($resource) {
   // do something with the resource
 });
 ```
@@ -235,41 +246,13 @@ use Atoolo\Resource\ResourceHierarchyFinder;
 
 $finder = new ResourceHierarchyFinder($this->loader);
 $anchor = "anchor-to-find";
+$location = ResourceLocation::of('/index.php');
 $resource = $finder->findFirst(
     $location,
     function ($resource) use ($anchor) {
         $resourceAnchor =
-            $resource->getData()->getString('init.anchor');
+            $resource->getData()->getString('anchor');
         return $resourceAnchor === $anchor;
     }
 );
-```
-
-## Resource Channel
-
-The IES (Sitepark's content management system) recognizes various channels through which resources can be published. A channel is a directory that is always assigned to a specific virtual host.
-
-Diese Komponetene stelle eine `ResourceChannel`-Klasse bereit mit der verschiedene Daten zu einem Channel abgefragt werden können.
-Ein `ResourceChannel` wird über eine `ResourceChannelFactory` erstellt.
-
-```php
-$resourceChannel = $resourceChannelFactory->create();
-```
-
-### Using Symfony Dependency Injection
-
-The resource channel factory can be defined as a service in Symfony. This allows it to be used via dependency injection.
-
-`service.xml`
-
-```yaml
-atoolo.resource.resourceBaseLocator:
-  class: Atoolo\Resource\Loader\ServerVarResourceBaseLocator
-  arguments:
-    - "RESOURCE_ROOT"
-    - "objects"
-atoolo.resource.resourceChannelFactory:
-  class: Atoolo\Resource\SiteKitResourceChannelFactory
-  arguments:
-    - "@atoolo.resource.resourceBaseLocator"
 ```

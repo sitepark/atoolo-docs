@@ -18,6 +18,25 @@ Use [Composer](https://getcomposer.org/){:target="\_blank"} to install this comp
 composer require atoolo/search
 ```
 
+## Index name
+
+The index name is used to determine which index should be searched. An index is always assigned to a resource channel. The name of the index can be determined via the `ResourceChannel`.
+
+The IES (Sitepark's content management system) supports multilingual resource channels. Editorial content is only ever written in one language and is automatically translated into the other languages by the CMS. A multilingual resource channel then contains several resources for an article, each of which is published in a different language. For the search, a separate full text index is created for each language, which also takes into account language-specific features such as stop words and stemming.
+
+The name of the index can be determined via the interface `IndexName`. A method `IndexName::name(ResourceLanguage $lang): string` is made available for this purpose.
+
+Currently, only the class `ResourceChannelBasedIndexName` implements the interface `IndexName`. This class determines the index name based on the resource channel.
+See also: [Resource Channel](../resource.md#resource-channel).
+
+```php
+$indexName = new ResourceChannelBasedIndexName($resourceChannel);
+$lang = ResourceLanguage::of('en');
+$index = $indexName->name($lang);
+```
+
+If there is no index for the specified language, the index for the base language of the resource channel is returned.
+
 ## Indexing
 
 To be able to search in a Solr index, it must first be filled. This is done via the indexer.
@@ -47,11 +66,6 @@ use Atoolo\Search\Service\Indexer\IndexSchema2xDocument;
  */
 class CustomDocumentEnricher implements DocumentEnricher
 {
-    public function isIndexable(Resource $resource): bool
-    {
-        return true;
-    }
-
     public function enrichDocument(
         Resource $resource,
         IndexDocument $doc,
@@ -142,8 +156,7 @@ Example of a query:
 
 ```php
 $builder = new SelectQueryBuilder();
-$builder->index('myindex-www')
-  ->text('chocolate')
+$builder->text('chocolate')
 
 $query = $builder->build();
 $result = $selectSearcher->select($query);
@@ -152,13 +165,12 @@ $result = $selectSearcher->select($query);
 #### Full text search
 
 To find resources using a full-text search, the text is specified using the builder methode `$builder-text()`.
-The index is searched for the text and the corresponding hits are returned. The search is performed word by word. If several words (separated by spaces) are entered, an AND search is carried out in the standard case and the hits must contain both words. An OR search can also be carried out. To do this, the builder method `$builder->queryDefaultOperator()` must be specified with `QueryDefaultOperator::OR`:
+The index is searched for the text and the corresponding hits are returned. The search is performed word by word. If several words (separated by spaces) are entered, an OR search is carried out in the standard case and the hits must contain both words. An AND search can also be carried out. To do this, the builder method `$builder->queryDefaultOperator()` must be specified with `QueryOperator::AND`:
 
 ```php
 $builder = new SelectQueryBuilder();
-$builder->index('myindex-www')
-  ->text('cacao coffee')
-  ->queryDefaultOperator(QueryDefaultOperator::OR);
+$builder->text('cacao coffee')
+  ->queryDefaultOperator(QueryOperator::AND);
 ```
 
 #### Sorting
@@ -181,8 +193,7 @@ The sorting can be defined as follows via the QueryBuilder:
 
 ```php
 $builder = new SelectQueryBuilder();
-$builder->index('myindex-www')
-  ->text('chocolate')
+$builder->text('chocolate')
   ->sort([
     new Sort('name', SortDirection::ASC),
     new Sort('date', SortDirection::DESC)
@@ -214,8 +225,7 @@ The filters can be defined as follows via the builder:
 
 ```php
 $builder = new SelectQueryBuilder();
-$builder->index('myindex-www')
-  ->text('chocolate')
+$builder->text('chocolate')
   ->filter([
     new ObjectTypesFilter(['news', 'events']),
     new CategoriesFilter(['15949']),
