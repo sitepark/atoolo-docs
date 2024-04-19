@@ -44,7 +44,7 @@ A teaser factory must implement the interface `TeaserFactory`. The factory is us
 
 Creates a teaser object with the basic data of a teaser, which can be derived from the resource without any effort.
 
-Für die Factory muss die Methode `TeaserFactory::create(Resource $resource): Teaser` implementiert werden.
+For the factory, the method `TeaserFactory::create(Resource $resource): Teaser` must be implemented.
 
 ```php
 class NewsTeaserFactory implements TeaserFactory
@@ -97,13 +97,13 @@ Tagging the service with `atoolo_graphql_search.teaserFactory` registers it as a
 
 A teaser resolver is a service that implements the interface `TeaserResolver`. The resolver is used to determine the data of a teaser that cannot be derived directly from the resource and therefore requires a more complex determination. The resolver can make a method available for individual fields, which is only executed if the field is requested in the GraphQL query.
 
-Ein Teaser-Resolver kann über Getter-Methoden verfügen, die die Daten für die einzelnen Felder des Teasers bereitstellen. Diese Methoden müssen eine bestimmte Signatur aufweisen, um von der GraphQL-Abfrage aufgerufen werden zu können.
+A teaser resolver can have getter methods that provide the data for the individual fields of the teaser. These methods must have a specific signature in order to be called by the GraphQL query.
 
-Das erste Argument der Methode ist der Teaser, für den die Daten bestimmt werden sollen. Diese ist zufor von der entsprechenden Teaser-Factory erstellt worden.
+The first argument of the method is the teaser for which the data is to be determined. This has previously been created by the corresponding teaser factory.
 
-Das zweite Argument ist optional und ist nur notwendig, wenn das GraphQL-Feld [Variablen](https://graphql.org/learn/queries/#variables){:target="\_blank"} vorgesehen sind.
+The second argument is optional and is only necessary if the GraphQL field [variables](https://graphql.org/learn/queries/#variables){:target="\_blank"} is provided.
 
-Hier ein Beispiel für eine Methode ohne Variablen:
+Here is an example of a method without variables:
 
 ```php
 class NewsTeaserResolver implements Resolver
@@ -119,7 +119,7 @@ class NewsTeaserResolver implements Resolver
 }
 ```
 
-Hier ein Beispiel für eine Methode mit Variablen:
+Here is an example of a method with variables:
 
 ```php
 use Overblog\GraphQLBundle\Definition\ArgumentInterface;
