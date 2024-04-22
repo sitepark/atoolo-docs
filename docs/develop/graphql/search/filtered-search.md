@@ -145,6 +145,41 @@ Several websites can be managed within the CSM. These can be several main websit
 }
 ```
 
+## Date filter
+
+An editorial date can be maintained for articles. This date can be used for the search to filter articles. If there is no editorial date, the creation date of the article is used. Depending on the article type, a list of dates can also be maintained. This is the case for events, for example. Repeat dates are also possible here. All dates are then taken into account in the date filter.
+
+### Filter for absolute date ranges
+
+The `absoluteDateRange` filter can be used to filter items whose date is within a certain period. A `from` date and a `to` date can be specified here.
+At least `from` or `to` must be specified. The date must be specified in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html){:target="\_blank"} format (e.g.`2024-05-22T10:13:00+02:00`).
+
+```graphql
+{
+  search(
+    input: {
+      filter: [
+        {
+          absoluteDateRange: {
+            from: "2024-05-22T00:00:00+02:00"
+            to: "2024-05-22T23:59:59+02:00"
+          }
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
 ## Including markted as archived
 
 Articles can be marked as achrivated in the CMS. This flag ensures that these articles are not normally included in the search. This can be used for news, for example, to include only the latest news in the general search. For a special search, such as a news archive search, the "Including marked as archived" filter can be used to also find archived articles.
