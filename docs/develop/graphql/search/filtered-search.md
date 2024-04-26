@@ -180,6 +180,38 @@ At least `from` or `to` must be specified. The date must be specified in [ISO-86
 }
 ```
 
+### Filter for relative date ranges
+
+The `relativeDateRange` filter can be used to filter items whose date is within a certain period. A `before` interval and a `after` interval can be specified here.
+At least `before` or `after` must be specified. The interval must be specified in [ISO-8601 Duration](https://en.wikipedia.org/wiki/ISO_8601#Durations){:target="\_blank"} format (e.g.`P1D`).
+
+Optionally, a 'base' can also be specified. This date is used as the basis for calculating the relative date. If no `base` is specified, the current date is used. This date must be specified in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html){:target="\_blank"} format (e.g.`2024-05-22`).
+
+Relative date range filters can only be accurate to the day. Specifying a time such as `P1DT1H` leads to an error.
+
+```graphql
+{
+  search(
+    input: {
+      filter: [
+        {
+          relativeDateRange: { before: "P1D", base: "2024-05-22", after: "P1W" }
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
 ## Including markted as archived
 
 Articles can be marked as achrivated in the CMS. This flag ensures that these articles are not normally included in the search. This can be used for news, for example, to include only the latest news in the general search. For a special search, such as a news archive search, the "Including marked as archived" filter can be used to also find archived articles.
@@ -278,4 +310,8 @@ A `key` can also be specified for filters. This is only necessary if the filter 
 filter: [
    { key: "articletypes", objectType: ["news"] }
 }
+```
+
+```
+
 ```
