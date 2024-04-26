@@ -78,6 +78,7 @@ fragment teaser on Teaser {
   ... on ArticleTeaser {
     headline
     text
+    kicker
     asset(variant: "teaser") {
       ...asset
     }
