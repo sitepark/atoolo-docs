@@ -54,7 +54,7 @@ For more complex filter logic see [Complex filter](#complex-filter)
 Object types describe the different types of pages that are used in the website. These can be, for example, news pages, events, normal content pages or any other types that are part of the project.
 
 ```graphql
-{
+query {
   search(input: { filter: [{ objectTypes: ["news"] }] }) {
     total
     offset
@@ -73,7 +73,7 @@ Object types describe the different types of pages that are used in the website.
 Content section types are types of sections that are included in a page. These can be text sections, image sections and all others that the project provides for the website. For example, a search can be defined in which all pages containing a YouTube video can be found.
 
 ```graphql
-{
+query {
   search(input: { filter: [{ contentSectionTypes: ["youtube"] }] }) {
     total
     offset
@@ -93,7 +93,7 @@ The CMS can be used to define any number of category trees that can be used to c
 These categories can be filtered using their ID. The hierarchy of the category is also taken into account. This means that if you filter by a category that has subcategories, the articles that are linked to the subcategory are also found.
 
 ```graphql
-{
+query {
   search(input: { filter: [{ categories: ["15949"] }] }) {
     total
     offset
@@ -112,7 +112,7 @@ These categories can be filtered using their ID. The hierarchy of the category i
 In the CMS, articles are organized in hierarchical groups. For example, all articles in a rubric are managed in substructures of the rubric group. The groups filter can be used to restrict the search to groups. The hierarchy of the groups is also taken into account so that all articles in a group are found, even if they are contained in further nested subgroups.
 
 ```graphql
-{
+query {
   search(input: { filter: [{ groups: ["16811"] }] }) {
     total
     offset
@@ -131,7 +131,7 @@ In the CMS, articles are organized in hierarchical groups. For example, all arti
 Several websites can be managed within the CSM. These can be several main websites, but also microsites that are subordinate to a main website. The Sites filter can be used to restrict the search to a single site. For example, you can define a search that only returns hits from a microsite. Without this filter, a search for the main website can be realized, for example, in which the pages of the microsites are also found.
 
 ```graphql
-{
+query {
   search(input: { filter: [{ sites: ["3952"] }] }) {
     total
     offset
@@ -145,24 +145,23 @@ Several websites can be managed within the CSM. These can be several main websit
 }
 ```
 
-## Date filter
+## Date range filter
 
-An editorial date can be maintained for articles. This date can be used for the search to filter articles. If there is no editorial date, the creation date of the article is used. Depending on the article type, a list of dates can also be maintained. This is the case for events, for example. Repeat dates are also possible here. All dates are then taken into account in the date filter.
+An editorial date can be maintained for articles. This date can be used for the search to filter articles. If there is no editorial date, the creation date of the article is used. Depending on the article type, a list of dates can also be maintained. This is the case for events, for example. Repeat dates are also possible here. All dates are then taken into account in the date range filter.
 
-### Filter for absolute date ranges
+Date range filters can be defined as absolute date ranges or as relative date ranges. See [Date Ranges](index.md#date-ranges) for a detailed description of how these can be defined.
 
-The `absoluteDateRange` filter can be used to filter items whose date is within a certain period. A `from` date and a `to` date can be specified here.
-At least `from` or `to` must be specified. The date must be specified in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html){:target="\_blank"} format (e.g.`2024-05-22T10:13:00+02:00`).
+Example of a date range filter with absolute date values:
 
 ```graphql
-{
+query {
   search(
     input: {
       filter: [
         {
           absoluteDateRange: {
-            from: "2024-05-22T00:00:00+02:00"
-            to: "2024-05-22T23:59:59+02:00"
+            from: "2024-05-21T22:00:00Z"
+            to: "2024-05-22T21:59:59Z"
           }
         }
       ]
@@ -180,25 +179,12 @@ At least `from` or `to` must be specified. The date must be specified in [ISO-86
 }
 ```
 
-### Filter for relative date ranges
-
-The `relativeDateRange` filter can be used to filter items whose date is within a certain period. A `before` interval and a `after` interval can be specified here.
-At least `before` or `after` must be specified. The interval must be specified in [ISO-8601 Duration](https://en.wikipedia.org/wiki/ISO_8601#Durations){:target="\_blank"} format (e.g.`P1D`).
-
-Optionally, a 'base' can also be specified. This date is used as the basis for calculating the relative date. If no `base` is specified, the current date is used. This date must be specified in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html){:target="\_blank"} format (e.g.`2024-05-22`).
-
-Relative date range filters can only be accurate to the day. Specifying a time such as `P1DT1H` leads to an error.
+Example of a date range filter with relative date values based on the current date:
 
 ```graphql
-{
+query {
   search(
-    input: {
-      filter: [
-        {
-          relativeDateRange: { before: "P1D", base: "2024-05-22", after: "P1W" }
-        }
-      ]
-    }
+    input: { filter: [{ relativeDateRange: { before: "P1D", after: "P1W" } }] }
   ) {
     total
     offset
@@ -217,7 +203,7 @@ Relative date range filters can only be accurate to the day. Specifying a time s
 Articles can be marked as achrivated in the CMS. This flag ensures that these articles are not normally included in the search. This can be used for news, for example, to include only the latest news in the general search. For a special search, such as a news archive search, the "Including marked as archived" filter can be used to also find archived articles.
 
 ```graphql
-{
+query {
   search(input: { filter: [{ objectTypes: ["news"] }, { archive: true }] }) {
     total
     offset
@@ -310,8 +296,4 @@ A `key` can also be specified for filters. This is only necessary if the filter 
 filter: [
    { key: "articletypes", objectType: ["news"] }
 }
-```
-
-```
-
 ```

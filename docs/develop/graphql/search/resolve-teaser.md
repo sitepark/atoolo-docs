@@ -9,7 +9,7 @@ Due to this property of a teaser, the data cannot be mapped via a single object 
 The 'teaser' field is used to determine the teaser of a resource.
 
 ```graphql
-{
+query {
   search(input: { text: "movie" }) {
     total
     offset
@@ -30,7 +30,7 @@ In this case, `__typename` and `url` are the only fields that are available for 
 This is solved in GraphQL with [Inline Fragments](https://graphql.org/learn/queries/#inline-fragments){:target="\_blank"}.
 
 ```graphql
-{
+query {
   search(input: { text: "movie" }) {
     total
     offset
@@ -58,7 +58,7 @@ In the following example, the fields of the article teaser are read out and [Fra
 See also in the [reference](../reference.md#articleteaser).
 
 ```graphql
-{
+query {
   search(input: { text: "movie" }) {
     total
     offset

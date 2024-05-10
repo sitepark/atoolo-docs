@@ -123,6 +123,15 @@ Teaser URL
 </td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong>date</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Teaser date
+
+</td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong>headline</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td>
@@ -137,6 +146,15 @@ Teaser headline
 <td>
 
 Teaser text
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>kicker</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser kicker text
 
 </td>
 </tr>
@@ -229,12 +247,12 @@ The teaser variant is used to decide which image format is to be returned.
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>parent</strong></td>
+<td colspan="2" valign="top"><strong>primaryParent</strong></td>
 <td valign="top"><a href="#resource">Resource</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>path</strong></td>
+<td colspan="2" valign="top"><strong>primaryPath</strong></td>
 <td valign="top">[<a href="#resource">Resource</a>!]</td>
 <td></td>
 </tr>
@@ -428,6 +446,11 @@ Teaser URL
 <td></td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong>kicker</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong>contentType</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
@@ -442,7 +465,7 @@ Teaser URL
 
 ### NewsTeaser
 
-An article teaser is a short summary or preview designed to pique the reader's interest by highlighting the main points or most exciting aspects of an article.
+An news teaser is a short summary or preview designed to pique the reader's interest by highlighting the main points or most exciting aspects of an article.
 
 <table>
 <thead>
@@ -464,11 +487,20 @@ Teaser URL
 </td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong>date</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+News Teaser date
+
+</td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong>headline</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td>
 
-Teaser headline
+News Teaser headline
 
 </td>
 </tr>
@@ -477,7 +509,7 @@ Teaser headline
 <td valign="top"><a href="#string">String</a></td>
 <td>
 
-Teaser text
+News Teaser text
 
 </td>
 </tr>
@@ -498,11 +530,6 @@ Teaser asset can be e.g. pictures or videos
 The teaser variant is used to decide which image format is to be returned.
 
 </td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>date</strong></td>
-<td valign="top"><a href="#string">String</a></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -654,6 +681,59 @@ The teaser variant is used to decide which image format is to be returned.
 
 ## Inputs
 
+### AbsoluteDateRangeInputFacet
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>from</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>to</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>gap</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### AbsoluteDateRangeInputFilter
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>from</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>to</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ### InputFacet
 
 <table>
@@ -672,7 +752,7 @@ The teaser variant is used to decide which image format is to be returned.
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>excludeFilter</strong></td>
-<td valign="top"><a href="#string">String</a></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
@@ -698,6 +778,16 @@ The teaser variant is used to decide which image format is to be returned.
 <tr>
 <td colspan="2" valign="top"><strong>groups</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>absoluteDateRange</strong></td>
+<td valign="top"><a href="#absolutedaterangeinputfacet">AbsoluteDateRangeInputFacet</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>relativeDateRange</strong></td>
+<td valign="top"><a href="#relativedaterangeinputfacet">RelativeDateRangeInputFacet</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -742,6 +832,16 @@ The teaser variant is used to decide which image format is to be returned.
 <tr>
 <td colspan="2" valign="top"><strong>groups</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>absoluteDateRange</strong></td>
+<td valign="top"><a href="#absolutedaterangeinputfilter">AbsoluteDateRangeInputFilter</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>relativeDateRange</strong></td>
+<td valign="top"><a href="#relativedaterangeinputfilter">RelativeDateRangeInputFilter</a></td>
 <td></td>
 </tr>
 <tr>
@@ -811,6 +911,89 @@ The teaser variant is used to decide which image format is to be returned.
 </tbody>
 </table>
 
+### RelativeDateRangeInputFacet
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>base</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>before</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>after</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>gap</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>roundStart</strong></td>
+<td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>roundEnd</strong></td>
+<td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### RelativeDateRangeInputFilter
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>base</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>before</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>after</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>roundStart</strong></td>
+<td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>roundEnd</strong></td>
+<td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ### SearchInput
 
 <table>
@@ -862,6 +1045,11 @@ The teaser variant is used to decide which image format is to be returned.
 <td valign="top">[<a href="#inputfacet">InputFacet</a>!]</td>
 <td></td>
 </tr>
+<tr>
+<td colspan="2" valign="top"><strong>timeZone</strong></td>
+<td valign="top"><a href="#datetimezone">DateTimeZone</a></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -900,6 +1088,65 @@ The teaser variant is used to decide which image format is to be returned.
 </table>
 
 ## Enums
+
+### DateRangeRound
+
+<table>
+<thead>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>START_OF_DAY</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>START_OF_PREVIOUS_DAY</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_DAY</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_PREVIOUS_DAY</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>START_OF_MONTH</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>START_OF_PREVIOUS_MONTH</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_MONTH</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_PREVIOUS_MONTH</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>START_OF_YEAR</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>START_OF_PREVIOUS_YEAR</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_YEAR</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_PREVIOUS_YEAR</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 ### ImageCharacteristic
 
@@ -972,7 +1219,11 @@ The teaser variant is used to decide which image format is to be returned.
 
 The `Boolean` scalar type represents `true` or `false`.
 
+### DateInterval
+
 ### DateTime
+
+### DateTimeZone
 
 ### ID
 

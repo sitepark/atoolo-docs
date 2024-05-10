@@ -9,7 +9,7 @@ The methods of [`Hierarchy`](../reference.md#hierarchy) always return a [`Resour
 The `root` field is used to obtain the root of the navigation.
 
 ```graphql
-{
+query {
   search(input: { filter: [{ groups: ["1195"] }] }) {
     total
     offset
@@ -30,37 +30,12 @@ The `root` field is used to obtain the root of the navigation.
 
 The `parent` field is used to determine the parent resource in the navigation hierarchy.
 
-The example also shows how the parents are determined over two levels.
-
-```graphql
-{
-  search(input: { filter: [{ groups: ["1195"] }] }) {
-    total
-    offset
-    queryTime
-    results {
-      id
-      navigation {
-        parent {
-          id
-          navigation {
-            parent {
-              id
-            }
-          }
-        }
-      }
-    }
-  }
-}
 ```
 
-## Get the children
-
-The subordinate resources in the navigation are queried via the `children` field.
+```
 
 ```graphql
-{
+query {
   search(input: { filter: [{ groups: ["1195"] }] }) {
     total
     offset
@@ -82,7 +57,7 @@ The subordinate resources in the navigation are queried via the `children` field
 The path describes all higher-level parents up to the root element. The returned list provides the root resource as the first resource, followed by all resources that form the navigation path. The last resource in the list is the resource that should be used to determine the path.
 
 ```graphql
-{
+query {
   search(input: { filter: [{ key: "musterseiten", groups: ["1195"] }] }) {
     total
     offset

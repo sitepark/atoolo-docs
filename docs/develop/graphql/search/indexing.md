@@ -31,7 +31,7 @@ mutation {
 While the indexer is indexing the documents, the current status can be queried using the query [`indexerStatus`](../reference.md/#query-rootquery). For example, to show how many documents have already been indexed.
 
 ```graphql
-{
+query {
   indexerStatus {
     statusLine
   }

@@ -69,19 +69,19 @@ search(
       {
         key: "articletypes",
         objectTypes: ["content", "news"],
-        excludeFilter: "articletypefilter"
+        excludeFilter: ["articletypefilter"]
       }
     ]
   }
 )
 ```
 
-Here, `excludeFilter: "articletypefilter"` is used to refer to the filter `key: "articletypefilter"`. When determining this facet, the filter `articletypefilter` is no longer taken into account. This means that the values of the facet can be taken into account correctly, even though the filter is used for the search.
+Here, `excludeFilter: ["articletypefilter"]` is used to refer to the filter `key: "articletypefilter"`. When determining this facet, the filter `articletypefilter` is no longer taken into account. This means that the values of the facet can be taken into account correctly, even though the filter is used for the search.
 
 A complete GraphQL Query could then look like this:
 
 ```graphql
-{
+query {
   search(
     input: {
       filter: [{ key: "articletypefilter", objectTypes: ["content"] }]
@@ -89,7 +89,7 @@ A complete GraphQL Query could then look like this:
         {
           key: "articletypes"
           objectTypes: ["content", "news"]
-          excludeFilter: "articletypefilter"
+          excludeFilter: ["articletypefilter"]
         }
       ]
     }
@@ -114,7 +114,7 @@ A complete GraphQL Query could then look like this:
 Any number of facets can be specified. An example could look like this:
 
 ```graphql
-{
+query {
   search(
     input: {
       filter: [
@@ -130,7 +130,7 @@ Any number of facets can be specified. An example could look like this:
         {
           key: "sitefacet"
           sites: ["3952", "4551", "7462", "1463"]
-          excludeFilter: "sitefilter"
+          excludeFilter: ["sitefilter"]
         }
       ]
     }
@@ -152,12 +152,12 @@ Any number of facets can be specified. An example could look like this:
 }
 ```
 
-### Object type facet
+## Object type facet
 
 Object types describe the different types of pages that are used in the website. These can be, for example, news pages, events, normal content pages or any other types that are part of the project.
 
 ```graphql
-{
+query {
   search(input: { facets: [{ objectTypes: ["news"] }] }) {
     total
     offset
@@ -176,12 +176,12 @@ Object types describe the different types of pages that are used in the website.
 }
 ```
 
-### Content section types facet
+## Content section types facet
 
 Content section types are types of sections that are included in a page. These can be text sections, image sections and all others that the project provides for the website. For example, a facet can be defined in which it is possible to determine how many search hits contain a YouTube video.
 
 ```graphql
-{
+query {
   search(input: { facets: [{ contentSectionTypes: ["youtube"] }] }) {
     total
     offset
@@ -200,13 +200,13 @@ Content section types are types of sections that are included in a page. These c
 }
 ```
 
-### Categories facet
+## Categories facet
 
 The CMS can be used to define any number of category trees that can be used to categorise articles.
 These categories can be facetted via their ID. The hierarchy of the category is also taken into account. This means that if you facet a category that has subcategories, the articles that are linked to the subcategory are also taken into account.
 
 ```graphql
-{
+query {
   search(input: { facets: [{ categories: ["15949"] }] }) {
     total
     offset
@@ -225,12 +225,12 @@ These categories can be facetted via their ID. The hierarchy of the category is 
 }
 ```
 
-### Groups facet
+## Groups facet
 
 In the CMS, articles are organised in hierarchical groups. For example, all articles in a category are managed in substructures of the category group. The number of hits can be determined using the group facet. The hierarchy of the groups is also taken into account so that all articles in a group are included, even if they are contained in other nested subgroups.
 
 ```graphql
-{
+query {
   search(input: { facets: [{ groups: ["16811"] }] }) {
     total
     offset
@@ -244,12 +244,12 @@ In the CMS, articles are organised in hierarchical groups. For example, all arti
 }
 ```
 
-### Sites facet
+## Sites facet
 
 Several websites can be managed within the CSM. These can be several main websites, but also microsites that are subordinate to a main website. The Sites facet can be used to determine the number of hits within a site.
 
 ```graphql
-{
+query {
   search(input: { facets: [{ sites: ["3952"] }] }) {
     total
     offset
@@ -260,5 +260,274 @@ Several websites can be managed within the CSM. These can be several main websit
       location
     }
   }
+}
+```
+
+## Date range facet
+
+An editorial date can be maintained for articles. This date can be used for the search to filter articles. If there is no editorial date, the creation date of the article is used. Depending on the article type, a list of dates can also be maintained. This is the case for events, for example. Repeat dates are also possible here. All dates are then taken into account in the date range facet.
+
+Facets can also be defined using a time range. Two entries are required for this:
+
+There are two ways in which a date range facet can be used.
+
+1. to determine the number of all results within a certain period of time.
+2. to determine the number of results divided into time periods within a certain time period, e.g. the number of results within a month divided into days.
+
+To determine the number of all results within a certain period, the period must be specified via [Date ranges](index.md#date-ranges).
+
+If the result is to be divided into time periods, a `gap` must also be specified. This specifies the date periods in which the results are to be subdivided.
+`gap` must be specified in [ISO-8601 Duration](https://en.wikipedia.org/wiki/ISO_8601#Durations){:target="\_blank"} format (e.g.`P1M`).
+
+### Examples
+
+#### Absolute date range facet
+
+Example of absolute date range facets for the year `2022` (Timezone Europe/Berlin) divided into months:
+
+```graphql
+query {
+  search(
+    input: {
+      facets: [
+        {
+          key: "month"
+          absoluteDateRange: {
+            from: "2021-12-31T23:00:00Z"
+            to: "2022-12-30T23:00:00Z"
+            gap: "P1M"
+          }
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+    facetGroups {
+      key
+      facets {
+        key
+        hits
+      }
+    }
+  }
+}
+```
+
+#### Absolute relative range facet
+
+Example of relative date range facets for the last, current and next year divided into months:
+
+```graphql
+query {
+  search(
+    input: {
+      facets: [
+        {
+          key: "month"
+          relativeDateRange: {
+            before: "P1Y"
+            after: "P1Y"
+            gap: "P1M"
+            roundStart: START_OF_YEAR
+            roundEnd: END_OF_YEAR
+          }
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+    facetGroups {
+      key
+      facets {
+        key
+        hits
+      }
+    }
+  }
+}
+```
+
+#### Facets for Date range selection
+
+One use case is the selection of a date range according to predefined ranges. E.g.
+
+- Today
+- Next 7 days
+- This month
+- This and nex month
+
+The facet search can be used to determine how many hits are contained in the date periods.
+
+```graphql
+query relativeDateRangeFacetsearch($filter: RelativeDateRangeInputFilter) {
+  search(
+    input: {
+      filter: [{ key: "dateFilter", relativeDateRange: $filter }]
+      facets: [
+        {
+          key: "today"
+          relativeDateRange: { after: "P1D", roundEnd: END_OF_PREVIOUS_DAY }
+          excludeFilter: ["dateFilter"]
+        }
+        {
+          key: "next7days"
+          relativeDateRange: { after: "P7D", roundEnd: END_OF_PREVIOUS_DAY }
+          excludeFilter: ["dateFilter"]
+        }
+        {
+          key: "thisMonth"
+          relativeDateRange: { after: "P1M", roundEnd: END_OF_PREVIOUS_MONTH }
+          excludeFilter: ["dateFilter"]
+        }
+        {
+          key: "thisAndNextMonth"
+          relativeDateRange: { after: "P1M", roundEnd: END_OF_MONTH }
+          excludeFilter: ["dateFilter"]
+        }
+      ]
+    }
+  ) {
+    total
+    results {
+      objectType
+      name
+      id
+    }
+    facetGroups {
+      key
+      facets {
+        key
+        hits
+      }
+    }
+    queryTime
+  }
+}
+```
+
+Depending on which filter is selected, the corresponding filter value must be transferred. This is transferred here as the variable `filter`:
+
+If "Today" is selected:
+
+```json
+{
+  "filter": {
+    "after": "P1D",
+    "roundEnd": "END_OF_PREVIOUS_DAY"
+  }
+}
+```
+
+If "Next 7 days" is selected:
+
+```json
+{
+  "filter": {
+    "after": "P7D",
+    "roundEnd": "END_OF_PREVIOUS_DAY"
+  }
+}
+```
+
+If "This month" is selected:
+
+```json
+{
+  "filter": {
+    "after": "P1M",
+    "roundEnd": "END_OF_PREVIOUS_MONTH"
+  }
+}
+```
+
+If "This and nex month" is selected:
+
+```json
+{
+  "filter": {
+    "after": "P1M",
+    "roundEnd": "END_OF_MONTH"
+  }
+}
+```
+
+#### Facets for Day-by-day Paging
+
+One use case for event searches is that day-by-day paging is used when events are to be searched for within a certain period of time.
+
+In this case, only the events for one day are displayed and the user can then query the hits on a day-by-day basis.
+
+```graphql
+query relativeDateRangeFacetsearch($currentPageDate: DateTime) {
+  search(
+    input: {
+      filter: [
+        {
+          key: "currentPageDateFilter"
+          relativeDateRange: {
+            base: $currentPageDate
+            after: "P1D"
+            roundEnd: END_OF_PREVIOUS_DAY
+          }
+        }
+      ]
+      facets: [
+        {
+          key: "pageDates"
+          absoluteDateRange: {
+            from: "2024-05-01T00:00:00+02:00"
+            to: "2024-05-20T00:00:00+02:00"
+          }
+          excludeFilter: ["currentPageDateFilter"]
+        }
+      ]
+    }
+  ) {
+    total
+    results {
+      id
+      objectType
+      teaser {
+        url
+        ... on ArticleTeaser {
+          date
+          kicker
+          headline
+        }
+      }
+      name
+      id
+    }
+    facetGroups {
+      key
+      facets {
+        key
+        hits
+      }
+    }
+    queryTime
+  }
+}
+```
+
+Variable:
+
+```json
+{
+  "currentPageDate": "2024-05-03T22:00:00Z"
 }
 ```
