@@ -29,8 +29,13 @@ pip install --upgrade -r requirements.txt
 The API reference `docs/develop/graphql/reference.md` is generated automatically using a GraphQL schema. The script `tools/gen-reference.sh` is available for this purpose. This expects a URL to a GraphQL endpoint via which the schema is to be read.
 
 ```sh
-./tools/gen-reference.sh https://www.domain.de/graphql
+./tools/gen-reference.sh [--http] [www.domain.de]
 ```
+
+Im Standard-Fall wird die URL `http://atoolo-e2e-test:9090/api/graphql/` verwendet.
+Diese liefert das schema ohne Kunden spezifische Erweiterungen.
+
+Siehe auch [atoolo-e2e-test](https://github.com/sitepark/atoolo-e2e-test)
 
 This creates the Markdown file `docs/develop/graphql/reference.md` from the schema.
 
