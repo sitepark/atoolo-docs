@@ -7,13 +7,15 @@ nav:
       - develop/index.md
       - Components:
           - develop/components/index.md
-          - Resource: develop/components/resource.md
-          - Search: develop/components/search/index.md
       - Bundle:
           - develop/bundles/index.md
+          - Deployment: develop/bundles/deployment.md
+          - Resource: develop/bundles/resource.md
+          - Search: develop/bundles/search/index.md
           - Security: develop/bundles/security.md
           - GraphQL Search: develop/bundles/graphql-search.md
           - CityGov: develop/bundles/citygov.md
+          - CityCall: develop/bundles/citycall.md
       - GraphQL API:
           - develop/graphql/index.md
           - Getting started: develop/graphql/getting-started.md

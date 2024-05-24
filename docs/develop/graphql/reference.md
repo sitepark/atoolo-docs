@@ -845,11 +845,6 @@ The teaser variant is used to decide which image format is to be returned.
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>archive</strong></td>
-<td valign="top"><a href="#boolean">Boolean</a></td>
-<td></td>
-</tr>
-<tr>
 <td colspan="2" valign="top"><strong>and</strong></td>
 <td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
 <td></td>
@@ -1046,6 +1041,11 @@ The teaser variant is used to decide which image format is to be returned.
 <td></td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong>archive</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong>timeZone</strong></td>
 <td valign="top"><a href="#datetimezone">DateTimeZone</a></td>
 <td></td>
@@ -1082,6 +1082,11 @@ The teaser variant is used to decide which image format is to be returned.
 <tr>
 <td colspan="2" valign="top"><strong>filter</strong></td>
 <td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>archive</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
 <td></td>
 </tr>
 </tbody>

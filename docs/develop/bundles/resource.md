@@ -1,19 +1,21 @@
-# Resource Component
+# Resource Bundle
 
 In the Atoolo context, resources from IES (Siteparks content management system) are aggregated data that can be handled through this library.
 
 There can be different formats in which the resource is aggregated by the CMS. The current format is the `SiteKit` format. Here, a PHP file is created for each article in which the data is stored in the form of PHP arrays. The data is read out via the corresponding `ResourceLoader` and made available in a `Resource` object.
 
+These resources created by the IES are referred to as "internal" resources. The term "external" resources is used when the resource object is filled with data that does not originate from the IES.
+
 ## Sources
 
-The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-resource](https://github.com/sitepark/atoolo-resource){:target="\_blank"}.
+The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-resource-bundle](https://github.com/sitepark/atoolo-resource-bundle){:target="\_blank"}.
 
 ## Installation
 
 Use [Composer](https://getcomposer.org/){:target="\_blank"} to install this component in your PHP project:
 
 ```sh
-composer require atoolo/resource
+composer require atoolo/resource-bundle
 ```
 
 ## The Resource
@@ -120,37 +122,6 @@ $location = ResourceLocation::of('/index.php');
 $resource = $cachedloader->load($location);
 ```
 
-### Using Symfony Dependency Injection
-
-The loader can be defined as a service in Symfony. This allows it to be used via dependency injection.
-
-`service.xml`
-
-```yaml
-parameters:
-  atoolo_resource.resource_root: "%env(RESOURCE_ROOT)%"
-
-services:
-  atoolo.resource.resourceChannelFactory:
-    class: Atoolo\Resource\SiteKitResourceChannelFactory
-    arguments:
-      - "%atoolo_resource.resource_root%"
-
-  atoolo.resource.resourceChannel:
-    class: Atoolo\Resource\SiteKitResourceChannel
-    factory: ["@atoolo.resource.resourceChannelFactory", "create"]
-
-  atoolo.resource.resourceLoader:
-    class: Atoolo\Resource\Loader\SiteKitLoader
-    arguments:
-      - "@atoolo.resource.resourceChannel"
-
-  atoolo.resource.cachedResourceLoader:
-    class: Atoolo\Resource\Loader\CachedResourceLoader
-    arguments:
-      - "@atoolo.resource.resourceLoader"
-```
-
 ## Loading resource hierarchy
 
 Resources can be linked to each other hierarchically. This is the case, for example, via the navigation. Here the root element is the homepage. Category resources are another case. Categories can also be structured hierarchically. These hierarchies can be read out with the `ResourceHierarchyLoader`.
@@ -178,23 +149,29 @@ $location = ResourceLocation::of('/a/b/c.php');
 $rootResource = $hierarchyLoader->loadRoot($location');
 ```
 
-### Using Symfony Dependency Injection
+## Using Symfony parameter and services
 
-The hierarchy loader can be defined as a service in Symfony. This allows it to be used via dependency injection.
-
-`service.xml`
+Das Bundel definiert den Parameter `atoolo_resource.resource_root` über den bestimmt wird.
 
 ```yaml
-atoolo.resource.navigationHierarchyLoader:
-  class: Atoolo\Resource\Loader\SiteKitNavigationHierarchyLoader
-  arguments:
-    - "@atoolo.resource.resourceLoader"
-atoolo.resource.categoryHierarchyLoader:
-  class: Atoolo\Resource\Loader\SiteKitResourceHierarchyLoader
-  arguments:
-    - "@atoolo.resource.resourceLoader"
-    - "category"
+parameters:
+  atoolo_resource.resource_root: "%env(RESOURCE_ROOT)%"
 ```
+
+If the environment variable `RESOURCE_ROOT` is not set, the `Atoolo\Resource\Env\EnvVarLoader` intervenes. This can determine the resource root for command line calls via the path of the `bin/console` script if the script was called via the host path. Like e.g.
+
+```sh
+/var/www/example.com/www/app/bin/console
+```
+
+The bundle provides the corresponding classes via service IDs. These can be used in a Symfony project via dependency injection.
+
+| <div style="width:12em">Service-Id</div>      | Description                                      |
+| --------------------------------------------- | ------------------------------------------------ |
+| `atoolo_resource.resource_channel`            | The `ResourceChannel`                            |
+| `atoolo_resource.resource_loader`             | currently the `SiteKitLoader`                    |
+| `atoolo_resource.navigation_hierarchy_loader` | currently the `SiteKitNavigationHierarchyLoader` |
+| `atoolo_resource.category_hierarchy_loader`   | currently the `SiteKitResourceHierarchyLoader`   |
 
 ## Using ResourceHierarchyWalker
 

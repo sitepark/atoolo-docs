@@ -4,7 +4,7 @@ status: draft
 
 # GraphQL Search Bundle
 
-The GraphQL Search Bundle uses the functionalities of the [Search component](../components/search/index.md) and extends the GraphQL interface with the ability to perform searches.
+The GraphQL Search Bundle uses the functionalities of the [Search bundle](../bundles/search/index.md) and extends the GraphQL interface with the ability to perform searches.
 
 ## Sources
 
@@ -83,15 +83,15 @@ A factory can be defined as a Symfony service.
 
 ```yaml
 services:
-  atoolo_graphql_search.resolver.newsTeaserFactory:
+  atoolo_graphql_search.resolver.news_teaser_factory:
     class: 'Atoolo\GraphQL\Search\Resolver\NewsTeaserFactory'
     arguments:
-      - "@atoolo_graphql_search.resolver.urlRewriter"
+      - "@atoolo_graphql_search.resolver.url_rewriter"
     tags:
-      - { name: "atoolo_graphql_search.teaserFactory", objectType: "news" }
+      - { name: "atoolo_graphql_search.teaser_factory", objectType: "news" }
 ```
 
-Tagging the service with `atoolo_graphql_search.teaserFactory` registers it as a teaser factory. The `objectType` parameter specifies the object type for which the factory is to be used.
+Tagging the service with `atoolo_graphql_search.teaser_factory` registers it as a teaser factory. The `objectType` parameter specifies the object type for which the factory is to be used.
 
 ### Teaser-Resolver
 
@@ -165,7 +165,7 @@ In the standard case, the `DoNothingUrlRewriter` is used, which returns the URLs
 
 ```yaml
 services:
-  atoolo_graphql_search.resolver.urlRewriter:
+  atoolo_graphql_search.resolver.url_rewriter:
     class: Atoolo\GraphQL\Search\Resolver\DoNothingUrlRewriter
 ```
 

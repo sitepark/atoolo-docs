@@ -8,14 +8,14 @@ Provides services with which a Solr index can be filled and searched for [resour
 
 ## Sources
 
-The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-search](https://github.com/sitepark/atoolo-search){:target="\_blank"}.
+The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-search-bundle](https://github.com/sitepark/atoolo-search-bundle){:target="\_blank"}.
 
 ## Installation
 
 Use [Composer](https://getcomposer.org/){:target="\_blank"} to install this component in your PHP project:
 
 ```sh
-composer require atoolo/search
+composer require atoolo/search-bundle
 ```
 
 ## Index name
@@ -93,7 +93,7 @@ services:
   Atoolo\Examples\Search\Indexer\Enricher\CustomDocumentEnricher:
     tags:
       - {
-          name: "atoolo.search.indexer.documentEnricher.schema2x",
+          name: "atoolo_search.indexer.document_enricher.schema2x",
           priority: 10,
         }
 ```
@@ -141,7 +141,7 @@ So that your own content matcher can be used, it must be registered as [tagged S
 services:
   Atoolo\Search\Service\Indexer\SiteKit\HeadlineMatcher:
     tags:
-      - { name: "atoolo.search.indexer.sitekit.contentMatcher", priority: 10 }
+      - { name: "atoolo_search.indexer.sitekit.content_matcher", priority: 10 }
 ```
 
 ## Searching
@@ -318,7 +318,16 @@ $builder->index('myindex-www')
   ]);
 ```
 
-### Result
+#### Archive search
+
+The indexed resources can be marked as "archived". This flag ensures that these resources are not normally included in the search. This can be used for news, for example, to include only the latest news in the general search. For a special search, such as a news archive search, the `archive` flag can be used to also find archived resources.
+
+```php
+$builder = new SelectQueryBuilder();
+$builder->archive(true);
+```
+
+#### Result
 
 The search returns a [`SearchResult`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Result/SearchResult.php){:target="\_blank"} object, which can be used to read the results.
 
@@ -341,7 +350,7 @@ foreach ($result->facetGroups as $facetGroup) {
 }
 ```
 
-## Searching (More like this)
+### Searching (More like this)
 
 A "More-Like-This" search is a technique in which a source document or item is used as a reference point to find similar documents in the search index. It is based on extracting characteristics from the source object and searching for other objects that have similar characteristics in order to present relevant results to the user.
 
@@ -357,11 +366,11 @@ foreach ($result as $resource) {
 }
 ```
 
-## Suggest
+### Suggest
 
 A "suggest search" is a search function that automatically displays suggestions or auto-completions to users as they enter search queries.
 
-The [`SuggestSearcher`](https://github.com/sitepark/atoolo-search/blob/main/src/SuggestSearcher.php){:target="\_blank"} service is available for this. The `moreLikeThis()` method expects a [`SuggestQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SuggestQuery.php){:target="\_blank"} object with which the query can be defined.
+The [`Suggest`](https://github.com/sitepark/atoolo-search/blob/main/src/Suggest.php){:target="\_blank"} service is available for this. The `moreLikeThis()` method expects a [`SuggestQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SuggestQuery.php){:target="\_blank"} object with which the query can be defined.
 
 The search returns a [`SuggestResult`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Result/SuggestResult.php){:target="\_blank"} object with which the results can be read.
 
@@ -370,6 +379,8 @@ foreach ($result as $suggest) {
   echo $suggest->term . ' (' . $suggest->hits . ")\n";
 }
 ```
+
+[Filters](#filter) can also be specified for the suggest search and the [archive flag](#archive-search) can be set. However, there is no builder for the suggest search; the filter and archive flag may have to be specified directly in the constructor.
 
 ## Command line interface
 

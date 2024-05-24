@@ -16,4 +16,4 @@ composer require atoolo/citycall-bundle
 
 ## Extended indexing
 
-The bundle contains [Document Enricher](../components/search/index.md#custom-document-enricher), which extends the full-text index for the search with CityCall-specific fields. This allows CityCall-specific searches to be created.
+The bundle contains [Document Enricher](../bundles/search/index.md#custom-document-enricher), which extends the full-text index for the search with CityCall-specific fields. This allows CityCall-specific searches to be created.

@@ -6,7 +6,24 @@
 # usage: gen-reference.sh <host>
 #
 
-HOST=$1
+SCHEME=https
+
+while [ True ]; do
+if [ "$1" = "--http" ]; then
+    SCHEME=http
+    shift 1
+else
+    HOST=$1
+    break
+fi
+done
+
+if [ "$HOST" != "" ]; then
+	ENDPOINT_URL="$SCHEME://$HOST/api/graphql/"
+else
+	ENDPOINT_URL=http://atoolo-e2e-test:9090/api/graphql/
+fi
+
 
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
@@ -32,9 +49,11 @@ if [ ! -f $BIN ]; then
     exit 1;
 fi
 
-echo "https://$HOST/api/graphql/"
 
-curl "https://$HOST/api/graphql/" \
+
+echo "$ENDPOINT_URL"
+
+curl "$ENDPOINT_URL" \
   -H 'content-type: application/json' \
   --data-raw '{"query":"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ","operationName":"IntrospectionQuery"}' \
   --compressed > "$WORK_DIR"/schema.json

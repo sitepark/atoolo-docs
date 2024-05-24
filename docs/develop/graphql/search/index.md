@@ -128,6 +128,29 @@ query {
 
     If the schema is changed, the specified sort field for this sorting may no longer work.
 
+## Archive search
+
+The indexed resources can be marked as "archived". This flag ensures that these resources are not normally included in the search. This can be used for news, for example, to include only the latest news in the general search. For a special search, such as a news archive search, the `archive` flag can be used to also find archived resources.
+
+```graphql
+query {
+  search(
+    input: {
+      text: "chocolate"
+      filter: [{ objectTypes: ["news"] }]
+      archive: true
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+    }
+  }
+}
+```
+
 ## Date ranges
 
 Date ranges can be used in the search to limit the search to a specific time period. [Date range filters](filtered-search.md#date-range-filter) are used for this purpose.
