@@ -32,10 +32,10 @@ The API reference `docs/develop/graphql/reference.md` is generated automatically
 ./tools/gen-reference.sh [--http] [www.domain.de]
 ```
 
-Im Standard-Fall wird die URL `http://atoolo-e2e-test:9090/api/graphql/` verwendet.
-Diese liefert das schema ohne Kunden spezifische Erweiterungen.
+In the standard case, the URL `http://atoolo-e2e-test:9090/api/graphql/` is used.
+This provides the schema without customer-specific extensions.
 
-Siehe auch [atoolo-e2e-test](https://github.com/sitepark/atoolo-e2e-test)
+See also [atoolo-e2e-test](https://github.com/sitepark/atoolo-e2e-test)
 
 This creates the Markdown file `docs/develop/graphql/reference.md` from the schema.
 
