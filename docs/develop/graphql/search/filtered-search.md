@@ -145,6 +145,25 @@ query {
 }
 ```
 
+## Id filter
+
+This filter can be used to search for a list of resources with specific IDs.
+
+```graphql
+query {
+  search(input: { filter: [{ ids: ["1212"] }] }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
 ## Date range filter
 
 An editorial date can be maintained for articles. This date can be used for the search to filter articles. If there is no editorial date, the creation date of the article is used. Depending on the article type, a list of dates can also be maintained. This is the case for events, for example. Repeat dates are also possible here. All dates are then taken into account in the date range filter.
