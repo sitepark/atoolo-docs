@@ -328,6 +328,53 @@ $builder = new SelectQueryBuilder();
 $builder->archive(true);
 ```
 
+#### Boosting
+
+Boosting makes it possible to increase the relevance of certain documents in the search results. This can be achieved by customizing query parameters, such as adding boosting factors to specific fields or applying custom functions. In this way, search results can be specifically influenced to place more relevant results at the top.
+
+The following parameters can be used to influence the result:
+
+| <div style="width:13em">Name</div> | Description                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `queryFields`                      | This parameter specifies the fields to be searched and their relative importance. It is a list of fields, optionally with boost factors that indicate how heavily each field should be weighted when matching search terms. For example, qf=title^2.0 description means that the title field is twice as important as the description field.                                                 |
+| `phraseFields`                     | This parameter increases the importance of whole phrases (word sequences) in the specified fields. It is used to increase the relevance of documents in which the search terms appear as phrases in these fields. For example, pf=title^1.5 content increases the relevance of documents in which the search terms appear as a phrase in the title field more than in the content field.     |
+| `boostQueries`                     | This parameter allows additional query clauses that increase the relevance score of documents that match these clauses. These clauses do not affect whether a document matches the main query, but increase the score of documents that match them. For example, `contenttype:(text/html*)^10` would increase the relevance score of HTML documentserhöhen.                                  |
+| `boostFunctions`                   | This parameter applies function-based boosts to the relevance score. These are mathematical functions that adjust the score based on field values or other criteria. For example, `if(termfreq(sp_objecttype,'news'),scale(sp_date,0,12),scale(sp_date,10,11)` could be used to score older news articles less highly                                                                        |
+| `tie` (Tie-Breaker-Multiplikator)  | This parameter combine the best match points from multiple fields. The tie parameter adjusts how much lower scores affect the overall score. A higher tie value means that the lower scores have more influence on the final score. For example, tie=0.1 could be used to give the secondary fields some influence in the scoring process, preventing only the best matches from dominating. |
+
+Setting the boosting parameters requires in-depth knowledge of how the search index works and its schema. If no boosting is specified, the default values of Sitepark are used, which have already proven themselves in many projects.
+
+```php
+$builder = new SelectQueryBuilder();
+$builder->boosting(new Boosting(
+  queryFields: [
+    "sp_title^1.4",
+    "keywords^1.2",
+    "description^1.0",
+    "title^1.0",
+    "url^0.9",
+    "content^0.8"
+  ],
+  phraseFields: [
+    "sp_title^1.5",
+    "description^1",
+    "content^0.8"
+  ],
+  boostQueries: [
+    "sp_objecttype:searchTip^100",
+    "contenttype:(text/html*)^10"
+  ],
+  boostFunctions: [
+    "if(termfreq(sp_objecttype,'news'),scale(sp_date,0,12),scale(sp_date,10,11))"
+  ],
+  tie: 0.1
+));
+```
+
+!!! warning
+
+    If the scheme is changed, the specified boosting may no longer work.
+
 #### Result
 
 The search returns a [`SearchResult`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Result/SearchResult.php){:target="\_blank"} object, which can be used to read the results.

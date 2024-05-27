@@ -34,12 +34,6 @@ The installation is then carried out via `composer require`.
 composer require atoolo/graphql-search-bundle
 ```
 
-Install the GraphiQL interface:
-
-```sh
-composer require --dev overblog/graphiql-bundle
-```
-
 ## Usage
 
 ### Basics
@@ -63,21 +57,21 @@ curl "https://www.example.com/api/graphql/" --fail \
 
 Because GraphQL is a communication pattern, there are many tools to help you get started working which support GraphQL in all sorts of languages.
 
-E.g. for JavaScript clients see [here](https://graphql.org/code/#javascript-client){:target="\_blank"}
+See e.g. [here](https://graphql.org/community/tools-and-libraries/){:target="\_blank"}
 
-### GraphiQL
+#### Altair GraphQL Client
 
-GraphiQL is an interactive development environment for GraphQL that allows developers to easily create, execute and test GraphQL queries. It provides a user-friendly interface with features such as automatic code completion and real-time query execution. GraphiQL helps developers explore API endpoints and develop and debug queries efficiently. It is a valuable tool for working with GraphQL APIs, streamlining the development process and improving query accuracy.
+[Altair GraphQL Client](https://altairgraphql.dev/){:target="\_blank"} is a GraphQL client that allows you to interact with GraphQL servers. It provides a user-friendly interface for creating, executing, and debugging queries. Altair supports features such as automatic code completion, syntax highlighting, and real-time query execution. It is a valuable tool for working with GraphQL APIs, streamlining the development process, and improving query accuracy.
 
-With the fictitious endpoint `www.example.com` the GraphiQL can be reached at the following URL.
+It is also available as a browser extension.
 
-`https://www.example.com/graphiql`
+#### GraphiQL
 
-!!! note
+[GraphiQL](https://github.com/graphql/graphiql){:target="\_blank"} is an interactive development environment for GraphQL that allows developers to easily create, execute and test GraphQL queries. It provides a user-friendly interface with features such as automatic code completion and real-time query execution. GraphiQL helps developers explore API endpoints and develop and debug queries efficiently. It is a valuable tool for working with GraphQL APIs, streamlining the development process and improving query accuracy.
 
-    Please note, however, that `APP_ENV=dev` must be set.
+GraphiQL can be installed as a desktop app, for example. See [GraphQL-Playground](https://github.com/graphql/graphql-playground){:target="\_blank"}.
 
-The GraphiQL interface is not available in production systems. Alternatively, the [GraphQL Playground](https://github.com/graphql/graphql-playground){:target="\_blank"} can be installed as a desktop application. With the fictitious endpoint `www.example.com` the GraphQL Playground needs the URL.
+With the fictitious endpoint `www.example.com` the GraphQL Playground needs the URL.
 
 `https://www.example.com/api/graphql/`
 
