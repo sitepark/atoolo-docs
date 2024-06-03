@@ -64,6 +64,26 @@ Changes to the Atoolo runtime configuration do not take effect immediately. A `c
 
 As the settings are made at runtime, the settings are reset with every request or console executions. Errors that occur due to incorrect configurations or failed validation affect all requests and console executions.
 
+The configuration can also be carried out via `composer config ...`, for example.
+
+Example for setting the configuration via `composer config`:
+
+```sh
+composer config --json extra.atoolo.runtime \
+'{'\
+'    "ini": {'\
+'        "set": {'\
+'            "date.timezone": "Europe/Berlin"'\
+'        }'\
+'    },'\
+'    "umask": "0002",'\
+'    "users": ['\
+'        "www-data",'\
+'        "{SCRIPT_OWNER}"'\
+'    ]'\
+'}'
+```
+
 ### `ini.set`
 
 The `php.ini` settings can be stored in the `ini.set` section. The name of the `php.ini` parameter is used as the key and the value as the value.
