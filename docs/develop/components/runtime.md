@@ -89,7 +89,7 @@ Example for setting the time zone:
 
 If the same keys with different values are set via the dependent packages and the project, the execution is aborted and an error message is issued.
 
-### users
+### `users`
 
 Nutzer können in der `users` Sektion als Array angegeben werden. Es wird bei jedem Request oder console Ausführung geprüft, ob der aktuelle Prozess mit einem der Nutzer ausgeführt wird. Ist dies nicht der Fall, wird ein Fehler ausgegeben und der prozess abgebochen.
 
@@ -112,7 +112,7 @@ Example for setting users:
 }
 ```
 
-### umask
+### `umask`
 
 The umask can be set in the `umask` section. The value is a string that is converted to an octal number. This ensures that the file permissions are set correctly for all requests and console executions.
 
