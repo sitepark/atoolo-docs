@@ -49,7 +49,11 @@ By using a symlink, however, there are a few things to consider for the PHP proj
   ```ini
   opcache.revalidate_path = 1
   ```
-  can change this behavior. This means that the opcache checks whether the real path has changed with every request.
+  can change this behavior. This means that the opcache checks whether the real path has changed with every request. This can be done in the web server configuration. For Apache, for example, in the VirtualHost configuration.
+  ```apache
+  SetEnv PHP_VALUE "opcache.revalidate_path = 1"
+  ```
+  This means that the configuration is retained even after a PHP minor update if the system creates a new configuration directory for the PHP version.
 - The configuration of the web server must also be adapted. The web server must be configured so that it follows the symlink. In Apache, for example, this can be achieved with the `FollowSymLinks` option.
 - When using the Symfony message bus, there are workers that wait for the messages. These workers must be restarted after a deployment.
 

@@ -7,6 +7,7 @@ nav:
       - develop/index.md
       - Components:
           - develop/components/index.md
+          - Runtime: develop/components/runtime.md
       - Bundle:
           - develop/bundles/index.md
           - Deployment: develop/bundles/deployment.md

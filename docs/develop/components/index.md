@@ -12,5 +12,6 @@ composer require atoolo/[component]
 
 ## All Atoolo Components
 
-| <div style="width:12em">Name</div> | Description |
-| ---------------------------------- | ----------- |
+| <div style="width:12em">Name</div> | Description                                                                                             |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| [`atoolo/runtime`](runtime.md)     | Composer plugin for initializing bootstrapping logic such as initialization and requirement validation. |
