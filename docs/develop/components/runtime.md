@@ -4,7 +4,7 @@ Composer plugin for initializing bootstrapping logic such as initialization and 
 
 ## Sources
 
-The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-runtime](https://github.com/sitepark/atoolo-citygov-bundle){:target="\_blank"}.
+The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-runtime](https://github.com/sitepark/atoolo-runtime){:target="\_blank"}.
 
 ## Installation
 
