@@ -82,6 +82,7 @@ composer config --json extra.atoolo.runtime \
 '        "{SCRIPT_OWNER}"'\
 '    ]'\
 '}'
+composer dump-autoload
 ```
 
 ### `ini.set`
