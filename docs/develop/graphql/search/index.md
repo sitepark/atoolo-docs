@@ -16,7 +16,7 @@ The index is searched for the text and the corresponding hits are returned. The 
 ```graphql
 query {
   search(input: {
-    text: "cacao coffee "
+    text: "cacao coffee"
     queryDefaultOperator: OR
   }) {
     ...
@@ -35,6 +35,42 @@ query {
     results {
       id
     }
+  }
+}
+```
+
+Quotation marks can be used to search for related phrases:
+
+```graphql
+query {
+  search(input: {
+    text: "cacao \"milk coffee\""
+  }) {
+    ...
+  }
+}
+```
+
+In order to force a word to be included in the search results, a `+` can be placed in front of the word:
+
+```graphql
+query {
+  search(input: {
+    text: "cacao coffee +milk"
+  }) {
+    ...
+  }
+}
+```
+
+To exclude a word from the search results, a `-` can be placed in front of the word:
+
+```graphql
+query {
+  search(input: {
+    text: "cacao coffee -milk"
+  }) {
+    ...
   }
 }
 ```
