@@ -26,9 +26,24 @@ CLI command:
 
 Request:
 
-```
-https://www.example.com/runtime-check
+```sh
+curl -H "Authorization: Bearer ${JWT}" https://www.example.com/api/runtime-check
 ```
 
-The URL is usually only accessible for defined IP addresses. The IP addresses can be stored in the configuration of the project.
-This URL can be used for monitoring systems to carry out runtime checks regularly and to be notified of errors.
+A `JWT` (Json Web Token) is required for the request. This can be created via a command line call. It is also necessary that a corresponding user has been created in the [`realm.properties`](ies-webnode.md/#realm-properties-file) file. The user must be assigned the role `SYSTEM_AUDITOR`.
+
+`realm.properties`
+
+```sh
+systemauditor: secure-password,SYSTEM_AUDITOR
+```
+
+Once the user has been created, the JWT can be created.
+
+```sh
+/var/www/example.com/www/app/bin/console \
+  lexik:jwt:generate-token \
+  --user-class 'Atoolo\Security\Entity\User' \
+  --ttl 3600 # in seconds
+  systemauditor
+```

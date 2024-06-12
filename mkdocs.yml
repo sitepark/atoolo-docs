@@ -5,6 +5,8 @@ nav:
   - Home: index.md
   - Operate:
       - operate/index.md
+      - Resource Channel: operate/resource-channel.md
+      - IES Webnode: operate/ies-webnode.md
       - Runtime checks: operate/runtime-checks.md
       - Indexing: operate/indexing.md
       - Worker: operate/worker.md
