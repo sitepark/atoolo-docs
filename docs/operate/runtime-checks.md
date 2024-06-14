@@ -71,6 +71,8 @@ su www-data \
   -c '/var/www/example.com/www/app/bin/console \
     lexik:jwt:generate-token \
     --user-class "Atoolo\Security\Entity\User" \
-    --ttl 3600 # in seconds \
+    --ttl 3600 \
     systemauditor'
 ```
+
+`--ttl 3600` sets the token to expire in one hour.
