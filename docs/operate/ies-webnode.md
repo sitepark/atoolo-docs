@@ -36,13 +36,13 @@ The IES-Webnode logs are stored in the directory `/var/log/sitepark/ies-webnode/
 
 ## JWT Keys
 
-The IES web node provides a private and a public key with which the PHP applications can sign and verify JWTs. The keys are stored outside the web applications and are therefore retained even when the applications are updated.
+The IES webnode provides a private and a public key with which the PHP applications can sign and verify JWTs. The keys are stored outside the web applications and are therefore retained even when the applications are updated.
 
 The keys are stored in the file `/srv/sitepark/ies-webnode/config/jwt`.
 
 ## Realm-Properties-File
 
-The `realm.properties` file is used for simple user administration. A user `api` with a randomly generated password is stored there during installation. The IES authenticates itself to the IES web node via this user.
+The `realm.properties` file is used for simple user administration. A user `api` with a randomly generated password is stored there during installation. The IES authenticates itself to the IES Webnode via this user.
 
 The file is stored in the directory `/srv/sitepark/ies-webnode/config/`.
 
