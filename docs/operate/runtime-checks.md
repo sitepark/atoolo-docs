@@ -18,13 +18,38 @@ The second level of runtime checks checks further requirements. These include
 
 The runtime checks of the second level are carried out by CLI command or by request.
 
-CLI command:
+## Check via CLI Command
 
 ```sh
-/var/www/example.com/www/app/bin/console runtime:check
+su www-data \
+  -s /bin/bash \
+  -c '/var/www/example.com/www/app/bin/console runtime:check'
 ```
 
-Request:
+(_See also [Console Command](console-command.md)_)
+
+The check via the CLI command can also be helpful to check whether the project still works after a PHP update.
+On a Debian-based system this could look like this:
+
+Assume the project is running with PHP version `8.2` and is to be updated to `8.3`. In this case, PHP `8.3` can be installed on the system first without activating it.
+
+Then a new PHP executable `/usr/bin/php8.3` is available. Also `php-fpm` is installed with PHP `8.3`. After starting the service, the socket `/run/php/php8.3-fpm.sock` is available.
+
+Now the `runtime:check` command has been executed with PHP `8.3` before the project is converted.
+
+```sh
+su www-data \
+  -s /bin/bash \
+  -c '/usr/bin/php8.3 /var/www/example.com/www/app/bin/console runtime:check \
+    --fpm-socket /run/php/php8.3-fpm.sock \
+    --skip worker'
+```
+
+`--skip worker` is necessary because the worker is a separate process and the runtime check only reads and evaluates the status file created by the worker and does not execute the checks with the new PHP version.
+
+After activating the new PHP version and restarting the worker, `runtime:check` can then be executed to display the worker checks as well.
+
+## Check via HTTP-Request
 
 ```sh
 curl -H "Authorization: Bearer ${JWT}" https://www.example.com/api/runtime-check
@@ -41,9 +66,11 @@ systemauditor: secure-password,SYSTEM_AUDITOR
 Once the user has been created, the JWT can be created.
 
 ```sh
-/var/www/example.com/www/app/bin/console \
-  lexik:jwt:generate-token \
-  --user-class 'Atoolo\Security\Entity\User' \
-  --ttl 3600 # in seconds
-  systemauditor
+su www-data \
+  -s /bin/bash \
+  -c '/var/www/example.com/www/app/bin/console \
+    lexik:jwt:generate-token \
+    --user-class "Atoolo\Security\Entity\User" \
+    --ttl 3600 # in seconds \
+    systemauditor'
 ```
