@@ -15,7 +15,6 @@ The workers are configured in a configuration file that is stored in `/etc/super
 ```ini
 [program:www-worker]
 command=/var/www/example.com/www/app/bin/console messenger:consume --all
-environment=LOG_BASENAME="www-worker",LOG_DIR="/var/log/fpm/"
 user=www-data
 umask=0002
 numprocs=2
