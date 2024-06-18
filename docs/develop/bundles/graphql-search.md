@@ -1,7 +1,3 @@
----
-status: draft
----
-
 # GraphQL Search Bundle
 
 The GraphQL Search Bundle uses the functionalities of the [Search bundle](../bundles/search/index.md) and extends the GraphQL interface with the ability to perform searches.

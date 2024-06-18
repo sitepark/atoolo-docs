@@ -1,7 +1,3 @@
----
-status: draft
----
-
 # Operate with Atoolo
 
 For projects using the Atoolo suite, Atoolo offers a range of tools to support the operation of the application.

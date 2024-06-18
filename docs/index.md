@@ -1,7 +1,3 @@
----
-status: draft
----
-
 # Atoolo
 
 _Web Data Processing Suite_

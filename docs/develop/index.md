@@ -1,7 +1,3 @@
----
-status: draft
----
-
 # Develop with Atoolo
 
 ## Components

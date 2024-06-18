@@ -1,7 +1,3 @@
----
-status: draft
----
-
 # Search Component
 
 Provides services with which a Solr index can be filled and searched for [resources](../resource.md) via a index.
