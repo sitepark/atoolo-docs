@@ -19,6 +19,7 @@ nav:
       - Bundle:
           - develop/bundles/index.md
           - Deployment: develop/bundles/deployment.md
+          - Runtime check: develop/bundles/runtime-check.md
           - Resource: develop/bundles/resource.md
           - Search: develop/bundles/search/index.md
           - Security: develop/bundles/security.md

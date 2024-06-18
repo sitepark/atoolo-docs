@@ -1,5 +1,7 @@
 # Deployment Bundle
 
+Symfony bundle to react to the deploy and undeploy of a project.
+
 ## Sources
 
 The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-deployment-bundle](https://github.com/sitepark/atoolo-deployment-bundle){:target="\_blank"}.

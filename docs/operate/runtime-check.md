@@ -1,4 +1,4 @@
-# Runtime checks
+# Runtime check
 
 Atoolo provides a set of runtime checks to ensure that the application is running as expected. These checks can be used to monitor the application's health and to detect potential issues early on.
 
