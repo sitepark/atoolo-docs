@@ -16,7 +16,6 @@ The workers are configured in a configuration file that is stored in `/etc/super
 [program:www-worker]
 command=/var/www/example.com/www/app/bin/console messenger:consume --all
 user=www-data
-umask=0002
 numprocs=2
 redirect_stderr=true
 stdout_logfile=/path/to/log/dir/www-worker.out.log
