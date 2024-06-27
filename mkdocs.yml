@@ -26,6 +26,7 @@ nav:
           - GraphQL search: develop/bundles/graphql-search.md
           - CityGov: develop/bundles/citygov.md
           - CityCall: develop/bundles/citycall.md
+          - Events Calendar: develop/bundles/events-calendar.md
       - GraphQL API:
           - develop/graphql/index.md
           - Getting started: develop/graphql/getting-started.md
