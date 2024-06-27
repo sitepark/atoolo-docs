@@ -8,7 +8,7 @@ nav:
       - Resource Channel: operate/resource-channel.md
       - Console Command: operate/console-command.md
       - IES Webnode: operate/ies-webnode.md
-      - Runtime checks: operate/runtime-checks.md
+      - Runtime check: operate/runtime-check.md
       - Indexing: operate/indexing.md
       - Worker: operate/worker.md
   - Develop:
