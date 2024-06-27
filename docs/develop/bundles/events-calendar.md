@@ -1,6 +1,6 @@
 # Events Calendar Bundle
 
-Events Calendar is a product of Sitepark. The main areas of application of the event calendar are the websites of municipalities and district administrations.
+The event calendar is a Sitepark product that enables the publication and management of events on websites. It offers various options for integrating events, including internal management via the content management system (CMS), external entry via web forms and import from other databases. Visitors to the website can search for events filtered by category, keyword and time period, enabling targeted and interest-based navigation. This module is a powerful tool for website operators to efficiently provide and manage information about upcoming events. It also provides integrations to external event calendars.
 
 ## Sources
 
