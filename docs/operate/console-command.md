@@ -12,7 +12,7 @@ This means that the command knows for which resource channel it is to be execute
 
 When working on the server, commands may be executed as `root` users. Some commands write files and in this case would also create the files so that they belong to the `root` user. This can lead to problems if the files are to be read or written by the PHP process.
 
-If the [Atoolo-Runtime-Checks](runtime-checks.md) are active, an error message is displayed here and the execution of the command is prevented.
+If the [Atoolo-Runtime-Checks](runtime-check.md) are active, an error message is displayed here and the execution of the command is prevented.
 Therefore, the `www-data` user should always be used here.
 
 The `su` command can be used for this:
