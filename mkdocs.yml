@@ -40,6 +40,8 @@ nav:
               - Indexing: develop/graphql/search/indexing.md
           - Customization: develop/graphql/customization/index.md
           - Reference: develop/graphql/reference.md
+      - Symfony Flex integration: develop/symfony-flex-integration.md
+
   - Contribute:
       - contribute/index.md
 extra:

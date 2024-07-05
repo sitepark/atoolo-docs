@@ -4,6 +4,10 @@ Atoolo Bundles are [Symfony Bundles](https://symfony.com/doc/current/bundles.htm
 
 ## Installation
 
+First add the Sitepark Flex Repository before installing a bundle.
+
+See: [Sitepark Flex Repository](../symfony-flex-integration.md#sitepark-flex-repository)
+
 Use [Composer](https://getcomposer.org/){:target="\_blank"} to install any of the Atoolo Bundles in your PHP project.
 Further information on the installation of Symfony bundles can be found [here](https://symfony.com/doc/current/setup.html#installing-packages){:target="\_blank"}.
 

@@ -10,23 +10,9 @@ A Symfony 6.4 project with Symfony-Flex is required. In this project the GraphQL
 
 For GraphQl integration the [`overblog/GraphQLBundle`](https://github.com/overblog/GraphQLBundle){:target="\_blank"} Symfony bundle is used.
 
-It is integrated via the [Symfony Flex installation](https://github.com/overblog/GraphQLBundle/blob/master/docs/index.md#symfony-flex-installation){:target="\_blank"}.
+First add the Sitepark Flex Repository before installing the bundle.
 
-The Symfony Flex Recipes from Sitepark must be used to ensure that the configurations are created correctly.
-
-To do this, the following entry must be added to `composer.json` of the Symfony project:
-
-```sh
-composer config extra.symfony.allow-contrib true
-composer config --json extra.symfony.endpoint \
-'["'\
-'https://api.github.com/repos/sitepark/'\
-'symfony-recipes/contents/index.json'\
-'?ref=flex/main'\
-'"]'
-composer config --json --merge extra.symfony.endpoint \
-'["flex://defaults"]'
-```
+See: [Sitepark Flex Repository](../symfony-flex-integration.md#sitepark-flex-repository)
 
 The installation is then carried out via `composer require`.
 

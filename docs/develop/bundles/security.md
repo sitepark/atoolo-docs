@@ -10,6 +10,10 @@ The sources can be accessed via the GibHub project [https://github.com/sitepark/
 
 ## Installation
 
+First add the Sitepark Flex Repository before installing the bundle.
+
+See: [Sitepark Flex Repository](../symfony-flex-integration.md#sitepark-flex-repository)
+
 Use [Composer](https://getcomposer.org/){:target="\_blank"} to install this component in your PHP project:
 
 ```sh
