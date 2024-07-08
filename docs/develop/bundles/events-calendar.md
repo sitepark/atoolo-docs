@@ -23,3 +23,13 @@ composer require atoolo/events-calendar-bundle
 [RCE-Event](https://www.rce.de/produkte/rce-event/uebersicht/){:target="\_blank"} is establishing itself as the standard in German-speaking countries for the recording, administration, distribution and publication of events.
 
 This bundle provides an indexer that transfers the events from RCE-Event to the search index. This allows the events to be found as an external page via the search.
+
+To activate the RCE event indexer, the file `config/rce-event.php` must be created in the resource channel. This is usually done via a configuration article in the CMS. To activate the scheduler, the following service must be activated in the `config/services.yaml` of the project:
+
+```yaml
+Atoolo\EventsCalendar\Service\Indexer\RceEventIndexerScheduler:
+  arguments:
+    - "%atoolo_events_calendar.indexer.rce_event_indexer_scheduler.cron%"
+```
+
+The parameter `%atoolo_events_calendar.indexer.rce_event_indexer_scheduler.cron%` has the default value `'0 6-20/2 * * *` (every 2 hours from 6am to 8pm)
