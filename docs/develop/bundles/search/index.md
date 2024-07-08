@@ -45,6 +45,53 @@ To be able to search in a Solr index, it must first be filled. This is done via 
 
 An [Indexer service](https://github.com/sitepark/atoolo-search/blob/main/src/Indexer.php){:target="\_blank"} is available for indexing, which can be used to index and remove data from the index.
 
+### Internal Resource Indexer
+
+Der Internal Resource Indexer ist der Standard-Indexer dieses Bundles und wird verwendet, um die internen Ressourcen zu indizieren. Die internen Ressourcen sind die Ressourcen, die in der Regel im CMS verwaltet werden. Der Indexer kann verwendet werden, um die internen Ressourcen zu indizieren und zu entfernen.
+
+### Solr Xml Indexer
+
+In order to better convert systems with existing indexers, the SolrXMLIndexer can be used to read the existing Solr-XML files and thus integrate them into the Atoolo-Indexer technology.
+
+Beispiel für die Integration des SolrXMLIndexers:
+
+`services.yaml`
+
+```yaml
+customer.indexer.mysource_aborter:
+  class: Atoolo\Search\Service\Indexer\IndexingAborter
+  arguments:
+    - "%kernel.project_dir%/var/cache/"
+    - "mysource"
+
+customer.indexer.mysource_progress_state:
+  class: Atoolo\Search\Service\Indexer\IndexerProgressState
+  arguments:
+    - "@atoolo_search.index_name"
+    - "@atoolo_search.indexer.status_store"
+    - "mysource"
+
+customer.indexer.mysource_indexer:
+  class: Atoolo\Search\Service\Indexer\SolrXmlIndexer
+  arguments:
+    - "@atoolo_search.index_name"
+    - "@customer.indexer.mysource_progress_state"
+    - "@customer.indexer.mysource_aborter"
+    - "@atoolo_search.indexer.solr_index_service"
+    - "@atoolo_search.indexer.configuration_loader"
+    - "@atoolo_search.indexer.solr_xml_reader"
+    - "mysource"
+  tags: ["atoolo_search.indexer"]
+
+customer.indexer.mysource_indexer_scheduler:
+  class: Atoolo\Search\Service\Indexer\SolrXmlIndexerScheduler
+  arguments:
+    - "0 6-20/2 * * *" # cron expression, every 2 hours from 6am to 8pm
+    - "@customer.indexer.mysource_indexer"
+  tags:
+    - scheduler.schedule_provider: { name: "mysource-indexer-scheduler" }
+```
+
 ### Custom Document Enricher
 
 Document Enricher allow the document that is passed to Solr for indexing to be enriched with the desired fields. Here it is possible to react to product or customer-specific object types and to set the document according to requirements.
