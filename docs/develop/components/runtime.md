@@ -40,6 +40,16 @@ If different system users need to have access to files, this can be solved in su
 
 The `atoolo/runtime` package can also be used for this. An umask can be defined for the project, which is then set at runtime so that all new files created by PHP have the corresponding rights.
 
+### HTTP client via proxy
+
+If an HTTP client is used in the project, it may be necessary to use a proxy.
+
+On Linux systems, the proxy to be used is often set as an environment variable in the `/etc/environment` file. However, this file is not taken into account by FPM, for example. The [Worker processes](../../operate/worker.md) started by Supervisor do not take this file into account either.
+
+One possibility would be to configure the individual services in the `systemd` configuration via `EnvironmentFile`. However, this will not survive a PHP-FPM update to a new PHP minor version, for example, as the configuration file for Debian systems is `/etc/systemd/system/multi-user.target.wants/php8.3-fpm.service`. It is easy to forget to adjust the configuration after an update.
+
+The `atoolo/runtime` package therefore offers the option of defining an environment file in the project, which is then read in with every request and console execution. This ensures that, for example, the proxy settings are always correct.
+
 ## Usage
 
 The necessary configurations for the project are stored in the `composer.json` file. The `extra` area is used for this. The settings for the runtime of the project can be stored below `atoolo.runtime`.
@@ -71,6 +81,9 @@ Example for setting the configuration via `composer config`:
 ```sh
 composer config --json extra.atoolo.runtime \
 '{'\
+'    "env": {'\
+'        "file": "/etc/environment"'\
+'    },'\
 '    "ini": {'\
 '        "set": {'\
 '            "date.timezone": "Europe/Berlin"'\
@@ -148,6 +161,26 @@ The umask can be set in the `umask` section. The value is a string that is conve
   }
 }
 ```
+
+### `env.file`
+
+This can be used to specify an environment file such as `/etc/environment`. This is read in with every request and console execution. The values are saved in `$_ENV` and `$_SERVER`. Existing values are not overwritten.
+
+```json
+{
+  "extra": {
+    "atoolo": {
+      "runtime": {
+        "env": {
+          "file": "/etc/environment"
+        }
+      }
+    }
+  }
+}
+```
+
+If the same Variable with different values are set via the dependent packages and the project, the execution is aborted and an error message is issued.
 
 ## Functionality
 
