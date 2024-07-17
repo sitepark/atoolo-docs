@@ -145,7 +145,7 @@ query {
 }
 ```
 
-## Id filter
+## Ids filter
 
 This filter can be used to search for a list of resources with specific IDs.
 
