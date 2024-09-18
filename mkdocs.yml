@@ -24,6 +24,7 @@ nav:
           - Search: develop/bundles/search/index.md
           - Security: develop/bundles/security.md
           - GraphQL search: develop/bundles/graphql-search.md
+          - Form: develop/bundles/form.md
           - CityGov: develop/bundles/citygov.md
           - CityCall: develop/bundles/citycall.md
           - Events Calendar: develop/bundles/events-calendar.md
@@ -40,6 +41,11 @@ nav:
               - Indexing: develop/graphql/search/indexing.md
           - Customization: develop/graphql/customization/index.md
           - Reference: develop/graphql/reference.md
+      - Form API:
+          - develop/form/index.md
+          - Controls: develop/form/controls.md
+          - Annotations: develop/form/annotations.md
+          - Layouts: develop/form/layouts.md
       - Symfony Flex integration: develop/symfony-flex-integration.md
 
   - Contribute:
@@ -93,10 +99,12 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
+      alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
   - attr_list
+  - def_list
   - md_in_html
   - abbr
   - pymdownx.snippets
