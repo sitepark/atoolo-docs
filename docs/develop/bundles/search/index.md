@@ -27,7 +27,7 @@ The IES (Sitepark's content management system) supports multilingual resource ch
 The name of the index can be determined via the interface `IndexName`. A method `IndexName::name(ResourceLanguage $lang): string` is made available for this purpose.
 
 Currently, only the class `ResourceChannelBasedIndexName` implements the interface `IndexName`. This class determines the index name based on the resource channel.
-See also: [Resource Channel](../resource.md#resource-channel).
+See also: [Resource Channel](../resource.md#resourcechannel).
 
 ```php
 $indexName = new ResourceChannelBasedIndexName($resourceChannel);
@@ -305,7 +305,7 @@ $builder->text('chocolate')
 
 #### Filter key
 
-A `key` can also be specified for filters. This is only necessary if the filter only influences the facet search. The key is then used for the faceted search to identify the filters that must not be taken into account. See [Facetts](#facets)
+A `key` can also be specified for filters. This is only necessary if the filter only influences the facet search. The key is then used for the faceted search to identify the filters that must not be taken into account. See [Facetes](#facetes).
 
 #### Facetes
 

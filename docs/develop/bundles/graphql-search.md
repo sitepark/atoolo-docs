@@ -28,12 +28,12 @@ To make a new teaser available, a class must be created that implements the inte
 class NewsTeaser extends Teaser
 {
     public function __construct(
-        ?string $url,
+        ?Link $link,
         public readonly ?string $headline,
         public readonly ?string $text,
         public readonly Resource $resource
     ) {
-        parent::__construct($url);
+        parent::__construct($link);
     }
 }
 ```
@@ -50,28 +50,27 @@ For the factory, the method `TeaserFactory::create(Resource $resource): Teaser` 
 class NewsTeaserFactory implements TeaserFactory
 {
     public function __construct(
-        private readonly UrlRewriter $urlRewriter
+        private readonly LinkFactory $linkFactory,
     ) {
     }
 
-    public function create(Resource $resource): Teaser
+     public function create(Resource $resource): Teaser
     {
-        $url = $this->urlRewriter->rewrite(
-            UrlRewriterType::LINK,
-            $resource->location
+        $link = $this->linkFactory->create(
+            $resource,
         );
 
         $headline = $resource->data->getString(
             'base.teaser.headline',
-            $resource->name
+            $resource->name,
         );
         $text = $resource->data->getString('base.teaser.text');
 
         return new NewsTeaser(
-            $url,
+            $link,
             $headline,
-            $text,
-            $resource
+            $text === '' ? null : $text,
+            $resource,
         );
     }
 }
@@ -108,13 +107,14 @@ Here is an example of a method without variables:
 ```php
 class NewsTeaserResolver implements Resolver
 {
-    // ...
+    public function __construct(
+        private readonly ResourceDateTimeResolver $dateResolver,
+    ) {}
 
     public function getDate(
-        NewsTeaser $teaser
+        NewsTeaser $teaser,
     ): ?DateTime {
-      // ... determine the date of the teaser
-      return $date;
+        return $this->dateResolver->getDate($teaser->resource);
     }
 }
 ```
@@ -126,18 +126,15 @@ use Overblog\GraphQLBundle\Definition\ArgumentInterface;
 
 class NewsTeaserResolver implements Resolver
 {
-    // ...
+    public function __construct(
+        private readonly ResourceAssetResolver $assetResolver,
+    ) {}
 
     public function getAsset(
         NewsTeaser $teaser,
-        ArgumentInterface $args
+        ArgumentInterface $args,
     ): ?Asset {
-
-      /** @var string $variant */
-      $variant = $args['variant'];
-
-      // ... determine the asset of the teaser
-      return $asset;
+        return $this->assetResolver->getAsset($teaser->resource, $args);
     }
 }
 ```
