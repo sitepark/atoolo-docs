@@ -16,7 +16,7 @@ query {
 }
 ```
 
-As a result, the suggestions that would lead to hits are returned. The number of hits is indicated with .
+The suggestions that would lead to hits are returned as a result. `term` contains the suggested term, `hits` returns the number of times the term is contained in the index. This is **not** the number of search results that would be expected from a search with the term.
 
 ```json
 {
