@@ -82,13 +82,13 @@ The form editor is used to define the form on the CMS page. The editor generates
 
 However, there are also extended controls for which a separate renderer and validator must be implemented on the frontend side.
 
-The layouts and their properties are described on the (Layouts)[layouts.md] page.
+The layouts and their properties are described on the [Layouts](layouts.md) page.
 
-The controls and their properties are described on the (Controls)[controls.md] page.
+The controls and their properties are described on the [Controls](controls.md) page.
 
 The form editor also defines a UI schema element `Annotation`, which is not included in the standard. This can be used to place annotations and notes in the form.
 
-The annotaions are described on the (Annotations)[annotations.md] page.
+The annotaions are described on the [Annotations](annotations.md) page.
 
 ## Submit processing
 
