@@ -54,6 +54,40 @@ class MyProcessor implements SubmitProcessor
 }
 ```
 
+### IpLimiter (`ip-limiter`)
+
+The IP limiter is used to limit the number of form submissions per IP address.
+
+The configuration can be changed in the project via a customized configuration.
+
+`config/packages/rate_limiter.yaml`
+
+```yaml
+rate_limiter:
+  form_submit_by_ip:
+    # https://symfony.com/doc/current/rate_limiter.html#token-bucket-rate-limiter
+    policy: "token_bucket"
+    limit: 20
+    rate: { interval: "15 minutes", amount: 5 }
+```
+
+### SubmitLimiter (`submit-limiter`)
+
+The submit limiter is used to limit the number of form submissions across all forms and IP addresses.
+
+The configuration can be changed in the project via a customized configuration.
+
+`config/packages/rate_limiter.yaml`
+
+```yaml
+rate_limiter:
+  form_submit_total:
+    # https://symfony.com/doc/current/rate_limiter.html#token-bucket-rate-limiter
+    policy: "token_bucket"
+    limit: 1000
+    rate: { interval: "15 minutes", amount: 100 }
+```
+
 ### JsonSchemaValidator (`json-schema-validator`)
 
 The `JsonSchemaValidator`-SubmitProcessor can be used to validate form data against a JSON schema.
