@@ -13,12 +13,12 @@
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>indexerStatus</strong></td>
+<td colspan="2" valign="top"><strong id="rootquery.indexerstatus">indexerStatus</strong></td>
 <td valign="top"><a href="#indexerstatus">IndexerStatus</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>suggest</strong></td>
+<td colspan="2" valign="top"><strong id="rootquery.suggest">suggest</strong></td>
 <td valign="top"><a href="#suggestresult">SuggestResult</a>!</td>
 <td></td>
 </tr>
@@ -28,12 +28,12 @@
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>ping</strong></td>
+<td colspan="2" valign="top"><strong id="rootquery.ping">ping</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>search</strong></td>
+<td colspan="2" valign="top"><strong id="rootquery.search">search</strong></td>
 <td valign="top"><a href="#searchresult">SearchResult</a>!</td>
 <td></td>
 </tr>
@@ -57,12 +57,12 @@
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>index</strong></td>
+<td colspan="2" valign="top"><strong id="rootmutation.index">index</strong></td>
 <td valign="top"><a href="#indexerstatus">IndexerStatus</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>indexUpdate</strong></td>
+<td colspan="2" valign="top"><strong id="rootmutation.indexupdate">indexUpdate</strong></td>
 <td valign="top"><a href="#indexerstatus">IndexerStatus</a>!</td>
 <td></td>
 </tr>
@@ -76,7 +76,7 @@ List of resource paths that are to be updated.
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>indexRemove</strong></td>
+<td colspan="2" valign="top"><strong id="rootmutation.indexremove">indexRemove</strong></td>
 <td valign="top"><a href="#boolean">Boolean</a>!</td>
 <td></td>
 </tr>
@@ -90,7 +90,7 @@ list of id's of the entries to be deleted
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>indexAbort</strong></td>
+<td colspan="2" valign="top"><strong id="rootmutation.indexabort">indexAbort</strong></td>
 <td valign="top"><a href="#boolean">Boolean</a>!</td>
 <td></td>
 </tr>
@@ -114,16 +114,31 @@ An article teaser is a short summary or preview designed to pique the reader's i
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>url</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
+<td colspan="2" valign="top"><strong id="articleteaser.url">url</strong> ⚠️</td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
 Teaser URL
 
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+Use field 'link' instead
+
+</blockquote>
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>date</strong></td>
+<td colspan="2" valign="top"><strong id="articleteaser.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td>
+
+Teaser Link
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.date">date</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
 <td>
 
@@ -132,7 +147,7 @@ Teaser date
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>headline</strong></td>
+<td colspan="2" valign="top"><strong id="articleteaser.headline">headline</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td>
 
@@ -141,7 +156,7 @@ Teaser headline
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>text</strong></td>
+<td colspan="2" valign="top"><strong id="articleteaser.text">text</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td>
 
@@ -150,7 +165,7 @@ Teaser text
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>kicker</strong></td>
+<td colspan="2" valign="top"><strong id="articleteaser.kicker">kicker</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td>
 
@@ -159,7 +174,147 @@ Teaser kicker text
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>asset</strong></td>
+<td colspan="2" valign="top"><strong id="articleteaser.asset">asset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td>
+
+Teaser asset can be e.g. pictures or videos
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The teaser variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.symbolicimage">symbolicImage</strong></td>
+<td valign="top"><a href="#symbolicimage">SymbolicImage</a></td>
+<td>
+
+symbolic image associated with the teaser
+
+</td>
+</tr>
+</tbody>
+</table>
+
+### EventDate
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="eventdate.start">start</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventdate.end">end</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventdate.rrule">rrule</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventdate.isfullday">isFullDay</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventdate.hasstarttime">hasStartTime</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventdate.hasendtime">hasEndTime</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### EventTeaser
+
+Event teaser
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.url">url</strong> ⚠️</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser URL
+
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+Use field 'link' instead
+
+</blockquote>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td>
+
+Teaser Link
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.headline">headline</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser headline
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.text">text</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser text
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.kicker">kicker</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser kicker text
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.asset">asset</strong></td>
 <td valign="top"><a href="#asset">Asset</a></td>
 <td>
 
@@ -173,6 +328,24 @@ Teaser asset can be e.g. pictures or videos
 <td>
 
 The teaser variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.symbolicimage">symbolicImage</strong></td>
+<td valign="top"><a href="#symbolicimage">SymbolicImage</a></td>
+<td>
+
+symbolic image associated with the teaser
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.eventdates">eventDates</strong></td>
+<td valign="top">[<a href="#eventdate">EventDate</a>]</td>
+<td>
+
+event dates
 
 </td>
 </tr>
@@ -192,12 +365,12 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>key</strong></td>
+<td colspan="2" valign="top"><strong id="facet.key">key</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>hits</strong></td>
+<td colspan="2" valign="top"><strong id="facet.hits">hits</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td></td>
 </tr>
@@ -217,12 +390,12 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>key</strong></td>
+<td colspan="2" valign="top"><strong id="facetgroup.key">key</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>facets</strong></td>
+<td colspan="2" valign="top"><strong id="facetgroup.facets">facets</strong></td>
 <td valign="top">[<a href="#facet">Facet</a>!]!</td>
 <td></td>
 </tr>
@@ -242,22 +415,22 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>root</strong></td>
+<td colspan="2" valign="top"><strong id="hierarchy.root">root</strong></td>
 <td valign="top"><a href="#resource">Resource</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>primaryParent</strong></td>
+<td colspan="2" valign="top"><strong id="hierarchy.primaryparent">primaryParent</strong></td>
 <td valign="top"><a href="#resource">Resource</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>primaryPath</strong></td>
+<td colspan="2" valign="top"><strong id="hierarchy.primarypath">primaryPath</strong></td>
 <td valign="top">[<a href="#resource">Resource</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>children</strong></td>
+<td colspan="2" valign="top"><strong id="hierarchy.children">children</strong></td>
 <td valign="top">[<a href="#resource">Resource</a>!]</td>
 <td></td>
 </tr>
@@ -277,37 +450,37 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>copyright</strong></td>
+<td colspan="2" valign="top"><strong id="image.copyright">copyright</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>caption</strong></td>
+<td colspan="2" valign="top"><strong id="image.caption">caption</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>description</strong></td>
+<td colspan="2" valign="top"><strong id="image.description">description</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>alternativeText</strong></td>
+<td colspan="2" valign="top"><strong id="image.alternativetext">alternativeText</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>original</strong></td>
+<td colspan="2" valign="top"><strong id="image.original">original</strong></td>
 <td valign="top"><a href="#imagesource">ImageSource</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>characteristic</strong></td>
+<td colspan="2" valign="top"><strong id="image.characteristic">characteristic</strong></td>
 <td valign="top"><a href="#imagecharacteristic">ImageCharacteristic</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>sources</strong></td>
+<td colspan="2" valign="top"><strong id="image.sources">sources</strong></td>
 <td valign="top">[<a href="#imagesource">ImageSource</a>!]!</td>
 <td></td>
 </tr>
@@ -327,27 +500,27 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>variant</strong></td>
+<td colspan="2" valign="top"><strong id="imagesource.variant">variant</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>url</strong></td>
+<td colspan="2" valign="top"><strong id="imagesource.url">url</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>width</strong></td>
+<td colspan="2" valign="top"><strong id="imagesource.width">width</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>height</strong></td>
+<td colspan="2" valign="top"><strong id="imagesource.height">height</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>mediaQuery</strong></td>
+<td colspan="2" valign="top"><strong id="imagesource.mediaquery">mediaQuery</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
@@ -367,48 +540,93 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>startTime</strong></td>
+<td colspan="2" valign="top"><strong id="indexerstatus.starttime">startTime</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>endTime</strong></td>
+<td colspan="2" valign="top"><strong id="indexerstatus.endtime">endTime</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>lastUpdate</strong></td>
+<td colspan="2" valign="top"><strong id="indexerstatus.lastupdate">lastUpdate</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>total</strong></td>
+<td colspan="2" valign="top"><strong id="indexerstatus.total">total</strong></td>
 <td valign="top"><a href="#int">Int</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>processed</strong></td>
+<td colspan="2" valign="top"><strong id="indexerstatus.processed">processed</strong></td>
 <td valign="top"><a href="#int">Int</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>skipped</strong></td>
+<td colspan="2" valign="top"><strong id="indexerstatus.skipped">skipped</strong></td>
 <td valign="top"><a href="#int">Int</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>updated</strong></td>
+<td colspan="2" valign="top"><strong id="indexerstatus.updated">updated</strong></td>
 <td valign="top"><a href="#int">Int</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>errors</strong></td>
+<td colspan="2" valign="top"><strong id="indexerstatus.errors">errors</strong></td>
 <td valign="top"><a href="#int">Int</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>statusLine</strong></td>
+<td colspan="2" valign="top"><strong id="indexerstatus.statusline">statusLine</strong></td>
 <td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### Link
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="link.url">url</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="link.label">label</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="link.accessibilitylabel">accessibilityLabel</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="link.description">description</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="link.opensnewwindow">opensNewWindow</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="link.isexternal">isExternal</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
 <td></td>
 </tr>
 </tbody>
@@ -427,38 +645,80 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>url</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
+<td colspan="2" valign="top"><strong id="mediateaser.url">url</strong> ⚠️</td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
 Teaser URL
 
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+Use field 'link' instead
+
+</blockquote>
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>headline</strong></td>
+<td colspan="2" valign="top"><strong id="mediateaser.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td>
+
+Teaser Link
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.headline">headline</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>text</strong></td>
+<td colspan="2" valign="top"><strong id="mediateaser.text">text</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>kicker</strong></td>
+<td colspan="2" valign="top"><strong id="mediateaser.kicker">kicker</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>contentType</strong></td>
+<td colspan="2" valign="top"><strong id="mediateaser.contenttype">contentType</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>contentLength</strong></td>
+<td colspan="2" valign="top"><strong id="mediateaser.contentlength">contentLength</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.asset">asset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td>
+
+Teaser asset can be e.g. pictures or videos
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The teaser variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.symbolicimage">symbolicImage</strong></td>
+<td valign="top"><a href="#symbolicimage">SymbolicImage</a></td>
+<td>
+
+symbolic image associated with the teaser
+
+</td>
 </tr>
 </tbody>
 </table>
@@ -478,16 +738,31 @@ An news teaser is a short summary or preview designed to pique the reader's inte
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>url</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
+<td colspan="2" valign="top"><strong id="newsteaser.url">url</strong> ⚠️</td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
 Teaser URL
 
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+Use field 'link' instead
+
+</blockquote>
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>date</strong></td>
+<td colspan="2" valign="top"><strong id="newsteaser.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td>
+
+Teaser Link
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.date">date</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
 <td>
 
@@ -496,7 +771,7 @@ News Teaser date
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>headline</strong></td>
+<td colspan="2" valign="top"><strong id="newsteaser.headline">headline</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td>
 
@@ -505,7 +780,7 @@ News Teaser headline
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>text</strong></td>
+<td colspan="2" valign="top"><strong id="newsteaser.text">text</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td>
 
@@ -514,7 +789,16 @@ News Teaser text
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>asset</strong></td>
+<td colspan="2" valign="top"><strong id="newsteaser.kicker">kicker</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser kicker text
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.asset">asset</strong></td>
 <td valign="top"><a href="#asset">Asset</a></td>
 <td>
 
@@ -528,6 +812,15 @@ Teaser asset can be e.g. pictures or videos
 <td>
 
 The teaser variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.symbolicimage">symbolicImage</strong></td>
+<td valign="top"><a href="#symbolicimage">SymbolicImage</a></td>
+<td>
+
+symbolic image associated with the teaser
 
 </td>
 </tr>
@@ -547,38 +840,63 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>id</strong></td>
+<td colspan="2" valign="top"><strong id="resource.id">id</strong></td>
 <td valign="top"><a href="#id">ID</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>name</strong></td>
+<td colspan="2" valign="top"><strong id="resource.name">name</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>location</strong></td>
+<td colspan="2" valign="top"><strong id="resource.location">location</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>objectType</strong></td>
+<td colspan="2" valign="top"><strong id="resource.objecttype">objectType</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>contentSectionTypes</strong></td>
+<td colspan="2" valign="top"><strong id="resource.contentsectiontypes">contentSectionTypes</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>teaser</strong></td>
+<td colspan="2" valign="top"><strong id="resource.teaser">teaser</strong></td>
 <td valign="top"><a href="#teaser">Teaser</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>navigation</strong></td>
+<td colspan="2" valign="top"><strong id="resource.navigation">navigation</strong></td>
 <td valign="top"><a href="#hierarchy">Hierarchy</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.kicker">kicker</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.date">date</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.asset">asset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.symbolicimage">symbolicImage</strong></td>
+<td valign="top"><a href="#symbolicimage">SymbolicImage</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -597,32 +915,32 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>total</strong></td>
+<td colspan="2" valign="top"><strong id="searchresult.total">total</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>queryTime</strong></td>
+<td colspan="2" valign="top"><strong id="searchresult.querytime">queryTime</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>offset</strong></td>
+<td colspan="2" valign="top"><strong id="searchresult.offset">offset</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>limit</strong></td>
+<td colspan="2" valign="top"><strong id="searchresult.limit">limit</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>results</strong></td>
+<td colspan="2" valign="top"><strong id="searchresult.results">results</strong></td>
 <td valign="top">[<a href="#resource">Resource</a>!]!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>facetGroups</strong></td>
+<td colspan="2" valign="top"><strong id="searchresult.facetgroups">facetGroups</strong></td>
 <td valign="top">[<a href="#facetgroup">FacetGroup</a>!]!</td>
 <td></td>
 </tr>
@@ -642,12 +960,12 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>suggestions</strong></td>
+<td colspan="2" valign="top"><strong id="suggestresult.suggestions">suggestions</strong></td>
 <td valign="top">[<a href="#suggestion">Suggestion</a>!]!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>queryTime</strong></td>
+<td colspan="2" valign="top"><strong id="suggestresult.querytime">queryTime</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td></td>
 </tr>
@@ -667,13 +985,48 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>term</strong></td>
+<td colspan="2" valign="top"><strong id="suggestion.term">term</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>hits</strong></td>
+<td colspan="2" valign="top"><strong id="suggestion.hits">hits</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### SymbolicImage
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="symbolicimage.copyright">copyright</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="symbolicimage.caption">caption</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="symbolicimage.description">description</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="symbolicimage.url">url</strong></td>
+<td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -693,17 +1046,17 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>from</strong></td>
+<td colspan="2" valign="top"><strong id="absolutedaterangeinputfacet.from">from</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>to</strong></td>
+<td colspan="2" valign="top"><strong id="absolutedaterangeinputfacet.to">to</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>gap</strong></td>
+<td colspan="2" valign="top"><strong id="absolutedaterangeinputfacet.gap">gap</strong></td>
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
 <td></td>
 </tr>
@@ -722,13 +1075,52 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>from</strong></td>
+<td colspan="2" valign="top"><strong id="absolutedaterangeinputfilter.from">from</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>to</strong></td>
+<td colspan="2" valign="top"><strong id="absolutedaterangeinputfilter.to">to</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### InputBoosting
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="inputboosting.queryfields">queryFields</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputboosting.phrasefields">phraseFields</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputboosting.boostqueries">boostQueries</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputboosting.boostfunctions">boostFunctions</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputboosting.tie">tie</strong></td>
+<td valign="top"><a href="#float">Float</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -746,47 +1138,47 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>key</strong></td>
+<td colspan="2" valign="top"><strong id="inputfacet.key">key</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>excludeFilter</strong></td>
+<td colspan="2" valign="top"><strong id="inputfacet.excludefilter">excludeFilter</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>objectTypes</strong></td>
+<td colspan="2" valign="top"><strong id="inputfacet.objecttypes">objectTypes</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>contentSectionTypes</strong></td>
+<td colspan="2" valign="top"><strong id="inputfacet.contentsectiontypes">contentSectionTypes</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>categories</strong></td>
+<td colspan="2" valign="top"><strong id="inputfacet.categories">categories</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>sites</strong></td>
+<td colspan="2" valign="top"><strong id="inputfacet.sites">sites</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>groups</strong></td>
+<td colspan="2" valign="top"><strong id="inputfacet.groups">groups</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>absoluteDateRange</strong></td>
+<td colspan="2" valign="top"><strong id="inputfacet.absolutedaterange">absoluteDateRange</strong></td>
 <td valign="top"><a href="#absolutedaterangeinputfacet">AbsoluteDateRangeInputFacet</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>relativeDateRange</strong></td>
+<td colspan="2" valign="top"><strong id="inputfacet.relativedaterange">relativeDateRange</strong></td>
 <td valign="top"><a href="#relativedaterangeinputfacet">RelativeDateRangeInputFacet</a></td>
 <td></td>
 </tr>
@@ -805,62 +1197,67 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>key</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.key">key</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>objectTypes</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.ids">ids</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>contentSectionTypes</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.objecttypes">objectTypes</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>categories</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.contentsectiontypes">contentSectionTypes</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>sites</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.categories">categories</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>groups</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.sites">sites</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>absoluteDateRange</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.groups">groups</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.absolutedaterange">absoluteDateRange</strong></td>
 <td valign="top"><a href="#absolutedaterangeinputfilter">AbsoluteDateRangeInputFilter</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>relativeDateRange</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.relativedaterange">relativeDateRange</strong></td>
 <td valign="top"><a href="#relativedaterangeinputfilter">RelativeDateRangeInputFilter</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>and</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.and">and</strong></td>
 <td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>or</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.or">or</strong></td>
 <td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>not</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.not">not</strong></td>
 <td valign="top"><a href="#inputfilter">InputFilter</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>query</strong></td>
+<td colspan="2" valign="top"><strong id="inputfilter.query">query</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
@@ -879,27 +1276,27 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>name</strong></td>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.name">name</strong></td>
 <td valign="top"><a href="#sortdirection">SortDirection</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>headline</strong></td>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.headline">headline</strong></td>
 <td valign="top"><a href="#sortdirection">SortDirection</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>date</strong></td>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.date">date</strong></td>
 <td valign="top"><a href="#sortdirection">SortDirection</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>natural</strong></td>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.natural">natural</strong></td>
 <td valign="top"><a href="#sortdirection">SortDirection</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>score</strong></td>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.score">score</strong></td>
 <td valign="top"><a href="#sortdirection">SortDirection</a></td>
 <td></td>
 </tr>
@@ -918,32 +1315,32 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>base</strong></td>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.base">base</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>before</strong></td>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.before">before</strong></td>
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>after</strong></td>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.after">after</strong></td>
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>gap</strong></td>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.gap">gap</strong></td>
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>roundStart</strong></td>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.roundstart">roundStart</strong></td>
 <td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>roundEnd</strong></td>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.roundend">roundEnd</strong></td>
 <td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
 <td></td>
 </tr>
@@ -962,27 +1359,27 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>base</strong></td>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.base">base</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>before</strong></td>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.before">before</strong></td>
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>after</strong></td>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.after">after</strong></td>
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>roundStart</strong></td>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.roundstart">roundStart</strong></td>
 <td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>roundEnd</strong></td>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.roundend">roundEnd</strong></td>
 <td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
 <td></td>
 </tr>
@@ -1001,53 +1398,58 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>text</strong></td>
+<td colspan="2" valign="top"><strong id="searchinput.text">text</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>offset</strong></td>
+<td colspan="2" valign="top"><strong id="searchinput.offset">offset</strong></td>
 <td valign="top"><a href="#int">Int</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>limit</strong></td>
+<td colspan="2" valign="top"><strong id="searchinput.limit">limit</strong></td>
 <td valign="top"><a href="#int">Int</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>lang</strong></td>
+<td colspan="2" valign="top"><strong id="searchinput.lang">lang</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>defaultQueryOperator</strong></td>
+<td colspan="2" valign="top"><strong id="searchinput.defaultqueryoperator">defaultQueryOperator</strong></td>
 <td valign="top"><a href="#queryoperator">QueryOperator</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>sort</strong></td>
+<td colspan="2" valign="top"><strong id="searchinput.sort">sort</strong></td>
 <td valign="top">[<a href="#inputsortcriteria">InputSortCriteria</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>filter</strong></td>
+<td colspan="2" valign="top"><strong id="searchinput.filter">filter</strong></td>
 <td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>facets</strong></td>
+<td colspan="2" valign="top"><strong id="searchinput.facets">facets</strong></td>
 <td valign="top">[<a href="#inputfacet">InputFacet</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>archive</strong></td>
+<td colspan="2" valign="top"><strong id="searchinput.archive">archive</strong></td>
 <td valign="top"><a href="#boolean">Boolean</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>timeZone</strong></td>
+<td colspan="2" valign="top"><strong id="searchinput.timezone">timeZone</strong></td>
 <td valign="top"><a href="#datetimezone">DateTimeZone</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.boosting">boosting</strong></td>
+<td valign="top"><a href="#inputboosting">InputBoosting</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -1065,27 +1467,27 @@ The teaser variant is used to decide which image format is to be returned.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>text</strong></td>
+<td colspan="2" valign="top"><strong id="suggestinput.text">text</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>limit</strong></td>
+<td colspan="2" valign="top"><strong id="suggestinput.limit">limit</strong></td>
 <td valign="top"><a href="#int">Int</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>lang</strong></td>
+<td colspan="2" valign="top"><strong id="suggestinput.lang">lang</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>filter</strong></td>
+<td colspan="2" valign="top"><strong id="suggestinput.filter">filter</strong></td>
 <td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>archive</strong></td>
+<td colspan="2" valign="top"><strong id="suggestinput.archive">archive</strong></td>
 <td valign="top"><a href="#boolean">Boolean</a></td>
 <td></td>
 </tr>
@@ -1098,8 +1500,10 @@ The teaser variant is used to decide which image format is to be returned.
 
 <table>
 <thead>
+<tr>
 <th align="left">Value</th>
 <th align="left">Description</th>
+</tr>
 </thead>
 <tbody>
 <tr>
@@ -1157,8 +1561,10 @@ The teaser variant is used to decide which image format is to be returned.
 
 <table>
 <thead>
+<tr>
 <th align="left">Value</th>
 <th align="left">Description</th>
+</tr>
 </thead>
 <tbody>
 <tr>
@@ -1184,8 +1590,10 @@ The teaser variant is used to decide which image format is to be returned.
 
 <table>
 <thead>
+<tr>
 <th align="left">Value</th>
 <th align="left">Description</th>
+</tr>
 </thead>
 <tbody>
 <tr>
@@ -1203,8 +1611,10 @@ The teaser variant is used to decide which image format is to be returned.
 
 <table>
 <thead>
+<tr>
 <th align="left">Value</th>
 <th align="left">Description</th>
+</tr>
 </thead>
 <tbody>
 <tr>
@@ -1229,6 +1639,12 @@ The `Boolean` scalar type represents `true` or `false`.
 ### DateTime
 
 ### DateTimeZone
+
+### Float
+
+The `Float` scalar type represents signed double-precision fractional
+values as specified by
+[IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). 
 
 ### ID
 
@@ -1266,22 +1682,24 @@ represent free-form human-readable text.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>copyright</strong></td>
+<td colspan="2" valign="top"><strong id="asset.copyright">copyright</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>caption</strong></td>
+<td colspan="2" valign="top"><strong id="asset.caption">caption</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>description</strong></td>
+<td colspan="2" valign="top"><strong id="asset.description">description</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 </tbody>
 </table>
+
+**Possible Types:** [Image](#image), [SymbolicImage](#symbolicimage)
 
 ### Teaser
 
@@ -1296,13 +1714,30 @@ represent free-form human-readable text.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>url</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
+<td colspan="2" valign="top"><strong id="teaser.url">url</strong> ⚠️</td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
 Teaser URL
+
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+Use field 'link' instead
+
+</blockquote>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="teaser.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td>
+
+Teaser Link
 
 </td>
 </tr>
 </tbody>
 </table>
+
+**Possible Types:** [ArticleTeaser](#articleteaser), [MediaTeaser](#mediateaser), [NewsTeaser](#newsteaser), [EventTeaser](#eventteaser)
