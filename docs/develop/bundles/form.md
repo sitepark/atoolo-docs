@@ -42,9 +42,10 @@ interface SubmitProcessor
 ```
 
 Each processor must have a key. This key is specified in the configuration of the form definition to define which processor processes the data. This can be done via the PHP attribute `AsTaggedItem`.
+It is also important to specify the priority, as the processors are executed in the order of priority.
 
 ```php
-#[AsTaggedItem(index: 'my-processor')]
+#[AsTaggedItem(index: 'my-processor', priority: 21)]
 class MyProcessor implements SubmitProcessor
 {
     public function process(FormSubmission $submission, SubmitProcessorOptions $options): FormSubmission
@@ -54,7 +55,23 @@ class MyProcessor implements SubmitProcessor
 }
 ```
 
-### IpLimiter (`ip-limiter`)
+The form definition can be used to determine which processors are to be used. However, the sequence cannot be influenced.
+
+The bundle is used to define default processors that are always used. However, these can also be overwritten.
+
+`config/packages/atoolo_form.yaml`
+
+```yaml
+parameters:
+  atoolo_form_default_processors:
+    "ip-limiter": ~
+    "submit-limiter": ~
+    "json-schema-validator": ~
+```
+
+The order of the processors can be controlled via the priority. The higher the priority, the earlier the processor is executed.
+
+### IpLimiter (`ip-limiter, priority: 80`)
 
 The IP limiter is used to limit the number of form submissions per IP address.
 
@@ -71,7 +88,7 @@ rate_limiter:
     rate: { interval: "15 minutes", amount: 5 }
 ```
 
-### SubmitLimiter (`submit-limiter`)
+### SubmitLimiter (`submit-limiter, priority: 70`)
 
 The submit limiter is used to limit the number of form submissions across all forms and IP addresses.
 
@@ -88,7 +105,7 @@ rate_limiter:
     rate: { interval: "15 minutes", amount: 100 }
 ```
 
-### JsonSchemaValidator (`json-schema-validator`)
+### JsonSchemaValidator (`json-schema-validator, priority: 20`)
 
 The `JsonSchemaValidator`-SubmitProcessor can be used to validate form data against a JSON schema.
 
@@ -122,7 +139,7 @@ interface FormatConstraint extends Constraint
 }
 ```
 
-### EmailSender (`email-sender`)
+### EmailSender (`email-sender, priority: 10`)
 
 The `EmailSender`-SubmitProcessor can be used to send form data by e-mail.
 
