@@ -74,6 +74,29 @@ The JSON schema defines the structure of the form data. It is used to validate t
 
 See also [JSON Schema](https://json-schema.org/){:target="\_blank"}.
 
+Individual error messages can be specified via the form editor. These must be evaluated by the frontend validator. See also [Validation](https://jsonforms.io/docs/validation/){:target="\_blank"}.
+
+The errors are transferred in the following form:
+
+```json
+{
+  "type": "object",
+  "required": ["foo", "bar"],
+  "properties": {
+    "foo": { "type": "integer" },
+    "bar": { "type": "string" }
+  },
+  "errorMessage": {
+    "required": {
+      "foo": "should have an integer property \"foo\"",
+      "bar": "should have a string property \"bar\""
+    }
+  }
+}
+```
+
+See also [Messages for keywords](https://github.com/ajv-validator/ajv-errors?tab=readme-ov-file#messages-for-keywords)
+
 ### UI Schema
 
 The UI schema is used to define how the form is displayed in the frontend. It contains information about how the fields of the form should be arranged and displayed. The UI schema is independent of the JSON schema and makes it possible to influence the display of the form without having to change the JSON schema.
