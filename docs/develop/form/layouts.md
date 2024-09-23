@@ -34,3 +34,23 @@ The form editor also provides a contact block. This is arranged below the group 
       - ...
   ...
 ```
+
+## Group
+
+For Group there is an additional option `hideLabel`. This can be used to specify that the label of the group should not be displayed. However, for accessibility reasons, for example, it may be useful to have the label anyway.
+
+```json
+{
+  "type": "Group",
+  "label": "Group",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/name"
+    }
+  ],
+  "options": {
+    "hideLabel": true
+  }
+}
+```
