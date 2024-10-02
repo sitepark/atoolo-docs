@@ -42,6 +42,16 @@
 <td valign="top"><a href="#searchinput">SearchInput</a>!</td>
 <td></td>
 </tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.morelikethis">moreLikeThis</strong></td>
+<td valign="top"><a href="#searchresult">SearchResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#morelikethisinput">MoreLikeThisInput</a>!</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -203,6 +213,36 @@ symbolic image associated with the teaser
 </tbody>
 </table>
 
+### CopyrightDetails
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="copyrightdetails.original">original</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="copyrightdetails.author">author</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="copyrightdetails.license">license</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ### EventDate
 
 <table>
@@ -342,7 +382,7 @@ symbolic image associated with the teaser
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong id="eventteaser.eventdates">eventDates</strong></td>
-<td valign="top">[<a href="#eventdate">EventDate</a>]</td>
+<td valign="top">[<a href="#eventdate">EventDate</a>!]!</td>
 <td>
 
 event dates
@@ -452,6 +492,11 @@ event dates
 <tr>
 <td colspan="2" valign="top"><strong id="image.copyright">copyright</strong></td>
 <td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.copyrightdetails">copyrightDetails</strong></td>
+<td valign="top"><a href="#copyrightdetails">CopyrightDetails</a></td>
 <td></td>
 </tr>
 <tr>
@@ -1015,6 +1060,11 @@ symbolic image associated with the teaser
 <td></td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong id="symbolicimage.copyrightdetails">copyrightDetails</strong></td>
+<td valign="top"><a href="#copyrightdetails">CopyrightDetails</a></td>
+<td></td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong id="symbolicimage.caption">caption</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
@@ -1298,6 +1348,40 @@ symbolic image associated with the teaser
 <tr>
 <td colspan="2" valign="top"><strong id="inputsortcriteria.score">score</strong></td>
 <td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### MoreLikeThisInput
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.id">id</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.filter">filter</strong></td>
+<td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.limit">limit</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -1684,6 +1768,11 @@ represent free-form human-readable text.
 <tr>
 <td colspan="2" valign="top"><strong id="asset.copyright">copyright</strong></td>
 <td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="asset.copyrightdetails">copyrightDetails</strong></td>
+<td valign="top"><a href="#copyrightdetails">CopyrightDetails</a></td>
 <td></td>
 </tr>
 <tr>
