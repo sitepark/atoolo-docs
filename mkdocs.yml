@@ -38,6 +38,7 @@ nav:
               - Resolve navigation: develop/graphql/search/resolve-navigation-hierarchy.md
               - Resolve teaser: develop/graphql/search/resolve-teaser.md
               - Suggest: develop/graphql/search/suggest.md
+              - More like this: develop/graphql/search/more-like-this.md
               - Indexing: develop/graphql/search/indexing.md
           - Customization: develop/graphql/customization/index.md
           - Reference: develop/graphql/reference.md
