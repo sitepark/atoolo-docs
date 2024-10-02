@@ -19,4 +19,4 @@ query {
 
 You can also use [filters](filtered-search.md) for more-like-this.
 
-Just like the search, the search result returns a [`SearchResult`](../reference.md#searchresult) object. See also [Search results](index.md#search-results)
+Just like the search, the more-like-this-search result returns a [`SearchResult`](../reference.md#searchresult) object. See also [Search results](index.md#search-results)
