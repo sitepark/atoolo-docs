@@ -424,8 +424,165 @@ Additional input parameters are available for extended search functionalities, w
 - [Resolve teaser](resolve-teaser.md)
 - [Resolve navigation hierarchy](resolve-navigation-hierarchy.md)
 
+## Explain
+
+The `explain` parameter can be used to output detailed information about the search. This can be used to analyze the search and to identify possible sources of error.
+
+It helps to understand why certain hits are returned and why they are returned in the corresponding order.
+
+```graphql
+query {
+  search(input: {
+    text: "section"
+    explain: true
+  }) {
+    results {
+      name
+      explain {
+        score
+        type
+        description
+        details {
+          score
+          type
+          description
+          details {
+            ...
+          }
+        }
+      }
+  }
+}
+```
+
+Depending on how precise the analysis is to be, a corresponding number of levels of `details` can be returned.
+
+A result can look like this, for example:
+
+```json
+{
+  "data": {
+    "search": {
+      "total": 26,
+      "results": [
+        {
+          "name": "Section with Tabs",
+          "explain": {
+            "score": 24.873642,
+            "type": "sum",
+            "details": [
+              {
+                "score": 3.9798312,
+                "type": "max",
+                "description": "max plus 0.1 times others of:",
+                "details": [
+                  {
+                    "score": 1.4506807,
+                    "type": "weight",
+                    "field": "sp_title",
+                    "details": [
+                      {
+                        "score": 1.4506807,
+                        "type": "score",
+                        "description": "score(freq=1.0), computed as boost * idf * tf from:",
+                        "details": [
+                          {
+                            "description": "boost"
+                          },
+                          {
+                            "description": "idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:"
+                          },
+                          {
+                            "description": "tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "score": 1.0478733,
+                    "type": "weight",
+                    "field": "title",
+                    "details": [
+                      {
+                        "score": 1.0478733,
+                        "type": "score",
+                        "description": "score(freq=1.0), computed as boost * idf * tf from:",
+                        "details": [
+                          {
+                            "description": "idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:"
+                          },
+                          {
+                            "description": "tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "score": 3.7299757,
+                    "type": "weight",
+                    "field": "content",
+                    "details": [
+                      {
+                        "score": 3.7299757,
+                        "type": "score",
+                        "description": "score(freq=3.0), computed as boost * idf * tf from:",
+                        "details": [
+                          {
+                            "description": "boost"
+                          },
+                          {
+                            "description": "idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:"
+                          },
+                          {
+                            "description": "tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "score": 10,
+                "type": "boosting",
+                "description": "contenttype:text/html*^10.0",
+                "details": []
+              },
+              {
+                "score": 10.893811,
+                "type": "function",
+                "description": "FunctionQuery(if(termfreq(sp_objecttype,news),scale(date(sp_date),0.0,12.0),scale(date(sp_date),10.0,11.0))), product of:",
+                "details": [
+                  {
+                    "score": 10.893811,
+                    "type": "boosting",
+                    "field": null,
+                    "details": []
+                  },
+                  {
+                    "score": 1,
+                    "type": "boost",
+                    "field": null,
+                    "details": []
+                  }
+                ]
+              }
+            ]
+          }
+        }
+    }
+  }
+}
+```
+
 ## TODO
 
 - Spell Checking
 - Error handling
 - Spatial Search
+
+```
+
+```
