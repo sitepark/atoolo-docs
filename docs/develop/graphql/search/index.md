@@ -571,7 +571,9 @@ A result can look like this, for example:
               }
             ]
           }
-        }
+        },
+        ...
+      ]
     }
   }
 }
