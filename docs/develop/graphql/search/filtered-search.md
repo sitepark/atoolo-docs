@@ -217,6 +217,134 @@ query {
 }
 ```
 
+## Spatial orbital Filter
+
+The spatial orbital filter can be used to search for resources that are located within a certain area. The filter is defined by a center point and a radius.
+
+The spatial orbital filter expects the following parameters:
+
+`distance`
+
+: The radius of the circle in kilometers.
+
+`centerPoint`
+
+: The center point of the circle. The point is defined by the latitude and longitude.
+
+`mode`
+
+: The mode of the filter. The mode can be `GREAT_CIRCLE_DISTANCE` or `BOUNDING_BOX`.
+
+### Great circle distance
+
+With the Great circle distance, you can retrieve results based on the spatial distance from a specific point. It can also be seen as creating a circular filter. This filter returns all results within a circle with the specified radius around the starting point.
+
+![Great circle distance](filtered-search-great-circle-distance.svg)
+
+```graphql
+query {
+  search(
+    input: {
+      filter: [
+        {
+          spatialOrbital: {
+            distance: 20.0
+            centerPoint: { lat: 51.9650398, lng: 7.6260621 }
+            mode: GREAT_CIRCLE_DISTANCE
+          }
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
+### Bounding box
+
+The "Bounding box" filter is very similar to the "Great circle distance" filter, except that it uses the bounding box of the calculated circle. See the blue frame in the diagram below.
+
+The rectangular shape is faster to calculate and is therefore sometimes used as an alternative to "Great circle distance" when it is acceptable to return points outside the radius.
+
+![Bounding box](filtered-search-bounding-box.svg)
+
+```graphql
+query {
+  search(
+    input: {
+      filter: [
+        {
+          spatialOrbital: {
+            distance: 2.0
+            centerPoint: { lat: 51.9650398, lng: 7.6260621 }
+            mode: BOUNDING_BOX
+          }
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
+## Spatial Arbitrary rectangle Filter
+
+Sometimes the spatial search must find everything in a rectangular area, e.g. the area covered by a map that the user is currently looking at. In this case, [Spatial orbital filter](#spatial-orbital-filter) is not sufficient.
+
+In this case, the Arbitrary rectangle filter can be used to specify the lower left corner as the start of the range and the upper right corner as the end of the range.
+
+`lowerLeftCorner`
+
+: The lower left corner of the rectangle. The point is defined by the latitude and longitude.
+
+`upperRightCorner`
+
+: The upper right corner of the rectangle. The point is defined by the latitude and longitude.
+
+![Arbitrary rectangle](filtered-search-arbitrary-rectangle.svg)
+
+```graphql
+query {
+  search(
+    input: {
+      filter: [
+        {
+          spatialArbitraryRectangle: {
+            lowerLeftCorner: { lat: 51.9635354, lng: 7.6217852 }
+            upperRightCorner: { lat: 51.9711239, lng: 7.6407538 }
+          }
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
 ## Including markted as archived
 
 Articles can be marked as achrivated in the CMS. This flag ensures that these articles are not normally included in the search. This can be used for news, for example, to include only the latest news in the general search. For a special search, such as a news archive search, the "Including marked as archived" filter can be used to also find archived articles.

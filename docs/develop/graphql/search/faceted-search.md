@@ -158,7 +158,7 @@ Object types describe the different types of pages that are used in the website.
 
 ```graphql
 query {
-  search(input: { facets: [{ objectTypes: ["news"] }] }) {
+  search(input: { facets: [{ key: "mykey", objectTypes: ["news"] }] }) {
     total
     offset
     queryTime
@@ -182,7 +182,9 @@ Content section types are types of sections that are included in a page. These c
 
 ```graphql
 query {
-  search(input: { facets: [{ contentSectionTypes: ["youtube"] }] }) {
+  search(
+    input: { facets: [{ key: "mykey", contentSectionTypes: ["youtube"] }] }
+  ) {
     total
     offset
     queryTime
@@ -207,7 +209,7 @@ These categories can be facetted via their ID. The hierarchy of the category is 
 
 ```graphql
 query {
-  search(input: { facets: [{ categories: ["15949"] }] }) {
+  search(input: { facets: [{ key: "mykey", categories: ["15949"] }] }) {
     total
     offset
     queryTime
@@ -231,7 +233,7 @@ In the CMS, articles are organised in hierarchical groups. For example, all arti
 
 ```graphql
 query {
-  search(input: { facets: [{ groups: ["16811"] }] }) {
+  search(input: { facets: [{ key: "mykey", groups: ["16811"] }] }) {
     total
     offset
     queryTime
@@ -250,7 +252,7 @@ Several websites can be managed within the CSM. These can be several main websit
 
 ```graphql
 query {
-  search(input: { facets: [{ sites: ["3952"] }] }) {
+  search(input: { facets: [{ key: "mykey", sites: ["3952"] }] }) {
     total
     offset
     queryTime
@@ -529,5 +531,58 @@ Variable:
 ```json
 {
   "currentPageDate": "2024-05-03T22:00:00Z"
+}
+```
+
+## Spatial distance range facet
+
+The spatial distance range facet can be used to determine the number of hits within a certain distance from a reference point.
+
+Diese Facette benötigt folgtende Parmameter:
+
+`point`
+
+: The reference point from which the distance is to be determined. This point is specified as a longitude and latitude point.
+
+`from`
+
+: The minimum distance from the reference point. This is specified in km.
+
+`to`
+
+: The maximun distance from the reference point. This is specified in km.
+
+```graphql
+query {
+  search(
+    input: {
+      facets: [
+        {
+          key: "mykey"
+          spatialDistanceRange: {
+            point: { lat: 51.9650398, lng: 7.6260621 }
+            from: 0
+            to: 10
+          }
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+    facetGroups {
+      key
+      facets {
+        key
+        hits
+      }
+    }
+  }
 }
 ```

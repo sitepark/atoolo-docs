@@ -106,14 +106,16 @@ If no sorting criterion is specified, the result is sorted by relevance. The `sc
 
 The following sorting criteria are possible:
 
-| Search criteria | Description                                                                                                                                                                                                                                                    |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`          | This is sorted by the name of the article. In some cases, the name is preceded by a numerical prefix to achieve the desired sorting in the CMS and is therefore not always identical to the headline.                                                          |
-| `headline`      | Sort by the title of the article.                                                                                                                                                                                                                              |
-| `date`          | In many cases, an editorial date can be set for the article that is used here. Otherwise it is the last modification date of the article.                                                                                                                      |
-| `natural`       | In most cases, a sort field is written to the index, which should describe the natural sorting of the entry. For normal articles, this is usually the heading. For news or events, however, it is the date, for example. This sort field is used in this case. |
-| `score`         | The score is determined during the search and describes how closely the individual hits match the search query. This sorting is useful for full-text searches in order to obtain the most accurate results first. Here it is sorted according to relevance.    |
-| `custom`        | This sort criterion allows you to use your own fields from the search index for sorting.                                                                                                                                                                       |
+| <div style="width:8
+em">Search criteria</div> | Description |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name` | This is sorted by the name of the article. In some cases, the name is preceded by a numerical prefix to achieve the desired sorting in the CMS and is therefore not always identical to the headline. |
+| `headline` | Sort by the title of the article. |
+| `date` | In many cases, an editorial date can be set for the article that is used here. Otherwise it is the last modification date of the article. |
+| `natural` | In most cases, a sort field is written to the index, which should describe the natural sorting of the entry. For normal articles, this is usually the heading. For news or events, however, it is the date, for example. This sort field is used in this case. |
+| `score` | The score is determined during the search and describes how closely the individual hits match the search query. This sorting is useful for full-text searches in order to obtain the most accurate results first. Here it is sorted according to relevance. |
+| `spatialDist` | Die Treffer werden nach der Entfernung zum Referenzpunkt sortiert. Der Referenzpunkt wird über einen zusätzlichen Parameter `spatialPoint` angegeben |
+| `custom` | This sort criterion allows you to use your own fields from the search index for sorting. |
 
 When specifying the search criteria, you must specify whether the sorting should be in ascending (`ASC`) or descending (`DESC`) order.
 
@@ -125,11 +127,31 @@ sort: [ { name: ASC }, { date: DESC }, ... ]
 
 Here is an example of a search criteria:
 
-Example:
+Examples:
 
 ```graphql
 query {
   search(input: { text: "chocolate", sort: [{ name: ASC }] }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+    }
+  }
+}
+```
+
+Sort by distance to the reference point:
+
+```graphql
+query {
+  search(
+    input: {
+      text: "chocolate"
+      sort: [{ spatialDist: ASC, spatialPoint: { lat: 48.8566, lon: 2.3522 } }]
+    }
+  ) {
     total
     offset
     queryTime
@@ -353,6 +375,20 @@ query {
 
     The time zone only affects the range of dates. The date specifications transferred in the GraphQL query and the date specifications returned in the results remain UTC.
 
+## Spatial search
+
+A Spatial Search searches data based on spatial or geographical relationships rather than traditional text or number-based criteria. It takes into account coordinates and distances to find relevant results in a specific area or radius. This technique is often used in applications such as maps to filter and sort information according to its position in space.
+
+To enable searches based on geodata, the corresponding fields must be available in the index. This requires the individual resources to be provided with geo coordinates via the CMS.
+
+The GraphQL search supports the following features:
+
+- Specification of the distance (in km) per hit to the reference point. See also [Geo data](resolve-resource.md#geo-data)
+- [Sorting](#sorting) of hits by distance to the reference point
+- Filtering of hits by distance to the reference point using the [Spatial orbital filter](filtered-search.md#spatial-orbital-filter)
+- Filtering of hits that are located within a defined rectangle using the [Spatial arbitrary rectangle filter](filtered-search.md#spatial-arbitrary-rectangle-filter)
+- Faceting of hits by distance to the reference point using the [Spatial distance range facet](faceted-search.md#spatial-distance-range-facet)
+
 ## Boosting
 
 Boosting makes it possible to increase the relevance of certain documents in the search results. This can be achieved by customizing query parameters, such as adding boosting factors to specific fields or applying custom functions. In this way, search results can be specifically influenced to place more relevant results at the top.
@@ -412,6 +448,7 @@ query {
 
 The search results can be output using the [`SearchResult`](../reference.md#searchresult) type. In this case, `results` returns a list of [`Resource`](../reference.md#resource) objects. This can be used to query further data. See also:
 
+- [Resolve resource](resolve-resource.md)
 - [Resolve navigation hierarchy](resolve-navigation-hierarchy.md)
 - [Resolve teaser](resolve-teaser.md)
 
@@ -582,9 +619,3 @@ A result can look like this, for example:
 ## TODO
 
 - Spell Checking
-- Error handling
-- Spatial Search
-
-```
-
-```

@@ -35,6 +35,7 @@ nav:
               - develop/graphql/search/index.md
               - Filtered search: develop/graphql/search/filtered-search.md
               - Faceted search: develop/graphql/search/faceted-search.md
+              - Resolve resource: develop/graphql/search/resolve-resource.md
               - Resolve navigation: develop/graphql/search/resolve-navigation-hierarchy.md
               - Resolve teaser: develop/graphql/search/resolve-teaser.md
               - Suggest: develop/graphql/search/suggest.md
