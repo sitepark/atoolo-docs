@@ -345,25 +345,6 @@ query {
 }
 ```
 
-## Including markted as archived
-
-Articles can be marked as achrivated in the CMS. This flag ensures that these articles are not normally included in the search. This can be used for news, for example, to include only the latest news in the general search. For a special search, such as a news archive search, the "Including marked as archived" filter can be used to also find archived articles.
-
-```graphql
-query {
-  search(input: { filter: [{ objectTypes: ["news"] }, { archive: true }] }) {
-    total
-    offset
-    queryTime
-    results {
-      id
-      name
-      location
-    }
-  }
-}
-```
-
 ## Complex filter
 
 Complex filter queries can be constructed by combining one or more queries using `and`, `or` or `not` queries.

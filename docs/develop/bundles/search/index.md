@@ -279,13 +279,11 @@ $builder->text('chocolate')
     new CategoriesFilter(['15949']),
     new GroupsFilter(['16811']),
     new SitesFilter(['3952']),
-    new ArchiveFilter(false),
     new AndFilter([
       new ObjectTypesFilter(['news', 'events']),
       new CategoriesFilter(['15949']),
       new GroupsFilter(['16811']),
       new SitesFilter(['3952']),
-      new ArchiveFilter(false),
       new QueryFilter('myField:myValue'),
     ]),
     new OrFilter([
@@ -293,7 +291,6 @@ $builder->text('chocolate')
       new CategoriesFilter(['15949']),
       new GroupsFilter(['16811']),
       new SitesFilter(['3952']),
-      new ArchiveFilter(false),
       new QueryFilter('myField:myValue'),
     ]),
     new NotFilter(
