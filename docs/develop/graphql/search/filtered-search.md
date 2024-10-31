@@ -249,7 +249,7 @@ query {
         {
           spatialOrbital: {
             distance: 20.0
-            centerPoint: { lat: 51.9650398, lng: 7.6260621 }
+            centerPoint: { lat: lng: 7.6286691, lat: 51.9651620 }
             mode: GREAT_CIRCLE_DISTANCE
           }
         }
@@ -284,7 +284,7 @@ query {
         {
           spatialOrbital: {
             distance: 2.0
-            centerPoint: { lat: 51.9650398, lng: 7.6260621 }
+            centerPoint: { lng: 7.6286691, lat: 51.9651620 }
             mode: BOUNDING_BOX
           }
         }

@@ -148,7 +148,9 @@ query {
   search(
     input: {
       text: "chocolate"
-      sort: [{ spatialDist: ASC, spatialPoint: { lat: 48.8566, lon: 2.3522 } }]
+      sort: [
+        { spatialDist: ASC, spatialPoint: { lng: 7.6286691, lat: 51.9651620 } }
+      ]
     }
   ) {
     total
@@ -387,6 +389,69 @@ The GraphQL search supports the following features:
 - Filtering of hits by distance to the reference point using the [Spatial orbital filter](filtered-search.md#spatial-orbital-filter)
 - Filtering of hits that are located within a defined rectangle using the [Spatial arbitrary rectangle filter](filtered-search.md#spatial-arbitrary-rectangle-filter)
 - Faceting of hits by distance to the reference point using the [Spatial distance range facet](faceted-search.md#spatial-distance-range-facet)
+
+Example:
+
+Query:
+
+```graphql
+query search($geoPoint: InputGeoPoint!) {
+  search(
+    input: {
+      distanceReferencePoint: $geoPoint
+      sort: { spatialDist: ASC, spatialPoint: $geoPoint }
+      filter: [
+        {
+          key: "geofilter"
+          spatialOrbital: {
+            distance: 20.0
+            centerPoint: $geoPoint
+            mode: BOUNDING_BOX
+          }
+        }
+      ]
+      facets: [
+        {
+          key: "geo"
+          excludeFilter: ["geofilter"]
+          spatialDistanceRange: { point: $geoPoint, from: 0, to: 10 }
+        }
+      ]
+    }
+  ) {
+    total
+    results {
+      objectType
+      geo {
+        distance
+        primary {
+          lat
+          lng
+        }
+      }
+    }
+    facetGroups {
+      key
+      facets {
+        key
+        hits
+      }
+    }
+    queryTime
+  }
+}
+```
+
+Variable:
+
+```json
+{
+  "geoPoint": {
+    "lng": 7.6286691,
+    "lat": 51.965162
+  }
+}
+```
 
 ## Boosting
 

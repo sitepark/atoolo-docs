@@ -70,7 +70,7 @@ query {
   search(
     input: {
       text: "chocolate"
-      distanceReferencePoint: { lng: 8.200000, lat: 50.07858 }
+      distanceReferencePoint: { lng: 7.6286691, lat: 51.9651620 }
     }
   ) {
     total
