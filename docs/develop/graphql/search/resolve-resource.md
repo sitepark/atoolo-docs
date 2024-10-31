@@ -7,7 +7,7 @@ See also
 - [Resolve navigation hierarchy](resolve-navigation-hierarchy.md)
 - [Resolve teaser](resolve-teaser.md)
 
-Die Stammdaten der Resource sind:
+The main data of the resource are:
 
 `id`
 
@@ -63,7 +63,7 @@ The geo data indicates the geographical location of the resource. This data can 
 
 `distance`
 
-: Die Entfernung der pimären Geo-Position zu einem Referenzpunkt. Diese Referenzpunkt muss bei der Suche mit `distanceReferencePoint` angegeben werden.
+: The distance of the primary geo-position to a reference point. This reference point must be specified in the search with `distanceReferencePoint`.
 
 ```graphql
 query {

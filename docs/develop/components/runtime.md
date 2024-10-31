@@ -125,11 +125,11 @@ If the same keys with different values are set via the dependent packages and th
 
 ### `users`
 
-Nutzer können in der `users` Sektion als Array angegeben werden. Es wird bei jedem Request oder console Ausführung geprüft, ob der aktuelle Prozess mit einem der Nutzer ausgeführt wird. Ist dies nicht der Fall, wird ein Fehler ausgegeben und der prozess abgebochen.
+Users can be specified as an array in the `users` section. For each request or console execution, the system checks whether the current process is being executed with one of the users. If this is not the case, an error is output and the process is terminated.
 
-Es existert noch ein Platzhalter `{SCRIPT_OWNER}`, der verwendet werden kann, wenn geprüft werden soll, ob der Nutzer des Prozesses identisch mit dem Owner des aktuell ausgeführten Scriptes ist. Das Skript ist in Symfony-Projekten in der Regel `public/index.php` für Requests und `bin/console` für console Ausführungen.
+There is also a placeholder `{SCRIPT_OWNER}`, which can be used if you want to check whether the user of the process is identical to the owner of the currently executed script. In Symfony projects, the script is usually `public/index.php` for requests and `bin/console` for console executions.
 
-Durch diesen Platzhalter ist der Nutzer z.B. auch in der Entwicklungsumgebung valide, wenn der Ausführende Nutzer identsch mit dem Nutzer ist über das das Projekt ausgescheckt wurde.
+This placeholder means that the user is also valid in the development environment, for example, if the executing user is identical to the user via which the project was checked out.
 
 Example for setting users:
 `composer.json`

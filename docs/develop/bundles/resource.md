@@ -86,7 +86,7 @@ $resourceChannel = $resourceChannelFactory->create();
 
 #### `ResourceChannelFactory`
 
-Die `ResourceChannelFactory` ist ein Interface. Die einzige implementierte Klasse ist die `SiteKitResourceChannelFactory`.
+The `ResourceChannelFactory` is an interface. The only implemented class is the `SiteKitResourceChannelFactory`.
 
 ```php
 use Atoolo\Resource\SiteKitResourceChannelFactory;

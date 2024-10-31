@@ -47,13 +47,13 @@ An [Indexer service](https://github.com/sitepark/atoolo-search/blob/main/src/Ind
 
 ### Internal Resource Indexer
 
-Der Internal Resource Indexer ist der Standard-Indexer dieses Bundles und wird verwendet, um die internen Ressourcen zu indizieren. Die internen Ressourcen sind die Ressourcen, die in der Regel im CMS verwaltet werden. Der Indexer kann verwendet werden, um die internen Ressourcen zu indizieren und zu entfernen.
+The Internal Resource Indexer is the standard indexer of this bundle and is used to index the internal resources. The internal resources are the resources that are usually managed in the CMS. The indexer can be used to index and remove the internal resources.
 
 ### Solr Xml Indexer
 
 In order to better convert systems with existing indexers, the SolrXMLIndexer can be used to read the existing Solr-XML files and thus integrate them into the Atoolo-Indexer technology.
 
-Beispiel für die Integration des SolrXMLIndexers:
+Example of the integration of the SolrXMLIndexer:
 
 `services.yaml`
 
