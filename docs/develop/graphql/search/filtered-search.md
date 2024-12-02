@@ -217,6 +217,33 @@ query {
 }
 ```
 
+## Geo located Filter
+
+If the search results are to be displayed on a map, it can be useful to only receive results that also have a geolocation. With the `geoLocatedFilter`, only those results can be returned that have a geolocation.
+
+```graphql
+query {
+  search(input: { filter: [{ geoLocatedFilter: true }] }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+      geo {
+        primary {
+          lat
+          lng
+        }
+      }
+    }
+  }
+}
+```
+
+````graphql
+
 ## Spatial orbital Filter
 
 The spatial orbital filter can be used to search for resources that are located within a certain area. The filter is defined by a center point and a radius.
@@ -266,7 +293,7 @@ query {
     }
   }
 }
-```
+````
 
 ### Bounding box
 
