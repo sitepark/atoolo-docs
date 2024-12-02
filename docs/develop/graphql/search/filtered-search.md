@@ -242,8 +242,6 @@ query {
 }
 ```
 
-````graphql
-
 ## Spatial orbital Filter
 
 The spatial orbital filter can be used to search for resources that are located within a certain area. The filter is defined by a center point and a radius.
@@ -293,7 +291,7 @@ query {
     }
   }
 }
-````
+```
 
 ### Bounding box
 
