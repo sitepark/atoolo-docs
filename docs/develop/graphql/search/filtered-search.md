@@ -223,7 +223,7 @@ If the search results are to be displayed on a map, it can be useful to only rec
 
 ```graphql
 query {
-  search(input: { filter: [{ geoLocatedFilter: true }] }) {
+  search(input: { filter: [{ geoLocated: true }] }) {
     total
     offset
     queryTime
