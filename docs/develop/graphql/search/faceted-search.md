@@ -493,6 +493,7 @@ query relativeDateRangeFacetsearch($currentPageDate: DateTime) {
           absoluteDateRange: {
             from: "2024-05-01T00:00:00+02:00"
             to: "2024-05-20T00:00:00+02:00"
+            gap: "P1D"
           }
           excludeFilter: ["currentPageDateFilter"]
         }
