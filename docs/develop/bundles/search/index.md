@@ -193,20 +193,20 @@ services:
 
 ## Searching
 
-You can search the index to find resources. The [SelectSearcher service](https://github.com/sitepark/atoolo-search/blob/main/src/SelectSearcher.php) is available for this purpose.
+You can search the index to find resources. The [Search service](https://github.com/sitepark/atoolo-search/blob/main/src/Search.php) interface is available for this purpose. The [SolrSearch](https://github.com/sitepark/atoolo-search/blob/main/src/Service/Search/SolrSearch.php) is a common implementation of this interface.
 
 ### Query
 
-The `select()` method expects a [`SelectQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php){:target="\_blank"} object that contains the filter rules, for example. To create a [`SelectQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php){:target="\_blank"} object, only the [`SelectQueryBuilder`](https://github.com/sitepark/atoolo-search/blob/feature/initial-implementation/src/Dto/Search/Query/SelectQueryBuilder.php){:target="\_blank"} must be used to ensure that a valid [`SelectQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php){:target="\_blank"} object is always created.
+The [`search()`](https://github.com/sitepark/atoolo-search/blob/main/src/Service/Search/SolrSearch.php) method expects a [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php){:target="\_blank"} object that contains the filter rules, for example. To create a [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php){:target="\_blank"} object, only the [`SearchQueryBuilder`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQueryBuilder.php){:target="\_blank"} must be used to ensure that a valid [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php){:target="\_blank"} object is always created.
 
 Example of a query:
 
 ```php
-$builder = new SelectQueryBuilder();
+$builder = new SearchQueryBuilder();
 $builder->text('chocolate')
 
 $query = $builder->build();
-$result = $selectSearcher->select($query);
+$result = $searcher->search($query);
 ```
 
 #### Full text search
@@ -215,9 +215,9 @@ To find resources using a full-text search, the text is specified using the buil
 The index is searched for the text and the corresponding hits are returned. The search is performed word by word. If several words (separated by spaces) are entered, an OR search is carried out in the standard case and the hits must contain both words. An AND search can also be carried out. To do this, the builder method `$builder->queryDefaultOperator()` must be specified with `QueryOperator::AND`:
 
 ```php
-$builder = new SelectQueryBuilder();
+$builder = new SearchQueryBuilder();
 $builder->text('cacao coffee')
-  ->queryDefaultOperator(QueryOperator::AND);
+  ->defaultQueryOperator(QueryOperator::AND);
 ```
 
 #### Sorting
