@@ -193,16 +193,16 @@ services:
 
 ## Searching
 
-You can search the index to find resources. The [SelectSearcher service](https://github.com/sitepark/atoolo-search/blob/main/src/SelectSearcher.php) is available for this purpose.
+You can search the index to find resources. The [Search service](https://github.com/sitepark/atoolo-search/blob/main/src/Search.php) is available for this purpose.
 
 ### Query
 
-The `select()` method expects a [`SelectQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php){:target="\_blank"} object that contains the filter rules, for example. To create a [`SelectQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php){:target="\_blank"} object, only the [`SelectQueryBuilder`](https://github.com/sitepark/atoolo-search/blob/feature/initial-implementation/src/Dto/Search/Query/SelectQueryBuilder.php){:target="\_blank"} must be used to ensure that a valid [`SelectQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php){:target="\_blank"} object is always created.
+The `select()` method expects a [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php){:target="\_blank"} object that contains the filter rules, for example. To create a [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php){:target="\_blank"} object, only the [`SearchQueryBuilder`](https://github.com/sitepark/atoolo-search/blob/feature/initial-implementation/src/Dto/Search/Query/SearchQueryBuilder.php){:target="\_blank"} must be used to ensure that a valid [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php){:target="\_blank"} object is always created.
 
 Example of a query:
 
 ```php
-$builder = new SelectQueryBuilder();
+$builder = new SearchQueryBuilder();
 $builder->text('chocolate')
 
 $query = $builder->build();
@@ -215,7 +215,7 @@ To find resources using a full-text search, the text is specified using the buil
 The index is searched for the text and the corresponding hits are returned. The search is performed word by word. If several words (separated by spaces) are entered, an OR search is carried out in the standard case and the hits must contain both words. An AND search can also be carried out. To do this, the builder method `$builder->queryDefaultOperator()` must be specified with `QueryOperator::AND`:
 
 ```php
-$builder = new SelectQueryBuilder();
+$builder = new SearchQueryBuilder();
 $builder->text('cacao coffee')
   ->queryDefaultOperator(QueryOperator::AND);
 ```
@@ -240,7 +240,7 @@ The following sorting criteria classes are possible:
 The sorting can be defined as follows via the QueryBuilder:
 
 ```php
-$builder = new SelectQueryBuilder();
+$builder = new SearchQueryBuilder();
 $builder->text('chocolate')
   ->sort([
     new Sort('name', SortDirection::ASC),
@@ -260,6 +260,13 @@ Filters can be defined to limit search results. The following filters are availa
 | `GroupsFilter`                             | In the CMS, articles are organized in hierarchical groups. For example, all articles in a rubric are managed in substructures of the rubric group. The groups filter can be used to restrict the search to groups. The hierarchy of the groups is also taken into account so that all articles in a group are found, even if they are contained in further nested subgroups.                                                              |
 | `SitesFilter`                              | Several websites can be managed within the CSM. These can be several main websites, but also microsites that are subordinate to a main website. The Sites filter can be used to restrict the search to a single site. For example, you can define a search that only returns hits from a microsite. Without this filter, a search for the main website can be realized, for example, in which the pages of the microsites are also found. |
 | `IdFilter`                                 | An IdFilter can be used to filter directly for specific resources using their IDs                                                                                                                                                                                                                                                                                                                                                         |
+| `SourceFilter`                             | The source filter can be used to filter entries that have been transferred to the search index via a specific indexer                                                                                                                                                                                                                                                                                                                     |
+| `ContentTypeFilter`                        | Filters according to the content type of the entry. For `text/html`, `text/html*` should also be specified, as it contains an encoding such as `text/html; charset=UTF-8`.                                                                                                                                                                                                                                                                |
+| `GeoLocatedFilter`                         | This filter is used to find entries that are geo-localized.                                                                                                                                                                                                                                                                                                                                                                               |
+| `SpatialOrbitalFilter`                     | Filter for a geo radius search.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `SpatialArbitraryRectangleFilter`          | Filter for a geo radius search. For performance reasons, a rectangle rather than a circle is selected for the search area.                                                                                                                                                                                                                                                                                                                |
+| `AbsoluteDateRangeFilter`                  | Filter that filters over an absolute date range                                                                                                                                                                                                                                                                                                                                                                                           |
+| `RelativeDateRangeFilter`                  | Filter that filters over an relative date range                                                                                                                                                                                                                                                                                                                                                                                           |
 | `AndFilter`                                | The AND filter is used to combine several filters. This means that only the hits are returned that match all the filters.                                                                                                                                                                                                                                                                                                                 |
 | `OrFilter`                                 | The OR filter is used to combine several filters. This means that the hits are returned that match at least one of the filters.                                                                                                                                                                                                                                                                                                           |
 | `NotFilter`                                | The NOT filter is used to exclude hits that match the filter.                                                                                                                                                                                                                                                                                                                                                                             |
@@ -272,7 +279,7 @@ Filters can be defined to limit search results. The following filters are availa
 The filters can be defined as follows via the builder:
 
 ```php
-$builder = new SelectQueryBuilder();
+$builder = new SearchQueryBuilder();
 $builder->text('chocolate')
   ->filter([
     new ObjectTypesFilter(['news', 'events']),
@@ -319,7 +326,11 @@ The following filters are available here:
 | `CategoriesFacet`                         | The CMS can be used to define any number of category trees that can be used to categorize articles.                                                                                                                                                                                                                                                                                                                                       |
 | `GroupsFacet`                             | In the CMS, articles are organized in hierarchical groups. For example, all articles in a rubric are managed in substructures of the rubric group. The groups filter can be used to restrict the search to groups. The hierarchy of the groups is also taken into account so that all articles in a group are found, even if they are contained in further nested subgroups.                                                              |
 | `SitesFacet`                              | Several websites can be managed within the CSM. These can be several main websites, but also microsites that are subordinate to a main website. The Sites filter can be used to restrict the search to a single site. For example, you can define a search that only returns hits from a microsite. Without this filter, a search for the main website can be realized, for example, in which the pages of the microsites are also found. |
-| `FacetQuery`                              | This facet accepts a query that is passed directly to the search engine. This filter should only be used in absolute exceptions where the fields of the current schema must be specified directly.                                                                                                                                                                                                                                        |
+| `SourceFacet`                             | The source indicates which indexer was used to add the entry to the index                                                                                                                                                                                                                                                                                                                                                                 |
+| `SourceFacet`                             | The source indicates which indexer was used to add the entry to the index                                                                                                                                                                                                                                                                                                                                                                 |
+| `ContentTypeQuery`                        | Facete about the content type of the entry                                                                                                                                                                                                                                                                                                                                                                                                |
+| `RelativeDateRangeFacet`                  | Facet over a date range. This can be a single value. If a `gap` is specified, the facet contains several values. In each case, the number of hits in the time window specified with `gap` within the specified time period                                                                                                                                                                                                                |
+| `SpatialDistanceRangeFacet`               | This facet indicates the number of hits within a certain geo-radius.                                                                                                                                                                                                                                                                                                                                                                      |
 | `FacetMultiQuery`                         | This facet contains a list of `FacetQuery` objects and combines them into a facet. This is useful if you want to combine several queries into one facet. This filter should only be used in absolute exceptions where the fields of the current schema must be specified directly.                                                                                                                                                        |
 
 !!! warning
@@ -331,7 +342,7 @@ A `key` must also be specified for facets. This is required so that the results 
 The facet can be defined as follows via the builder:
 
 ```php
-$builder = new SelectQueryBuilder();
+$builder = new SearchQueryBuilder();
 $builder->index('myindex-www')
   ->text('chocolate')
   ->facet([
@@ -352,7 +363,7 @@ Usually, you also want to filter according to a facet. However, the facet result
 Here is an example with a filter that contains a key
 
 ```php
-$builder = new SelectQueryBuilder();
+$builder = new SearchQueryBuilder();
 $builder->index('myindex-www')
   ->text('chocolate')
   ->filter([
@@ -368,7 +379,7 @@ $builder->index('myindex-www')
 The indexed resources can be marked as "archived". This flag ensures that these resources are not normally included in the search. This can be used for news, for example, to include only the latest news in the general search. For a special search, such as a news archive search, the `archive` flag can be used to also find archived resources.
 
 ```php
-$builder = new SelectQueryBuilder();
+$builder = new SearchQueryBuilder();
 $builder->archive(true);
 ```
 
@@ -389,7 +400,7 @@ The following parameters can be used to influence the result:
 Setting the boosting parameters requires in-depth knowledge of how the search index works and its schema. If no boosting is specified, the default values of Sitepark are used, which have already proven themselves in many projects.
 
 ```php
-$builder = new SelectQueryBuilder();
+$builder = new SearchQueryBuilder();
 $builder->boosting(new Boosting(
   queryFields: [
     "sp_title^1.4",
@@ -473,6 +484,42 @@ foreach ($result as $suggest) {
 ```
 
 [Filters](#filter) can also be specified for the suggest search and the [archive flag](#archive-search) can be set. However, there is no builder for the suggest search; the filter and archive flag may have to be specified directly in the constructor.
+
+## Use as a Symony service
+
+To use the search service in a Symfony project, the service can be injected in a separate service.
+
+Service IDs are available for the respective search service for this purpose:
+
+| Service-Id                     | Service-Interface            |
+| ------------------------------ | ---------------------------- |
+| `atoolo_search.search`         | `Atoolo\Search\Search`       |
+| `atoolo_search.suggest`        | `Atoolo\Search\Suggest`      |
+| `atoolo_search.more_like_this` | `Atoolo\Search\MoreLikeThis` |
+
+Mit Hilfe des Autowiring-Features von Symfony kann der Service in einem eigenen Service verwendet werden.
+
+```php
+use Atoolo\Search\Search;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
+
+class MyService
+{
+    public function __construct(
+        #[Autowire(service: 'atoolo_search.search')]
+        private readonly Search $search
+    ) {
+    }
+
+    public function doSomething(): void
+    {
+        $builder = new SearchQueryBuilder();
+        $builder->text('test');
+
+        $result = $this->search->search($builder->build());
+    }
+}
+```
 
 ## Command line interface
 

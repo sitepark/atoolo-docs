@@ -265,6 +265,53 @@ query {
 }
 ```
 
+## Content types facet
+
+This can be used to facet the content type, e.g. `application/pdf` or `text/html; charset=UTF-8`.
+
+```graphql
+query {
+  search(
+    input: {
+      facets: [
+        {
+          key: "mykey"
+          contentTypes: ["application/pdf", "text/html; charset=UTF-8"]
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
+## Sources facet
+
+This facet can be used to determine the number of hits for a specific source. The source indicates which indexer was used to transfer the data to the index. For resources that are editorially maintained by the CMS, the source is `internal`.
+
+```graphql
+query {
+  search(input: { facets: [{ key: "mykey", sources: ["internal"] }] }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
 ## Date range facet
 
 An editorial date can be maintained for articles. This date can be used for the search to filter articles. If there is no editorial date, the creation date of the article is used. Depending on the article type, a list of dates can also be maintained. This is the case for events, for example. Repeat dates are also possible here. All dates are then taken into account in the date range facet.

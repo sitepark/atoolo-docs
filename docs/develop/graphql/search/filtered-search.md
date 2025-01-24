@@ -164,6 +164,44 @@ query {
 }
 ```
 
+## Content types filter
+
+This filter can be used to search for a list of resources with specific Content-Type like `application/pdf` or `text/html*`. For the content type `text/html`, the asterisk `*` should also be appended, as the content type `text/html` can also contain other parameters such as the charset (`text/html; charset=UTF-8`).
+
+```graphql
+query {
+  search(input: { filter: [{ contentTypes: ["text/html*"] }] }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
+## Source filter
+
+This filter can be used to search for a list of resources with specific sources. Source is the ID of the indexer via which the resources were transferred to the index. For editorial data, the CMS, the source is always `internal`.
+
+```graphql
+query {
+  search(input: { filter: [{ sources: ["internal"] }] }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
 ## Date range filter
 
 An editorial date can be maintained for articles. This date can be used for the search to filter articles. If there is no editorial date, the creation date of the article is used. Depending on the article type, a list of dates can also be maintained. This is the case for events, for example. Repeat dates are also possible here. All dates are then taken into account in the date range filter.
