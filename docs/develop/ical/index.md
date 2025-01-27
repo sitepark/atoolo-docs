@@ -17,7 +17,7 @@ Currently, the iCal API consists of one endpoint. Given a resource, e.g. a resou
 curl example:
 
 ```sh
-curl "https://www.example.com/api/ical/en/path/to/resource"
+curl "https://www.example.com/api/ical/resource/en/path/to/resource"
 ```
 
 The response would be an `.ics`-file that could look like this:
