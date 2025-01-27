@@ -49,6 +49,8 @@ nav:
           - Controls: develop/form/controls.md
           - Annotations: develop/form/annotations.md
           - Layouts: develop/form/layouts.md
+      - ICal API:
+          - develop/ical/index.md
       - Symfony Flex integration: develop/symfony-flex-integration.md
 
   - Contribute:
