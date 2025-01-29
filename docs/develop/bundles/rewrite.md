@@ -4,7 +4,7 @@ This bundle contains functions for URL rewriting.
 
 ## Sources
 
-The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-rewrite-bundle](https://github.com/sitepark/atoolo-rewrite-bundle{:target="\_blank"}.
+The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-rewrite-bundle](https://github.com/sitepark/atoolo-rewrite-bundle){:target="\_blank"}.
 
 ## Installation
 

@@ -2,11 +2,11 @@
 
 This bundle contains features for search engine optimization. Included are:
 
-- Controller for providing the [Sitemap-XML](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview)
+- Controller for providing the [Sitemap-XML](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview){:target="\_blank"}
 
 ## Sources
 
-The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-seo-bundle](https://github.com/sitepark/atoolo-seo-bundle{:target="\_blank"}.
+The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-seo-bundle](https://github.com/sitepark/atoolo-seo-bundle){:target="\_blank"}.
 
 ## Installation
 
