@@ -29,6 +29,8 @@ nav:
           - CityCall: develop/bundles/citycall.md
           - Events Calendar: develop/bundles/events-calendar.md
           - Translator: develop/bundles/translator.md
+          - Seo: develop/bundles/seo.md
+          - Rewrite: develop/bundles/rewrite.md
       - GraphQL API:
           - develop/graphql/index.md
           - Getting started: develop/graphql/getting-started.md
