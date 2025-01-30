@@ -237,8 +237,8 @@ A input field for Times.
     ```json
     {
       "type": "Control",
-      "scope": "#/properties/date",
-      "label": "Date",
+      "scope": "#/properties/time",
+      "label": "Time",
       "options": {
         "autocomplete": "off",
         "spaceAfter": true
@@ -286,8 +286,8 @@ A input field for Date with Time.
     ```json
     {
       "type": "Control",
-      "scope": "#/properties/date",
-      "label": "Date",
+      "scope": "#/properties/datetime",
+      "label": "Date and Time",
       "options": {
         "autocomplete": "off",
         "spaceAfter": true
