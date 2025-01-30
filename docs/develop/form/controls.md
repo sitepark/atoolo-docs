@@ -165,7 +165,7 @@ A input field for Numbers.
 
     JSON-Schema: `type: "integer"`
 
-## Date field
+## Date
 
 A input field for Dates.
 
@@ -178,6 +178,100 @@ A input field for Dates.
       "format": "date"
     }
     ```
+
+    `format`
+    : The `format` must be set to `date`. The date is expected in the format `YYYY-MM-DD`.
+
+=== "UI Schema"
+
+    ```json
+    {
+      "type": "Control",
+      "scope": "#/properties/date",
+      "label": "Date",
+      "options": {
+        "autocomplete": "off",
+        "spaceAfter": true
+      }
+    }
+    ```
+
+    `autocomplete`
+    : The `autocomplete` attribute specifies whether a form field should have autocomplete enabled. This is not to be confused with the `autocomplete` attribute for `enum` and `oneOf` for the [Autocomplete Renderer](https://jsonforms.io/examples/autocomplete).
+    This attribute can be used to set the HTML `autocomplete` attribute as described [here](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill). The React standard renderer does not evaluate this.
+
+    `spaceAfter`
+    : Ensures that a space is inserted after the input field. The React standard renderer does not evaluate this.
+
+## Time
+
+A input field for Times.
+
+=== "JSON Schema"
+
+    ```json
+    {
+      "type": "string",
+      "title": "Time",
+      "format": "time"
+    }
+    ```
+
+    `format`
+    : The `format` must be set to `time`. The date is expected in the format `hh:mm:ss.sTZD`.
+    : | Input | Status |
+     | ----- | ------ |
+     | `"10:05:08"` | <span style="color:green">valid</div>  |
+     | `"10:05:08.5"` | <span style="color:green">valid</div>  |
+     | `"10:05:08-02:30"` | <span style="color:green">valid</div>  |
+     | `"10:05:08Z"` | <span style="color:green">valid</div>  |
+     | `"45:60:62"` | <span style="color:red">invalid</div>  |
+     | `"10:05"` | <span style="color:red">invalid</div>  |
+
+=== "UI Schema"
+
+    ```json
+    {
+      "type": "Control",
+      "scope": "#/properties/date",
+      "label": "Date",
+      "options": {
+        "autocomplete": "off",
+        "spaceAfter": true
+      }
+    }
+    ```
+
+    `autocomplete`
+    : The `autocomplete` attribute specifies whether a form field should have autocomplete enabled. This is not to be confused with the `autocomplete` attribute for `enum` and `oneOf` for the [Autocomplete Renderer](https://jsonforms.io/examples/autocomplete).
+    This attribute can be used to set the HTML `autocomplete` attribute as described [here](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill). The React standard renderer does not evaluate this.
+
+    `spaceAfter`
+    : Ensures that a space is inserted after the input field. The React standard renderer does not evaluate this.
+
+## Date-Time
+
+A input field for Date with Time.
+
+=== "JSON Schema"
+
+    ```json
+    {
+      "type": "string",
+      "title": "Time",
+      "format": "date-time"
+    }
+    ```
+
+    `format`
+    : The `format` must be set to `time`. The date is expected in the format `YYYY-MM-DDThh:mm:ss.sTZD`.
+    : | Input | Status |
+     | ----- | ------ |
+     | `"1970-01-01T10:05:08""` | <span style="color:green">valid</div>  |
+     | `"1970-01-01T10:05:08.10"` | <span style="color:green">valid</div>  |
+     | `"1970-01-01T10:05:08+01:00"` | <span style="color:green">valid</div>  |
+     | `"1970-01-01"` | <span style="color:red">invalid</div>  |
+     | `"1970-01-01T10:05"` | <span style="color:red">invalid</div>  |
 
 === "UI Schema"
 
