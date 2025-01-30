@@ -205,7 +205,7 @@ A input field for Dates.
 
 === "Indicator"
 
-    JSON-Schema: `format: "date"`
+    JSON-Schema: `type: "string"` and `format: "date"`
 
 ## Time
 
@@ -255,7 +255,7 @@ A input field for Times.
 
 === "Indicator"
 
-    JSON-Schema: `format: "time"`
+    JSON-Schema: `type: "string"` and `format: "time"`
 
 ## Date-Time
 
@@ -304,7 +304,7 @@ A input field for Date with Time.
 
 === "Indicator"
 
-    JSON-Schema: `format: "date-time"`
+    JSON-Schema: `type: "string"` and `format: "date-time"`
 
 ## Multiline text field
 
