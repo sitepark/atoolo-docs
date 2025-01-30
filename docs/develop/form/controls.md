@@ -203,6 +203,10 @@ A input field for Dates.
     `spaceAfter`
     : Ensures that a space is inserted after the input field. The React standard renderer does not evaluate this.
 
+=== "Indicator"
+
+    JSON-Schema: `type: "date"`
+
 ## Time
 
 A input field for Times.
@@ -248,6 +252,10 @@ A input field for Times.
 
     `spaceAfter`
     : Ensures that a space is inserted after the input field. The React standard renderer does not evaluate this.
+
+=== "Indicator"
+
+    JSON-Schema: `type: "time"`
 
 ## Date-Time
 
@@ -296,7 +304,7 @@ A input field for Date with Time.
 
 === "Indicator"
 
-    JSON-Schema: `type: "date"`
+    JSON-Schema: `type: "date-time"`
 
 ## Multiline text field
 
