@@ -634,3 +634,28 @@ query {
   }
 }
 ```
+
+## Query facet
+
+This facet accepts a query that is passed directly to the search engine. This filter should only be used in absolute exceptions where the fields of the current schema must be specified directly.
+
+!!! warning
+
+    If the schema is changed, the specified queries for these facet may no longer work.
+
+```graphql
+query {
+  search(
+    input: { facets: [{ key: "mykey", query: "sp_objecttype:content" }] }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
