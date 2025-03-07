@@ -87,6 +87,36 @@ query {
 }
 ```
 
+## Teaser property filter
+
+Search results are often displayed as teasers. For certain teaser lists, it may be necessary for certain teaser properties to be present. The teaser property filter can be used to find teasers that have certain properties.
+
+One or more properties can be specified. These are applied as `AND` filters.
+
+The following properties can be filtered
+
+| Property         | Value           | Description                                                         |
+| ---------------- | --------------- | ------------------------------------------------------------------- |
+| `image`          | `true`, `false` | The teaser must have an image, or may not have an image             |
+| `imageCopyright` | `true`, `false` | The teaser image must have a copyright or must not have a copyright |
+| `headline`       | `true`, `false` | The teaser must have a headline, or may not have a headline         |
+| `text`           | `true`, `false` | The teaser must have a teaser text, or may not have a teaser text   |
+
+```graphql
+query {
+  search(input: { filter: [{ teaserProperty: { image: true } }] }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
 ## Categories filter
 
 The CMS can be used to define any number of category trees that can be used to categorize articles.
