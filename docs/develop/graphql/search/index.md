@@ -186,6 +186,74 @@ query {
 
     If the schema is changed, the specified sort field for this sorting may no longer work.
 
+## Spellcheck
+
+The Spellcheck feature can be used to correct spelling mistakes in the search query. This is particularly useful if the search query returns no or only a few hits. The corrected search query can then be executed again.
+
+The input parameter `spellcheck:true` activates the spell check. Correction suggestions and a corrected search query are then returned in the result.
+
+```graphql
+query {
+  search(input: { text: "chocate cofee", spellcheck: true }) {
+    results {
+      id
+    }
+    spellcheck {
+      suggestions {
+        original {
+          word
+          frequency
+        }
+        suggestion {
+          word
+          frequency
+        }
+      }
+      collation
+    }
+  }
+}
+```
+
+The result could then look like this:
+
+```json
+{
+  "data": {
+    "search": {
+      "total": 0,
+      "spellcheck": {
+        "suggestions": [
+          {
+            "original": {
+              "word": "chocate",
+              "frequency": 0
+            },
+            "suggestion": {
+              "word": "choclate",
+              "frequency": 20
+            }
+          },
+          {
+            "original": {
+              "word": "cofee",
+              "frequency": 0
+            },
+            "suggestion": {
+              "word": "coffee",
+              "frequency": 10
+            }
+          }
+        ],
+        "collation": "choclate coffee"
+      }
+    }
+  }
+}
+```
+
+The corrected words and the frequency of use in the index are returned under `suggestions`. `collation` contains the corrected search query.
+
 ## Archive search
 
 The indexed resources can be marked as "archived". This flag ensures that these resources are not normally included in the search. This can be used for news, for example, to include only the latest news in the general search. For a special search, such as a news archive search, the `archive` flag can be used to also find archived resources.
