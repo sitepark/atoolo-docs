@@ -197,16 +197,34 @@ Teaser asset can be e.g. pictures or videos
 <td valign="top"><a href="#string">String</a></td>
 <td>
 
-The teaser variant is used to decide which image format is to be returned.
+The asset variant is used to decide which image format is to be returned.
 
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="articleteaser.symbolicimage">symbolicImage</strong></td>
-<td valign="top"><a href="#symbolicimage">SymbolicImage</a></td>
+<td colspan="2" valign="top"><strong id="articleteaser.symbolicasset">symbolicAsset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
 <td>
 
-symbolic image associated with the teaser
+symbolic asset associated with the teaser
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The asset variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.actions">actions</strong></td>
+<td valign="top">[<a href="#link">Link</a>!]!</td>
+<td>
+
+additional, context dependent links
 
 </td>
 </tr>
@@ -238,51 +256,6 @@ symbolic image associated with the teaser
 <tr>
 <td colspan="2" valign="top"><strong id="copyrightdetails.license">license</strong></td>
 <td valign="top"><a href="#link">Link</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-### EventDate
-
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="right">Argument</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong id="eventdate.start">start</strong></td>
-<td valign="top"><a href="#datetime">DateTime</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong id="eventdate.end">end</strong></td>
-<td valign="top"><a href="#datetime">DateTime</a></td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong id="eventdate.rrule">rrule</strong></td>
-<td valign="top"><a href="#string">String</a></td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong id="eventdate.isfullday">isFullDay</strong></td>
-<td valign="top"><a href="#boolean">Boolean</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong id="eventdate.hasstarttime">hasStartTime</strong></td>
-<td valign="top"><a href="#boolean">Boolean</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong id="eventdate.hasendtime">hasEndTime</strong></td>
-<td valign="top"><a href="#boolean">Boolean</a>!</td>
 <td></td>
 </tr>
 </tbody>
@@ -372,20 +345,38 @@ The teaser variant is used to decide which image format is to be returned.
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="eventteaser.symbolicimage">symbolicImage</strong></td>
-<td valign="top"><a href="#symbolicimage">SymbolicImage</a></td>
+<td colspan="2" valign="top"><strong id="eventteaser.symbolicasset">symbolicAsset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
 <td>
 
-symbolic image associated with the teaser
+symbolic asset associated with the teaser
 
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="eventteaser.eventdates">eventDates</strong></td>
-<td valign="top">[<a href="#eventdate">EventDate</a>!]!</td>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-event dates
+The asset variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.schedulings">schedulings</strong></td>
+<td valign="top">[<a href="#scheduling">Scheduling</a>!]!</td>
+<td>
+
+schedulings
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.icalurl">iCalUrl</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Downlaod url for the event scheduling as an .ics file
 
 </td>
 </tr>
@@ -437,6 +428,61 @@ event dates
 <tr>
 <td colspan="2" valign="top"><strong id="facetgroup.facets">facets</strong></td>
 <td valign="top">[<a href="#facet">Facet</a>!]!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### Geo
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="geo.primary">primary</strong></td>
+<td valign="top"><a href="#geopoint">GeoPoint</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="geo.secondary">secondary</strong></td>
+<td valign="top"><a href="#geojson">GeoJson</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="geo.distance">distance</strong></td>
+<td valign="top"><a href="#float">Float</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### GeoPoint
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="geopoint.lng">lng</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="geopoint.lat">lat</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
 <td></td>
 </tr>
 </tbody>
@@ -752,16 +798,34 @@ Teaser asset can be e.g. pictures or videos
 <td valign="top"><a href="#string">String</a>!</td>
 <td>
 
-The teaser variant is used to decide which image format is to be returned.
+The asset variant is used to decide which image format is to be returned.
 
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="mediateaser.symbolicimage">symbolicImage</strong></td>
-<td valign="top"><a href="#symbolicimage">SymbolicImage</a></td>
+<td colspan="2" valign="top"><strong id="mediateaser.symbolicasset">symbolicAsset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
 <td>
 
-symbolic image associated with the teaser
+symbolic asset associated with the teaser
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The asset variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.actions">actions</strong></td>
+<td valign="top">[<a href="#link">Link</a>!]!</td>
+<td>
+
+additional, context dependent links
 
 </td>
 </tr>
@@ -861,11 +925,29 @@ The teaser variant is used to decide which image format is to be returned.
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="newsteaser.symbolicimage">symbolicImage</strong></td>
-<td valign="top"><a href="#symbolicimage">SymbolicImage</a></td>
+<td colspan="2" valign="top"><strong id="newsteaser.symbolicasset">symbolicAsset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
 <td>
 
-symbolic image associated with the teaser
+symbolic asset associated with the teaser
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The asset variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.actions">actions</strong></td>
+<td valign="top">[<a href="#link">Link</a>!]!</td>
+<td>
+
+additional, context dependent links
 
 </td>
 </tr>
@@ -930,6 +1012,11 @@ symbolic image associated with the teaser
 <td></td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong id="resource.geo">geo</strong></td>
+<td valign="top"><a href="#geo">Geo</a></td>
+<td></td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong id="resource.asset">asset</strong></td>
 <td valign="top"><a href="#asset">Asset</a></td>
 <td></td>
@@ -940,8 +1027,103 @@ symbolic image associated with the teaser
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="resource.symbolicimage">symbolicImage</strong></td>
-<td valign="top"><a href="#symbolicimage">SymbolicImage</a></td>
+<td colspan="2" valign="top"><strong id="resource.symbolicasset">symbolicAsset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.explain">explain</strong></td>
+<td valign="top"><a href="#resultexplain">ResultExplain</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### ResultExplain
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="resultexplain.score">score</strong></td>
+<td valign="top"><a href="#float">Float</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resultexplain.type">type</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resultexplain.field">field</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resultexplain.description">description</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resultexplain.details">details</strong></td>
+<td valign="top">[<a href="#resultexplain">ResultExplain</a>!]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### Scheduling
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.start">start</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.end">end</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.rrule">rRule</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.isfullday">isFullDay</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.hasstarttime">hasStartTime</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.hasendtime">hasEndTime</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
 <td></td>
 </tr>
 </tbody>
@@ -987,6 +1169,86 @@ symbolic image associated with the teaser
 <tr>
 <td colspan="2" valign="top"><strong id="searchresult.facetgroups">facetGroups</strong></td>
 <td valign="top">[<a href="#facetgroup">FacetGroup</a>!]!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchresult.spellcheck">spellcheck</strong></td>
+<td valign="top"><a href="#spellcheck">Spellcheck</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### Spellcheck
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spellcheck.suggestions">suggestions</strong></td>
+<td valign="top">[<a href="#spellchecksuggestion">SpellcheckSuggestion</a>!]!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spellcheck.collation">collation</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### SpellcheckSuggestion
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spellchecksuggestion.original">original</strong></td>
+<td valign="top"><a href="#spellcheckword">SpellcheckWord</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spellchecksuggestion.suggestion">suggestion</strong></td>
+<td valign="top"><a href="#spellcheckword">SpellcheckWord</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### SpellcheckWord
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spellcheckword.word">word</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spellcheckword.frequency">frequency</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
 <td></td>
 </tr>
 </tbody>
@@ -1042,7 +1304,7 @@ symbolic image associated with the teaser
 </tbody>
 </table>
 
-### SymbolicImage
+### Svg
 
 <table>
 <thead>
@@ -1055,27 +1317,27 @@ symbolic image associated with the teaser
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong id="symbolicimage.copyright">copyright</strong></td>
+<td colspan="2" valign="top"><strong id="svg.copyright">copyright</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="symbolicimage.copyrightdetails">copyrightDetails</strong></td>
+<td colspan="2" valign="top"><strong id="svg.copyrightdetails">copyrightDetails</strong></td>
 <td valign="top"><a href="#copyrightdetails">CopyrightDetails</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="symbolicimage.caption">caption</strong></td>
+<td colspan="2" valign="top"><strong id="svg.caption">caption</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="symbolicimage.description">description</strong></td>
+<td colspan="2" valign="top"><strong id="svg.description">description</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="symbolicimage.url">url</strong></td>
+<td colspan="2" valign="top"><strong id="svg.url">url</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
@@ -1218,6 +1480,16 @@ symbolic image associated with the teaser
 <td></td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong id="inputfacet.sources">sources</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.contenttypes">contentTypes</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong id="inputfacet.groups">groups</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
@@ -1230,6 +1502,16 @@ symbolic image associated with the teaser
 <tr>
 <td colspan="2" valign="top"><strong id="inputfacet.relativedaterange">relativeDateRange</strong></td>
 <td valign="top"><a href="#relativedaterangeinputfacet">RelativeDateRangeInputFacet</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.spatialdistancerange">spatialDistanceRange</strong></td>
+<td valign="top"><a href="#spatialdistancerangeinputfacet">SpatialDistanceRangeInputFacet</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.query">query</strong></td>
+<td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -1267,12 +1549,27 @@ symbolic image associated with the teaser
 <td></td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong id="inputfilter.teaserproperty">teaserProperty</strong></td>
+<td valign="top"><a href="#teaserpropertyinputfilter">TeaserPropertyInputFilter</a></td>
+<td></td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong id="inputfilter.categories">categories</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong id="inputfilter.sites">sites</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.sources">sources</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.contenttypes">contentTypes</strong></td>
 <td valign="top">[<a href="#string">String</a>!]</td>
 <td></td>
 </tr>
@@ -1289,6 +1586,21 @@ symbolic image associated with the teaser
 <tr>
 <td colspan="2" valign="top"><strong id="inputfilter.relativedaterange">relativeDateRange</strong></td>
 <td valign="top"><a href="#relativedaterangeinputfilter">RelativeDateRangeInputFilter</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.geolocated">geoLocated</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.spatialorbital">spatialOrbital</strong></td>
+<td valign="top"><a href="#spatialorbitalinputfilter">SpatialOrbitalInputFilter</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.spatialarbitraryrectangle">spatialArbitraryRectangle</strong></td>
+<td valign="top"><a href="#spatialarbitraryrectangleinputfilter">SpatialArbitraryRectangleInputFilter</a></td>
 <td></td>
 </tr>
 <tr>
@@ -1314,6 +1626,30 @@ symbolic image associated with the teaser
 </tbody>
 </table>
 
+### InputGeoPoint
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="inputgeopoint.lng">lng</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputgeopoint.lat">lat</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ### InputSortCriteria
 
 <table>
@@ -1331,11 +1667,6 @@ symbolic image associated with the teaser
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="inputsortcriteria.headline">headline</strong></td>
-<td valign="top"><a href="#sortdirection">SortDirection</a></td>
-<td></td>
-</tr>
-<tr>
 <td colspan="2" valign="top"><strong id="inputsortcriteria.date">date</strong></td>
 <td valign="top"><a href="#sortdirection">SortDirection</a></td>
 <td></td>
@@ -1348,6 +1679,16 @@ symbolic image associated with the teaser
 <tr>
 <td colspan="2" valign="top"><strong id="inputsortcriteria.score">score</strong></td>
 <td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.spatialdist">spatialDist</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.spatialpoint">spatialPoint</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -1522,6 +1863,11 @@ symbolic image associated with the teaser
 <td></td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong id="searchinput.spellcheck">spellcheck</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong id="searchinput.archive">archive</strong></td>
 <td valign="top"><a href="#boolean">Boolean</a></td>
 <td></td>
@@ -1534,6 +1880,98 @@ symbolic image associated with the teaser
 <tr>
 <td colspan="2" valign="top"><strong id="searchinput.boosting">boosting</strong></td>
 <td valign="top"><a href="#inputboosting">InputBoosting</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.distancereferencepoint">distanceReferencePoint</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.explain">explain</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### SpatialArbitraryRectangleInputFilter
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialarbitraryrectangleinputfilter.lowerleftcorner">lowerLeftCorner</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialarbitraryrectangleinputfilter.upperrightcorner">upperRightCorner</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### SpatialDistanceRangeInputFacet
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialdistancerangeinputfacet.point">point</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialdistancerangeinputfacet.from">from</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialdistancerangeinputfacet.to">to</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### SpatialOrbitalInputFilter
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialorbitalinputfilter.distance">distance</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialorbitalinputfilter.centerpoint">centerPoint</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialorbitalinputfilter.mode">mode</strong></td>
+<td valign="top"><a href="#spatialorbitalmode">SpatialOrbitalMode</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -1572,6 +2010,40 @@ symbolic image associated with the teaser
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong id="suggestinput.archive">archive</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### TeaserPropertyInputFilter
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="teaserpropertyinputfilter.image">image</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="teaserpropertyinputfilter.imagecopyright">imageCopyright</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="teaserpropertyinputfilter.headline">headline</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="teaserpropertyinputfilter.text">text</strong></td>
 <td valign="top"><a href="#boolean">Boolean</a></td>
 <td></td>
 </tr>
@@ -1712,6 +2184,27 @@ symbolic image associated with the teaser
 </tbody>
 </table>
 
+### SpatialOrbitalMode
+
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>GREAT_CIRCLE_DISTANCE</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>BOUNDING_BOX</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ## Scalars
 
 ### Boolean
@@ -1729,6 +2222,8 @@ The `Boolean` scalar type represents `true` or `false`.
 The `Float` scalar type represents signed double-precision fractional
 values as specified by
 [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). 
+
+### GeoJson
 
 ### ID
 
@@ -1788,7 +2283,7 @@ represent free-form human-readable text.
 </tbody>
 </table>
 
-**Possible Types:** [Image](#image), [SymbolicImage](#symbolicimage)
+**Possible Types:** [Image](#image), [Svg](#svg)
 
 ### Teaser
 
