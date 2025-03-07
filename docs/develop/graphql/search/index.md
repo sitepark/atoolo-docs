@@ -746,7 +746,3 @@ A result can look like this, for example:
   }
 }
 ```
-
-## TODO
-
-- Spell Checking
