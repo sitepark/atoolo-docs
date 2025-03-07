@@ -49,6 +49,10 @@ An [Indexer service](https://github.com/sitepark/atoolo-search/blob/main/src/Ind
 
 The Internal Resource Indexer is the standard indexer of this bundle and is used to index the internal resources. The internal resources are the resources that are usually managed in the CMS. The indexer can be used to index and remove the internal resources.
 
+### Protected Resources
+
+The CMS IES offers the option of making certain resources visible only to a defined user group. These resources are marked as "protected". The resources are indexed, but only for user groups that are authorized to see these resources. To ensure that the protected resources are also returned via the search, the group IDs of the user groups must be stored in the PHP session via the `auth-groups` key in a comma-separated form.
+
 ### Solr Xml Indexer
 
 In order to better convert systems with existing indexers, the SolrXMLIndexer can be used to read the existing Solr-XML files and thus integrate them into the Atoolo-Indexer technology.
