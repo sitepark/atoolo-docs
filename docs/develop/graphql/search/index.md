@@ -427,13 +427,15 @@ See also [Timezone](#timezone)
 
 By default, all mathematical date expressions are evaluated relative to the Server time zone, but the timeZone parameter can be specified to override this behavior by performing all date-related additions and rounding relative to the specified time zone.
 
+The time zone is specified according to the standard [IANA Time Zone Database](https://www.iana.org/time-zones){:target="\_blank"} is used. Examples are `Europe/Berlin`, `America/New_York` or `Asia/Tokyo`.
+
 This is relevant for [Date ranges](#date-ranges).
 
 Example:
 
 ```graphql
 query {
-  search(input: { timeZone: "Europe/London", ... }) {
+  search(input: { timeZone: "Europe/Berlin", ... }) {
     ...
   }
 }
