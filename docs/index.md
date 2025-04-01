@@ -24,6 +24,10 @@ Atoolo offers a comprehensive system for form processing. The forms defined by t
 
 Atoolo provides a set of tools for search engine optimization (SEO). These tools help to improve the visibility of web applications in search engine results and increase the number of visitors to the site. (Currently only the sitemap XML functionality is offered.)
 
+### Microsites
+
+Atoolo offers a system to support microsites. Microsites are compact, thematically focused websites that deal exclusively with a specific topic. They are often used to highlight specific topics such as events, projects, offers or campaigns.
+
 ### URL rewriting
 
 Atoolo offers a URL rewriting system that allows URLs to be manipulated centrally. This system is used to manipulate URLs that are returned by the system via a centralized point. The URL rewriter can be used to manipulate URLs within returned JSON or XML data, for example.

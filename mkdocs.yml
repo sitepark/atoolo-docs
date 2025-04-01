@@ -3,6 +3,9 @@ site_dir: public
 repo_url: https://github.com/sitepark/atoolo-docs
 nav:
   - Home: index.md
+  - Concepts:
+      - concepts/index.md
+      - Microsites: concepts/microsites.md
   - Operate:
       - operate/index.md
       - Resource Channel: operate/resource-channel.md
@@ -30,6 +33,7 @@ nav:
           - Events Calendar: develop/bundles/events-calendar.md
           - Translator: develop/bundles/translator.md
           - Seo: develop/bundles/seo.md
+          - Micosite: develop/bundles/microsite.md
           - Rewrite: develop/bundles/rewrite.md
       - GraphQL API:
           - develop/graphql/index.md
