@@ -248,7 +248,7 @@ query {
 
 ## Sites facet
 
-Several websites can be managed within the CSM. These can be several main websites, but also microsites that are subordinate to a main website. The Sites facet can be used to determine the number of hits within a site.
+Several websites can be managed within the CMS. These can be several main websites, but also microsites that are subordinate to a main website. The Sites facet can be used to determine the number of hits within a site.
 
 ```graphql
 query {
