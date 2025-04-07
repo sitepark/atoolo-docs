@@ -5,6 +5,7 @@ nav:
   - Home: index.md
   - Concepts:
       - concepts/index.md
+      - Navigation: concepts/navigation.md
       - Microsites: concepts/microsites.md
   - Operate:
       - operate/index.md
