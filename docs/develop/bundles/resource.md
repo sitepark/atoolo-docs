@@ -153,9 +153,22 @@ $location = ResourceLocation::of('/a/b/c.php');
 $rootResource = $hierarchyLoader->loadRoot($location');
 ```
 
+## P Parameter Service
+
+The `Atoolo\Resource\Service\PParameterService` (`atoolo_resource.p_parameter_service`) can be used to generate **P parameters** with foreign parent.
+
+For more information, see [P parameter with foreign parent](../../concepts/navigation.md#p-parameter-with-foreign-parent).
+
+```php
+$pParameter = $pParameterService->getPParameterForForeignParent(
+  ResourceLocation::ofPath('/culture/event-search.php'),
+  ResourceLocation::ofPath('/service/events-calendar/some-event'),
+);
+```
+
 ## Using Symfony parameter and services
 
-Das Bundel definiert den Parameter `atoolo_resource.resource_root` über den bestimmt wird.
+The bundle defines the parameter `atoolo_resource.resource_root` which is used to determine.
 
 ```yaml
 parameters:
