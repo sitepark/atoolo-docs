@@ -509,6 +509,31 @@ filter: [{
 }]
 ```
 
+## Query template filter
+
+Like the "Query filter", the "Query template filter" also accepts a query that is passed directly to the search engine.
+
+The difference is that here a query is defined with placeholders and the variables to be used are specified separately. The use case is when the query is not defined directly by the frontend, but is specified by the PHP backend via an HTML data attribute and the frontend should only use the user input.
+
+The query is defined with placeholders in the form `{myvar}`. The variables are then passed separately via the `variables` attribute.
+
+````graphql
+
+This filter should only be used in absolutely exceptional cases when the fields of the current schema must be specified directly.
+
+!!! warning
+
+    If the schema is changed, the specified queries for these filters may no longer work.
+
+```graphql
+filter: [{
+  query : "sp_objecttype:{myvar}"
+  variables: {
+    myvar: "content"
+  }
+}]
+````
+
 ## Filter key
 
 A `key` can also be specified for filters. This is only necessary if the filter only influences the facet search. The key is then used for the faceted search to identify the filters that must not be taken into account. See [Facet search](faceted-search.md)

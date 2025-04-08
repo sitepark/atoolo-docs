@@ -659,3 +659,40 @@ query {
   }
 }
 ```
+
+## Query template facet
+
+Like the "Query facet", the "Query template facet" also accepts a query that is passed directly to the search engine.
+
+The difference is that here a query is defined with placeholders and the variables to be used are specified separately. The use case is when the query is not defined directly by the frontend, but is specified by the PHP backend via an HTML data attribute and the frontend should only use the user input.
+
+The query is defined with placeholders in the form `{myvar}`. The variables are then passed separately via the `variables` attribute.
+
+!!! warning
+
+    If the schema is changed, the specified queries for these facet may no longer work.
+
+```graphql
+query {
+  search(
+    input: {
+      facets: [
+        {
+          key: "mykey"
+          query: "sp_objecttype:{myvar}"
+          variables: { myvar: "content" }
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
