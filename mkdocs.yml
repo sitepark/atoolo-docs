@@ -5,11 +5,12 @@ nav:
   - Home: index.md
   - Concepts:
       - concepts/index.md
+      - Resource: concepts/resource.md
+      - Resource Channel: concepts/resource-channel.md
       - Navigation: concepts/navigation.md
       - Microsites: concepts/microsites.md
   - Operate:
       - operate/index.md
-      - Resource Channel: operate/resource-channel.md
       - Console Command: operate/console-command.md
       - IES Webnode: operate/ies-webnode.md
       - Runtime check: operate/runtime-check.md

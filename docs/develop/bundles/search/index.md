@@ -20,7 +20,7 @@ composer require atoolo/search-bundle
 
 ## Index name
 
-The index name is used to determine which index should be searched. An index is always assigned to a resource channel. The name of the index can be determined via the `ResourceChannel`.
+The index name is used to determine which index should be searched. An index is always assigned to a [Resource Channel](../../../concepts/resource-channel.md). The name of the index can be determined via the `ResourceChannel`.
 
 The IES (Sitepark's content management system) supports multilingual resource channels. Editorial content is only ever written in one language and is automatically translated into the other languages by the CMS. A multilingual resource channel then contains several resources for an article, each of which is published in a different language. For the search, a separate full text index is created for each language, which also takes into account language-specific features such as stop words and stemming.
 

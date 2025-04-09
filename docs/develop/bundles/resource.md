@@ -26,14 +26,7 @@ composer require atoolo/resource-bundle
 
 The resource represents a data object published by the IES (Siteparks content management system). This can be an article but also other objects that can be published by CMS.
 
-Eine Resource hat folgende Eigenschaften:
-
-- `location` - The path to the aggregated file
-- `id` - An ID assigned by the CMS for the object
-- `name` - Name of the resource
-- `objectType` - Specifies the type of the object. These types are managed in the CMS.
-- `lang` - Language of the resource data.
-- `data` - A generic data object containing the data structure of the resource. Depending on the object type, the schema of the data can be different.
+See [Resource](../../concepts/resource.md) for more information.
 
 The data is held in a `DataBag`, via which it can be read in a typed form. A string with dot notation can be used to retrieve more deeply nested data.
 
@@ -77,6 +70,8 @@ Resources are loaded via a `ResourceLoader`. Depending on the format in which th
 ### `ResourceChannel`
 
 The IES (Sitepark's content management system) recognizes various channels through which resources can be published. A channel is a directory that is always assigned to a specific virtual host.
+
+See [Resource channel](../../concepts/resource-channel.md) for more information.
 
 A `ResourceChannel` can be created via a `ResourceChannelFactory`.
 
