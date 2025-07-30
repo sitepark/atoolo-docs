@@ -1,6 +1,6 @@
 # Security Bundle
 
-The Atoolo Security Bundle is based on the [Security Bundle](https://symfony.com/components/Security%20Bundle){:target="\_blank"} and contains Atoolo-specific configurations and extensions for a role and user management system that can be maintained via the CMS IES.
+The Atoolo Security Bundle is based on the [Security Bundle](https://symfony.com/components/Security%20Bundle){:target="\_blank"} and contains Atoolo-specific configurations and extensions for a role and user management system that can be maintained via the IES.
 
 If necessary, it contains the necessary settings to secure individual queries of the GraphQL interface.
 
@@ -22,7 +22,7 @@ composer require atoolo/security-bundle
 
 ## Description
 
-The Atoolo security bundle extends the [Symfony security bundle](https://symfony.com/components/Security%20Bundle){:target="\_blank"}. It is used to secure API access to the website and to protect resources provided by the CMS-IES. The protection of resources via the security bundle is intended for simple cases. The CMS itself provides another option for protecting resources, which is much more powerful.
+The Atoolo security bundle extends the [Symfony security bundle](https://symfony.com/components/Security%20Bundle){:target="\_blank"}. It is used to secure API access to the website and to protect resources provided by the IES. The protection of resources via the security bundle is intended for simple cases. The CMS itself provides another option for protecting resources, which is much more powerful.
 
 This bundle uses a user and role concept to control access. There are currently two ways to define users and roles.
 

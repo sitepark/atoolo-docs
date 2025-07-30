@@ -9,6 +9,8 @@ nav:
       - Resource Channel: concepts/resource-channel.md
       - Navigation: concepts/navigation.md
       - Microsites: concepts/microsites.md
+      - WebAccount: concepts/webaccount.md
+      - Teaser: concepts/teaser.md
   - Operate:
       - operate/index.md
       - Console Command: operate/console-command.md
@@ -37,6 +39,7 @@ nav:
           - Seo: develop/bundles/seo.md
           - Micosite: develop/bundles/microsite.md
           - Rewrite: develop/bundles/rewrite.md
+          - WebAccount: develop/bundles/webaccount.md
       - GraphQL API:
           - develop/graphql/index.md
           - Getting started: develop/graphql/getting-started.md
@@ -50,7 +53,10 @@ nav:
               - Suggest: develop/graphql/search/suggest.md
               - More like this: develop/graphql/search/more-like-this.md
               - Indexing: develop/graphql/search/indexing.md
+          - WebAccount:
+              - develop/graphql/webaccount/index.md
           - Customization: develop/graphql/customization/index.md
+          - Error handling: develop/graphql/error-handling.md
           - Reference: develop/graphql/reference.md
       - Form API:
           - develop/form/index.md
@@ -66,6 +72,9 @@ nav:
 extra:
   status:
     draft: Draft
+
+watch:
+  - includes
 
 # https://squidfunk.github.io/mkdocs-material/reference/
 theme:
@@ -99,7 +108,9 @@ markdown_extensions:
       title: On this page
       permalink: "#"
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
   - pymdownx.highlight:
       extend_pygments_lang:
         - name: php

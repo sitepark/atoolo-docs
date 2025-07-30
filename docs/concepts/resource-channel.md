@@ -1,6 +1,6 @@
 # Resource channel
 
-The resource channel is the area in which the IES (Sitepark's content management system) publishes resources. A channel is a directory that is always assigned to a specific virtual host.
+The resource channel is the area in which the IES publishes resources. A channel is a directory that is always assigned to a specific virtual host.
 
 Directory layout For example, for the `www` area:
 
@@ -25,4 +25,4 @@ Directory layout For example, for the `www` area:
     └── context.php
 ```
 
-The resource channel is the directory `/var/www/example.com/www/resources/`. This directory is described exclusively by the IES (Sitepark's content management system).
+The resource channel is the directory `/var/www/example.com/www/resources/`. This directory is described exclusively by the IES.

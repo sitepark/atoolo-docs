@@ -20,6 +20,10 @@ Atoolo provides tools and methods for full-text indexing of data. This functiona
 
 Atoolo offers a comprehensive system for form processing. The forms defined by the CMS system are validated and the submitted form data is further processed. The form processing system is highly customizable and can be adapted to the specific requirements of the web application.
 
+### WebAccount
+
+The WebAccount is a central user account with which users can register and log in to a website. It is used for identification, authorization and personalization within a site.
+
 ### SEO
 
 Atoolo provides a set of tools for search engine optimization (SEO). These tools help to improve the visibility of web applications in search engine results and increase the number of visitors to the site. (Currently only the sitemap XML functionality is offered.)

@@ -1,6 +1,6 @@
 # Translator Bundle
 
-The CMS IES supports the automatic translation of texts managed by the CMS. In most cases, a translation via PHP is therefore not necessary. However, there are cases where external content is provided via PHP, which then also needs to be translated. This translator can be used for this purpose. An example of this is an external RSS feed that is to be displayed on the website as a teaser list.
+The IES supports the automatic translation of texts managed by the CMS. In most cases, a translation via PHP is therefore not necessary. However, there are cases where external content is provided via PHP, which then also needs to be translated. This translator can be used for this purpose. An example of this is an external RSS feed that is to be displayed on the website as a teaser list.
 
 With this bundle, texts can be translated via an external translation service (such as DeepL).
 Caches ensure that the texts do not have to be retranslated with every request.

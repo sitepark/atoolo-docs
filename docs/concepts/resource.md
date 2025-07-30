@@ -1,6 +1,6 @@
 # Resource
 
-The resource represents a data object published by the IES (Siteparks content management system). This can be an article but also other objects that can be published by CMS.
+The resource represents a data object published by the IES. This can be an article but also other objects that can be published by CMS.
 
 A resource has the following properties:
 

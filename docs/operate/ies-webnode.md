@@ -1,6 +1,6 @@
 # IES Webnode
 
-The IES webnode is a server application that is installed on all web servers that deliver websites managed by the IES (Sitepark's content management system). The IES webnode serves as the "long arm" of the IES and represents the interface between the IES and the web servers. The IES webnode is used, for example, to deploy the web applications that are required to operate the websites.
+The IES webnode is a server application that is installed on all web servers that deliver websites managed by the IES. The IES webnode serves as the "long arm" of the IES and represents the interface between the IES and the web servers. The IES webnode is used, for example, to deploy the web applications that are required to operate the websites.
 
 ## Start and stop
 

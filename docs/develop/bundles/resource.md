@@ -1,6 +1,6 @@
 # Resource Bundle
 
-In the Atoolo context, resources from IES (Siteparks content management system) are aggregated data that can be handled through this library.
+In the Atoolo context, resources from IES are aggregated data that can be handled through this library.
 
 There can be different formats in which the resource is aggregated by the CMS. The current format is the `SiteKit` format. Here, a PHP file is created for each article in which the data is stored in the form of PHP arrays. The data is read out via the corresponding `ResourceLoader` and made available in a `Resource` object.
 
@@ -24,7 +24,7 @@ composer require atoolo/resource-bundle
 
 ## The Resource
 
-The resource represents a data object published by the IES (Siteparks content management system). This can be an article but also other objects that can be published by CMS.
+The resource represents a data object published by the IES. This can be an article but also other objects that can be published by CMS.
 
 See [Resource](../../concepts/resource.md) for more information.
 
@@ -69,7 +69,7 @@ Resources are loaded via a `ResourceLoader`. Depending on the format in which th
 
 ### `ResourceChannel`
 
-The IES (Sitepark's content management system) recognizes various channels through which resources can be published. A channel is a directory that is always assigned to a specific virtual host.
+The IES recognizes various channels through which resources can be published. A channel is a directory that is always assigned to a specific virtual host.
 
 See [Resource channel](../../concepts/resource-channel.md) for more information.
 

@@ -22,7 +22,7 @@ composer require atoolo/search-bundle
 
 The index name is used to determine which index should be searched. An index is always assigned to a [Resource Channel](../../../concepts/resource-channel.md). The name of the index can be determined via the `ResourceChannel`.
 
-The IES (Sitepark's content management system) supports multilingual resource channels. Editorial content is only ever written in one language and is automatically translated into the other languages by the CMS. A multilingual resource channel then contains several resources for an article, each of which is published in a different language. For the search, a separate full text index is created for each language, which also takes into account language-specific features such as stop words and stemming.
+The IES supports multilingual resource channels. Editorial content is only ever written in one language and is automatically translated into the other languages by the CMS. A multilingual resource channel then contains several resources for an article, each of which is published in a different language. For the search, a separate full text index is created for each language, which also takes into account language-specific features such as stop words and stemming.
 
 The name of the index can be determined via the interface `IndexName`. A method `IndexName::name(ResourceLanguage $lang): string` is made available for this purpose.
 
@@ -51,7 +51,7 @@ The Internal Resource Indexer is the standard indexer of this bundle and is used
 
 ### Protected Resources
 
-The CMS IES offers the option of making certain resources visible only to a defined user group. These resources are marked as "protected". The resources are indexed, but only for user groups that are authorized to see these resources. To ensure that the protected resources are also returned via the search, the group IDs of the user groups must be stored in the PHP session via the `auth-groups` key in a comma-separated form.
+The IES offers the option of making certain resources visible only to a defined user group. These resources are marked as "protected". The resources are indexed, but only for user groups that are authorized to see these resources. To ensure that the protected resources are also returned via the search, the group IDs of the user groups must be stored in the PHP session via the `auth-groups` key in a comma-separated form.
 
 ### Solr Xml Indexer
 
@@ -135,7 +135,7 @@ class CustomDocumentEnricher implements DocumentEnricher
 }
 ```
 
-The document enricher is required, for example, in the [GraphQL Search Bundle](../../bundles/graphql-search.md). This offers a mutation that is also used by the CMS IES to trigger indexing. See also [GraphQl Indexing](../../graphql/search/indexing.md). So that your own document enricher can be used, it must be registered as [tagged Symfony service](https://symfony.com/doc/current/service_container/tags.html){:target="\_blank"}.
+The document enricher is required, for example, in the [GraphQL Search Bundle](../../bundles/graphql-search.md). This offers a mutation that is also used by the IES to trigger indexing. See also [GraphQl Indexing](../../graphql/search/indexing.md). So that your own document enricher can be used, it must be registered as [tagged Symfony service](https://symfony.com/doc/current/service_container/tags.html){:target="\_blank"}.
 
 `services.yaml`
 
