@@ -2,15 +2,15 @@
 
 The WebAccount is a central user account with which users can register and log in to a website. It is used for identification, authorization and personalization within a site.
 
-The basis for the WebAccount functionality is the [WebAccount Bundle](../../bundles/webaccount.md). This bundle provides a GraphQL API for user authentication and thus enables flexible integration into front-end applications.
+The basis for the WebAccount functionality is the [WebAccount Bundle](../../bundles/web-account.md). This bundle provides a GraphQL API for user authentication and thus enables flexible integration into front-end applications.
 
 ## Authentication
 
-Authentication takes place via user name and password. See also: [Webaccount authentication](../../../concepts/webaccount.md#authentication).
+Authentication takes place via user name and password. See also: [Webaccount authentication](../../../concepts/web-account.md#authentication).
 
 ```grahql
 mutation {
-  webaccountAuthenticationWithPassword(
+  webAccountAuthenticationWithPassword(
     username: "peterpan"
     password: "tinkerbell"
     setJwtCookie: true
@@ -28,20 +28,20 @@ mutation {
 }
 ```
 
-The `setJwtCookie` option can be used to specify whether a JWT cookie should be set that is used for authentication in the application. If this option is set to `true`, a cookie with the name `WEBACCOUNT_TOKEN` is set, which contains the JWT token. This token can then be used in subsequent requests to identify and authenticate the user.
+The `setJwtCookie` option can be used to specify whether a JWT cookie should be set that is used for authentication in the application. If this option is set to `true`, a cookie with the name `WEB_ACCOUNT_TOKEN` is set, which contains the JWT token. This token can then be used in subsequent requests to identify and authenticate the user.
 
 ### Authentication successful
 
-If authentication is successful, the `WEBACCOUNT_TOKEN` cookie is set and the response contains the status `SUCCESS` and the user data:
+If authentication is successful, the `WEB_ACCOUNT_TOKEN` cookie is set and the response contains the status `SUCCESS` and the user data:
 
 ```
-set-cookie WEBACCOUNT_TOKEN=eyJ0eXA...; expires=Fri, 29 Aug 2025 09:08:58 GMT; Max-Age=2592000; path=/; secure; httponly; samesite=strict
+set-cookie WEB_ACCOUNT_TOKEN=eyJ0eXA...; expires=Fri, 29 Aug 2025 09:08:58 GMT; Max-Age=2592000; path=/; secure; httponly; samesite=strict
 ```
 
 ```json
 {
   "data": {
-    "webaccountAuthenticationWithPassword": {
+    "webAccountAuthenticationWithPassword": {
       "status": "SUCCESS",
       "user": {
         "id": "100010100000002469",
@@ -66,7 +66,7 @@ set-cookie WEBACCOUNT_TOKEN=eyJ0eXA...; expires=Fri, 29 Aug 2025 09:08:58 GMT; M
 ```json
 {
   "data": {
-    "webaccountAuthenticationWithPassword": {
+    "webAccountAuthenticationWithPassword": {
       "status": "FAILURE"
   }
 }
@@ -77,15 +77,15 @@ set-cookie WEBACCOUNT_TOKEN=eyJ0eXA...; expires=Fri, 29 Aug 2025 09:08:58 GMT; M
 To log out a user and unset the JWT cookie, you can use the following mutation:
 
 ```graphql
-mutation webaccountUnsetJwtCookie {
-  webaccountUnsetJwtCookie
+mutation webAccountUnsetJwtCookie {
+  webAccountUnsetJwtCookie
 }
 ```
 
 This mutation removes the `WEBACCOUNT_TOKEN` cookie from the user's browser by sending the `Set-Cookie` header with an expired date, effectively logging the user out of the application.
 
 ```
-set-cookie WEBACCOUNT_TOKEN=deleted; expires=Tue, 30 Jul 2024 09:15:25 GMT; Max-Age=0; path=/; secure; httponly; samesite=strict
+set-cookie WEB_ACCOUNT_TOKEN=deleted; expires=Tue, 30 Jul 2024 09:15:25 GMT; Max-Age=0; path=/; secure; httponly; samesite=strict
 ```
 
 The JSON response is:
@@ -93,7 +93,7 @@ The JSON response is:
 ```json
 {
   "data": {
-    "webaccountUnsetJwtCookie": true
+    "webAccountUnsetJwtCookie": true
   }
 }
 ```

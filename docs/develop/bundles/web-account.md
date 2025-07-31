@@ -6,7 +6,7 @@ This bundle integrates seamlessly with the Sitepark CMS and follows Symfony best
 
 ## Sources
 
-The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-webaccount-bundle](https://github.com/sitepark/atoolo-webaccount-bundle){:target="\_blank"}.
+The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-web-account-bundle](https://github.com/sitepark/atoolo-web-account-bundle){:target="\_blank"}.
 
 ## Installation
 
@@ -17,14 +17,14 @@ See: [Sitepark Flex Repository](../symfony-flex-integration.md#sitepark-flex-rep
 Use [Composer](https://getcomposer.org/){:target="\_blank"} to install this component in your PHP project:
 
 ```sh
-composer require atoolo/webaccount-bundle
+composer require atoolo/web-account-bundle
 ```
 
 ## GraphQL API
 
 The Web Account Bundle provides a GraphQL API for user authentication. This allows for flexible integration with frontend applications.
 
-See also [GraphQL API](../graphql/webaccount/index.md
+See also [GraphQL API](../graphql/web-account/index.md
 
 ## Symfony Security Integration
 
@@ -32,9 +32,9 @@ The WebAccount Bundle integrates with Symfony's security system to manage user a
 
 The following components are provided:
 
-- `atoolo_webaccount.user_provider`: [Symfony Security User Provider](https://symfony.com/doc/current/security/user_providers.html){:target="\_blank"}. WebAccount users are authenticated via the GrahQL interface and not the Symfony security system. The user provider can neither load nor update user data and is only used to avoid error messages from Symfony, as Symfony requires a user provider.
-- `atoolo_webaccount.authenticator`: [Symfony Security Custom Authenticator](https://symfony.com/doc/current/security/custom_authenticator.html){:target="\_blank"}. This reads the `WEBACCOUNT_TOKEN` cookie and authenticates the user if the token is valid.
-- `atoolo_webaccount.unauthorized_entry_point`: [Symfony Security Entry Point](https://symfony.com/doc/current/security/entry_point.html){:target="\_blank"}. This entry point is used to redirect unauthenticated users to a login page when they try to access protected resources.
+- `atoolo_web_account.user_provider`: [Symfony Security User Provider](https://symfony.com/doc/current/security/user_providers.html){:target="\_blank"}. WebAccount users are authenticated via the GrahQL interface and not the Symfony security system. The user provider can neither load nor update user data and is only used to avoid error messages from Symfony, as Symfony requires a user provider.
+- `atoolo_web_account.authenticator`: [Symfony Security Custom Authenticator](https://symfony.com/doc/current/security/custom_authenticator.html){:target="\_blank"}. This reads the `WEB_ACCOUNT_TOKEN` cookie and authenticates the user if the token is valid.
+- `atoolo_web_account.unauthorized_entry_point`: [Symfony Security Entry Point](https://symfony.com/doc/current/security/entry_point.html){:target="\_blank"}. This entry point is used to redirect unauthenticated users to a login page when they try to access protected resources.
 
 Different roles are set depending on the user's authorizations. The role names are formed from the ID of the role in the CMS: `IES_ID_<role_id>`. If an anchor is assigned to the role in the CMS, the anchor is converted into a role notation. All letters are converted to capital letters, all separators are replaced by underscores. Example: `usrp.internetwebsite.protected` becomes `USRP_INTERNETWEBSITE_PROTECTED`. In addition, the role `WEB_ACCOUNT` is set for each authenticated user.
 
@@ -47,19 +47,19 @@ For security reasons, Symfony does not offer the option of adding the configurat
 ```yaml
 security:
   providers:
-    webaccount_users:
-      id: atoolo_webaccount.user_provider
+    web_account_users:
+      id: atoolo_web_account.user_provider
 
     all_users:
       chain:
-        providers: [..., "webaccount_users"]
+        providers: [..., "web_account_users"]
 
   firewalls:
-    webaccount:
+    web_account:
       lazy: true
-      provider: webaccount_users
+      provider: web_account_users
       custom_authenticators:
-        - atoolo_webaccount.authenticator
-      entry_point: atoolo_webaccount.unauthorized_entry_point
+        - atoolo_web_account.authenticator
+      entry_point: atoolo_web_account.unauthorized_entry_point
       stateless: false
 ```

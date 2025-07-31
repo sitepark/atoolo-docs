@@ -9,7 +9,7 @@ nav:
       - Resource Channel: concepts/resource-channel.md
       - Navigation: concepts/navigation.md
       - Microsites: concepts/microsites.md
-      - WebAccount: concepts/webaccount.md
+      - WebAccount: concepts/web-account.md
       - Teaser: concepts/teaser.md
   - Operate:
       - operate/index.md
@@ -39,7 +39,7 @@ nav:
           - Seo: develop/bundles/seo.md
           - Micosite: develop/bundles/microsite.md
           - Rewrite: develop/bundles/rewrite.md
-          - WebAccount: develop/bundles/webaccount.md
+          - WebAccount: develop/bundles/web-account.md
       - GraphQL API:
           - develop/graphql/index.md
           - Getting started: develop/graphql/getting-started.md
@@ -54,7 +54,7 @@ nav:
               - More like this: develop/graphql/search/more-like-this.md
               - Indexing: develop/graphql/search/indexing.md
           - WebAccount:
-              - develop/graphql/webaccount/index.md
+              - develop/graphql/web-account/index.md
           - Customization: develop/graphql/customization/index.md
           - Error handling: develop/graphql/error-handling.md
           - Reference: develop/graphql/reference.md

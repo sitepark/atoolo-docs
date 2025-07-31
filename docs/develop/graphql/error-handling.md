@@ -5,8 +5,8 @@ The response of a GraphQL query always contains a `data` field in case of succes
 ## Example of a failed request
 
 ```graphql
-mutation webaccountAuthenticationWithPassword {
-  webaccountAuthenticationWithPasswordXXX(
+mutation webAccountAuthenticationWithPassword {
+  webAccountAuthenticationWithPasswordXXX(
     username: "peterpan"
     password: "develop"
     setJwtCookie: true
@@ -28,7 +28,7 @@ mutation webaccountAuthenticationWithPassword {
 {
   "errors": [
     {
-      "message": "Cannot query field \"webaccountAuthenticationWithPasswordXXX\" on type \"RootMutation\". Did you mean \"webaccountAuthenticationWithPassword\"?",
+      "message": "Cannot query field \"webAccountAuthenticationWithPasswordXXX\" on type \"RootMutation\". Did you mean \"webAccountAuthenticationWithPassword\"?",
       "locations": [
         {
           "line": 2,
