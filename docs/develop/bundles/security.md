@@ -40,11 +40,11 @@ A user name and a password are expected per line in the file, separated by a col
 [username]: [password],[role1],[role2],...
 ```
 
-## User and role PHP files
+## User and access PHP files
 
 These PHP files are stored in a directory `RESOURCE_ROOT/security`. They are intended to be created by the CMS. This allows simple user administration to be realized with CMS means.
 
-User files have the extension `.users.php` and role files have the extension `.role.php`.
+User files have the extension `.users.php` and access files have the extension `.access.php`.
 
 User files are structured as follows:
 
@@ -55,7 +55,7 @@ return [
 ];
 ```
 
-Role files are structured as follows:
+Access files are structured as follows:
 
 ```php
 <?php
