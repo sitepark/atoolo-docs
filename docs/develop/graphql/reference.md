@@ -104,6 +104,31 @@ list of id's of the entries to be deleted
 <td valign="top"><a href="#boolean">Boolean</a>!</td>
 <td></td>
 </tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountauthenticationwithpassword">webAccountAuthenticationWithPassword</strong></td>
+<td valign="top"><a href="#authenticationresult">AuthenticationResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">username</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">password</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">setJwtCookie</td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountunsetjwtcookie">webAccountUnsetJwtCookie</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -220,13 +245,38 @@ The asset variant is used to decide which image format is to be returned.
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="articleteaser.actions">actions</strong></td>
-<td valign="top">[<a href="#link">Link</a>!]!</td>
+<td colspan="2" valign="top"><strong id="articleteaser.features">features</strong></td>
+<td valign="top">[<a href="#teaserfeature">TeaserFeature</a>!]!</td>
 <td>
 
-additional, context dependent links
+additional, context dependent teaser features indicating information about the underling resource
 
 </td>
+</tr>
+</tbody>
+</table>
+
+### AuthenticationResult
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="authenticationresult.status">status</strong></td>
+<td valign="top"><a href="#authenticationstatus">AuthenticationStatus</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="authenticationresult.user">user</strong></td>
+<td valign="top"><a href="#user">User</a>!</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -575,6 +625,23 @@ Downlaod url for the event scheduling as an .ics file
 <td valign="top">[<a href="#imagesource">ImageSource</a>!]!</td>
 <td></td>
 </tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.static">static</strong> ⚠️</td>
+<td valign="top"><a href="#imagesource">ImageSource</a>!</td>
+<td>
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+'static' might be a reserved keyword. Use field 'staticImage' instead
+
+</blockquote>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.staticimage">staticImage</strong></td>
+<td valign="top"><a href="#imagesource">ImageSource</a>!</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -821,11 +888,11 @@ The asset variant is used to decide which image format is to be returned.
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="mediateaser.actions">actions</strong></td>
-<td valign="top">[<a href="#link">Link</a>!]!</td>
+<td colspan="2" valign="top"><strong id="mediateaser.features">features</strong></td>
+<td valign="top">[<a href="#teaserfeature">TeaserFeature</a>!]!</td>
 <td>
 
-additional, context dependent links
+additional, context dependent teaser features indicating information about the underling resource
 
 </td>
 </tr>
@@ -943,13 +1010,58 @@ The asset variant is used to decide which image format is to be returned.
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="newsteaser.actions">actions</strong></td>
-<td valign="top">[<a href="#link">Link</a>!]!</td>
+<td colspan="2" valign="top"><strong id="newsteaser.features">features</strong></td>
+<td valign="top">[<a href="#teaserfeature">TeaserFeature</a>!]!</td>
 <td>
 
-additional, context dependent links
+additional, context dependent teaser features indicating information about the underling resource
 
 </td>
+</tr>
+</tbody>
+</table>
+
+### OnlineService
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="onlineservice.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### OnlineServiceFeature
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="onlineservicefeature.label">label</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="onlineservicefeature.onlineservices">onlineServices</strong></td>
+<td valign="top">[<a href="#onlineservice">OnlineService</a>!]!</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -1344,6 +1456,51 @@ additional, context dependent links
 </tbody>
 </table>
 
+### User
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="user.id">id</strong></td>
+<td valign="top"><a href="#id">ID</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="user.username">username</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="user.firstname">firstName</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="user.lastname">lastName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="user.email">email</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="user.roles">roles</strong></td>
+<td valign="top">[<a href="#string">String</a>!]!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ## Inputs
 
 ### AbsoluteDateRangeInputFacet
@@ -1514,6 +1671,11 @@ additional, context dependent links
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.querytemplate">queryTemplate</strong></td>
+<td valign="top"><a href="#querytemplateinput">QueryTemplateInput</a></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -1623,6 +1785,11 @@ additional, context dependent links
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
 </tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.querytemplate">queryTemplate</strong></td>
+<td valign="top"><a href="#querytemplateinput">QueryTemplateInput</a></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -1711,6 +1878,11 @@ additional, context dependent links
 <td></td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.context">context</strong></td>
+<td valign="top"><a href="#searchcontextinput">SearchContextInput</a></td>
+<td></td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong id="morelikethisinput.lang">lang</strong></td>
 <td valign="top"><a href="#string">String</a></td>
 <td></td>
@@ -1723,6 +1895,35 @@ additional, context dependent links
 <tr>
 <td colspan="2" valign="top"><strong id="morelikethisinput.limit">limit</strong></td>
 <td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.archive">archive</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### QueryTemplateInput
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="querytemplateinput.query">query</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="querytemplateinput.variables">variables</strong></td>
+<td valign="top"><a href="#json">Json</a>!</td>
 <td></td>
 </tr>
 </tbody>
@@ -1742,17 +1943,52 @@ additional, context dependent links
 <tr>
 <td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.base">base</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Defaults to the current datetime if null
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.baseoffset">baseOffset</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
 <td></td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.before">before</strong></td>
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
-<td></td>
+<td>
+
+Sets the lower date boundary. Implicitely directed toward the past.
+
+</td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.after">after</strong></td>
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
-<td></td>
+<td>
+
+Sets the upper date boundary. Implicitely directed toward the future.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.from">from</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
+<td>
+
+Sets the lower date boundary
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.to">to</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
+<td>
+
+Sets the upper date boundary
+
+</td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.gap">gap</strong></td>
@@ -1786,17 +2022,52 @@ additional, context dependent links
 <tr>
 <td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.base">base</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Defaults to the current datetime if null
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.baseoffset">baseOffset</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
 <td></td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.before">before</strong></td>
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
-<td></td>
+<td>
+
+Sets the lower date boundary. Implicitely directed toward the past.
+
+</td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.after">after</strong></td>
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
-<td></td>
+<td>
+
+Sets the upper date boundary. Implicitely directed toward the future.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.from">from</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
+<td>
+
+Sets the lower date boundary
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.to">to</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
+<td>
+
+Sets the upper date boundary
+
+</td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.roundstart">roundStart</strong></td>
@@ -1806,6 +2077,54 @@ additional, context dependent links
 <tr>
 <td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.roundend">roundEnd</strong></td>
 <td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### SearchContextInput
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcontextinput.urlbasepath">urlBasePath</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcontextinput.resourcelocation">resourceLocation</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcontextinput.options">options</strong></td>
+<td valign="top"><a href="#searchcontextoptionsinput">SearchContextOptionsInput</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### SearchContextOptionsInput
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcontextoptionsinput.samenavigation">sameNavigation</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -1840,6 +2159,11 @@ additional, context dependent links
 <tr>
 <td colspan="2" valign="top"><strong id="searchinput.lang">lang</strong></td>
 <td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.context">context</strong></td>
+<td valign="top"><a href="#searchcontextinput">SearchContextInput</a></td>
 <td></td>
 </tr>
 <tr>
@@ -2052,6 +2376,31 @@ additional, context dependent links
 
 ## Enums
 
+### AuthenticationStatus
+
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>SUCCESS</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>PARTIAL</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>FAILURE</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ### DateRangeRound
 
 <table>
@@ -2213,9 +2562,15 @@ The `Boolean` scalar type represents `true` or `false`.
 
 ### DateInterval
 
+The scalar type `DateInterval` represents a date interval duration string. It is specified in ISO-8601 format (e.g. `P3Y6M4DT12H30M5S`).
+
 ### DateTime
 
+The scalar type `DateTime` represents a date and time string. It is specified with the UTC time zone in ISO-8601 format (e.g. `2024-05-22T10:13:00Z`).
+
 ### DateTimeZone
+
+The scalar type `DateTimeZone` represents a timezone string. It is specified in the IANA timezone database format (e.g. `America/New_York`).
 
 ### Float
 
@@ -2237,6 +2592,12 @@ When expected as an input type, any string (such as `"4"`) or integer
 
 The `Int` scalar type represents non-fractional signed whole numeric
 values. Int can represent values between -(2^31) and 2^31 - 1. 
+
+### Json
+
+### SignedDateInterval
+
+The scalar type `SignedDateInterval` represents a date interval duration string that additionally allows for a leading minus sign (as specified in ISO 8601-2:2019).
 
 ### String
 
@@ -2325,3 +2686,25 @@ Teaser Link
 </table>
 
 **Possible Types:** [ArticleTeaser](#articleteaser), [MediaTeaser](#mediateaser), [NewsTeaser](#newsteaser), [EventTeaser](#eventteaser)
+
+### TeaserFeature
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="teaserfeature.label">label</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+**Possible Types:** [OnlineServiceFeature](#onlineservicefeature)
