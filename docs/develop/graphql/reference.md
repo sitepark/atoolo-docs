@@ -13,33 +13,8 @@
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong id="rootquery.search">search</strong></td>
-<td valign="top"><a href="#searchresult">SearchResult</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">input</td>
-<td valign="top"><a href="#searchinput">SearchInput</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong id="rootquery.ping">ping</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td></td>
-</tr>
-<tr>
 <td colspan="2" valign="top"><strong id="rootquery.indexerstatus">indexerStatus</strong></td>
 <td valign="top"><a href="#indexerstatus">IndexerStatus</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong id="rootquery.morelikethis">moreLikeThis</strong></td>
-<td valign="top"><a href="#searchresult">SearchResult</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">input</td>
-<td valign="top"><a href="#morelikethisinput">MoreLikeThisInput</a>!</td>
 <td></td>
 </tr>
 <tr>
@@ -50,6 +25,31 @@
 <tr>
 <td colspan="2" align="right" valign="top">input</td>
 <td valign="top"><a href="#suggestinput">SuggestInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.ping">ping</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.search">search</strong></td>
+<td valign="top"><a href="#searchresult">SearchResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#searchinput">SearchInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.morelikethis">moreLikeThis</strong></td>
+<td valign="top"><a href="#searchresult">SearchResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#morelikethisinput">MoreLikeThisInput</a>!</td>
 <td></td>
 </tr>
 </tbody>

@@ -21,7 +21,7 @@ done
 if [ "$HOST" != "" ]; then
 	ENDPOINT_URL="$SCHEME://$HOST/api/graphql/"
 else
-	ENDPOINT_URL=http://atoolo-e2e-test:9090/api/graphql/
+	ENDPOINT_URL=http://www-atoolo-e2e-test:9090/api/graphql/
 fi
 
 curl "$ENDPOINT_URL" \
