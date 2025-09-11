@@ -381,8 +381,8 @@ query {
         {
           key: "month"
           relativeDateRange: {
-            before: "P1Y"
-            after: "P1Y"
+            from: "-P1Y"
+            to: "P1Y"
             gap: "P1M"
             roundStart: START_OF_YEAR
             roundEnd: END_OF_YEAR
@@ -429,22 +429,22 @@ query relativeDateRangeFacetsearch($filter: RelativeDateRangeInputFilter) {
       facets: [
         {
           key: "today"
-          relativeDateRange: { after: "P1D", roundEnd: END_OF_PREVIOUS_DAY }
+          relativeDateRange: { to: "P1D", roundEnd: END_OF_PREVIOUS_DAY }
           excludeFilter: ["dateFilter"]
         }
         {
           key: "next7days"
-          relativeDateRange: { after: "P7D", roundEnd: END_OF_PREVIOUS_DAY }
+          relativeDateRange: { to: "P7D", roundEnd: END_OF_PREVIOUS_DAY }
           excludeFilter: ["dateFilter"]
         }
         {
           key: "thisMonth"
-          relativeDateRange: { after: "P1M", roundEnd: END_OF_PREVIOUS_MONTH }
+          relativeDateRange: { to: "P1M", roundEnd: END_OF_PREVIOUS_MONTH }
           excludeFilter: ["dateFilter"]
         }
         {
           key: "thisAndNextMonth"
-          relativeDateRange: { after: "P1M", roundEnd: END_OF_MONTH }
+          relativeDateRange: { to: "P1M", roundEnd: END_OF_MONTH }
           excludeFilter: ["dateFilter"]
         }
       ]
@@ -475,7 +475,7 @@ If "Today" is selected:
 ```json
 {
   "filter": {
-    "after": "P1D",
+    "to": "P1D",
     "roundEnd": "END_OF_PREVIOUS_DAY"
   }
 }
@@ -486,7 +486,7 @@ If "Next 7 days" is selected:
 ```json
 {
   "filter": {
-    "after": "P7D",
+    "to": "P7D",
     "roundEnd": "END_OF_PREVIOUS_DAY"
   }
 }
@@ -497,7 +497,7 @@ If "This month" is selected:
 ```json
 {
   "filter": {
-    "after": "P1M",
+    "to": "P1M",
     "roundEnd": "END_OF_PREVIOUS_MONTH"
   }
 }
@@ -508,7 +508,7 @@ If "This and nex month" is selected:
 ```json
 {
   "filter": {
-    "after": "P1M",
+    "to": "P1M",
     "roundEnd": "END_OF_MONTH"
   }
 }
@@ -529,7 +529,7 @@ query relativeDateRangeFacetsearch($currentPageDate: DateTime) {
           key: "currentPageDateFilter"
           relativeDateRange: {
             base: $currentPageDate
-            after: "P1D"
+            to: "P1D"
             roundEnd: END_OF_PREVIOUS_DAY
           }
         }

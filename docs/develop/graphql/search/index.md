@@ -317,16 +317,20 @@ At least the `from` or `to` date must be specified. If `from` is not specified, 
 
 A relative date range is specified using two intervals that are relative to a specific date:
 
-- the `before` interval is based on a specific date
-- the `after` interval is based on a specific date
+- the `from` interval defines the lower boundary relative to a base date
+- the `to` interval defines the upper boundary relative to a base date
 
-The interval must be specified in the format [ISO-8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations){:target="\_blank"} (e.g. `P1D` for one day).
+The interval must be specified in the format [ISO-8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations){:target="\_blank"}. Additionally, a _leading minus sign_ is also allowed to define whether the interval is directed toward the past or the future (e.g. `-P1D` for one day in the past, `P1M` for one month in the future etc.).
+
+!!! note
+
+    As of `atoolo/graphql-search-bundle 1.9.0`, the former fields `before` and `after` are deprecated because they are implicitly directed toward the past/future and do not allow for a direction to be set by the user.
 
 Optionally, a `base` can also be specified. This date is used as the basis for calculating the relative date. If no `base` is specified, the current date is used.
 
 Relative date ranges can only be exact to the day. Specifying a time such as "P1DT1H" will result in an error.
 
-The period defined via the `before` and `after` intervals is to the day. The period is therefore always rounded. See [Round Date](#round-date).
+The period defined via the `from` and `to` intervals is to the day. The period is therefore always rounded. See [Round Date](#round-date).
 
 The following examples illustrate the relative date ranges:
 
@@ -335,7 +339,7 @@ Only everything from yesterday:
 ```graphql
 {
   relativeDateRange: {
-    before: "P1D"
+    from: "-P1D"
     roundStart : START_OF_DAY
     roundEnd: END_OF_PREVIOUS_DAY # default end-date is 'now'
   }
@@ -347,8 +351,8 @@ Yesterday, today and tomorrow
 ```graphql
 {
   relativeDateRange: {
-    before: "P1D"
-    after: "P1D"
+    from: "-P1D"
+    to: "P1D"
   }
 }
 ```
@@ -358,7 +362,7 @@ Everything from the last 7 days and today:
 ```graphql
 {
   relativeDateRange: {
-    before: "P7D"
+    from: "-P7D"
     roundStart : START_OF_DAY
     roundEnd: END_OF_DAY # default end-date is 'now'
   }
@@ -381,7 +385,7 @@ All in the last month:
 ```graphql
 {
   relativeDateRange: {
-    before: "P1M"
+    from: "-P1M"
     roundStart : START_OF_MONTH
     roundEnd: END_OF_PREVIOUS_MONTH # default end-date is 'now'
   }
@@ -394,7 +398,7 @@ All in the seven days before Christmas Eve 2024 (Timezone Europe/Berlin):
 {
   relativeDateRange: {
     base: "2024-12-23T23:00:00Z"
-    before: "P7D"
+    from: "-P7D"
     roundEnd: END_OF_PREVIOUS_DAY
   }
 }

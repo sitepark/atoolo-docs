@@ -271,7 +271,7 @@ Example of a date range filter with relative date values based on the current da
 ```graphql
 query {
   search(
-    input: { filter: [{ relativeDateRange: { before: "P1D", after: "P1W" } }] }
+    input: { filter: [{ relativeDateRange: { from: "-P1D", to: "P1M" } }] }
   ) {
     total
     offset
