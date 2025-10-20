@@ -6,7 +6,7 @@ This allows you to reuse your existing GraphQL logic for internal application ne
 
 ## Config setup
 
-Ensure that you have configured the `graphql_query_dirs` parameter in your `config/packages/atoolo_graphql.yaml` file (see [reference](/develop/graphql/config/#configuration-reference)). This tells the bundle where to look for your GraphQL operation definitions.
+Ensure that you have configured the `graphql_query_dirs` parameter in your `config/packages/atoolo_graphql.yaml` file (see [reference](/develop/bundles/graphql-search/config/#configuration-reference)). This tells the bundle where to look for your GraphQL operation definitions.
 
 ## Defining a GraphQL operation
 

@@ -30,7 +30,11 @@ nav:
           - Resource: develop/bundles/resource.md
           - Search: develop/bundles/search/index.md
           - Security: develop/bundles/security.md
-          - GraphQL search: develop/bundles/graphql-search.md
+          - GraphQL search: 
+            - develop/bundles/graphql-search/index.md
+            - Configuration: develop/bundles/graphql-search/config.md
+            - Customization: develop/bundles/graphql-search/customization.md
+            - Server-Side queries: develop/bundles/graphql-search/server-side-queries.md
           - Form: develop/bundles/form.md
           - CityGov: develop/bundles/citygov.md
           - CityCall: develop/bundles/citycall.md
@@ -43,7 +47,6 @@ nav:
       - GraphQL API:
           - develop/graphql/index.md
           - Getting started: develop/graphql/getting-started.md
-          - Config: develop/graphql/config.md
           - Search:
               - develop/graphql/search/index.md
               - Filtered search: develop/graphql/search/filtered-search.md
@@ -58,7 +61,6 @@ nav:
               - develop/graphql/web-account/index.md
           - Customization: develop/graphql/customization/index.md
           - Error handling: develop/graphql/error-handling.md
-          - Server-side queries: develop/graphql/server-side-queries.md
           - Reference: develop/graphql/reference.md
       - Form API:
           - develop/form/index.md
