@@ -43,6 +43,7 @@ nav:
       - GraphQL API:
           - develop/graphql/index.md
           - Getting started: develop/graphql/getting-started.md
+          - Config: develop/graphql/config.md
           - Search:
               - develop/graphql/search/index.md
               - Filtered search: develop/graphql/search/filtered-search.md
@@ -57,6 +58,7 @@ nav:
               - develop/graphql/web-account/index.md
           - Customization: develop/graphql/customization/index.md
           - Error handling: develop/graphql/error-handling.md
+          - Server-side queries: develop/graphql/server-side-queries.md
           - Reference: develop/graphql/reference.md
       - Form API:
           - develop/form/index.md
