@@ -30,7 +30,11 @@ nav:
           - Resource: develop/bundles/resource.md
           - Search: develop/bundles/search/index.md
           - Security: develop/bundles/security.md
-          - GraphQL search: develop/bundles/graphql-search.md
+          - GraphQL search: 
+            - develop/bundles/graphql-search/index.md
+            - Configuration: develop/bundles/graphql-search/config.md
+            - Customization: develop/bundles/graphql-search/customization.md
+            - Server-Side queries: develop/bundles/graphql-search/server-side-queries.md
           - Form: develop/bundles/form.md
           - CityGov: develop/bundles/citygov.md
           - CityCall: develop/bundles/citycall.md
