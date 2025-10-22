@@ -4,7 +4,7 @@ The GraphQL query `search` can be used to search for resources. The aim of this 
 
 ## Search in a index
 
-The search is performed using a full-text index. The CMS IES takes care of filling and updating the index. There is a separate index for each publication channel. For translated publication channels, there is a separate index for each language.
+The search is performed using a full-text index. The IES takes care of filling and updating the index. There is a separate index for each publication channel. For translated publication channels, there is a separate index for each language.
 
 For each query via `selectResources`, the index to be searched must be specified via the input parameter `index`.
 
@@ -77,7 +77,7 @@ query {
 
 ## Multilingual search
 
-The IES (Sitepark's content management system) supports multilingual resource channels. Editorial content is only ever written in one language and is automatically translated into the other languages by the CMS. A multilingual resource channel then contains several resources for an article, each of which is published in a different language. For the search, a separate full text index is created for each language, which also takes into account language-specific features such as stop words and stemming.
+The IES supports multilingual resource channels. Editorial content is only ever written in one language and is automatically translated into the other languages by the CMS. A multilingual resource channel then contains several resources for an article, each of which is published in a different language. For the search, a separate full text index is created for each language, which also takes into account language-specific features such as stop words and stemming.
 
 If the publication channel is multilingual, the search is limited to a specific language. The language is specified using the input parameter `lang`. If no `lang` is specified, the search is carried out in the base language of the channel.
 
@@ -186,6 +186,74 @@ query {
 
     If the schema is changed, the specified sort field for this sorting may no longer work.
 
+## Spellcheck
+
+The Spellcheck feature can be used to correct spelling mistakes in the search query. This is particularly useful if the search query returns no or only a few hits. The corrected search query can then be executed again.
+
+The input parameter `spellcheck:true` activates the spell check. Correction suggestions and a corrected search query are then returned in the result.
+
+```graphql
+query {
+  search(input: { text: "chocate cofee", spellcheck: true }) {
+    results {
+      id
+    }
+    spellcheck {
+      suggestions {
+        original {
+          word
+          frequency
+        }
+        suggestion {
+          word
+          frequency
+        }
+      }
+      collation
+    }
+  }
+}
+```
+
+The result could then look like this:
+
+```json
+{
+  "data": {
+    "search": {
+      "total": 0,
+      "spellcheck": {
+        "suggestions": [
+          {
+            "original": {
+              "word": "chocate",
+              "frequency": 0
+            },
+            "suggestion": {
+              "word": "choclate",
+              "frequency": 20
+            }
+          },
+          {
+            "original": {
+              "word": "cofee",
+              "frequency": 0
+            },
+            "suggestion": {
+              "word": "coffee",
+              "frequency": 10
+            }
+          }
+        ],
+        "collation": "choclate coffee"
+      }
+    }
+  }
+}
+```
+
+The corrected words and the frequency of use in the index are returned under `suggestions`. `collation` contains the corrected search query.
+
 ## Archive search
 
 The indexed resources can be marked as "archived". This flag ensures that these resources are not normally included in the search. This can be used for news, for example, to include only the latest news in the general search. For a special search, such as a news archive search, the `archive` flag can be used to also find archived resources.
@@ -249,16 +317,20 @@ At least the `from` or `to` date must be specified. If `from` is not specified, 
 
 A relative date range is specified using two intervals that are relative to a specific date:
 
-- the `before` interval is based on a specific date
-- the `after` interval is based on a specific date
+- the `from` interval defines the lower boundary relative to a base date
+- the `to` interval defines the upper boundary relative to a base date
 
-The interval must be specified in the format [ISO-8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations){:target="\_blank"} (e.g. `P1D` for one day).
+The interval must be specified in the format [ISO-8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations){:target="\_blank"}. Additionally, a _leading minus sign_ is also allowed to define whether the interval is directed toward the past or the future (e.g. `-P1D` for one day in the past, `P1M` for one month in the future etc.).
+
+!!! note
+
+    As of `atoolo/graphql-search-bundle 1.9.0`, the former fields `before` and `after` are deprecated because they are implicitly directed toward the past/future and do not allow for a direction to be set by the user.
 
 Optionally, a `base` can also be specified. This date is used as the basis for calculating the relative date. If no `base` is specified, the current date is used.
 
 Relative date ranges can only be exact to the day. Specifying a time such as "P1DT1H" will result in an error.
 
-The period defined via the `before` and `after` intervals is to the day. The period is therefore always rounded. See [Round Date](#round-date).
+The period defined via the `from` and `to` intervals is to the day. The period is therefore always rounded. See [Round Date](#round-date).
 
 The following examples illustrate the relative date ranges:
 
@@ -267,7 +339,7 @@ Only everything from yesterday:
 ```graphql
 {
   relativeDateRange: {
-    before: "P1D"
+    from: "-P1D"
     roundStart : START_OF_DAY
     roundEnd: END_OF_PREVIOUS_DAY # default end-date is 'now'
   }
@@ -279,8 +351,8 @@ Yesterday, today and tomorrow
 ```graphql
 {
   relativeDateRange: {
-    before: "P1D"
-    after: "P1D"
+    from: "-P1D"
+    to: "P1D"
   }
 }
 ```
@@ -290,7 +362,7 @@ Everything from the last 7 days and today:
 ```graphql
 {
   relativeDateRange: {
-    before: "P7D"
+    from: "-P7D"
     roundStart : START_OF_DAY
     roundEnd: END_OF_DAY # default end-date is 'now'
   }
@@ -313,7 +385,7 @@ All in the last month:
 ```graphql
 {
   relativeDateRange: {
-    before: "P1M"
+    from: "-P1M"
     roundStart : START_OF_MONTH
     roundEnd: END_OF_PREVIOUS_MONTH # default end-date is 'now'
   }
@@ -326,7 +398,7 @@ All in the seven days before Christmas Eve 2024 (Timezone Europe/Berlin):
 {
   relativeDateRange: {
     base: "2024-12-23T23:00:00Z"
-    before: "P7D"
+    from: "-P7D"
     roundEnd: END_OF_PREVIOUS_DAY
   }
 }
@@ -359,13 +431,15 @@ See also [Timezone](#timezone)
 
 By default, all mathematical date expressions are evaluated relative to the Server time zone, but the timeZone parameter can be specified to override this behavior by performing all date-related additions and rounding relative to the specified time zone.
 
+The time zone is specified according to the standard [IANA Time Zone Database](https://www.iana.org/time-zones){:target="\_blank"} is used. Examples are `Europe/Berlin`, `America/New_York` or `Asia/Tokyo`.
+
 This is relevant for [Date ranges](#date-ranges).
 
 Example:
 
 ```graphql
 query {
-  search(input: { timeZone: "Europe/London", ... }) {
+  search(input: { timeZone: "Europe/Berlin", ... }) {
     ...
   }
 }
@@ -678,7 +752,3 @@ A result can look like this, for example:
   }
 }
 ```
-
-## TODO
-
-- Spell Checking

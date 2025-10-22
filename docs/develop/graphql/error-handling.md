@@ -1,0 +1,41 @@
+# Error handling
+
+The response of a GraphQL query always contains a `data` field in case of success. In the event of an error, the `data` field is not set; instead, an `errors` field containing a list of errors is returned.
+
+## Example of a failed request
+
+```graphql
+mutation webAccountAuthenticationWithPassword {
+  webAccountAuthenticationWithPasswordXXX(
+    username: "peterpan"
+    password: "develop"
+    setJwtCookie: true
+  ) {
+    status
+    user {
+      id
+      username
+      firstName
+      lastName
+      email
+      roles
+    }
+  }
+}
+```
+
+```json
+{
+  "errors": [
+    {
+      "message": "Cannot query field \"webAccountAuthenticationWithPasswordXXX\" on type \"RootMutation\". Did you mean \"webAccountAuthenticationWithPassword\"?",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ]
+    }
+  ]
+}
+```

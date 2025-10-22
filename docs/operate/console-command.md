@@ -2,7 +2,7 @@
 
 Symfony projects provide a console command with which a large number of commands can be executed. The Atoolo suite extends the commands.
 
-In Atoolo projects there is the special situation that a project can be used for several hosts. The contents of the websites of the virtual hosts are provided by the CMS in different [resource channels](resource-channel.md). As a rule, an Atoolo command always refers to a resource channel. The command must therefore be made aware of the resource channel for which it is to be executed. As the application is linked to the resource channel, the command can also be executed in the resource channel directory.
+In Atoolo projects there is the special situation that a project can be used for several hosts. The contents of the websites of the virtual hosts are provided by the CMS in different [resource channels](../concepts/resource-channel.md). As a rule, an Atoolo command always refers to a resource channel. The command must therefore be made aware of the resource channel for which it is to be executed. As the application is linked to the resource channel, the command can also be executed in the resource channel directory.
 
 ```sh
 /var/www/example.com/www/app/bin/console

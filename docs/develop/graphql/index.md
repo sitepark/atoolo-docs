@@ -12,15 +12,9 @@ The GraphQL API endpoint is located at `/api/graphql`.
 
 The [GraphQL Schema Language Cheat Sheet](https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png){:target="\_blank"} is also helpful.
 
-## GraphiQL
-
-Explore the GraphQL API with the interactive [GraphiQL Explorer](getting-started.md#graphiql), which would be accessible at the fictitious endpoint `www.example.com` via the following URL.
-
-`https://www.example.com/graphiql`
-
 ## GraphQL API reference
 
-The documentation of the GraphQL API resources is automatically generated based on the GraphQL schema and varies depending on the extensions installed in the IES. Therefore we refer to the interactive GraphiQL explorer which contains the API documentation.
+The documentation of the GraphQL API resources is automatically generated based on the GraphQL schema and varies depending on the used bundles.
 
 ## Breaking changes
 

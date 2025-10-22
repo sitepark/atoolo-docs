@@ -1,6 +1,6 @@
 # Filtered search
 
-Filters can be used to give the user of the website the possibility to narrow down his search by certain criteria that are offered to him. Filters can also be used to limit the search in general if the results can only be returned from a certain area. The CMS IES recognizes various criteria that can be used for this purpose.
+Filters can be used to give the user of the website the possibility to narrow down his search by certain criteria that are offered to him. Filters can also be used to limit the search in general if the results can only be returned from a certain area. The IES recognizes various criteria that can be used for this purpose.
 
 The filters are specified via the input attribute `filter` in the form
 
@@ -87,6 +87,36 @@ query {
 }
 ```
 
+## Teaser property filter
+
+Search results are often displayed as teasers. For certain teaser lists, it may be necessary for certain teaser properties to be present. The teaser property filter can be used to find teasers that have certain properties.
+
+One or more properties can be specified. These are applied as `AND` filters.
+
+The following properties can be filtered
+
+| Property         | Value           | Description                                                         |
+| ---------------- | --------------- | ------------------------------------------------------------------- |
+| `image`          | `true`, `false` | The teaser must have an image, or may not have an image             |
+| `imageCopyright` | `true`, `false` | The teaser image must have a copyright or must not have a copyright |
+| `headline`       | `true`, `false` | The teaser must have a headline, or may not have a headline         |
+| `text`           | `true`, `false` | The teaser must have a teaser text, or may not have a teaser text   |
+
+```graphql
+query {
+  search(input: { filter: [{ teaserProperty: { image: true } }] }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
 ## Categories filter
 
 The CMS can be used to define any number of category trees that can be used to categorize articles.
@@ -128,7 +158,7 @@ query {
 
 ## Sites filter
 
-Several websites can be managed within the CSM. These can be several main websites, but also microsites that are subordinate to a main website. The Sites filter can be used to restrict the search to a single site. For example, you can define a search that only returns hits from a microsite. Without this filter, a search for the main website can be realized, for example, in which the pages of the microsites are also found.
+Several websites can be managed within the . These can be several main websites, but also microsites that are subordinate to a main website. The Sites filter can be used to restrict the search to a single site. For example, you can define a search that only returns hits from a microsite. Without this filter, a search for the main website can be realized, for example, in which the pages of the microsites are also found.
 
 ```graphql
 query {
@@ -152,6 +182,44 @@ This filter can be used to search for a list of resources with specific IDs.
 ```graphql
 query {
   search(input: { filter: [{ ids: ["1212"] }] }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
+## Content types filter
+
+This filter can be used to search for a list of resources with specific Content-Type like `application/pdf` or `text/html*`. For the content type `text/html`, the asterisk `*` should also be appended, as the content type `text/html` can also contain other parameters such as the charset (`text/html; charset=UTF-8`).
+
+```graphql
+query {
+  search(input: { filter: [{ contentTypes: ["text/html*"] }] }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
+## Source filter
+
+This filter can be used to search for a list of resources with specific sources. Source is the ID of the indexer via which the resources were transferred to the index. For editorial data, the CMS, the source is always `internal`.
+
+```graphql
+query {
+  search(input: { filter: [{ sources: ["internal"] }] }) {
     total
     offset
     queryTime
@@ -203,7 +271,7 @@ Example of a date range filter with relative date values based on the current da
 ```graphql
 query {
   search(
-    input: { filter: [{ relativeDateRange: { before: "P1D", after: "P1W" } }] }
+    input: { filter: [{ relativeDateRange: { from: "-P1D", to: "P1M" } }] }
   ) {
     total
     offset
@@ -440,6 +508,31 @@ filter: [{
   query : "sp_objecttype:content"
 }]
 ```
+
+## Query template filter
+
+Like the "Query filter", the "Query template filter" also accepts a query that is passed directly to the search engine.
+
+The difference is that here a query is defined with placeholders and the variables to be used are specified separately. The use case is when the query is not defined directly by the frontend, but is specified by the PHP backend via an HTML data attribute and the frontend should only use the user input.
+
+The query is defined with placeholders in the form `{myvar}`. The variables are then passed separately via the `variables` attribute.
+
+````graphql
+
+This filter should only be used in absolutely exceptional cases when the fields of the current schema must be specified directly.
+
+!!! warning
+
+    If the schema is changed, the specified queries for these filters may no longer work.
+
+```graphql
+filter: [{
+  query : "sp_objecttype:{myvar}"
+  variables: {
+    myvar: "content"
+  }
+}]
+````
 
 ## Filter key
 

@@ -248,11 +248,58 @@ query {
 
 ## Sites facet
 
-Several websites can be managed within the CSM. These can be several main websites, but also microsites that are subordinate to a main website. The Sites facet can be used to determine the number of hits within a site.
+Several websites can be managed within the CMS. These can be several main websites, but also microsites that are subordinate to a main website. The Sites facet can be used to determine the number of hits within a site.
 
 ```graphql
 query {
   search(input: { facets: [{ key: "mykey", sites: ["3952"] }] }) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
+## Content types facet
+
+This can be used to facet the content type, e.g. `application/pdf` or `text/html; charset=UTF-8`.
+
+```graphql
+query {
+  search(
+    input: {
+      facets: [
+        {
+          key: "mykey"
+          contentTypes: ["application/pdf", "text/html; charset=UTF-8"]
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
+## Sources facet
+
+This facet can be used to determine the number of hits for a specific source. The source indicates which indexer was used to transfer the data to the index. For resources that are editorially maintained by the CMS, the source is `internal`.
+
+```graphql
+query {
+  search(input: { facets: [{ key: "mykey", sources: ["internal"] }] }) {
     total
     offset
     queryTime
@@ -334,8 +381,8 @@ query {
         {
           key: "month"
           relativeDateRange: {
-            before: "P1Y"
-            after: "P1Y"
+            from: "-P1Y"
+            to: "P1Y"
             gap: "P1M"
             roundStart: START_OF_YEAR
             roundEnd: END_OF_YEAR
@@ -382,22 +429,22 @@ query relativeDateRangeFacetsearch($filter: RelativeDateRangeInputFilter) {
       facets: [
         {
           key: "today"
-          relativeDateRange: { after: "P1D", roundEnd: END_OF_PREVIOUS_DAY }
+          relativeDateRange: { to: "P1D", roundEnd: END_OF_PREVIOUS_DAY }
           excludeFilter: ["dateFilter"]
         }
         {
           key: "next7days"
-          relativeDateRange: { after: "P7D", roundEnd: END_OF_PREVIOUS_DAY }
+          relativeDateRange: { to: "P7D", roundEnd: END_OF_PREVIOUS_DAY }
           excludeFilter: ["dateFilter"]
         }
         {
           key: "thisMonth"
-          relativeDateRange: { after: "P1M", roundEnd: END_OF_PREVIOUS_MONTH }
+          relativeDateRange: { to: "P1M", roundEnd: END_OF_PREVIOUS_MONTH }
           excludeFilter: ["dateFilter"]
         }
         {
           key: "thisAndNextMonth"
-          relativeDateRange: { after: "P1M", roundEnd: END_OF_MONTH }
+          relativeDateRange: { to: "P1M", roundEnd: END_OF_MONTH }
           excludeFilter: ["dateFilter"]
         }
       ]
@@ -428,7 +475,7 @@ If "Today" is selected:
 ```json
 {
   "filter": {
-    "after": "P1D",
+    "to": "P1D",
     "roundEnd": "END_OF_PREVIOUS_DAY"
   }
 }
@@ -439,7 +486,7 @@ If "Next 7 days" is selected:
 ```json
 {
   "filter": {
-    "after": "P7D",
+    "to": "P7D",
     "roundEnd": "END_OF_PREVIOUS_DAY"
   }
 }
@@ -450,7 +497,7 @@ If "This month" is selected:
 ```json
 {
   "filter": {
-    "after": "P1M",
+    "to": "P1M",
     "roundEnd": "END_OF_PREVIOUS_MONTH"
   }
 }
@@ -461,7 +508,7 @@ If "This and nex month" is selected:
 ```json
 {
   "filter": {
-    "after": "P1M",
+    "to": "P1M",
     "roundEnd": "END_OF_MONTH"
   }
 }
@@ -482,7 +529,7 @@ query relativeDateRangeFacetsearch($currentPageDate: DateTime) {
           key: "currentPageDateFilter"
           relativeDateRange: {
             base: $currentPageDate
-            after: "P1D"
+            to: "P1D"
             roundEnd: END_OF_PREVIOUS_DAY
           }
         }
@@ -493,6 +540,7 @@ query relativeDateRangeFacetsearch($currentPageDate: DateTime) {
           absoluteDateRange: {
             from: "2024-05-01T00:00:00+02:00"
             to: "2024-05-20T00:00:00+02:00"
+            gap: "P1D"
           }
           excludeFilter: ["currentPageDateFilter"]
         }
@@ -582,6 +630,68 @@ query {
         key
         hits
       }
+    }
+  }
+}
+```
+
+## Query facet
+
+This facet accepts a query that is passed directly to the search engine. This filter should only be used in absolute exceptions where the fields of the current schema must be specified directly.
+
+!!! warning
+
+    If the schema is changed, the specified queries for these facet may no longer work.
+
+```graphql
+query {
+  search(
+    input: { facets: [{ key: "mykey", query: "sp_objecttype:content" }] }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
+    }
+  }
+}
+```
+
+## Query template facet
+
+Like the "Query facet", the "Query template facet" also accepts a query that is passed directly to the search engine.
+
+The difference is that here a query is defined with placeholders and the variables to be used are specified separately. The use case is when the query is not defined directly by the frontend, but is specified by the PHP backend via an HTML data attribute and the frontend should only use the user input.
+
+The query is defined with placeholders in the form `{myvar}`. The variables are then passed separately via the `variables` attribute.
+
+!!! warning
+
+    If the schema is changed, the specified queries for these facet may no longer work.
+
+```graphql
+query {
+  search(
+    input: {
+      facets: [
+        {
+          key: "mykey"
+          query: "sp_objecttype:{myvar}"
+          variables: { myvar: "content" }
+        }
+      ]
+    }
+  ) {
+    total
+    offset
+    queryTime
+    results {
+      id
+      name
+      location
     }
   }
 }

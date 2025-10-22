@@ -6,7 +6,7 @@ See also [Form API](../form/index.md).
 
 ## Sources
 
-The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-form-bundle](https://github.com/sitepark/atoolo-form-bundle{:target="\_blank"}.
+The sources can be accessed via the GibHub project [https://github.com/sitepark/atoolo-form-bundle](https://github.com/sitepark/atoolo-form-bundle){:target="\_blank"}.
 
 ## Installation
 

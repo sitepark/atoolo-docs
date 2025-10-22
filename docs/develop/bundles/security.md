@@ -1,6 +1,6 @@
 # Security Bundle
 
-The Atoolo Security Bundle is based on the [Security Bundle](https://symfony.com/components/Security%20Bundle){:target="\_blank"} and contains Atoolo-specific configurations and extensions for a role and user management system that can be maintained via the CMS IES.
+The Atoolo Security Bundle is based on the [Security Bundle](https://symfony.com/components/Security%20Bundle){:target="\_blank"} and contains Atoolo-specific configurations and extensions for a role and user management system that can be maintained via the IES.
 
 If necessary, it contains the necessary settings to secure individual queries of the GraphQL interface.
 
@@ -22,7 +22,7 @@ composer require atoolo/security-bundle
 
 ## Description
 
-The Atoolo security bundle extends the [Symfony security bundle](https://symfony.com/components/Security%20Bundle){:target="\_blank"}. It is used to secure API access to the website and to protect resources provided by the CMS-IES. The protection of resources via the security bundle is intended for simple cases. The CMS itself provides another option for protecting resources, which is much more powerful.
+The Atoolo security bundle extends the [Symfony security bundle](https://symfony.com/components/Security%20Bundle){:target="\_blank"}. It is used to secure API access to the website and to protect resources provided by the IES. The protection of resources via the security bundle is intended for simple cases. The CMS itself provides another option for protecting resources, which is much more powerful.
 
 This bundle uses a user and role concept to control access. There are currently two ways to define users and roles.
 
@@ -40,11 +40,11 @@ A user name and a password are expected per line in the file, separated by a col
 [username]: [password],[role1],[role2],...
 ```
 
-## User and role PHP files
+## User and access PHP files
 
 These PHP files are stored in a directory `RESOURCE_ROOT/security`. They are intended to be created by the CMS. This allows simple user administration to be realized with CMS means.
 
-User files have the extension `.users.php` and role files have the extension `.role.php`.
+User files have the extension `.users.php` and access files have the extension `.access.php`.
 
 User files are structured as follows:
 
@@ -55,7 +55,7 @@ return [
 ];
 ```
 
-Role files are structured as follows:
+Access files are structured as follows:
 
 ```php
 <?php

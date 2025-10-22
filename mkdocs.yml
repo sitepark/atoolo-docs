@@ -3,9 +3,16 @@ site_dir: public
 repo_url: https://github.com/sitepark/atoolo-docs
 nav:
   - Home: index.md
+  - Concepts:
+      - concepts/index.md
+      - Resource: concepts/resource.md
+      - Resource Channel: concepts/resource-channel.md
+      - Navigation: concepts/navigation.md
+      - Microsites: concepts/microsites.md
+      - WebAccount: concepts/web-account.md
+      - Teaser: concepts/teaser.md
   - Operate:
       - operate/index.md
-      - Resource Channel: operate/resource-channel.md
       - Console Command: operate/console-command.md
       - IES Webnode: operate/ies-webnode.md
       - Runtime check: operate/runtime-check.md
@@ -23,11 +30,20 @@ nav:
           - Resource: develop/bundles/resource.md
           - Search: develop/bundles/search/index.md
           - Security: develop/bundles/security.md
-          - GraphQL search: develop/bundles/graphql-search.md
+          - GraphQL search: 
+            - develop/bundles/graphql-search/index.md
+            - Configuration: develop/bundles/graphql-search/config.md
+            - Customization: develop/bundles/graphql-search/customization.md
+            - Server-Side queries: develop/bundles/graphql-search/server-side-queries.md
           - Form: develop/bundles/form.md
           - CityGov: develop/bundles/citygov.md
           - CityCall: develop/bundles/citycall.md
           - Events Calendar: develop/bundles/events-calendar.md
+          - Translator: develop/bundles/translator.md
+          - Seo: develop/bundles/seo.md
+          - Micosite: develop/bundles/microsite.md
+          - Rewrite: develop/bundles/rewrite.md
+          - WebAccount: develop/bundles/web-account.md
       - GraphQL API:
           - develop/graphql/index.md
           - Getting started: develop/graphql/getting-started.md
@@ -41,13 +57,18 @@ nav:
               - Suggest: develop/graphql/search/suggest.md
               - More like this: develop/graphql/search/more-like-this.md
               - Indexing: develop/graphql/search/indexing.md
+          - WebAccount:
+              - develop/graphql/web-account/index.md
           - Customization: develop/graphql/customization/index.md
+          - Error handling: develop/graphql/error-handling.md
           - Reference: develop/graphql/reference.md
       - Form API:
           - develop/form/index.md
           - Controls: develop/form/controls.md
           - Annotations: develop/form/annotations.md
           - Layouts: develop/form/layouts.md
+      - ICal API:
+          - develop/ical/index.md
       - Symfony Flex integration: develop/symfony-flex-integration.md
 
   - Contribute:
@@ -55,6 +76,9 @@ nav:
 extra:
   status:
     draft: Draft
+
+watch:
+  - includes
 
 # https://squidfunk.github.io/mkdocs-material/reference/
 theme:
@@ -88,7 +112,9 @@ markdown_extensions:
       title: On this page
       permalink: "#"
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
   - pymdownx.highlight:
       extend_pygments_lang:
         - name: php
