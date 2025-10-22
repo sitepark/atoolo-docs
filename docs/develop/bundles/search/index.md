@@ -196,12 +196,11 @@ services:
 ```
 
 ## Searching
-
-You can search the index to find resources. The [Search service](https://github.com/sitepark/atoolo-search/blob/main/src/Search.php) is available for this purpose.
+You can search the index to find resources. The [Search service](https://github.com/sitepark/atoolo-search/blob/main/src/Search.php) interface is available for this purpose. The [SolrSearch](https://github.com/sitepark/atoolo-search/blob/main/src/Service/Search/SolrSearch.php) is a common implementation of this interface.
 
 ### Query
 
-The `select()` method expects a [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php){:target="\_blank"} object that contains the filter rules, for example. To create a [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php){:target="\_blank"} object, only the [`SearchQueryBuilder`](https://github.com/sitepark/atoolo-search/blob/feature/initial-implementation/src/Dto/Search/Query/SearchQueryBuilder.php){:target="\_blank"} must be used to ensure that a valid [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php){:target="\_blank"} object is always created.
+The [`search()`](https://github.com/sitepark/atoolo-search/blob/main/src/Service/Search/SolrSearch.php) method expects a [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php){:target="\_blank"} object that contains the filter rules, for example. To create a [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php){:target="\_blank"} object, only the [`SearchQueryBuilder`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQueryBuilder.php){:target="\_blank"} must be used to ensure that a valid [`SearchQuery`](https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php){:target="\_blank"} object is always created.
 
 Example of a query:
 
@@ -210,7 +209,7 @@ $builder = new SearchQueryBuilder();
 $builder->text('chocolate')
 
 $query = $builder->build();
-$result = $selectSearcher->select($query);
+$result = $searcher->search($query);
 ```
 
 #### Full text search
@@ -221,7 +220,7 @@ The index is searched for the text and the corresponding hits are returned. The 
 ```php
 $builder = new SearchQueryBuilder();
 $builder->text('cacao coffee')
-  ->queryDefaultOperator(QueryOperator::AND);
+  ->defaultQueryOperator(QueryOperator::AND);
 ```
 
 #### Sorting
