@@ -21,11 +21,6 @@
     text-decoration: underline;
 }
 
-.md-typeset a:hover {
-    color: #fbba00;
-}
-
-
 /*
 https://squidfunk.github.io/mkdocs-material/reference/?h=status#setting-the-page-status
 https://mkdocs-material.github.io/examples/page-status/
