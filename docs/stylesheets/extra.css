@@ -16,15 +16,10 @@
 }
 
 .md-typeset a {
-    color: #000000;
+    color: var(--md-typeset-color, #000000);
     font-style: italic;
     text-decoration: underline;
 }
-
-.md-typeset a:hover {
-    color: #fbba00;
-}
-
 
 /*
 https://squidfunk.github.io/mkdocs-material/reference/?h=status#setting-the-page-status
