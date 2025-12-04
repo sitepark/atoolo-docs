@@ -148,7 +148,12 @@ query {
     input: {
       text: "chocolate"
       sort: [
-        { spatialDist: ASC, spatialPoint: { lng: 7.6286691, lat: 51.9651620 } }
+        {
+          spatialDist: {
+            spatialPoint: { lng: 7.6286691, lat: 51.9651620 }
+            direction: ASC
+          }
+        }
       ]
     }
   ) {

@@ -1850,12 +1850,60 @@ additional, context dependent teaser features indicating information about the u
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong id="inputsortcriteria.spatialdist">spatialDist</strong></td>
-<td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td valign="top"><a href="#inputsortcriteriaspatialdist">InputSortCriteriaSpatialDist</a></td>
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="inputsortcriteria.spatialpoint">spatialPoint</strong></td>
-<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a></td>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.custom">custom</strong></td>
+<td valign="top"><a href="#inputsortcriteriacustom">InputSortCriteriaCustom</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### InputSortCriteriaCustom
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteriacustom.field">field</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteriacustom.direction">direction</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### InputSortCriteriaSpatialDist
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteriaspatialdist.spatialpoint">spatialPoint</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteriaspatialdist.direction">direction</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a>!</td>
 <td></td>
 </tr>
 </tbody>
