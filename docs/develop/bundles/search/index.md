@@ -135,7 +135,7 @@ class CustomDocumentEnricher implements DocumentEnricher
 }
 ```
 
-The document enricher is required, for example, in the [GraphQL Search Bundle](../../bundles/graphql-search.md). This offers a mutation that is also used by the IES to trigger indexing. See also [GraphQl Indexing](../../graphql/search/indexing.md). So that your own document enricher can be used, it must be registered as [tagged Symfony service](https://symfony.com/doc/current/service_container/tags.html){:target="\_blank"}.
+The document enricher is required, for example, in the [GraphQL Search Bundle](../graphql-search/index.md). This offers a mutation that is also used by the IES to trigger indexing. See also [GraphQl Indexing](../../graphql/search/indexing.md). So that your own document enricher can be used, it must be registered as [tagged Symfony service](https://symfony.com/doc/current/service_container/tags.html){:target="\_blank"}.
 
 `services.yaml`
 
@@ -196,6 +196,7 @@ services:
 ```
 
 ## Searching
+
 You can search the index to find resources. The [Search service](https://github.com/sitepark/atoolo-search/blob/main/src/Search.php) interface is available for this purpose. The [SolrSearch](https://github.com/sitepark/atoolo-search/blob/main/src/Service/Search/SolrSearch.php) is a common implementation of this interface.
 
 ### Query
