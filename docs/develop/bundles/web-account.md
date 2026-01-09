@@ -20,11 +20,44 @@ Use [Composer](https://getcomposer.org/){:target="\_blank"} to install this comp
 composer require atoolo/web-account-bundle
 ```
 
+## Configuration
+
+The bundle can be configured in `config/packages/atoolo_web_account.yaml`. All configuration parameters are optional and have sensible default values.
+
+```yaml
+atoolo_web_account:
+  # Time-to-live for authentication tokens in seconds (default: 30 days)
+  # Minimum: 3600 (1 hour)
+  token_ttl: 2592000
+
+  # Time-to-live for registration tokens in seconds (default: 2 hours)
+  # Minimum: 600 (10 minutes)
+  registration_token_ttl: 7200
+
+  # Time-to-live for password reset tokens in seconds (default: 2 hours)
+  # Minimum: 600 (10 minutes)
+  password_reset_token_ttl: 7200
+
+  # Entry point URL for unauthenticated users (default: '/account')
+  # Users trying to access protected resources will be redirected here
+  unauthorized_entry_point: "/account"
+```
+
+### Configuration Parameters
+
+- **`token_ttl`**: Duration in seconds for which authentication tokens remain valid. This determines how long users stay logged in. Default is 2,592,000 seconds (30 days), minimum is 3,600 seconds (1 hour).
+
+- **`registration_token_ttl`**: Duration in seconds for which registration confirmation tokens are valid. After this time expires, users must request a new registration link. Default is 7,200 seconds (2 hours), minimum is 600 seconds (10 minutes).
+
+- **`password_reset_token_ttl`**: Duration in seconds for which password reset tokens remain valid. After expiration, users must request a new password reset. Default is 7,200 seconds (2 hours), minimum is 600 seconds (10 minutes).
+
+- **`unauthorized_entry_point`**: The URL path where unauthenticated users are redirected when they attempt to access protected resources. This should typically point to your login page. Default is `/account`.
+
 ## GraphQL API
 
 The Web Account Bundle provides a GraphQL API for user authentication. This allows for flexible integration with frontend applications.
 
-See also [GraphQL API](../graphql/web-account/index.md
+See also [GraphQL API](../graphql/web-account/index.md)
 
 ## Symfony Security Integration
 
