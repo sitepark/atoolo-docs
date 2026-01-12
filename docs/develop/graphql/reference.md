@@ -105,6 +105,46 @@ list of id's of the entries to be deleted
 <td></td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountstartpasswordrecovery">webAccountStartPasswordRecovery</strong></td>
+<td valign="top"><a href="#startpasswordrecoveryresult">StartPasswordRecoveryResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#startpasswordrecoveryinput">StartPasswordRecoveryInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountfinishpasswordrecovery">webAccountFinishPasswordRecovery</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#finishpasswordrecoveryinput">FinishPasswordRecoveryInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountstartregistration">webAccountStartRegistration</strong></td>
+<td valign="top"><a href="#startregistrationresult">StartRegistrationResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#startregistrationinput">StartRegistrationInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountfinishregistration">webAccountFinishRegistration</strong></td>
+<td valign="top"><a href="#finishuserregistrationresulttype">FinishUserRegistrationResultType</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#finishregistrationinput">FinishRegistrationInput</a>!</td>
+<td></td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong id="rootmutation.webaccountauthenticationwithpassword">webAccountAuthenticationWithPassword</strong></td>
 <td valign="top"><a href="#authenticationresult">AuthenticationResult</a>!</td>
 <td></td>
@@ -311,6 +351,26 @@ additional, context dependent teaser features indicating information about the u
 </tbody>
 </table>
 
+### EmailAlreadyExistsError
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="emailalreadyexistserror.email">email</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ### EventTeaser
 
 Event teaser
@@ -478,6 +538,31 @@ Downlaod url for the event scheduling as an .ics file
 <tr>
 <td colspan="2" valign="top"><strong id="facetgroup.facets">facets</strong></td>
 <td valign="top">[<a href="#facet">Facet</a>!]!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### FinishRegistrationResult
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationresult.id">id</strong></td>
+<td valign="top"><a href="#id">ID</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationresult.email">email</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 </tbody>
@@ -1366,6 +1451,66 @@ additional, context dependent teaser features indicating information about the u
 </tbody>
 </table>
 
+### StartPasswordRecoveryResult
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryresult.challengeid">challengeId</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryresult.createat">createAt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryresult.expiresat">expiresAt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### StartRegistrationResult
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationresult.challengeid">challengeId</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationresult.createat">createAt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationresult.expiresat">expiresAt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ### SuggestResult
 
 <table>
@@ -1551,6 +1696,94 @@ additional, context dependent teaser features indicating information about the u
 <tr>
 <td colspan="2" valign="top"><strong id="absolutedaterangeinputfilter.to">to</strong></td>
 <td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### FinishPasswordRecoveryInput
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="finishpasswordrecoveryinput.configname">configName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishpasswordrecoveryinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishpasswordrecoveryinput.challengeid">challengeId</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishpasswordrecoveryinput.code">code</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishpasswordrecoveryinput.newpassword">newPassword</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### FinishRegistrationInput
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.configname">configName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.challengeid">challengeId</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.code">code</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.firstname">firstName</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.lastname">lastName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.password">password</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
 <td></td>
 </tr>
 </tbody>
@@ -2349,6 +2582,64 @@ Sets the upper date boundary
 </tbody>
 </table>
 
+### StartPasswordRecoveryInput
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryinput.configname">configName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryinput.username">username</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### StartRegistrationInput
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationinput.configname">configName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationinput.emailaddress">emailAddress</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ### SuggestInput
 
 <table>
@@ -2756,3 +3047,28 @@ Teaser Link
 </table>
 
 **Possible Types:** [OnlineServiceFeature](#onlineservicefeature)
+
+## Unions
+
+### FinishUserRegistrationResultType
+
+FinishRegistrationResult and EmailAlreadyExistsError
+
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong><a href="#finishregistrationresult">FinishRegistrationResult</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong><a href="#emailalreadyexistserror">EmailAlreadyExistsError</a></strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
