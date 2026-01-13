@@ -1,28 +1,37 @@
 # ICal API
 
-The iCal API is used to retrieve [iCalendar](https://icalendar.org/RFC-Specifications/iCalendar-RFC-5545/) data from atoolo resources.
+The **ICal API** allows you to retrieve [iCalendar](https://icalendar.org/RFC-Specifications/iCalendar-RFC-5545/) data from atoolo resources. This data is returned as standard `.ics` files, compatible with most calendar applications.
+
+---
 
 ## Endpoints
 
-Currently, the iCal API consists of one endpoint. Given a resource, e.g. a resource that represents an event, this endpoint returns the corresponding scheduling data as an `.ics`-file:
+### 1. Get Resource Calendar
 
-`/api/ical/resource/{lang}/{resource-path}`
+Retrieves the scheduling data for a specific resource.
 
-`lang`
-: Language code for the language in which the resource data should be displayed. This parameter is optional. If it is not specified, the default language of the website is used.
+**Endpoint:**
+`GET /api/ical/resource/{lang}/{resource-path}`
 
-`resource-path`
-: Path to the resource whose ical data should be retrieved. This path can also contain `/`.
+**Parameters:**
 
-curl example:
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `lang` | `string` | No | Language code for the output (e.g., `en`, `de`). If omitted, the website's default language is used. |
+| `resource-path` | `string` | **Yes** | The path to the specific resource. This path may contain slashes (e.g., `path/to/resource`). |
 
-```sh
+**Request Example:**
+
+```bash
 curl "https://www.example.com/api/ical/resource/en/path/to/resource"
-```
-
-The response would be an `.ics`-file that could look like this:
 
 ```
+
+**Response Example:**
+
+The API returns a `.ics` file.
+
+```ics
 BEGIN:VCALENDAR
 PRODID:-//atoolo/events-calendar-bundle//1.0/EN
 VERSION:2.0
@@ -36,6 +45,29 @@ DTSTART;TZID=Europe/Berlin:20241210T000000
 DTEND;TZID=Europe/Berlin:20241210T235959
 END:VEVENT
 END:VCALENDAR
+
 ```
 
-Keep in mind that if the requested resource has no scheduling data, the response will still consist of an `.ics`-file that, however, is empty, meaning it would have no `VEVENT` data. 
+> **Note:** If the requested resource exists but has no scheduling data, the API returns a valid `.ics` file without `VEVENT` entries.
+
+---
+
+### 2. Search Resource Calendars
+
+Retrieves scheduling data for multiple resources based on a search query, combined into a single calendar file.
+
+**Endpoint:**
+`GET /api/ical/search?query={query}`
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `query` | `JSON` | **Yes** | A JSON-serialized [SearchQuery](https://github.com/sitepark/atoolo-search-bundle/blob/main/src/Dto/Search/Query/SearchQuery.php) object. |
+
+**Request Example:**
+
+```bash
+curl "https://www.example.com/api/ical/search?query={\"filter\":[{\"type\":\"group\",\"values\":[\"11431\"]},{\"type\":\"category\",\"values\":[\"11052\"]}]}"
+
+```
