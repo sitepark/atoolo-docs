@@ -1,0 +1,7579 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../error-handling/">
+      
+      
+        <link rel="next" href="../../form/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Reference - Atoolo Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M11%2015h2v2h-2zm0-8h2v6h-2zm1-5C6.47%202%202%206.5%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202m0%2018a8%208%200%200%201-8-8%208%208%200%200%201%208-8%208%208%200%200%201%208%208%208%208%200%200%201-8%208%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#schema-types" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Atoolo Docs" class="md-header__button md-logo" aria-label="Atoolo Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Atoolo Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="amber"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sitepark/atoolo-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Atoolo Docs" class="md-nav__button md-logo" aria-label="Atoolo Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Atoolo Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sitepark/atoolo-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../concepts/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/resource-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Channel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/microsites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/web-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebAccount
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/teaser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teaser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../operate/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operate
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/console-command/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Console Command
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/ies-webnode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IES Webnode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/runtime-check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/worker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Develop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Develop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../components/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Components
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../bundles/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bundle
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bundle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/runtime-check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../bundles/graphql-search/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL search
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3_7" id="__nav_4_3_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GraphQL search
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/graphql-search/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/graphql-search/customization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/graphql-search/server-side-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server-Side queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/form/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Form
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/citygov/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CityGov
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/citycall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CityCall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/events-calendar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events Calendar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/translator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/seo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/microsite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micosite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/rewrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rewrite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bundles/web-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebAccount
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GraphQL API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../search/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_3" id="__nav_4_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Search
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/filtered-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtered search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/faceted-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faceted search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/resolve-resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resolve resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/resolve-navigation-hierarchy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resolve navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/resolve-teaser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resolve teaser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/suggest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Suggest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/more-like-this/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More like this
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../web-account/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebAccount
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    WebAccount
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../error-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#query-rootquery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query (RootQuery)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutation-rootmutation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mutation (RootMutation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#articleteaser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ArticleTeaser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authenticationresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AuthenticationResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copyrightdetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CopyrightDetails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emailalreadyexistserror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EmailAlreadyExistsError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventteaser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EventTeaser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facetgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FacetGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finishregistrationresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FinishRegistrationResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geopoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GeoPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagesource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ImageSource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexerstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IndexerStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Link
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mediateaser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MediaTeaser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newsteaser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewsTeaser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onlineservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OnlineService
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onlineservicefeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OnlineServiceFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultexplain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ResultExplain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SearchResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spellcheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spellcheck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spellchecksuggestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpellcheckSuggestion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spellcheckword" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpellcheckWord
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startpasswordrecoveryresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StartPasswordRecoveryResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startregistrationresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StartRegistrationResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SuggestResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggestion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Svg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#absolutedaterangeinputfacet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AbsoluteDateRangeInputFacet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#absolutedaterangeinputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AbsoluteDateRangeInputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finishpasswordrecoveryinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FinishPasswordRecoveryInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finishregistrationinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FinishRegistrationInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputboosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputBoosting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputfacet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputFacet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputgeopoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputGeoPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsortcriteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputSortCriteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsortcriteriacustom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputSortCriteriaCustom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsortcriteriaspatialdist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputSortCriteriaSpatialDist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morelikethisinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MoreLikeThisInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#querytemplateinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QueryTemplateInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relativedaterangeinputfacet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RelativeDateRangeInputFacet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relativedaterangeinputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RelativeDateRangeInputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchcontextinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SearchContextInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchcontextoptionsinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SearchContextOptionsInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SearchInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatialarbitraryrectangleinputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpatialArbitraryRectangleInputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatialdistancerangeinputfacet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpatialDistanceRangeInputFacet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatialorbitalinputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpatialOrbitalInputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startpasswordrecoveryinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StartPasswordRecoveryInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startregistrationinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StartRegistrationInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SuggestInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teaserpropertyinputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TeaserPropertyInputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enums
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enums">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authenticationstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AuthenticationStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daterangeround" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DateRangeRound
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagecharacteristic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ImageCharacteristic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queryoperator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QueryOperator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sortdirection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SortDirection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatialorbitalmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpatialOrbitalMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scalars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalars
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scalars">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boolean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boolean
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateinterval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DateInterval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DateTime
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datetimezone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DateTimeZone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geojson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GeoJson
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#int" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Int
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signeddateinterval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SignedDateInterval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teaser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teaser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teaserfeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TeaserFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finishuserregistrationresulttype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FinishUserRegistrationResultType
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../form/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Form API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Form API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../form/controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../form/annotations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../form/layouts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ical/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICal API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICal API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../symfony-flex-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symfony Flex integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../contribute/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribute
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Contribute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#query-rootquery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query (RootQuery)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutation-rootmutation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mutation (RootMutation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#articleteaser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ArticleTeaser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authenticationresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AuthenticationResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copyrightdetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CopyrightDetails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emailalreadyexistserror" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EmailAlreadyExistsError
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventteaser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EventTeaser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facetgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FacetGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finishregistrationresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FinishRegistrationResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geopoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GeoPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagesource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ImageSource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexerstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IndexerStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Link
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mediateaser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MediaTeaser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newsteaser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewsTeaser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onlineservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OnlineService
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onlineservicefeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OnlineServiceFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultexplain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ResultExplain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SearchResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spellcheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spellcheck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spellchecksuggestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpellcheckSuggestion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spellcheckword" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpellcheckWord
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startpasswordrecoveryresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StartPasswordRecoveryResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startregistrationresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StartRegistrationResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SuggestResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggestion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Svg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#absolutedaterangeinputfacet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AbsoluteDateRangeInputFacet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#absolutedaterangeinputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AbsoluteDateRangeInputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finishpasswordrecoveryinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FinishPasswordRecoveryInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finishregistrationinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FinishRegistrationInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputboosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputBoosting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputfacet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputFacet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputgeopoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputGeoPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsortcriteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputSortCriteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsortcriteriacustom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputSortCriteriaCustom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsortcriteriaspatialdist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InputSortCriteriaSpatialDist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morelikethisinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MoreLikeThisInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#querytemplateinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QueryTemplateInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relativedaterangeinputfacet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RelativeDateRangeInputFacet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relativedaterangeinputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RelativeDateRangeInputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchcontextinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SearchContextInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchcontextoptionsinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SearchContextOptionsInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searchinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SearchInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatialarbitraryrectangleinputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpatialArbitraryRectangleInputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatialdistancerangeinputfacet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpatialDistanceRangeInputFacet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatialorbitalinputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpatialOrbitalInputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startpasswordrecoveryinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StartPasswordRecoveryInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startregistrationinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StartRegistrationInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SuggestInput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teaserpropertyinputfilter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TeaserPropertyInputFilter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enums
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enums">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authenticationstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AuthenticationStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daterangeround" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DateRangeRound
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagecharacteristic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ImageCharacteristic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queryoperator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QueryOperator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sortdirection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SortDirection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatialorbitalmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpatialOrbitalMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scalars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalars
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scalars">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boolean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boolean
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateinterval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DateInterval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DateTime
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datetimezone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DateTimeZone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geojson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GeoJson
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#int" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Int
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signeddateinterval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SignedDateInterval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teaser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teaser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teaserfeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TeaserFeature
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finishuserregistrationresulttype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FinishUserRegistrationResultType
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="schema-types">Schema Types<a class="headerlink" href="#schema-types" title="Permanent link">#</a></h1>
+<h2 id="query-rootquery">Query (RootQuery)<a class="headerlink" href="#query-rootquery" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.indexerstatus">indexerStatus</strong></td>
+<td valign="top"><a href="#indexerstatus">IndexerStatus</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.suggest">suggest</strong></td>
+<td valign="top"><a href="#suggestresult">SuggestResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#suggestinput">SuggestInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.ping">ping</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.search">search</strong></td>
+<td valign="top"><a href="#searchresult">SearchResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#searchinput">SearchInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.morelikethis">moreLikeThis</strong></td>
+<td valign="top"><a href="#searchresult">SearchResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#morelikethisinput">MoreLikeThisInput</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="mutation-rootmutation">Mutation (RootMutation)<a class="headerlink" href="#mutation-rootmutation" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.index">index</strong></td>
+<td valign="top"><a href="#indexerstatus">IndexerStatus</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.indexupdate">indexUpdate</strong></td>
+<td valign="top"><a href="#indexerstatus">IndexerStatus</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">paths</td>
+<td valign="top">[<a href="#string">String</a>!]!</td>
+<td>
+
+List of resource paths that are to be updated.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.indexremove">indexRemove</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">idList</td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td>
+
+list of id's of the entries to be deleted
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.indexabort">indexAbort</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountstartpasswordrecovery">webAccountStartPasswordRecovery</strong></td>
+<td valign="top"><a href="#startpasswordrecoveryresult">StartPasswordRecoveryResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#startpasswordrecoveryinput">StartPasswordRecoveryInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountfinishpasswordrecovery">webAccountFinishPasswordRecovery</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#finishpasswordrecoveryinput">FinishPasswordRecoveryInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountstartregistration">webAccountStartRegistration</strong></td>
+<td valign="top"><a href="#startregistrationresult">StartRegistrationResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#startregistrationinput">StartRegistrationInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountfinishregistration">webAccountFinishRegistration</strong></td>
+<td valign="top"><a href="#finishuserregistrationresulttype">FinishUserRegistrationResultType</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#finishregistrationinput">FinishRegistrationInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountauthenticationwithpassword">webAccountAuthenticationWithPassword</strong></td>
+<td valign="top"><a href="#authenticationresult">AuthenticationResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">username</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">password</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">setJwtCookie</td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountunsetjwtcookie">webAccountUnsetJwtCookie</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">#</a></h2>
+<h3 id="articleteaser">ArticleTeaser<a class="headerlink" href="#articleteaser" title="Permanent link">#</a></h3>
+<p>An article teaser is a short summary or preview designed to pique the reader's interest by highlighting the main points or most exciting aspects of an article.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.url">url</strong> ⚠️</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser URL
+
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+Use field 'link' instead
+
+</blockquote>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td>
+
+Teaser Link
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.date">date</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Teaser date
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.headline">headline</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser headline
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.text">text</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser text
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.kicker">kicker</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser kicker text
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.asset">asset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td>
+
+Teaser asset can be e.g. pictures or videos
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The asset variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.symbolicasset">symbolicAsset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td>
+
+symbolic asset associated with the teaser
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The asset variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="articleteaser.features">features</strong></td>
+<td valign="top">[<a href="#teaserfeature">TeaserFeature</a>!]!</td>
+<td>
+
+additional, context dependent teaser features indicating information about the underling resource
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="authenticationresult">AuthenticationResult<a class="headerlink" href="#authenticationresult" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="authenticationresult.status">status</strong></td>
+<td valign="top"><a href="#authenticationstatus">AuthenticationStatus</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="authenticationresult.user">user</strong></td>
+<td valign="top"><a href="#user">User</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="copyrightdetails">CopyrightDetails<a class="headerlink" href="#copyrightdetails" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="copyrightdetails.original">original</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="copyrightdetails.author">author</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="copyrightdetails.license">license</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="emailalreadyexistserror">EmailAlreadyExistsError<a class="headerlink" href="#emailalreadyexistserror" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="emailalreadyexistserror.email">email</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="eventteaser">EventTeaser<a class="headerlink" href="#eventteaser" title="Permanent link">#</a></h3>
+<p>Event teaser</p>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.url">url</strong> ⚠️</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser URL
+
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+Use field 'link' instead
+
+</blockquote>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td>
+
+Teaser Link
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.headline">headline</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser headline
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.text">text</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser text
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.kicker">kicker</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser kicker text
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.asset">asset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td>
+
+Teaser asset can be e.g. pictures or videos
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The teaser variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.symbolicasset">symbolicAsset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td>
+
+symbolic asset associated with the teaser
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The asset variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.schedulings">schedulings</strong></td>
+<td valign="top">[<a href="#scheduling">Scheduling</a>!]!</td>
+<td>
+
+schedulings
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="eventteaser.icalurl">iCalUrl</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Downlaod url for the event scheduling as an .ics file
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="facet">Facet<a class="headerlink" href="#facet" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="facet.key">key</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="facet.hits">hits</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="facetgroup">FacetGroup<a class="headerlink" href="#facetgroup" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="facetgroup.key">key</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="facetgroup.facets">facets</strong></td>
+<td valign="top">[<a href="#facet">Facet</a>!]!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="finishregistrationresult">FinishRegistrationResult<a class="headerlink" href="#finishregistrationresult" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationresult.id">id</strong></td>
+<td valign="top"><a href="#id">ID</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationresult.email">email</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="geo">Geo<a class="headerlink" href="#geo" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="geo.primary">primary</strong></td>
+<td valign="top"><a href="#geopoint">GeoPoint</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="geo.secondary">secondary</strong></td>
+<td valign="top"><a href="#geojson">GeoJson</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="geo.distance">distance</strong></td>
+<td valign="top"><a href="#float">Float</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="geopoint">GeoPoint<a class="headerlink" href="#geopoint" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="geopoint.lng">lng</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="geopoint.lat">lat</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="hierarchy">Hierarchy<a class="headerlink" href="#hierarchy" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="hierarchy.root">root</strong></td>
+<td valign="top"><a href="#resource">Resource</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="hierarchy.primaryparent">primaryParent</strong></td>
+<td valign="top"><a href="#resource">Resource</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="hierarchy.primarypath">primaryPath</strong></td>
+<td valign="top">[<a href="#resource">Resource</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="hierarchy.children">children</strong></td>
+<td valign="top">[<a href="#resource">Resource</a>!]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="image">Image<a class="headerlink" href="#image" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="image.copyright">copyright</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.copyrightdetails">copyrightDetails</strong></td>
+<td valign="top"><a href="#copyrightdetails">CopyrightDetails</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.caption">caption</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.description">description</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.alternativetext">alternativeText</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.original">original</strong></td>
+<td valign="top"><a href="#imagesource">ImageSource</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.characteristic">characteristic</strong></td>
+<td valign="top"><a href="#imagecharacteristic">ImageCharacteristic</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.sources">sources</strong></td>
+<td valign="top">[<a href="#imagesource">ImageSource</a>!]!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.static">static</strong> ⚠️</td>
+<td valign="top"><a href="#imagesource">ImageSource</a>!</td>
+<td>
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+'static' might be a reserved keyword. Use field 'staticImage' instead
+
+</blockquote>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="image.staticimage">staticImage</strong></td>
+<td valign="top"><a href="#imagesource">ImageSource</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="imagesource">ImageSource<a class="headerlink" href="#imagesource" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="imagesource.variant">variant</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="imagesource.url">url</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="imagesource.width">width</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="imagesource.height">height</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="imagesource.mediaquery">mediaQuery</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="indexerstatus">IndexerStatus<a class="headerlink" href="#indexerstatus" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="indexerstatus.starttime">startTime</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="indexerstatus.endtime">endTime</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="indexerstatus.lastupdate">lastUpdate</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="indexerstatus.total">total</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="indexerstatus.processed">processed</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="indexerstatus.skipped">skipped</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="indexerstatus.updated">updated</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="indexerstatus.errors">errors</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="indexerstatus.statusline">statusLine</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="link">Link<a class="headerlink" href="#link" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="link.url">url</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="link.label">label</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="link.accessibilitylabel">accessibilityLabel</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="link.description">description</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="link.opensnewwindow">opensNewWindow</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="link.isexternal">isExternal</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="mediateaser">MediaTeaser<a class="headerlink" href="#mediateaser" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.url">url</strong> ⚠️</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser URL
+
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+Use field 'link' instead
+
+</blockquote>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td>
+
+Teaser Link
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.headline">headline</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.text">text</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.kicker">kicker</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.contenttype">contentType</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.contentlength">contentLength</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.asset">asset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td>
+
+Teaser asset can be e.g. pictures or videos
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The asset variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.symbolicasset">symbolicAsset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td>
+
+symbolic asset associated with the teaser
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The asset variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="mediateaser.features">features</strong></td>
+<td valign="top">[<a href="#teaserfeature">TeaserFeature</a>!]!</td>
+<td>
+
+additional, context dependent teaser features indicating information about the underling resource
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="newsteaser">NewsTeaser<a class="headerlink" href="#newsteaser" title="Permanent link">#</a></h3>
+<p>An news teaser is a short summary or preview designed to pique the reader's interest by highlighting the main points or most exciting aspects of an article.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.url">url</strong> ⚠️</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser URL
+
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+Use field 'link' instead
+
+</blockquote>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td>
+
+Teaser Link
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.date">date</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+News Teaser date
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.headline">headline</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+News Teaser headline
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.text">text</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+News Teaser text
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.kicker">kicker</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser kicker text
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.asset">asset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td>
+
+Teaser asset can be e.g. pictures or videos
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The teaser variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.symbolicasset">symbolicAsset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td>
+
+symbolic asset associated with the teaser
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The asset variant is used to decide which image format is to be returned.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="newsteaser.features">features</strong></td>
+<td valign="top">[<a href="#teaserfeature">TeaserFeature</a>!]!</td>
+<td>
+
+additional, context dependent teaser features indicating information about the underling resource
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="onlineservice">OnlineService<a class="headerlink" href="#onlineservice" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="onlineservice.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="onlineservicefeature">OnlineServiceFeature<a class="headerlink" href="#onlineservicefeature" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="onlineservicefeature.label">label</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="onlineservicefeature.onlineservices">onlineServices</strong></td>
+<td valign="top">[<a href="#onlineservice">OnlineService</a>!]!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="resource">Resource<a class="headerlink" href="#resource" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.id">id</strong></td>
+<td valign="top"><a href="#id">ID</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.name">name</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.location">location</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.objecttype">objectType</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.contentsectiontypes">contentSectionTypes</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.teaser">teaser</strong></td>
+<td valign="top"><a href="#teaser">Teaser</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.navigation">navigation</strong></td>
+<td valign="top"><a href="#hierarchy">Hierarchy</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.kicker">kicker</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.date">date</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.geo">geo</strong></td>
+<td valign="top"><a href="#geo">Geo</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.asset">asset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.symbolicasset">symbolicAsset</strong></td>
+<td valign="top"><a href="#asset">Asset</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">variant</td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resource.explain">explain</strong></td>
+<td valign="top"><a href="#resultexplain">ResultExplain</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="resultexplain">ResultExplain<a class="headerlink" href="#resultexplain" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="resultexplain.score">score</strong></td>
+<td valign="top"><a href="#float">Float</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resultexplain.type">type</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resultexplain.field">field</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resultexplain.description">description</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="resultexplain.details">details</strong></td>
+<td valign="top">[<a href="#resultexplain">ResultExplain</a>!]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="scheduling">Scheduling<a class="headerlink" href="#scheduling" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.start">start</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.end">end</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.rrule">rRule</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.isfullday">isFullDay</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.hasstarttime">hasStartTime</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="scheduling.hasendtime">hasEndTime</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="searchresult">SearchResult<a class="headerlink" href="#searchresult" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="searchresult.total">total</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchresult.querytime">queryTime</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchresult.offset">offset</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchresult.limit">limit</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchresult.results">results</strong></td>
+<td valign="top">[<a href="#resource">Resource</a>!]!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchresult.facetgroups">facetGroups</strong></td>
+<td valign="top">[<a href="#facetgroup">FacetGroup</a>!]!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchresult.spellcheck">spellcheck</strong></td>
+<td valign="top"><a href="#spellcheck">Spellcheck</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="spellcheck">Spellcheck<a class="headerlink" href="#spellcheck" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spellcheck.suggestions">suggestions</strong></td>
+<td valign="top">[<a href="#spellchecksuggestion">SpellcheckSuggestion</a>!]!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spellcheck.collation">collation</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="spellchecksuggestion">SpellcheckSuggestion<a class="headerlink" href="#spellchecksuggestion" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spellchecksuggestion.original">original</strong></td>
+<td valign="top"><a href="#spellcheckword">SpellcheckWord</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spellchecksuggestion.suggestion">suggestion</strong></td>
+<td valign="top"><a href="#spellcheckword">SpellcheckWord</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="spellcheckword">SpellcheckWord<a class="headerlink" href="#spellcheckword" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spellcheckword.word">word</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spellcheckword.frequency">frequency</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="startpasswordrecoveryresult">StartPasswordRecoveryResult<a class="headerlink" href="#startpasswordrecoveryresult" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryresult.challengeid">challengeId</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryresult.createat">createAt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryresult.expiresat">expiresAt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="startregistrationresult">StartRegistrationResult<a class="headerlink" href="#startregistrationresult" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationresult.challengeid">challengeId</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationresult.createat">createAt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationresult.expiresat">expiresAt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="suggestresult">SuggestResult<a class="headerlink" href="#suggestresult" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestresult.suggestions">suggestions</strong></td>
+<td valign="top">[<a href="#suggestion">Suggestion</a>!]!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestresult.querytime">queryTime</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="suggestion">Suggestion<a class="headerlink" href="#suggestion" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestion.term">term</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestion.hits">hits</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="svg">Svg<a class="headerlink" href="#svg" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="svg.copyright">copyright</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="svg.copyrightdetails">copyrightDetails</strong></td>
+<td valign="top"><a href="#copyrightdetails">CopyrightDetails</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="svg.caption">caption</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="svg.description">description</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="svg.url">url</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="user">User<a class="headerlink" href="#user" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="user.id">id</strong></td>
+<td valign="top"><a href="#id">ID</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="user.username">username</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="user.firstname">firstName</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="user.lastname">lastName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="user.email">email</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="user.roles">roles</strong></td>
+<td valign="top">[<a href="#string">String</a>!]!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
+<h3 id="absolutedaterangeinputfacet">AbsoluteDateRangeInputFacet<a class="headerlink" href="#absolutedaterangeinputfacet" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="absolutedaterangeinputfacet.from">from</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="absolutedaterangeinputfacet.to">to</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="absolutedaterangeinputfacet.gap">gap</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="absolutedaterangeinputfilter">AbsoluteDateRangeInputFilter<a class="headerlink" href="#absolutedaterangeinputfilter" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="absolutedaterangeinputfilter.from">from</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="absolutedaterangeinputfilter.to">to</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="finishpasswordrecoveryinput">FinishPasswordRecoveryInput<a class="headerlink" href="#finishpasswordrecoveryinput" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="finishpasswordrecoveryinput.configname">configName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishpasswordrecoveryinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishpasswordrecoveryinput.challengeid">challengeId</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishpasswordrecoveryinput.code">code</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishpasswordrecoveryinput.newpassword">newPassword</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="finishregistrationinput">FinishRegistrationInput<a class="headerlink" href="#finishregistrationinput" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.configname">configName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.challengeid">challengeId</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.code">code</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.firstname">firstName</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.lastname">lastName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="finishregistrationinput.password">password</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="inputboosting">InputBoosting<a class="headerlink" href="#inputboosting" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="inputboosting.queryfields">queryFields</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputboosting.phrasefields">phraseFields</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputboosting.boostqueries">boostQueries</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputboosting.boostfunctions">boostFunctions</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputboosting.tie">tie</strong></td>
+<td valign="top"><a href="#float">Float</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="inputfacet">InputFacet<a class="headerlink" href="#inputfacet" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.key">key</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.excludefilter">excludeFilter</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.objecttypes">objectTypes</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.contentsectiontypes">contentSectionTypes</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.categories">categories</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.sites">sites</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.sources">sources</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.contenttypes">contentTypes</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.groups">groups</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.absolutedaterange">absoluteDateRange</strong></td>
+<td valign="top"><a href="#absolutedaterangeinputfacet">AbsoluteDateRangeInputFacet</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.relativedaterange">relativeDateRange</strong></td>
+<td valign="top"><a href="#relativedaterangeinputfacet">RelativeDateRangeInputFacet</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.spatialdistancerange">spatialDistanceRange</strong></td>
+<td valign="top"><a href="#spatialdistancerangeinputfacet">SpatialDistanceRangeInputFacet</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.query">query</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfacet.querytemplate">queryTemplate</strong></td>
+<td valign="top"><a href="#querytemplateinput">QueryTemplateInput</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="inputfilter">InputFilter<a class="headerlink" href="#inputfilter" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.key">key</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.ids">ids</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.objecttypes">objectTypes</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.contentsectiontypes">contentSectionTypes</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.teaserproperty">teaserProperty</strong></td>
+<td valign="top"><a href="#teaserpropertyinputfilter">TeaserPropertyInputFilter</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.categories">categories</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.sites">sites</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.sources">sources</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.contenttypes">contentTypes</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.groups">groups</strong></td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.absolutedaterange">absoluteDateRange</strong></td>
+<td valign="top"><a href="#absolutedaterangeinputfilter">AbsoluteDateRangeInputFilter</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.relativedaterange">relativeDateRange</strong></td>
+<td valign="top"><a href="#relativedaterangeinputfilter">RelativeDateRangeInputFilter</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.geolocated">geoLocated</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.spatialorbital">spatialOrbital</strong></td>
+<td valign="top"><a href="#spatialorbitalinputfilter">SpatialOrbitalInputFilter</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.spatialarbitraryrectangle">spatialArbitraryRectangle</strong></td>
+<td valign="top"><a href="#spatialarbitraryrectangleinputfilter">SpatialArbitraryRectangleInputFilter</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.and">and</strong></td>
+<td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.or">or</strong></td>
+<td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.not">not</strong></td>
+<td valign="top"><a href="#inputfilter">InputFilter</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.query">query</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputfilter.querytemplate">queryTemplate</strong></td>
+<td valign="top"><a href="#querytemplateinput">QueryTemplateInput</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="inputgeopoint">InputGeoPoint<a class="headerlink" href="#inputgeopoint" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="inputgeopoint.lng">lng</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputgeopoint.lat">lat</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="inputsortcriteria">InputSortCriteria<a class="headerlink" href="#inputsortcriteria" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.name">name</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.date">date</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.natural">natural</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.score">score</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.spatialdist">spatialDist</strong></td>
+<td valign="top"><a href="#inputsortcriteriaspatialdist">InputSortCriteriaSpatialDist</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteria.custom">custom</strong></td>
+<td valign="top"><a href="#inputsortcriteriacustom">InputSortCriteriaCustom</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="inputsortcriteriacustom">InputSortCriteriaCustom<a class="headerlink" href="#inputsortcriteriacustom" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteriacustom.field">field</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteriacustom.direction">direction</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="inputsortcriteriaspatialdist">InputSortCriteriaSpatialDist<a class="headerlink" href="#inputsortcriteriaspatialdist" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteriaspatialdist.spatialpoint">spatialPoint</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="inputsortcriteriaspatialdist.direction">direction</strong></td>
+<td valign="top"><a href="#sortdirection">SortDirection</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="morelikethisinput">MoreLikeThisInput<a class="headerlink" href="#morelikethisinput" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.id">id</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.context">context</strong></td>
+<td valign="top"><a href="#searchcontextinput">SearchContextInput</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.filter">filter</strong></td>
+<td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.limit">limit</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="morelikethisinput.archive">archive</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="querytemplateinput">QueryTemplateInput<a class="headerlink" href="#querytemplateinput" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="querytemplateinput.query">query</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="querytemplateinput.variables">variables</strong></td>
+<td valign="top"><a href="#json">Json</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="relativedaterangeinputfacet">RelativeDateRangeInputFacet<a class="headerlink" href="#relativedaterangeinputfacet" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.base">base</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Defaults to the current datetime if null
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.baseoffset">baseOffset</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.before">before</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td>
+
+Sets the lower date boundary. Implicitely directed toward the past.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.after">after</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td>
+
+Sets the upper date boundary. Implicitely directed toward the future.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.from">from</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
+<td>
+
+Sets the lower date boundary
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.to">to</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
+<td>
+
+Sets the upper date boundary
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.gap">gap</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.roundstart">roundStart</strong></td>
+<td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfacet.roundend">roundEnd</strong></td>
+<td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="relativedaterangeinputfilter">RelativeDateRangeInputFilter<a class="headerlink" href="#relativedaterangeinputfilter" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.base">base</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Defaults to the current datetime if null
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.baseoffset">baseOffset</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.before">before</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td>
+
+Sets the lower date boundary. Implicitely directed toward the past.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.after">after</strong></td>
+<td valign="top"><a href="#dateinterval">DateInterval</a></td>
+<td>
+
+Sets the upper date boundary. Implicitely directed toward the future.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.from">from</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
+<td>
+
+Sets the lower date boundary
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.to">to</strong></td>
+<td valign="top"><a href="#signeddateinterval">SignedDateInterval</a></td>
+<td>
+
+Sets the upper date boundary
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.roundstart">roundStart</strong></td>
+<td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.roundend">roundEnd</strong></td>
+<td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="searchcontextinput">SearchContextInput<a class="headerlink" href="#searchcontextinput" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcontextinput.urlbasepath">urlBasePath</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcontextinput.resourcelocation">resourceLocation</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcontextinput.options">options</strong></td>
+<td valign="top"><a href="#searchcontextoptionsinput">SearchContextOptionsInput</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="searchcontextoptionsinput">SearchContextOptionsInput<a class="headerlink" href="#searchcontextoptionsinput" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcontextoptionsinput.samenavigation">sameNavigation</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="searchinput">SearchInput<a class="headerlink" href="#searchinput" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.text">text</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.offset">offset</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.limit">limit</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.context">context</strong></td>
+<td valign="top"><a href="#searchcontextinput">SearchContextInput</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.defaultqueryoperator">defaultQueryOperator</strong></td>
+<td valign="top"><a href="#queryoperator">QueryOperator</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.sort">sort</strong></td>
+<td valign="top">[<a href="#inputsortcriteria">InputSortCriteria</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.filter">filter</strong></td>
+<td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.facets">facets</strong></td>
+<td valign="top">[<a href="#inputfacet">InputFacet</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.spellcheck">spellcheck</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.archive">archive</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.timezone">timeZone</strong></td>
+<td valign="top"><a href="#datetimezone">DateTimeZone</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.boosting">boosting</strong></td>
+<td valign="top"><a href="#inputboosting">InputBoosting</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.distancereferencepoint">distanceReferencePoint</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchinput.explain">explain</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="spatialarbitraryrectangleinputfilter">SpatialArbitraryRectangleInputFilter<a class="headerlink" href="#spatialarbitraryrectangleinputfilter" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialarbitraryrectangleinputfilter.lowerleftcorner">lowerLeftCorner</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialarbitraryrectangleinputfilter.upperrightcorner">upperRightCorner</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="spatialdistancerangeinputfacet">SpatialDistanceRangeInputFacet<a class="headerlink" href="#spatialdistancerangeinputfacet" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialdistancerangeinputfacet.point">point</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialdistancerangeinputfacet.from">from</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialdistancerangeinputfacet.to">to</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="spatialorbitalinputfilter">SpatialOrbitalInputFilter<a class="headerlink" href="#spatialorbitalinputfilter" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialorbitalinputfilter.distance">distance</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialorbitalinputfilter.centerpoint">centerPoint</strong></td>
+<td valign="top"><a href="#inputgeopoint">InputGeoPoint</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="spatialorbitalinputfilter.mode">mode</strong></td>
+<td valign="top"><a href="#spatialorbitalmode">SpatialOrbitalMode</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="startpasswordrecoveryinput">StartPasswordRecoveryInput<a class="headerlink" href="#startpasswordrecoveryinput" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryinput.configname">configName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryinput.username">username</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startpasswordrecoveryinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="startregistrationinput">StartRegistrationInput<a class="headerlink" href="#startregistrationinput" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationinput.configname">configName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationinput.emailaddress">emailAddress</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="startregistrationinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="suggestinput">SuggestInput<a class="headerlink" href="#suggestinput" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestinput.text">text</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestinput.limit">limit</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestinput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestinput.filter">filter</strong></td>
+<td valign="top">[<a href="#inputfilter">InputFilter</a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestinput.archive">archive</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="teaserpropertyinputfilter">TeaserPropertyInputFilter<a class="headerlink" href="#teaserpropertyinputfilter" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="teaserpropertyinputfilter.image">image</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="teaserpropertyinputfilter.imagecopyright">imageCopyright</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="teaserpropertyinputfilter.headline">headline</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="teaserpropertyinputfilter.text">text</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="enums">Enums<a class="headerlink" href="#enums" title="Permanent link">#</a></h2>
+<h3 id="authenticationstatus">AuthenticationStatus<a class="headerlink" href="#authenticationstatus" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>SUCCESS</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>PARTIAL</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>FAILURE</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="daterangeround">DateRangeRound<a class="headerlink" href="#daterangeround" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>START_OF_DAY</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>START_OF_PREVIOUS_DAY</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_DAY</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_PREVIOUS_DAY</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>START_OF_MONTH</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>START_OF_PREVIOUS_MONTH</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_MONTH</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_PREVIOUS_MONTH</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>START_OF_YEAR</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>START_OF_PREVIOUS_YEAR</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_YEAR</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>END_OF_PREVIOUS_YEAR</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="imagecharacteristic">ImageCharacteristic<a class="headerlink" href="#imagecharacteristic" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>NORMAL</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>INFOGRAPHIC</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>DECORATIVE_IMAGE</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>DECORATIVE_IMAGE_NOT_CUT</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="queryoperator">QueryOperator<a class="headerlink" href="#queryoperator" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>AND</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>OR</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="sortdirection">SortDirection<a class="headerlink" href="#sortdirection" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>ASC</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>DESC</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="spatialorbitalmode">SpatialOrbitalMode<a class="headerlink" href="#spatialorbitalmode" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>GREAT_CIRCLE_DISTANCE</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>BOUNDING_BOX</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="scalars">Scalars<a class="headerlink" href="#scalars" title="Permanent link">#</a></h2>
+<h3 id="boolean">Boolean<a class="headerlink" href="#boolean" title="Permanent link">#</a></h3>
+<p>The <code>Boolean</code> scalar type represents <code>true</code> or <code>false</code>.</p>
+<h3 id="dateinterval">DateInterval<a class="headerlink" href="#dateinterval" title="Permanent link">#</a></h3>
+<p>The scalar type <code>DateInterval</code> represents a date interval duration string. It is specified in ISO-8601 format (e.g. <code>P3Y6M4DT12H30M5S</code>).</p>
+<h3 id="datetime">DateTime<a class="headerlink" href="#datetime" title="Permanent link">#</a></h3>
+<p>The scalar type <code>DateTime</code> represents a date and time string. It is specified with the UTC time zone in ISO-8601 format (e.g. <code>2024-05-22T10:13:00Z</code>).</p>
+<h3 id="datetimezone">DateTimeZone<a class="headerlink" href="#datetimezone" title="Permanent link">#</a></h3>
+<p>The scalar type <code>DateTimeZone</code> represents a timezone string. It is specified in the IANA timezone database format (e.g. <code>America/New_York</code>).</p>
+<h3 id="float">Float<a class="headerlink" href="#float" title="Permanent link">#</a></h3>
+<p>The <code>Float</code> scalar type represents signed double-precision fractional
+values as specified by
+<a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754</a>. </p>
+<h3 id="geojson">GeoJson<a class="headerlink" href="#geojson" title="Permanent link">#</a></h3>
+<h3 id="id">ID<a class="headerlink" href="#id" title="Permanent link">#</a></h3>
+<p>The <code>ID</code> scalar type represents a unique identifier, often used to
+refetch an object or as key for a cache. The ID type appears in a JSON
+response as a String; however, it is not intended to be human-readable.
+When expected as an input type, any string (such as <code>"4"</code>) or integer
+(such as <code>4</code>) input value will be accepted as an ID.</p>
+<h3 id="int">Int<a class="headerlink" href="#int" title="Permanent link">#</a></h3>
+<p>The <code>Int</code> scalar type represents non-fractional signed whole numeric
+values. Int can represent values between -(2^31) and 2^31 - 1. </p>
+<h3 id="json">Json<a class="headerlink" href="#json" title="Permanent link">#</a></h3>
+<h3 id="signeddateinterval">SignedDateInterval<a class="headerlink" href="#signeddateinterval" title="Permanent link">#</a></h3>
+<p>The scalar type <code>SignedDateInterval</code> represents a date interval duration string that additionally allows for a leading minus sign (as specified in ISO 8601-2:2019).</p>
+<h3 id="string">String<a class="headerlink" href="#string" title="Permanent link">#</a></h3>
+<p>The <code>String</code> scalar type represents textual data, represented as UTF-8
+character sequences. The String type is most often used by <abbr title="GraphQL is a query language for APIs and a runtime for executing those queries with your existing data. It provides a more efficient, powerful, and flexible alternative to REST.">GraphQL</abbr> to
+represent free-form human-readable text.</p>
+<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
+<h3 id="asset">Asset<a class="headerlink" href="#asset" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="asset.copyright">copyright</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="asset.copyrightdetails">copyrightDetails</strong></td>
+<td valign="top"><a href="#copyrightdetails">CopyrightDetails</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="asset.caption">caption</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="asset.description">description</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Possible Types:</strong> <a href="#image">Image</a>, <a href="#svg">Svg</a></p>
+<h3 id="teaser">Teaser<a class="headerlink" href="#teaser" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="teaser.url">url</strong> ⚠️</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Teaser URL
+
+<p>⚠️ <strong>DEPRECATED</strong></p>
+<blockquote>
+
+Use field 'link' instead
+
+</blockquote>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="teaser.link">link</strong></td>
+<td valign="top"><a href="#link">Link</a></td>
+<td>
+
+Teaser Link
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Possible Types:</strong> <a href="#articleteaser">ArticleTeaser</a>, <a href="#mediateaser">MediaTeaser</a>, <a href="#newsteaser">NewsTeaser</a>, <a href="#eventteaser">EventTeaser</a></p>
+<h3 id="teaserfeature">TeaserFeature<a class="headerlink" href="#teaserfeature" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="teaserfeature.label">label</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Possible Types:</strong> <a href="#onlineservicefeature">OnlineServiceFeature</a></p>
+<h2 id="unions">Unions<a class="headerlink" href="#unions" title="Permanent link">#</a></h2>
+<h3 id="finishuserregistrationresulttype">FinishUserRegistrationResultType<a class="headerlink" href="#finishuserregistrationresulttype" title="Permanent link">#</a></h3>
+<p>FinishRegistrationResult and EmailAlreadyExistsError</p>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong><a href="#finishregistrationresult">FinishRegistrationResult</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong><a href="#emailalreadyexistserror">EmailAlreadyExistsError</a></strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
