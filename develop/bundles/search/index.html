@@ -1,0 +1,3797 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../resource/">
+      
+      
+        <link rel="next" href="../security/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Search - Atoolo Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M11%2015h2v2h-2zm0-8h2v6h-2zm1-5C6.47%202%202%206.5%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202m0%2018a8%208%200%200%201-8-8%208%208%200%200%201%208-8%208%208%200%200%201%208%208%208%208%200%200%201-8%208%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#search-component" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Atoolo Docs" class="md-header__button md-logo" aria-label="Atoolo Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Atoolo Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Search
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="amber"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sitepark/atoolo-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Atoolo Docs" class="md-nav__button md-logo" aria-label="Atoolo Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Atoolo Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sitepark/atoolo-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../concepts/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/resource-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Channel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/microsites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/web-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebAccount
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/teaser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teaser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../operate/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operate
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/console-command/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Console Command
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/ies-webnode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IES Webnode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/runtime-check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/worker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Develop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Develop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../components/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Components
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bundle
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bundle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime-check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index name
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indexing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Indexing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal-resource-indexer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal Resource Indexer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solr-xml-indexer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solr Xml Indexer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-document-enricher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Document Enricher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-content-matcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Content Matcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Searching
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Searching">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-text-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full text search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facetes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archive-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Archive search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boosting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searching-more-like-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Searching (More like this)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-as-a-symony-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use as a Symony service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command line interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../graphql-search/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL search
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3_7" id="__nav_4_3_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GraphQL search
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql-search/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql-search/customization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql-search/server-side-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server-Side queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../form/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Form
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../citygov/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CityGov
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../citycall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CityCall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events-calendar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events Calendar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micosite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rewrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rewrite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebAccount
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../graphql/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GraphQL API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../graphql/search/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_3" id="__nav_4_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Search
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/filtered-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtered search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/faceted-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faceted search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/resolve-resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resolve resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/resolve-navigation-hierarchy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resolve navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/resolve-teaser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resolve teaser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/suggest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Suggest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/more-like-this/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More like this
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../graphql/web-account/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebAccount
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    WebAccount
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/customization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/error-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../form/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Form API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Form API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../form/controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../form/annotations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../form/layouts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ical/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICal API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICal API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../symfony-flex-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symfony Flex integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../contribute/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribute
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Contribute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index name
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indexing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Indexing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal-resource-indexer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal Resource Indexer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solr-xml-indexer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solr Xml Indexer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-document-enricher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Document Enricher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-content-matcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Content Matcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Searching
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Searching">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-text-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full text search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facetes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archive-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Archive search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boosting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searching-more-like-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Searching (More like this)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-as-a-symony-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use as a Symony service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command line interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="search-component">Search Component<a class="headerlink" href="#search-component" title="Permanent link">#</a></h1>
+<p>Provides services with which a Solr index can be filled and searched for <a href="../resource/">resources</a> via a index.</p>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">#</a></h2>
+<p>The sources can be accessed via the GibHub project <a href="https://github.com/sitepark/atoolo-search-bundle" target="_blank">https://github.com/sitepark/atoolo-search-bundle</a>.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
+<p>First add the Sitepark Flex Repository before installing the bundle.</p>
+<p>See: <a href="../../symfony-flex-integration/#sitepark-flex-repository">Sitepark Flex Repository</a></p>
+<p>Use <a href="https://getcomposer.org/" target="_blank">Composer</a> to install this component in your PHP project:</p>
+<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>require<span class="w"> </span>atoolo/search-bundle
+</code></pre></div>
+<h2 id="index-name">Index name<a class="headerlink" href="#index-name" title="Permanent link">#</a></h2>
+<p>The index name is used to determine which index should be searched. An index is always assigned to a <a href="../../../concepts/resource-channel/">Resource Channel</a>. The name of the index can be determined via the <code>ResourceChannel</code>.</p>
+<p>The <abbr title="Sitepark's content management system">IES</abbr> supports multilingual resource channels. Editorial content is only ever written in one language and is automatically translated into the other languages by the CMS. A multilingual resource channel then contains several resources for an article, each of which is published in a different language. For the search, a separate full text index is created for each language, which also takes into account language-specific features such as stop words and stemming.</p>
+<p>The name of the index can be determined via the interface <code>IndexName</code>. A method <code>IndexName::name(ResourceLanguage $lang): string</code> is made available for this purpose.</p>
+<p>Currently, only the class <code>ResourceChannelBasedIndexName</code> implements the interface <code>IndexName</code>. This class determines the index name based on the resource channel.
+See also: <a href="../resource/#resourcechannel">Resource Channel</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$indexName</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ResourceChannelBasedIndexName</span><span class="p">(</span><span class="nv">$resourceChannel</span><span class="p">);</span>
+<span class="nv">$lang</span> <span class="o">=</span> <span class="nx">ResourceLanguage</span><span class="o">::</span><span class="na">of</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">);</span>
+<span class="nv">$index</span> <span class="o">=</span> <span class="nv">$indexName</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="nv">$lang</span><span class="p">);</span>
+</code></pre></div>
+<p>If there is no index for the specified language, the index for the base language of the resource channel is returned.</p>
+<h2 id="indexing">Indexing<a class="headerlink" href="#indexing" title="Permanent link">#</a></h2>
+<p>To be able to search in a Solr index, it must first be filled. This is done via the indexer.</p>
+<p><a href="../resource/#the-resource">Resources</a> are indexed. These are stored as files in the file system. The indexer can search an entire directory structure for the resources and thus rebuild an entire index. The resources are loaded via the files and mapped to index documents. The mapping is carried out via document enricher that read the resource data and set the corresponding fields of the index document. The index document are passed to Solr so that they can be indexed. Searches can then be performed on a Solr index created in this way.</p>
+<p>An <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Indexer.php" target="_blank">Indexer service</a> is available for indexing, which can be used to index and remove data from the index.</p>
+<h3 id="internal-resource-indexer">Internal Resource Indexer<a class="headerlink" href="#internal-resource-indexer" title="Permanent link">#</a></h3>
+<p>The Internal Resource Indexer is the standard indexer of this bundle and is used to index the internal resources. The internal resources are the resources that are usually managed in the CMS. The indexer can be used to index and remove the internal resources.</p>
+<h3 id="protected-resources">Protected Resources<a class="headerlink" href="#protected-resources" title="Permanent link">#</a></h3>
+<p>The <abbr title="Sitepark's content management system">IES</abbr> offers the option of making certain resources visible only to a defined user group. These resources are marked as "protected". The resources are indexed, but only for user groups that are authorized to see these resources. To ensure that the protected resources are also returned via the search, the group IDs of the user groups must be stored in the PHP session via the <code>auth-groups</code> key in a comma-separated form.</p>
+<h3 id="solr-xml-indexer">Solr Xml Indexer<a class="headerlink" href="#solr-xml-indexer" title="Permanent link">#</a></h3>
+<p>In order to better convert systems with existing indexers, the SolrXMLIndexer can be used to read the existing Solr-XML files and thus integrate them into the Atoolo-Indexer technology.</p>
+<p>Example of the integration of the SolrXMLIndexer:</p>
+<p><code>services.yaml</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">customer.indexer.mysource_aborter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Atoolo\Search\Service\Indexer\IndexingAborter</span>
+<span class="w">  </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;%kernel.project_dir%/var/cache/&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;mysource&quot;</span>
+
+<span class="nt">customer.indexer.mysource_progress_state</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Atoolo\Search\Service\Indexer\IndexerProgressState</span>
+<span class="w">  </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;@atoolo_search.index_name&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;@atoolo_search.indexer.status_store&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;mysource&quot;</span>
+
+<span class="nt">customer.indexer.mysource_indexer</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Atoolo\Search\Service\Indexer\SolrXmlIndexer</span>
+<span class="w">  </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;@atoolo_search.index_name&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;@customer.indexer.mysource_progress_state&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;@customer.indexer.mysource_aborter&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;@atoolo_search.indexer.solr_index_service&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;@atoolo_search.indexer.configuration_loader&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;@atoolo_search.indexer.solr_xml_reader&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;mysource&quot;</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;atoolo_search.indexer&quot;</span><span class="p p-Indicator">]</span>
+
+<span class="nt">customer.indexer.mysource_indexer_scheduler</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Atoolo\Search\Service\Indexer\SolrXmlIndexerScheduler</span>
+<span class="w">  </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;0</span><span class="nv"> </span><span class="s">6-20/2</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&quot;</span><span class="w"> </span><span class="c1"># cron expression, every 2 hours from 6am to 8pm</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;@customer.indexer.mysource_indexer&quot;</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">scheduler.schedule_provider</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;mysource-indexer-scheduler&quot;</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</code></pre></div>
+<h3 id="custom-document-enricher">Custom Document Enricher<a class="headerlink" href="#custom-document-enricher" title="Permanent link">#</a></h3>
+<p>Document Enricher allow the document that is passed to Solr for indexing to be enriched with the desired fields. Here it is possible to react to product or customer-specific object types and to set the document according to requirements.</p>
+<p>The document to be filled must adhere to the schema stored in Solr. Only the fields that are known in the schema can be set. Currently the schema <code>2.1</code> is used. The implementation <code>IndexSchema2xDocument</code> of the <code>IndexDocument</code> interface is available for this purpose. The document enricher must implement the interface <code>DocumentEnricher</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="k">namespace</span> <span class="nx">Atoolo\Examples\Search\Indexer\Enricher</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Atoolo\Resource\Resource</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Atoolo\Search\Service\Indexer\DocumentEnricher</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Atoolo\Search\Service\Indexer\IndexDocument</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Atoolo\Search\Service\Indexer\IndexSchema2xDocument</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @implements DocumentEnricher&lt;IndexSchema2xDocument&gt;</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">CustomDocumentEnricher</span> <span class="k">implements</span> <span class="nx">DocumentEnricher</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">enrichDocument</span><span class="p">(</span>
+        <span class="nx">Resource</span> <span class="nv">$resource</span><span class="p">,</span>
+        <span class="nx">IndexDocument</span> <span class="nv">$doc</span><span class="p">,</span>
+        <span class="nx">string</span> <span class="nv">$processId</span>
+    <span class="p">)</span><span class="o">:</span> <span class="nx">IndexDocument</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="nv">$resource</span><span class="o">-&gt;</span><span class="na">getObjectType</span><span class="p">()</span> <span class="o">!==</span> <span class="s1">&#39;myObjectType&#39;</span>
+        <span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$doc</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// ... enrich document</span>
+
+        <span class="k">return</span> <span class="nv">$doc</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The document enricher is required, for example, in the <a href="../graphql-search/"><abbr title="GraphQL is a query language for APIs and a runtime for executing those queries with your existing data. It provides a more efficient, powerful, and flexible alternative to REST.">GraphQL</abbr> Search Bundle</a>. This offers a mutation that is also used by the <abbr title="Sitepark's content management system">IES</abbr> to trigger indexing. See also <a href="../../graphql/search/indexing/">GraphQl Indexing</a>. So that your own document enricher can be used, it must be registered as <a href="https://symfony.com/doc/current/service_container/tags.html" target="_blank">tagged <abbr title="Symfony is a PHP framework for web applications and a set of reusable PHP components.">Symfony</abbr> service</a>.</p>
+<p><code>services.yaml</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Atoolo\Examples\Search\Indexer\Enricher\CustomDocumentEnricher</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="nt">          name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;atoolo_search.indexer.document_enricher.schema2x&quot;</span><span class="p p-Indicator">,</span>
+<span class="nt">          priority</span><span class="p">:</span><span class="w"> </span><span class="nv">10</span><span class="p p-Indicator">,</span>
+<span class="w">        </span><span class="p p-Indicator">}</span>
+</code></pre></div>
+<h3 id="custom-content-matcher">Custom Content Matcher<a class="headerlink" href="#custom-content-matcher" title="Permanent link">#</a></h3>
+<p>For the full-text search, the 'content' field is filled with all content relevant to the search. It may be necessary for special content to be extracted from the resources and written to the <code>content</code> field. A <code>ContentMatcher</code> can be implemented for this purpose.</p>
+<p>The <code>content</code> array of the resource is run through recursively and the <code>ContentMatcher</code> is called for each value. The <code>ContentMatcher</code> can then check whether the value should be written to the <code>content</code> field. The value can also be an array so that the <code>ContentMatcher</code> can extract the required value from the underlying structure.</p>
+<div class="highlight"><pre><span></span><code><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="k">namespace</span> <span class="nx">Atoolo\Examples\Search\Indexer\Matcher</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Atoolo\Resource\Resource</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CustomContentMatcher</span> <span class="k">implements</span> <span class="nx">ContentMatcher</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">match</span><span class="p">(</span><span class="nx">Resource</span> <span class="nv">$resource</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$key</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span><span class="o">:</span><span class="nx">bool</span>
+    <span class="p">{</span>
+        <span class="nv">$len</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$path</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$len</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="nv">$path</span><span class="p">[</span><span class="nv">$len</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">&#39;items&#39;</span> <span class="o">||</span>
+            <span class="nv">$path</span><span class="p">[</span><span class="nv">$len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">&#39;model&#39;</span>
+        <span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$headline</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="k">false</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">is_string</span><span class="p">(</span><span class="nv">$headline</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$headline</span> <span class="o">:</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>So that your own content matcher can be used, it must be registered as <a href="https://symfony.com/doc/current/service_container/tags.html" target="_blank">tagged <abbr title="Symfony is a PHP framework for web applications and a set of reusable PHP components.">Symfony</abbr> service</a>.</p>
+<p><code>services.yaml</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Atoolo\Search\Service\Indexer\SiteKit\HeadlineMatcher</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;atoolo_search.indexer.sitekit.content_matcher&quot;</span><span class="p p-Indicator">,</span><span class="nt"> priority</span><span class="p">:</span><span class="w"> </span><span class="nv">10</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</code></pre></div>
+<h2 id="searching">Searching<a class="headerlink" href="#searching" title="Permanent link">#</a></h2>
+<p>You can search the index to find resources. The <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Search.php">Search service</a> interface is available for this purpose. The <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Service/Search/SolrSearch.php">SolrSearch</a> is a common implementation of this interface.</p>
+<h3 id="query">Query<a class="headerlink" href="#query" title="Permanent link">#</a></h3>
+<p>The <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Service/Search/SolrSearch.php"><code>search()</code></a> method expects a <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php" target="_blank"><code>SearchQuery</code></a> object that contains the filter rules, for example. To create a <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SelectQuery.php" target="_blank"><code>SearchQuery</code></a> object, only the <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQueryBuilder.php" target="_blank"><code>SearchQueryBuilder</code></a> must be used to ensure that a valid <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SearchQuery.php" target="_blank"><code>SearchQuery</code></a> object is always created.</p>
+<p>Example of a query:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchQueryBuilder</span><span class="p">();</span>
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="s1">&#39;chocolate&#39;</span><span class="p">)</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">build</span><span class="p">();</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$searcher</span><span class="o">-&gt;</span><span class="na">search</span><span class="p">(</span><span class="nv">$query</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="full-text-search">Full text search<a class="headerlink" href="#full-text-search" title="Permanent link">#</a></h4>
+<p>To find resources using a full-text search, the text is specified using the builder methode <code>$builder-text()</code>.
+The index is searched for the text and the corresponding hits are returned. The search is performed word by word. If several words (separated by spaces) are entered, an OR search is carried out in the standard case and the hits must contain both words. An AND search can also be carried out. To do this, the builder method <code>$builder-&gt;queryDefaultOperator()</code> must be specified with <code>QueryOperator::AND</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchQueryBuilder</span><span class="p">();</span>
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="s1">&#39;cacao coffee&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">defaultQueryOperator</span><span class="p">(</span><span class="nx">QueryOperator</span><span class="o">::</span><span class="na">AND</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="sorting">Sorting<a class="headerlink" href="#sorting" title="Permanent link">#</a></h4>
+<p>Sort criteria can be used to specify how the result should be sorted. Multiple sorting criteria can be specified, which are applied to the result one after the other. The second sort criterion is used if the first is the same and so on.</p>
+<p>If no sorting criterion is specified, the result is sorted by relevance. The <code>Score</code>-class is used here, which is higher the more precisely the hit matches the search.</p>
+<p>The following sorting criteria classes are possible:</p>
+<table>
+<thead>
+<tr>
+<th>Search criteria Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Name</code></td>
+<td>This is sorted by the name of the article. In some cases, the name is preceded by a numerical prefix to achieve the desired sorting in the CMS and is therefore not always identical to the headline.</td>
+</tr>
+<tr>
+<td><code>Headline</code></td>
+<td>Sort by the title of the article.</td>
+</tr>
+<tr>
+<td><code>Date</code></td>
+<td>In many cases, an editorial date can be set for the article that is used here. Otherwise it is the last modification date of the article.</td>
+</tr>
+<tr>
+<td><code>Natural</code></td>
+<td>In most cases, a sort field is written to the index, which should describe the natural sorting of the entry. For normal articles, this is usually the heading. For news or events, however, it is the date, for example. This sort field is used in this case.</td>
+</tr>
+<tr>
+<td><code>Score</code></td>
+<td>The score is determined during the search and describes how closely the individual hits match the search query. This sorting is useful for full-text searches in order to obtain the most accurate results first. Here it is sorted according to relevance.</td>
+</tr>
+<tr>
+<td><code>Custom</code></td>
+<td>This sort criterion allows you to use your own fields from the search index for sorting.</td>
+</tr>
+</tbody>
+</table>
+<p>The sorting can be defined as follows via the QueryBuilder:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchQueryBuilder</span><span class="p">();</span>
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="s1">&#39;chocolate&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">sort</span><span class="p">([</span>
+    <span class="k">new</span> <span class="nx">Sort</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">SortDirection</span><span class="o">::</span><span class="na">ASC</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">Sort</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="nx">SortDirection</span><span class="o">::</span><span class="na">DESC</span><span class="p">)</span>
+    <span class="p">]);</span>
+</code></pre></div>
+<h4 id="filter">Filter<a class="headerlink" href="#filter" title="Permanent link">#</a></h4>
+<p>Filters can be defined to limit search results. The following filters are available here:</p>
+<table>
+<thead>
+<tr>
+<th><div style="width:12em">Filter Class</div></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ObjectTypesFilter</code></td>
+<td>Object types describe the different types of pages that are used in the website. These can be, for example, news pages, events, normal content pages or any other types that are part of the project.</td>
+</tr>
+<tr>
+<td><code>ContentSectionsFilter</code></td>
+<td>Content section types are types of sections that are included in a page. These can be text sections, image sections and all others that the project provides for the website. For example, a search can be defined in which all pages containing a YouTube video can be found.</td>
+</tr>
+<tr>
+<td><code>CategoriesFilter</code></td>
+<td>The CMS can be used to define any number of category trees that can be used to categorize articles. These categories can be filtered using their ID. The hierarchy of the category is also taken into account. This means that if you filter by a category that has subcategories, the articles that are linked to the subcategory are also found.</td>
+</tr>
+<tr>
+<td><code>GroupsFilter</code></td>
+<td>In the CMS, articles are organized in hierarchical groups. For example, all articles in a rubric are managed in substructures of the rubric group. The groups filter can be used to restrict the search to groups. The hierarchy of the groups is also taken into account so that all articles in a group are found, even if they are contained in further nested subgroups.</td>
+</tr>
+<tr>
+<td><code>SitesFilter</code></td>
+<td>Several websites can be managed within the CMS. These can be several main websites, but also microsites that are subordinate to a main website. The Sites filter can be used to restrict the search to a single site. For example, you can define a search that only returns hits from a microsite. Without this filter, a search for the main website can be realized, for example, in which the pages of the microsites are also found.</td>
+</tr>
+<tr>
+<td><code>IdFilter</code></td>
+<td>An IdFilter can be used to filter directly for specific resources using their IDs</td>
+</tr>
+<tr>
+<td><code>SourceFilter</code></td>
+<td>The source filter can be used to filter entries that have been transferred to the search index via a specific indexer</td>
+</tr>
+<tr>
+<td><code>ContentTypeFilter</code></td>
+<td>Filters according to the content type of the entry. For <code>text/html</code>, <code>text/html*</code> should also be specified, as it contains an encoding such as <code>text/html; charset=UTF-8</code>.</td>
+</tr>
+<tr>
+<td><code>GeoLocatedFilter</code></td>
+<td>This filter is used to find entries that are geo-localized.</td>
+</tr>
+<tr>
+<td><code>SpatialOrbitalFilter</code></td>
+<td>Filter for a geo radius search.</td>
+</tr>
+<tr>
+<td><code>SpatialArbitraryRectangleFilter</code></td>
+<td>Filter for a geo radius search. For performance reasons, a rectangle rather than a circle is selected for the search area.</td>
+</tr>
+<tr>
+<td><code>AbsoluteDateRangeFilter</code></td>
+<td>Filter that filters over an absolute date range</td>
+</tr>
+<tr>
+<td><code>RelativeDateRangeFilter</code></td>
+<td>Filter that filters over an relative date range</td>
+</tr>
+<tr>
+<td><code>AndFilter</code></td>
+<td>The AND filter is used to combine several filters. This means that only the hits are returned that match all the filters.</td>
+</tr>
+<tr>
+<td><code>OrFilter</code></td>
+<td>The OR filter is used to combine several filters. This means that the hits are returned that match at least one of the filters.</td>
+</tr>
+<tr>
+<td><code>NotFilter</code></td>
+<td>The NOT filter is used to exclude hits that match the filter.</td>
+</tr>
+<tr>
+<td><code>QueryFilter</code></td>
+<td>This filter accepts a query that is passed directly to the search engine. This filter should only be used in absolute exceptions where the fields of the current schema must be specified directly.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>QueryFilter</code>: If the schema is changed, the specified queries for these filters may no longer work.</p>
+</div>
+<p>The filters can be defined as follows via the builder:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchQueryBuilder</span><span class="p">();</span>
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="s1">&#39;chocolate&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">filter</span><span class="p">([</span>
+    <span class="k">new</span> <span class="nx">ObjectTypesFilter</span><span class="p">([</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;events&#39;</span><span class="p">]),</span>
+    <span class="k">new</span> <span class="nx">CategoriesFilter</span><span class="p">([</span><span class="s1">&#39;15949&#39;</span><span class="p">]),</span>
+    <span class="k">new</span> <span class="nx">GroupsFilter</span><span class="p">([</span><span class="s1">&#39;16811&#39;</span><span class="p">]),</span>
+    <span class="k">new</span> <span class="nx">SitesFilter</span><span class="p">([</span><span class="s1">&#39;3952&#39;</span><span class="p">]),</span>
+    <span class="k">new</span> <span class="nx">AndFilter</span><span class="p">([</span>
+      <span class="k">new</span> <span class="nx">ObjectTypesFilter</span><span class="p">([</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;events&#39;</span><span class="p">]),</span>
+      <span class="k">new</span> <span class="nx">CategoriesFilter</span><span class="p">([</span><span class="s1">&#39;15949&#39;</span><span class="p">]),</span>
+      <span class="k">new</span> <span class="nx">GroupsFilter</span><span class="p">([</span><span class="s1">&#39;16811&#39;</span><span class="p">]),</span>
+      <span class="k">new</span> <span class="nx">SitesFilter</span><span class="p">([</span><span class="s1">&#39;3952&#39;</span><span class="p">]),</span>
+      <span class="k">new</span> <span class="nx">QueryFilter</span><span class="p">(</span><span class="s1">&#39;myField:myValue&#39;</span><span class="p">),</span>
+    <span class="p">]),</span>
+    <span class="k">new</span> <span class="nx">OrFilter</span><span class="p">([</span>
+      <span class="k">new</span> <span class="nx">ObjectTypesFilter</span><span class="p">([</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;events&#39;</span><span class="p">]),</span>
+      <span class="k">new</span> <span class="nx">CategoriesFilter</span><span class="p">([</span><span class="s1">&#39;15949&#39;</span><span class="p">]),</span>
+      <span class="k">new</span> <span class="nx">GroupsFilter</span><span class="p">([</span><span class="s1">&#39;16811&#39;</span><span class="p">]),</span>
+      <span class="k">new</span> <span class="nx">SitesFilter</span><span class="p">([</span><span class="s1">&#39;3952&#39;</span><span class="p">]),</span>
+      <span class="k">new</span> <span class="nx">QueryFilter</span><span class="p">(</span><span class="s1">&#39;myField:myValue&#39;</span><span class="p">),</span>
+    <span class="p">]),</span>
+    <span class="k">new</span> <span class="nx">NotFilter</span><span class="p">(</span>
+      <span class="k">new</span> <span class="nx">ObjectTypesFilter</span><span class="p">([</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;events&#39;</span><span class="p">])</span>
+    <span class="p">),</span>
+    <span class="k">new</span> <span class="nx">QueryFilter</span><span class="p">(</span><span class="s1">&#39;myField:myValue&#39;</span><span class="p">)</span>
+  <span class="p">]);</span>
+</code></pre></div>
+<h4 id="filter-key">Filter key<a class="headerlink" href="#filter-key" title="Permanent link">#</a></h4>
+<p>A <code>key</code> can also be specified for filters. This is only necessary if the filter only influences the facet search. The key is then used for the faceted search to identify the filters that must not be taken into account. See <a href="#facetes">Facetes</a>.</p>
+<h4 id="facetes">Facetes<a class="headerlink" href="#facetes" title="Permanent link">#</a></h4>
+<p>A faceted search, also known as faceted filtering, is a search technique that can be applied to various use cases to allow users to easily refine and navigate search results. It works by dividing search results into different categories or facets that are representative features or attributes of the information found.</p>
+<p>The facet type is required to define a facet. This can be, for example, the object type and the possible values of the facet type whose results are to be returned.</p>
+<p>The following filters are available here:</p>
+<table>
+<thead>
+<tr>
+<th><div style="width:11em">Facet Class</div></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ObjectTypesFacet</code></td>
+<td>Object types describe the different types of pages that are used in the website. These can be, for example, news pages, events, normal content pages or any other types that are part of the project.</td>
+</tr>
+<tr>
+<td><code>ContentSectionsFacet</code></td>
+<td>Content section types are types of sections that are included in a page. These can be text sections, image sections and all others that the project provides for the website. For example, a search can be defined in which all pages containing a YouTube video can be found.</td>
+</tr>
+<tr>
+<td><code>CategoriesFacet</code></td>
+<td>The CMS can be used to define any number of category trees that can be used to categorize articles.</td>
+</tr>
+<tr>
+<td><code>GroupsFacet</code></td>
+<td>In the CMS, articles are organized in hierarchical groups. For example, all articles in a rubric are managed in substructures of the rubric group. The groups filter can be used to restrict the search to groups. The hierarchy of the groups is also taken into account so that all articles in a group are found, even if they are contained in further nested subgroups.</td>
+</tr>
+<tr>
+<td><code>SitesFacet</code></td>
+<td>Several websites can be managed within the CMS. These can be several main websites, but also microsites that are subordinate to a main website. The Sites filter can be used to restrict the search to a single site. For example, you can define a search that only returns hits from a microsite. Without this filter, a search for the main website can be realized, for example, in which the pages of the microsites are also found.</td>
+</tr>
+<tr>
+<td><code>SourceFacet</code></td>
+<td>The source indicates which indexer was used to add the entry to the index</td>
+</tr>
+<tr>
+<td><code>SourceFacet</code></td>
+<td>The source indicates which indexer was used to add the entry to the index</td>
+</tr>
+<tr>
+<td><code>ContentTypeQuery</code></td>
+<td>Facete about the content type of the entry</td>
+</tr>
+<tr>
+<td><code>RelativeDateRangeFacet</code></td>
+<td>Facet over a date range. This can be a single value. If a <code>gap</code> is specified, the facet contains several values. In each case, the number of hits in the time window specified with <code>gap</code> within the specified time period</td>
+</tr>
+<tr>
+<td><code>SpatialDistanceRangeFacet</code></td>
+<td>This facet indicates the number of hits within a certain geo-radius.</td>
+</tr>
+<tr>
+<td><code>FacetMultiQuery</code></td>
+<td>This facet contains a list of <code>FacetQuery</code> objects and combines them into a facet. This is useful if you want to combine several queries into one facet. This filter should only be used in absolute exceptions where the fields of the current schema must be specified directly.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>FacetQuery</code> and <code>FacetMultiQuery</code>: If the schema is changed, the specified queries for these filters may no longer work.</p>
+</div>
+<p>A <code>key</code> must also be specified for facets. This is required so that the results of the facet can be accessed in the search result via the key.</p>
+<p>The facet can be defined as follows via the builder:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchQueryBuilder</span><span class="p">();</span>
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">index</span><span class="p">(</span><span class="s1">&#39;myindex-www&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="s1">&#39;chocolate&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">facet</span><span class="p">([</span>
+    <span class="k">new</span> <span class="nx">ObjectTypesFacet</span><span class="p">(</span><span class="s1">&#39;objectType&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;events&#39;</span><span class="p">]),</span>
+    <span class="k">new</span> <span class="nx">ContentSectionsFacet</span><span class="p">(</span><span class="s1">&#39;contentSection&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">]),</span>
+    <span class="k">new</span> <span class="nx">CategoriesFacet</span><span class="p">(</span><span class="s1">&#39;categories&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;15949&#39;</span><span class="p">]),</span>
+    <span class="k">new</span> <span class="nx">GroupsFacet</span><span class="p">(</span><span class="s1">&#39;groups&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;16811&#39;</span><span class="p">]),</span>
+    <span class="k">new</span> <span class="nx">SitesFacet</span><span class="p">(</span><span class="s1">&#39;sites&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;3952&#39;</span><span class="p">]),</span>
+    <span class="k">new</span> <span class="nx">FacetQuery</span><span class="p">(</span><span class="s1">&#39;myField&#39;</span><span class="p">,</span> <span class="s1">&#39;myValue&#39;</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nx">FacetMultiQuery</span><span class="p">(</span><span class="s1">&#39;myMultiField&#39;</span><span class="p">,</span> <span class="p">[</span>
+      <span class="k">new</span> <span class="nx">FacetQuery</span><span class="p">(</span><span class="s1">&#39;myFieldA&#39;</span><span class="p">,</span> <span class="s1">&#39;myValue&#39;</span><span class="p">),</span>
+      <span class="k">new</span> <span class="nx">FacetQuery</span><span class="p">(</span><span class="s1">&#39;myFieldB&#39;</span><span class="p">,</span> <span class="s1">&#39;myValue&#39;</span><span class="p">),</span>
+    <span class="p">]),</span>
+</code></pre></div>
+<p>Usually, you also want to filter according to a facet. However, the facet results should not be affected by the filter. A <code>key</code> can be specified for the filter for this purpose. This key is used for the facet as an exclude filter. This means that the corresponding filter is not taken into account when determining the facet.</p>
+<p>Here is an example with a filter that contains a key</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchQueryBuilder</span><span class="p">();</span>
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">index</span><span class="p">(</span><span class="s1">&#39;myindex-www&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="s1">&#39;chocolate&#39;</span><span class="p">)</span>
+  <span class="o">-&gt;</span><span class="na">filter</span><span class="p">([</span>
+    <span class="k">new</span> <span class="nx">ObjectTypesFilter</span><span class="p">([</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;events&#39;</span><span class="p">],</span> <span class="s1">&#39;objectType&#39;</span><span class="p">),</span>
+  <span class="p">])</span>
+  <span class="o">-&gt;</span><span class="na">facet</span><span class="p">([</span>
+    <span class="k">new</span> <span class="nx">ObjectTypesFacet</span><span class="p">(</span><span class="s1">&#39;objectTypeFacet&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;events&#39;</span><span class="p">],</span> <span class="s1">&#39;objectType&#39;</span><span class="p">)</span>
+  <span class="p">]);</span>
+</code></pre></div>
+<h4 id="archive-search">Archive search<a class="headerlink" href="#archive-search" title="Permanent link">#</a></h4>
+<p>The indexed resources can be marked as "archived". This flag ensures that these resources are not normally included in the search. This can be used for news, for example, to include only the latest news in the general search. For a special search, such as a news archive search, the <code>archive</code> flag can be used to also find archived resources.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchQueryBuilder</span><span class="p">();</span>
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">archive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="boosting">Boosting<a class="headerlink" href="#boosting" title="Permanent link">#</a></h4>
+<p>Boosting makes it possible to increase the relevance of certain documents in the search results. This can be achieved by customizing query parameters, such as adding boosting factors to specific fields or applying custom functions. In this way, search results can be specifically influenced to place more relevant results at the top.</p>
+<p>The following parameters can be used to influence the result:</p>
+<table>
+<thead>
+<tr>
+<th><div style="width:13em">Name</div></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>queryFields</code></td>
+<td>This parameter specifies the fields to be searched and their relative importance. It is a list of fields, optionally with boost factors that indicate how heavily each field should be weighted when matching search terms. For example, qf=title^2.0 description means that the title field is twice as important as the description field.</td>
+</tr>
+<tr>
+<td><code>phraseFields</code></td>
+<td>This parameter increases the importance of whole phrases (word sequences) in the specified fields. It is used to increase the relevance of documents in which the search terms appear as phrases in these fields. For example, pf=title^1.5 content increases the relevance of documents in which the search terms appear as a phrase in the title field more than in the content field.</td>
+</tr>
+<tr>
+<td><code>boostQueries</code></td>
+<td>This parameter allows additional query clauses that increase the relevance score of documents that match these clauses. These clauses do not affect whether a document matches the main query, but increase the score of documents that match them. For example, <code>contenttype:(text/html*)^10</code> would increase the relevance score of HTML documentserhöhen.</td>
+</tr>
+<tr>
+<td><code>boostFunctions</code></td>
+<td>This parameter applies function-based boosts to the relevance score. These are mathematical functions that adjust the score based on field values or other criteria. For example, <code>if(termfreq(sp_objecttype,'news'),scale(sp_date,0,12),scale(sp_date,10,11)</code> could be used to score older news articles less highly</td>
+</tr>
+<tr>
+<td><code>tie</code> (Tie-Breaker-Multiplikator)</td>
+<td>This parameter combine the best match points from multiple fields. The tie parameter adjusts how much lower scores affect the overall score. A higher tie value means that the lower scores have more influence on the final score. For example, tie=0.1 could be used to give the secondary fields some influence in the scoring process, preventing only the best matches from dominating.</td>
+</tr>
+</tbody>
+</table>
+<p>Setting the boosting parameters requires in-depth knowledge of how the search index works and its schema. If no boosting is specified, the default values of Sitepark are used, which have already proven themselves in many projects.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchQueryBuilder</span><span class="p">();</span>
+<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">boosting</span><span class="p">(</span><span class="k">new</span> <span class="nx">Boosting</span><span class="p">(</span>
+  <span class="nx">queryFields</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">&quot;sp_title^1.4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;keywords^1.2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description^1.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;title^1.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;url^0.9&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;content^0.8&quot;</span>
+  <span class="p">],</span>
+  <span class="nx">phraseFields</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">&quot;sp_title^1.5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description^1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;content^0.8&quot;</span>
+  <span class="p">],</span>
+  <span class="nx">boostQueries</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">&quot;sp_objecttype:searchTip^100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;contenttype:(text/html*)^10&quot;</span>
+  <span class="p">],</span>
+  <span class="nx">boostFunctions</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">&quot;if(termfreq(sp_objecttype,&#39;news&#39;),scale(sp_date,0,12),scale(sp_date,10,11))&quot;</span>
+  <span class="p">],</span>
+  <span class="nx">tie</span><span class="o">:</span> <span class="mf">0.1</span>
+<span class="p">));</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the scheme is changed, the specified boosting may no longer work.</p>
+</div>
+<h4 id="result">Result<a class="headerlink" href="#result" title="Permanent link">#</a></h4>
+<p>The search returns a <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Result/SearchResult.php" target="_blank"><code>SearchResult</code></a> object, which can be used to read the results.</p>
+<p>The result provides the list of resources found that can be iterated over.</p>
+<div class="highlight"><pre><span></span><code><span class="k">foreach</span> <span class="p">(</span><span class="nv">$result</span> <span class="k">as</span> <span class="nv">$resource</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$resource</span><span class="o">-&gt;</span><span class="na">getLocation</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If facets have also been defined in the query, these can also be read out:</p>
+<div class="highlight"><pre><span></span><code><span class="k">foreach</span> <span class="p">(</span><span class="nv">$result</span><span class="o">-&gt;</span><span class="na">facetGroups</span> <span class="k">as</span> <span class="nv">$facetGroup</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$facetGroup</span><span class="o">-&gt;</span><span class="na">key</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="k">foreach</span> <span class="p">(</span><span class="nv">$facetGroup</span><span class="o">-&gt;</span><span class="na">facets</span> <span class="k">as</span> <span class="nv">$facet</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$facet</span><span class="o">-&gt;</span><span class="na">key</span> <span class="o">.</span> <span class="s1">&#39; (&#39;</span> <span class="o">.</span> <span class="nv">$facet</span><span class="o">-&gt;</span><span class="na">hits</span> <span class="o">.</span> <span class="s2">&quot;)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="searching-more-like-this">Searching (More like this)<a class="headerlink" href="#searching-more-like-this" title="Permanent link">#</a></h3>
+<p>A "More-Like-This" search is a technique in which a source document or item is used as a reference point to find similar documents in the search index. It is based on extracting characteristics from the source object and searching for other objects that have similar characteristics in order to present relevant results to the user.</p>
+<p>The <a href="https://github.com/sitepark/atoolo-search/blob/main/src/MoreLikeThisSearcher.php" target="_blank"><code>MoreLikeThisSearcher</code></a> service is available for this. The <code>moreLikeThis()</code> method expects a <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/MoreLikeThisQuery.php" target="_blank"><code>MoreLikeThisQuery</code></a> object with which the query can be defined.</p>
+<p>The search returns a <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Result/SearchResult.php" target="_blank"><code>SearchResult</code></a> object with which the results can be read.</p>
+<p>The result returns the list of resources found, which can be iterated over.</p>
+<div class="highlight"><pre><span></span><code><span class="k">foreach</span> <span class="p">(</span><span class="nv">$result</span> <span class="k">as</span> <span class="nv">$resource</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$resource</span><span class="o">-&gt;</span><span class="na">getLocation</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="suggest">Suggest<a class="headerlink" href="#suggest" title="Permanent link">#</a></h3>
+<p>A "suggest search" is a search function that automatically displays suggestions or auto-completions to users as they enter search queries.</p>
+<p>The <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Suggest.php" target="_blank"><code>Suggest</code></a> service is available for this. The <code>moreLikeThis()</code> method expects a <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Query/SuggestQuery.php" target="_blank"><code>SuggestQuery</code></a> object with which the query can be defined.</p>
+<p>The search returns a <a href="https://github.com/sitepark/atoolo-search/blob/main/src/Dto/Search/Result/SuggestResult.php" target="_blank"><code>SuggestResult</code></a> object with which the results can be read.</p>
+<div class="highlight"><pre><span></span><code><span class="k">foreach</span> <span class="p">(</span><span class="nv">$result</span> <span class="k">as</span> <span class="nv">$suggest</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$suggest</span><span class="o">-&gt;</span><span class="na">term</span> <span class="o">.</span> <span class="s1">&#39; (&#39;</span> <span class="o">.</span> <span class="nv">$suggest</span><span class="o">-&gt;</span><span class="na">hits</span> <span class="o">.</span> <span class="s2">&quot;)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#filter">Filters</a> can also be specified for the suggest search and the <a href="#archive-search">archive flag</a> can be set. However, there is no builder for the suggest search; the filter and archive flag may have to be specified directly in the constructor.</p>
+<h2 id="use-as-a-symony-service">Use as a Symony service<a class="headerlink" href="#use-as-a-symony-service" title="Permanent link">#</a></h2>
+<p>To use the search service in a <abbr title="Symfony is a PHP framework for web applications and a set of reusable PHP components.">Symfony</abbr> project, the service can be injected in a separate service.</p>
+<p>Service IDs are available for the respective search service for this purpose:</p>
+<table>
+<thead>
+<tr>
+<th>Service-Id</th>
+<th>Service-Interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>atoolo_search.search</code></td>
+<td><code>Atoolo\Search\Search</code></td>
+</tr>
+<tr>
+<td><code>atoolo_search.suggest</code></td>
+<td><code>Atoolo\Search\Suggest</code></td>
+</tr>
+<tr>
+<td><code>atoolo_search.more_like_this</code></td>
+<td><code>Atoolo\Search\MoreLikeThis</code></td>
+</tr>
+</tbody>
+</table>
+<p>Mit Hilfe des Autowiring-Features von <abbr title="Symfony is a PHP framework for web applications and a set of reusable PHP components.">Symfony</abbr> kann der Service in einem eigenen Service verwendet werden.</p>
+<div class="highlight"><pre><span></span><code><span class="k">use</span> <span class="nx">Atoolo\Search\Search</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Component\DependencyInjection\Attribute\Autowire</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyService</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span>
+        <span class="p">#[</span><span class="nd">Autowire</span><span class="p">(</span><span class="nx">service</span><span class="o">:</span> <span class="s1">&#39;atoolo_search.search&#39;</span><span class="p">)]</span>
+        <span class="k">private</span> <span class="nx">readonly</span> <span class="nx">Search</span> <span class="nv">$search</span>
+    <span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">doSomething</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SearchQueryBuilder</span><span class="p">();</span>
+        <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">);</span>
+
+        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">search</span><span class="o">-&gt;</span><span class="na">search</span><span class="p">(</span><span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">build</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="command-line-interface">Command line interface<a class="headerlink" href="#command-line-interface" title="Permanent link">#</a></h2>
+<p>This component also contains <abbr title="Symfony is a PHP framework for web applications and a set of reusable PHP components.">Symfony</abbr> commands that can be integrated into <abbr title="Symfony is a PHP framework for web applications and a set of reusable PHP components.">Symfony</abbr> projects.
+<code>services.xml</code></p>
+<p>The commands are currently provided via the <abbr title="GraphQL is a query language for APIs and a runtime for executing those queries with your existing data. It provides a more efficient, powerful, and flexible alternative to REST.">GraphQL</abbr> bundle. To do this, the bundle must be integrated into the <abbr title="Symfony is a PHP framework for web applications and a set of reusable PHP components.">Symfony</abbr> project.</p>
+<p>The commands provided by Atoolo require the environment variable <code>RESOURCE_ROOT</code> in the rules, which defines in which directory the resources are located or which resource channel is currently to be used.</p>
+<p>The environment variable can be set manually, but can also be determined automatically if <code>bin/console</code> is called via the resource channel path, e.g.</p>
+<div class="highlight"><pre><span></span><code>/var/www/example.com/www/app/bin/console<span class="w"> </span>...
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/var/www/example.com/www/
+app/bin/console<span class="w"> </span>...
+</code></pre></div>
+<p>The following commands are then available via <code>bin/console</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>search:dump-index-document</code></td>
+<td>Dump a index document</td>
+</tr>
+<tr>
+<td><code>search:indexer</code></td>
+<td>Fill a search index</td>
+</tr>
+<tr>
+<td><code>search:indexer:update-internal-resources</code></td>
+<td>Update internal resources in search index</td>
+</tr>
+<tr>
+<td><code>search:mlt</code></td>
+<td>Performs a more-like-this search</td>
+</tr>
+<tr>
+<td><code>search:search</code></td>
+<td>Performs a search</td>
+</tr>
+<tr>
+<td><code>search:suggest</code></td>
+<td>Performs a suggest search</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

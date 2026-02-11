@@ -1,0 +1,31 @@
+:root {
+
+  --md-primary-fg-color:               #fbba00;
+  --md-primary-fg-color--light:        #fbba00;
+  --md-primary-fg-color--dark:         #3c3c3b;
+  --md-primary-bg-color:               #000000;
+  --md-primary-bg-color--light:        #3c3c3b;
+
+  --md-accent-fg-color:                #fbba00;
+  --md-accent-fg-color--transparent:   #ffbb00;
+  --md-accent-bg-color:                #FFFFFF;
+  --md-accent-bg-color--light:         #FFFFFF;
+
+  --md-status--draft: url('data:image/svg+xml;charset=utf-8,<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M863.99296 0c88.369433 0 160.00704 71.637607 160.00704 160.00704 0 36.0236-11.919122 69.261975-32.0096 96.00832l-63.99872 63.99872-224.00576-224.00576 63.99872-63.99872c26.746345-20.090478 59.98472-32.0096 96.00832-32.0096zM63.99872 735.99552l-63.99872 288.00448 288.00448-63.99872 591.98304-591.98304-224.00576-224.00576-591.98304 591.98304zM715.556889 363.574169l-447.99104 447.99104-55.151537-55.151537 447.99104-447.99104 55.151537 55.151537z"  /></svg>')
+
+}
+
+.md-typeset a {
+    color: var(--md-typeset-color, #000000);
+    font-style: italic;
+    text-decoration: underline;
+}
+
+/*
+https://squidfunk.github.io/mkdocs-material/reference/?h=status#setting-the-page-status
+https://mkdocs-material.github.io/examples/page-status/
+*/
+.md-status--draft::after {
+    mask-image: var(--md-status--draft);
+    -webkit-mask-image: var(--md-status--draft);
+}
