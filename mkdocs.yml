@@ -7,6 +7,7 @@ nav:
       - concepts/index.md
       - Resource: concepts/resource.md
       - Resource Channel: concepts/resource-channel.md
+      - ID-ending URLs: concepts/id-ending-urls.md
       - Navigation: concepts/navigation.md
       - Microsites: concepts/microsites.md
       - WebAccount: concepts/web-account.md
@@ -31,10 +32,10 @@ nav:
           - Search: develop/bundles/search/index.md
           - Security: develop/bundles/security.md
           - GraphQL search:
-            - develop/bundles/graphql-search/index.md
-            - Configuration: develop/bundles/graphql-search/config.md
-            - Customization: develop/bundles/graphql-search/customization.md
-            - Server-Side queries: develop/bundles/graphql-search/server-side-queries.md
+              - develop/bundles/graphql-search/index.md
+              - Configuration: develop/bundles/graphql-search/config.md
+              - Customization: develop/bundles/graphql-search/customization.md
+              - Server-Side queries: develop/bundles/graphql-search/server-side-queries.md
           - Form: develop/bundles/form.md
           - CityGov: develop/bundles/citygov.md
           - CityCall: develop/bundles/citycall.md
