@@ -14,6 +14,6 @@ Like the website itself, its URLs are also automatically translated by the CMS. 
 
 `/مسار-تحدث-عن-الطبيعة-127`
 
-A translated URL can also consist of Arabic and non-Arabic characters. Depending on where the non-Arabic characters are in the text, the ID may also be included on the right.
+A translated URL can also consist of Arabic and non-Arabic characters. Depending on where the non-Arabic characters are in the text, the ID may also be displayed on the right.
 
 `/مسار_المشي/التحدث_عن_الطبيعة-vi/vii-123`
