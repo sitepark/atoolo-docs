@@ -214,6 +214,32 @@ There is a special case when embedded media exist that are not subordinate to an
                                 └── nl_NL.php
 ```
 
+## Temporary resources
+
+The CMS could be used to provide resource objects via a preview function that are not permanently stored in the resource channel, but are only temporarily available for the preview. These temporary resources are stored under `/resources/objects/tmp` and deleted regularly. The temporary file names are derived from a counter that is reset to 0 each time the CMS is started. The file names have the form `001.php`, `002.php` etc.
+
+Temporary resources can also have embeddd meanings. The meta file for the embedded media is then saved under `/resources/objects/tmp/001.media/432.php`. The translated resources are saved under `/resources/objects/tmp/001.media/432.translations`.
+
+The resource can then be accessed via the web server using URLs of the form `/path/tmp-1`. The embedded media are then stored under paths such as `/dir/tmp-1.media/432/image.jpg`. They are then also stored accordingly under `media/public`.
+
+```
+/var/www/example.com/www/
+└── resources/
+    ├── media/
+    │   └── public/
+    │       └── dir/
+    │           └── tmp-1
+    │               └── 432
+    │                   └── image.jpg
+    └── objects/
+        └── tmp/
+            ├── 001.php
+            └── 001.translations/
+                ├── fr_FR.php
+                ├── it_IT.php
+                └── nl_NL.php
+```
+
 ## Security - Users and Roles
 
 Files containing information about users and roles can be stored below `/resources/security`.
