@@ -88,11 +88,15 @@ security:
         providers: [..., "web_account_users"]
 
   firewalls:
+    api:
+      custom_authenticators:
+        - atoolo_web_account.authenticator
+
     web_account:
       lazy: true
       provider: web_account_users
       custom_authenticators:
         - atoolo_web_account.authenticator
       entry_point: atoolo_web_account.unauthorized_entry_point
-      stateless: false
+      stateless: true
 ```
