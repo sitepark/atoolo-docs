@@ -11,6 +11,7 @@ nav:
       - Navigation: concepts/navigation.md
       - Microsites: concepts/microsites.md
       - WebAccount: concepts/web-account.md
+      - Extranet: concepts/extranet.md
       - Teaser: concepts/teaser.md
   - Operate:
       - operate/index.md
@@ -45,6 +46,7 @@ nav:
           - Micosite: develop/bundles/microsite.md
           - Rewrite: develop/bundles/rewrite.md
           - WebAccount: develop/bundles/web-account.md
+          - Extranet: develop/bundles/extranet.md
       - GraphQL API:
           - develop/graphql/index.md
           - Getting started: develop/graphql/getting-started.md

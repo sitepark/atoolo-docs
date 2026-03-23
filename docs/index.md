@@ -24,6 +24,10 @@ Atoolo offers a comprehensive system for form processing. The forms defined by t
 
 The WebAccount is a central user account with which users can register and log in to a website. It is used for identification, authorization and personalization within a site.
 
+### Extranet
+
+The extranet is a special operating module in which all requests are initially protected. Only authenticated users can access the resources. The only exceptions to this are requests for login, registration and password recovery.
+
 ### SEO
 
 Atoolo provides a set of tools for search engine optimization (SEO). These tools help to improve the visibility of web applications in search engine results and increase the number of visitors to the site. (Currently only the sitemap XML functionality is offered.)
