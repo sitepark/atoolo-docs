@@ -22,6 +22,8 @@ composer require atoolo/extranet-bundle
 
 Diese Bundle setzt Zugriffsregeln für alle GraphQL-Root-Resolver und Controller, die keinen eigenen Zugriffschutz definieren.
 
+## Access-Control
+
 ### GraphQL-Root-Resolver
 
 The [overblog/GraphQLBundle](https://github.com/overblog/GraphQLBundle) offers the option of defining access protection for the GraphQL root resolvers. See [Expression Language](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/expression-language.md)
