@@ -1,6 +1,6 @@
 # Extranet
 
-The exranet is a special operating module in which all requests are initially protected. Only authenticated users can access the resources. The only exceptions to this are requests for login, registration and password recovery.
+The exranet is a special operating mode in which all requests are initially protected. Only authenticated users can access the resources. The only exceptions to this are requests for login, registration and password recovery.
 
 Login takes place via the [Web-Account](web-account.md). If a user is logged in, the system behaves as in the normal operating module.
 
