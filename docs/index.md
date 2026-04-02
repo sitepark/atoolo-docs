@@ -4,7 +4,7 @@ _Web Data Processing Suite_
 
 ## Overview
 
-Atoolo is a comprehensive collection of PHP libraries and tools specifically designed to optimize the processing of pre-produced data for websites. Atoolo is not a stand-alone framework, but serves as a supplement to the Symfony framework. It extends projects with special functionalities that are not included in Symfony as standard. Atoolo contains various Symfony bundles that integrate seamlessly into Symfony projects. Atoolo takes on the task of a front-end delivery system and prepares the data of a content management system (CMS) for the requirements of a front-end system.
+Atoolo (pronounced *[aˈtuːlu]*) is a comprehensive collection of PHP libraries and tools specifically designed to optimize the processing of pre-produced data for websites. Atoolo is not a stand-alone framework, but serves as a supplement to the Symfony framework. It extends projects with special functionalities that are not included in Symfony as standard. Atoolo contains various Symfony bundles that integrate seamlessly into Symfony projects. Atoolo takes on the task of a front-end delivery system and prepares the data of a content management system (CMS) for the requirements of a front-end system.
 
 ## Key Features
 
