@@ -47,6 +47,7 @@ nav:
           - Rewrite: develop/bundles/rewrite.md
           - WebAccount: develop/bundles/web-account.md
           - Extranet: develop/bundles/extranet.md
+          - Crawler Teaser Indexer: develop/bundles/crawler-teaser-indexer.md
       - GraphQL API:
           - develop/graphql/index.md
           - Getting started: develop/graphql/getting-started.md
