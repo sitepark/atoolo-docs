@@ -60,6 +60,7 @@ nav:
               - Suggest: develop/graphql/search/suggest.md
               - More like this: develop/graphql/search/more-like-this.md
               - Indexing: develop/graphql/search/indexing.md
+          - Search Events: develop/graphql/searchEvents/index.md
           - WebAccount:
               - develop/graphql/web-account/index.md
           - Customization: develop/graphql/customization/index.md
