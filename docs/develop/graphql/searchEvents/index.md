@@ -6,6 +6,24 @@ The full-text index also supports sub-documents. For example, when searching for
 
 The GraphQL query `searchEvents`, which is a variant of the [`search`](../search/) query, is used to retrieve these sub-documents. This means that the search results consist of individual event occurrences, and therefore multiple results may be returned for the same event.
 
+## Example
+
+```graphql
+query {
+  searchEvents (
+    input: {
+      text: "museum of art"
+      queryDefaultOperator: AND
+      filter: [
+        { categories: ["1234"] }
+      ]
+    }
+  ) {
+    ...
+  }
+}
+```
+
 # Filters
 
 Filters, that are based on dates, are applied to the individual sub-documents. Full-text search, on the other hand, filters out all sub-documents whose parent-document does not match the search query.
