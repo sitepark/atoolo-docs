@@ -224,12 +224,22 @@ This data is in a two-dimensional array.
 
 A full example configuration can be found in: `https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php`
 
+### Category
+
+```php
+    # An id for a categorie
+    "sp_categories" => [1525, 1523, 1524],
+    
+    # An id for groups of categories
+    "sp_categories_path" => [1525, 1528, 1524],
+```
+
 ### Core / Meta
 
 ```php
   # Unique ID for this website configuration (used for Solr)
   "sp_id" => "source_pagename",
-  
+
   # Respect robots.txt
   "sp_respect_robots_txt" => false,
   
@@ -238,19 +248,22 @@ A full example configuration can be found in: `https://github.com/sitepark/atool
   
   # Limit the number of detected teasers
   # Teasers are extracted from the first X detected URLs
-  "sp_max_teaser" => 100,
+  "sp_max_teaser" => "100",
+
+  # Minimum teaser list length required for successful indexing in Solr.
+  "sp_cleanup_threshold" => "50",
   
   # Maximum number of retry attempts for unreachable URLs
   # Retries use exponential backoff: 1s, 2s, 4s, 8s, etc.
   # 0 means only one attempt (no retries)
-  "sp_max_retry" => 3,
+  "sp_max_retry" => "3",
   
   # Delay between requests in milliseconds
   # (increase if the target system blocks requests)
-  "sp_delay_ms" => 500,
+  "sp_delay_ms" => "500",
   
   # Maximum parallel requests per host (recommended 1–3, never above 10)
-  "sp_parallel_requests" => 3,
+  "sp_parallel_requests" => "3",
   
   # Clearly identifiable User-Agent
   "sp_user_agent" => "Atoolo/Crawler-Teaser-Indexer/1.0 (+contact@example.org)"
