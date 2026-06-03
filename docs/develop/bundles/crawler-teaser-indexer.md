@@ -1,18 +1,52 @@
 # Crawler Teaser Indexer Bundle
 
+This bundle provides a simple crawler designed to generate teasers from external sources and indexing them into the Apache Solr search platform. This ensures that the teasers are discoverable via the website's search function. The process utilizes a PHP array containing the data that the crawler need to extract. You can extract the Title, Introtext, Date and DateTime.
+
 ## Sources
 
 The sources can be accessed via the GitHub project [Crawler Teaser Indexer Bundle](https://github.com/sitepark/atoolo-crawler-teaser-indexer)
 
-## Motivation
+---
 
-This bundle provides a simple crawler designed to generate teasers from external sources and indexing them into the Apache Solr search platform. This ensures that the teasers are discoverable via the website's search function. The process utilizes a PHP array containing the data that the crawler need to extract. You can extract the Title, Introtext, Date and DateTime.
+## Installation
+
+The application was developed as a Symfony bundle and is distributed as a Composer package.
+
+### Install the module via Composer
+
+```sh
+composer require atoolo/crawler-teaser-indexer
+```
+
+### Register Bundle
+
+  config/bundles.php: `Atoolo\Crawler\AtooloCrawlerTeaserIndexerBundle::class => ['all' => true],`
+
+### Resolve all dependencies
+
+```sh
+composer update
+```
+
+### Run the application
+
+```sh
+  docker compose exec -u ${UID} fpm /var/www/fillTheBlank/www bin/console crawler:index -vvv
+```
+
+[Atoolo Indexer Docs](https://sitepark.github.io/atoolo-docs/operate/indexing/)
+
+### Run without indexing
+
+```sh
+  bin/console crawler:index
+```
 
 ---
 
 ## Quick start Guide
 
-### 1 Install the module, in your project, via Composer
+### Install the module, in your project, via Composer
 
 ```sh
 composer require atoolo/crawler-teaser-indexer
@@ -20,13 +54,13 @@ composer require atoolo/crawler-teaser-indexer
 
 - Register Bundle in config/bundles.php: `Atoolo\Crawler\AtooloCrawlerTeaserIndexerBundle::class => ['all' => true],`
 
-### 2 Create this file in your Project
+### Create this file in your Project
 
 ```sh
 config/packages/atoolo_crawler_master.yaml
 ```
 
-### 3 Copy this in the `atoolo_crawler_master.yaml`
+### Copy this in the `atoolo_crawler_master.yaml`
 
 ```yaml
 parameters:
@@ -46,7 +80,7 @@ parameters:
     504
 ```
 
-### 4 Minimal PHP-Array configuration
+### Minimal PHP-Array configuration
 
 The file have to be located in: `base_dir/indexer/atooloTeaserCrawler.php`
 
@@ -108,58 +142,20 @@ Fill out the fields: sp_id, sp_url and sp_title_css.
 ];
 ```
 
-### 5 Run the Crawler
+### Run the Crawler
 
 ```sh
   docker compose exec -u ${UID} fpm /var/www/fillTheBlank/www bin/console crawler:index -vvv
 ```
 
-### 6 Search in the Solr-index
+### Search in the Solr-index
 
 Search the Solr index for the value defined in the `sp_id` field of the PHP configuration array.
 
-### 7 Worker Configuration
+### Worker Configuration
 
 You need a Worker to run the Scheduler
  [Atoolo Scheduler Docs](https://github.com/sitepark/atoolo-docs/blob/dcd815492e937ebfd929cdf4b96f1641613d4646/docs/operate/worker.md)
-
----
-
-## Installation and Operation in detail
-
-### Installation
-
-The application was developed as a Symfony bundle and is distributed as a Composer package.
-
-#### 1 Install the module via Composer
-
-```sh
-composer require atoolo/crawler-teaser-indexer
-```
-
-#### 2 Register Bundle
-
-  config/bundles.php: `Atoolo\Crawler\AtooloCrawlerTeaserIndexerBundle::class => ['all' => true],`
-
-#### 3 Resolve all dependencies
-
-```sh
-composer update
-```
-
-#### Run the application
-
-```sh
-  docker compose exec -u ${UID} fpm /var/www/fillTheBlank/www bin/console crawler:index -vvv
-```
-
-[Atoolo Run Indexer Docs](https://sitepark.github.io/atoolo-docs/operate/indexing/)
-
-#### Run without indexing
-
-```sh
-  bin/console crawler:index
-```
 
 ---
 
