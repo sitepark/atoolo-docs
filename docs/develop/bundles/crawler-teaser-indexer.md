@@ -34,7 +34,7 @@ composer update
   docker compose exec -u ${UID} fpm /var/www/fillTheBlank/www bin/console crawler:index -vvv
 ```
 
-[Atoolo Indexer Docs](/docs/operate/indexing.md)
+[Atoolo Indexer Docs](../../operate/indexing.md)
 
 ### Run without indexing
 
@@ -155,7 +155,7 @@ Search the Solr index for the value defined in the `sp_id` field of the PHP conf
 ### Worker Configuration
 
 You need a Worker to run the Scheduler
- [Atoolo Scheduler Docs](/docs/operate/worker.md)
+[Atoolo Scheduler Docs](../../operate/worker.md)
 
 ---
 
@@ -218,7 +218,7 @@ parameters:
 Warnings will be thrown in the test environment and at runtime if configurations are missing.
 This data is in a two-dimensional array.
 
-A full example configuration can be found in: `https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php`{:target=“_blank”}
+A full example configuration can be found in: [https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php](https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php){:target=“_blank”}
 
 ### Category
 
