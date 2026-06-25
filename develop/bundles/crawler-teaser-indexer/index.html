@@ -1,0 +1,3883 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../extranet/">
+      
+      
+        <link rel="next" href="../../graphql/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Crawler Teaser Indexer - Atoolo Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M11%2015h2v2h-2zm0-8h2v6h-2zm1-5C6.47%202%202%206.5%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202m0%2018a8%208%200%200%201-8-8%208%208%200%200%201%208-8%208%208%200%200%201%208%208%208%208%200%200%201-8%208%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#crawler-teaser-indexer-bundle" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Atoolo Docs" class="md-header__button md-logo" aria-label="Atoolo Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Atoolo Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Crawler Teaser Indexer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="amber"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sitepark/atoolo-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Atoolo Docs" class="md-nav__button md-logo" aria-label="Atoolo Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Atoolo Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sitepark/atoolo-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../concepts/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/resource-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Channel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/id-ending-urls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ID-ending URLs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/microsites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/web-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebAccount
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/extranet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extranet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/teaser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teaser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../operate/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operate
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/console-command/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Console Command
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/ies-webnode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IES Webnode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/runtime-check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operate/worker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Develop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Develop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../components/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Components
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bundle
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bundle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime-check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../graphql-search/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL search
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3_7" id="__nav_4_3_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GraphQL search
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql-search/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql-search/customization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql-search/server-side-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server-Side queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../form/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Form
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../citygov/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CityGov
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../citycall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CityCall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events-calendar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events Calendar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Micosite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rewrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rewrite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebAccount
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extranet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extranet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crawler Teaser Indexer
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crawler Teaser Indexer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-module-via-composer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install the module via Composer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Register Bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolve-all-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolve all dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-without-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run without indexing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-module-in-your-project-via-composer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install the module, in your project, via Composer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-this-file-in-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create this file in your Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-this-in-the-atoolo_crawler_masteryaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy this in the atoolo_crawler_master.yaml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimal-php-array-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal PHP-Array configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-crawler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the Crawler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-in-the-solr-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search in the Solr-index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#central-orchestrating-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Central Orchestrating Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#site-specific-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Site-Specific Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Site-Specific Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#category" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Category
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core / Meta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#urlcollector-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URLCollector (Discovery)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-css-selectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example CSS Selectors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Title
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intro-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intro Text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DateTime
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-function-utility-score-content-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter Function "Utility Score" (Content Filter)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../graphql/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GraphQL API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../graphql/search/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_3" id="__nav_4_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Search
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/filtered-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtered search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/faceted-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faceted search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/resolve-resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resolve resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/resolve-navigation-hierarchy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resolve navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/resolve-teaser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resolve teaser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/suggest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Suggest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/more-like-this/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More like this
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/search/indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/searchEvents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../graphql/web-account/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebAccount
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    WebAccount
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/customization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/error-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphql/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../form/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Form API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Form API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../form/controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../form/annotations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../form/layouts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ical/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICal API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICal API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../symfony-flex-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symfony Flex integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../contribute/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribute
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Contribute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-module-via-composer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install the module via Composer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Register Bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolve-all-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolve all dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-without-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run without indexing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-module-in-your-project-via-composer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install the module, in your project, via Composer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-this-file-in-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create this file in your Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-this-in-the-atoolo_crawler_masteryaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy this in the atoolo_crawler_master.yaml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimal-php-array-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal PHP-Array configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-crawler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the Crawler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-in-the-solr-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search in the Solr-index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#central-orchestrating-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Central Orchestrating Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#site-specific-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Site-Specific Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Site-Specific Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#category" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Category
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core / Meta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#urlcollector-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URLCollector (Discovery)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-css-selectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example CSS Selectors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Title
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intro-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intro Text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DateTime
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-function-utility-score-content-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter Function "Utility Score" (Content Filter)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="crawler-teaser-indexer-bundle">Crawler Teaser Indexer Bundle<a class="headerlink" href="#crawler-teaser-indexer-bundle" title="Permanent link">#</a></h1>
+<p>This bundle provides a simple crawler designed to generate teasers from external sources and indexing them into the Apache Solr search platform. This ensures that the teasers are discoverable via the website's search function. The process utilizes a PHP array containing the data that the crawler need to extract. You can extract the Title, Introtext, Date and DateTime.</p>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">#</a></h2>
+<p>The sources can be accessed via the GitHub project <a href="https://github.com/sitepark/atoolo-crawler-teaser-indexer" target="“_blank”">Crawler Teaser Indexer Bundle</a></p>
+<hr />
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
+<p>The application was developed as a <abbr title="Symfony is a PHP framework for web applications and a set of reusable PHP components.">Symfony</abbr> bundle and is distributed as a Composer package.</p>
+<h3 id="install-the-module-via-composer">Install the module via Composer<a class="headerlink" href="#install-the-module-via-composer" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>require<span class="w"> </span>atoolo/crawler-teaser-indexer
+</code></pre></div>
+<h3 id="register-bundle">Register Bundle<a class="headerlink" href="#register-bundle" title="Permanent link">#</a></h3>
+<p>config/bundles.php: <code>Atoolo\Crawler\AtooloCrawlerTeaserIndexerBundle::class =&gt; ['all' =&gt; true],</code></p>
+<h3 id="resolve-all-dependencies">Resolve all dependencies<a class="headerlink" href="#resolve-all-dependencies" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>update
+</code></pre></div>
+<h3 id="run-the-application">Run the application<a class="headerlink" href="#run-the-application" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="w">  </span>docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-u<span class="w"> </span><span class="si">${</span><span class="nv">UID</span><span class="si">}</span><span class="w"> </span>fpm<span class="w"> </span>/var/www/fillTheBlank/www<span class="w"> </span>bin/console<span class="w"> </span>crawler:index<span class="w"> </span>-vvv
+</code></pre></div>
+<p><a href="../../../operate/indexing/">Atoolo Indexer Docs</a></p>
+<h3 id="run-without-indexing">Run without indexing<a class="headerlink" href="#run-without-indexing" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="w">  </span>bin/console<span class="w"> </span>crawler:index
+</code></pre></div>
+<hr />
+<h2 id="quick-start-guide">Quick start Guide<a class="headerlink" href="#quick-start-guide" title="Permanent link">#</a></h2>
+<h3 id="install-the-module-in-your-project-via-composer">Install the module, in your project, via Composer<a class="headerlink" href="#install-the-module-in-your-project-via-composer" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>composer<span class="w"> </span>require<span class="w"> </span>atoolo/crawler-teaser-indexer
+</code></pre></div>
+<ul>
+<li>Register Bundle in config/bundles.php: <code>Atoolo\Crawler\AtooloCrawlerTeaserIndexerBundle::class =&gt; ['all' =&gt; true],</code></li>
+</ul>
+<h3 id="create-this-file-in-your-project">Create this file in your Project<a class="headerlink" href="#create-this-file-in-your-project" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>config/packages/atoolo_crawler_master.yaml
+</code></pre></div>
+<h3 id="copy-this-in-the-atoolo_crawler_masteryaml">Copy this in the <code>atoolo_crawler_master.yaml</code><a class="headerlink" href="#copy-this-in-the-atoolo_crawler_masteryaml" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># Defines execution schedule</span>
+<span class="w">  </span><span class="nt">atoolo.crawler.schedule</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0 3 * * *</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 3 * * *</span>
+
+<span class="w">  </span><span class="c1"># Status codes that trigger retries</span>
+<span class="w">  </span><span class="nt">atoolo.crawler.retry_status_codes</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">408</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">429</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">500</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">501</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">502</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">503</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">504</span>
+</code></pre></div>
+<h3 id="minimal-php-array-configuration">Minimal PHP-Array configuration<a class="headerlink" href="#minimal-php-array-configuration" title="Permanent link">#</a></h3>
+<p>The file have to be located in: <code>base_dir/indexer/atooloTeaserCrawler.php</code></p>
+<p>Fill out the fields: sp_id, sp_url and sp_title_css.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">return</span> <span class="p">[</span>
+  <span class="s2">&quot;name&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Indexer für externe Teaser&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="s2">&quot;sp_crawling_sites&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;sp_id&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;!To Fill in the Pagename in snakecase!&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_respect_robots_txt&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="s2">&quot;sp_robots_url&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_max_teaser&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;11&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_max_retry&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_parallel_requests&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_delay_ms&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_user_agent&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;EntwicklungBot/1.0 (+contact@example.org)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_start_urls&quot;</span> <span class="o">=&gt;</span> <span class="p">[[</span>
+            <span class="s2">&quot;sp_url&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;!To Fill in the startpage absolute url!&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sp_extraction_depth&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;2&quot;</span>
+        <span class="p">]],</span>
+        <span class="s2">&quot;sp_link_selector&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;#content a[href]&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_allow_prefixes&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s2">&quot;https://&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;sp_deny_prefixes&quot;</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+        <span class="s2">&quot;sp_deny_endings&quot;</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+        <span class="s2">&quot;sp_forced_article_urls&quot;</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+        <span class="s2">&quot;sp_strip_query_params_active&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="s2">&quot;sp_strip_query_params&quot;</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+        <span class="s2">&quot;sp_title_prefix&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Pagename - &quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_title_opengraph&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">&quot;og:title&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;sp_title_css&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s2">&quot;!To Fill in the Title CssSelector!&quot;</span>
+            <span class="s2">&quot;#content h2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.service-detail h2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;#content h3&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;sp_title_max_chars&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_introText_present&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="s2">&quot;sp_introText_required_field&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="s2">&quot;sp_introText_opengraph&quot;</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+        <span class="s2">&quot;sp_introText_css&quot;</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+        <span class="s2">&quot;sp_introText_max_chars&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_datetime_present&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="s2">&quot;sp_datetime_required_field&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="s2">&quot;sp_datetime_only_date&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="s2">&quot;sp_datetime_opengraph&quot;</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+        <span class="s2">&quot;sp_datetime_css&quot;</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+        <span class="s2">&quot;sp_content_scoring_active&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="s2">&quot;sp_content_scoring_min_score&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sp_content_scoring_positive&quot;</span> <span class="o">=&gt;</span> <span class="p">[]</span>
+        <span class="s2">&quot;sp_content_scoring_negative&quot;</span> <span class="o">=&gt;</span> <span class="p">[]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">];</span>
+</code></pre></div>
+<h3 id="run-the-crawler">Run the Crawler<a class="headerlink" href="#run-the-crawler" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="w">  </span>docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-u<span class="w"> </span><span class="si">${</span><span class="nv">UID</span><span class="si">}</span><span class="w"> </span>fpm<span class="w"> </span>/var/www/fillTheBlank/www<span class="w"> </span>bin/console<span class="w"> </span>crawler:index<span class="w"> </span>-vvv
+</code></pre></div>
+<h3 id="search-in-the-solr-index">Search in the Solr-index<a class="headerlink" href="#search-in-the-solr-index" title="Permanent link">#</a></h3>
+<p>Search the Solr index for the value defined in the <code>sp_id</code> field of the PHP configuration array.</p>
+<h3 id="worker-configuration">Worker Configuration<a class="headerlink" href="#worker-configuration" title="Permanent link">#</a></h3>
+<p>You need a Worker to run the Scheduler
+<a href="../../../operate/worker/">Atoolo Scheduler Docs</a></p>
+<hr />
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h2>
+<h3 id="central-orchestrating-configuration">Central Orchestrating Configuration<a class="headerlink" href="#central-orchestrating-configuration" title="Permanent link">#</a></h3>
+<p>Location in your Project:<br />
+<code>config/packages/atoolo_crawler_master.yaml</code></p>
+<p>An example configuration lay in: <a href="https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php" target="“_blank”">PHP Array Config Example</a></p>
+<p>Purpose:</p>
+<ul>
+<li>Specifies when each site crawler is executed</li>
+<li>Specifies statuscodes to retry</li>
+</ul>
+<p>The data from this file is injected via configuration.<br />
+Therefore, after changes the cache must be rebuilt:</p>
+<div class="highlight"><pre><span></span><code>./bin/console<span class="w"> </span>cache:clear
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># Defines execution schedule</span>
+<span class="w">  </span><span class="c1"># - Cron expression (5 fields)</span>
+<span class="w">  </span><span class="c1"># - Format:</span>
+<span class="w">  </span><span class="c1"># ┌ Minute (0–59)</span>
+<span class="w">  </span><span class="c1"># │ ┌ Hour (0–23)</span>
+<span class="w">  </span><span class="c1"># │ │ ┌ Day of month (1–31)</span>
+<span class="w">  </span><span class="c1"># │ │ │ ┌ Month (1–12)</span>
+<span class="w">  </span><span class="c1"># │ │ │ │ ┌ Day of week (0–6, Sun=0)</span>
+<span class="w">  </span><span class="c1"># │ │ │ │ │</span>
+<span class="w">  </span><span class="c1"># * * * * *</span>
+
+<span class="w">  </span><span class="c1"># Example:</span>
+<span class="w">  </span><span class="c1"># schedule (field 1): 0      → minute</span>
+<span class="w">  </span><span class="c1"># schedule (field 2): 3      → hour</span>
+<span class="w">  </span><span class="c1"># schedule (field 3): */3    → every 3 days</span>
+<span class="w">  </span><span class="c1"># schedule (field 4-5): * *  → every month, every weekday</span>
+<span class="w">  </span><span class="nt">atoolo.crawler.schedule</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0 3 * * *</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 3 * * *</span>
+
+<span class="w">  </span><span class="c1"># Status codes that trigger retries</span>
+<span class="w">  </span><span class="nt">atoolo.crawler.retry_status_codes</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">408</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">429</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">500</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">501</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">502</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">503</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">504</span>
+</code></pre></div>
+<h2 id="site-specific-configurations">Site-Specific Configurations<a class="headerlink" href="#site-specific-configurations" title="Permanent link">#</a></h2>
+<p>Warnings will be thrown in the test environment and at runtime if configurations are missing.
+This data is in a two-dimensional array.</p>
+<p>A full example configuration can be found in: <a href="https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php" target="“_blank”">https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php</a></p>
+<h3 id="category">Category<a class="headerlink" href="#category" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># An id for a categorie</span>
+    <span class="s2">&quot;sp_categories&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1525</span><span class="p">,</span> <span class="mi">1523</span><span class="p">,</span> <span class="mi">1524</span><span class="p">],</span>
+
+    <span class="c1"># An id for groups of categories</span>
+    <span class="s2">&quot;sp_categories_path&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1525</span><span class="p">,</span> <span class="mi">1528</span><span class="p">,</span> <span class="mi">1524</span><span class="p">],</span>
+</code></pre></div>
+<h3 id="core-meta">Core / Meta<a class="headerlink" href="#core-meta" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>  <span class="c1"># Unique ID for this website configuration (used for Solr)</span>
+  <span class="s2">&quot;sp_id&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;source_pagename&quot;</span><span class="p">,</span>
+
+  <span class="c1"># Respect robots.txt</span>
+  <span class="s2">&quot;sp_respect_robots_txt&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+
+  <span class="c1"># Correct robots.txt URL of the target domain</span>
+  <span class="s2">&quot;sp_robots_url&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;https://www.example/robots.txt&quot;</span><span class="p">,</span>
+
+  <span class="c1"># Limit the number of detected teasers</span>
+  <span class="c1"># Teasers are extracted from the first X detected URLs</span>
+  <span class="s2">&quot;sp_max_teaser&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span>
+
+  <span class="c1"># Minimum teaser list length required for successful indexing in Solr.</span>
+  <span class="s2">&quot;sp_cleanup_threshold&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;50&quot;</span><span class="p">,</span>
+
+  <span class="c1"># Maximum number of retry attempts for unreachable URLs</span>
+  <span class="c1"># Retries use exponential backoff: 1s, 2s, 4s, 8s, etc.</span>
+  <span class="c1"># 0 means only one attempt (no retries)</span>
+  <span class="s2">&quot;sp_max_retry&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+
+  <span class="c1"># Delay between requests in milliseconds</span>
+  <span class="c1"># (increase if the target system blocks requests)</span>
+  <span class="s2">&quot;sp_delay_ms&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+
+  <span class="c1"># Maximum parallel requests per host (recommended 1–3, never above 10)</span>
+  <span class="s2">&quot;sp_parallel_requests&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+
+  <span class="c1"># Clearly identifiable User-Agent</span>
+  <span class="s2">&quot;sp_user_agent&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Atoolo/Crawler-Teaser-Indexer/1.0 (+contact@example.org)&quot;</span>
+</code></pre></div>
+<h3 id="urlcollector-discovery">URLCollector (Discovery)<a class="headerlink" href="#urlcollector-discovery" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>  <span class="c1"># Start URLs for the crawler</span>
+  <span class="c1"># extraction_depth: crawl depth (homepage → teaser → detail page)</span>
+  <span class="s2">&quot;sp_start_urls&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="p">[</span>
+          <span class="s2">&quot;sp_url&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;https://www.example/microsite/index.php&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;sp_extraction_depth&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+          <span class="s2">&quot;sp_url&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;https://www.example/&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;sp_extraction_depth&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+      <span class="p">]</span>
+  <span class="p">],</span>
+
+  <span class="c1"># Selector for links (recommended: #content a[href])</span>
+  <span class="s2">&quot;sp_link_selector&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;#content a[href]&quot;</span><span class="p">,</span>
+
+  <span class="c1"># Allowed URL prefixes (whitelist)</span>
+  <span class="s2">&quot;sp_allow_prefixes&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="s2">&quot;https://www.example/microsite/&quot;</span>
+  <span class="p">],</span>
+
+  <span class="c1"># Explicit exclusions of URL prefixes (blacklist)</span>
+  <span class="s2">&quot;sp_deny_prefixes&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="s2">&quot;https://www.example/microsite/meta/&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;https://www.example/index.php?sp%3Aout=sitemap&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;https://www.example/microsite/about_us/team.php&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;https://www.example/microsite/about_us/Classes.php&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;https://www.example/microsite/about_us/E-Mail-Contakt.php&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;https://www.example/microsite/about_us/Business.php&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;https://www.example/microsite/service/SEPA-Info.php&quot;</span>
+  <span class="p">],</span>
+
+  <span class="c1"># Explicit exclusions of URL endings</span>
+  <span class="s2">&quot;sp_deny_endings&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="c1"># Images &amp; graphics</span>
+      <span class="s2">&quot;.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;.jpeg&quot;</span><span class="p">,</span> <span class="s2">&quot;.png&quot;</span><span class="p">,</span> <span class="s2">&quot;.gif&quot;</span><span class="p">,</span> <span class="s2">&quot;.svg&quot;</span><span class="p">,</span> <span class="s2">&quot;.webp&quot;</span><span class="p">,</span> <span class="s2">&quot;.ico&quot;</span><span class="p">,</span> <span class="s2">&quot;.bmp&quot;</span><span class="p">,</span> <span class="s2">&quot;.tiff&quot;</span><span class="p">,</span>
+      <span class="c1"># Documents</span>
+      <span class="s2">&quot;.pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;.doc&quot;</span><span class="p">,</span> <span class="s2">&quot;.docx&quot;</span><span class="p">,</span> <span class="s2">&quot;.xls&quot;</span><span class="p">,</span> <span class="s2">&quot;.xlsx&quot;</span><span class="p">,</span> <span class="s2">&quot;.ppt&quot;</span><span class="p">,</span> <span class="s2">&quot;.pptx&quot;</span><span class="p">,</span> <span class="s2">&quot;.odt&quot;</span><span class="p">,</span> <span class="s2">&quot;.rtf&quot;</span><span class="p">,</span>
+      <span class="c1"># Archives</span>
+      <span class="s2">&quot;.zip&quot;</span><span class="p">,</span> <span class="s2">&quot;.tar&quot;</span><span class="p">,</span> <span class="s2">&quot;.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;.7z&quot;</span><span class="p">,</span> <span class="s2">&quot;.rar&quot;</span><span class="p">,</span> <span class="s2">&quot;.iso&quot;</span><span class="p">,</span>
+      <span class="c1"># Web assets &amp; data</span>
+      <span class="s2">&quot;.js&quot;</span><span class="p">,</span> <span class="s2">&quot;.css&quot;</span><span class="p">,</span> <span class="s2">&quot;.json&quot;</span><span class="p">,</span> <span class="s2">&quot;.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;.map&quot;</span><span class="p">,</span> <span class="s2">&quot;.webmanifest&quot;</span><span class="p">,</span>
+      <span class="c1"># Media</span>
+      <span class="s2">&quot;.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;.mp4&quot;</span><span class="p">,</span> <span class="s2">&quot;.wav&quot;</span><span class="p">,</span> <span class="s2">&quot;.avi&quot;</span><span class="p">,</span> <span class="s2">&quot;.mov&quot;</span><span class="p">,</span> <span class="s2">&quot;.mkv&quot;</span><span class="p">,</span> <span class="s2">&quot;.webm&quot;</span><span class="p">,</span> <span class="s2">&quot;.ogg&quot;</span><span class="p">,</span>
+      <span class="c1"># Fonts &amp; miscellaneous</span>
+      <span class="s2">&quot;.woff&quot;</span><span class="p">,</span> <span class="s2">&quot;.woff2&quot;</span><span class="p">,</span> <span class="s2">&quot;.ttf&quot;</span><span class="p">,</span> <span class="s2">&quot;.eot&quot;</span><span class="p">,</span> <span class="s2">&quot;.exe&quot;</span><span class="p">,</span> <span class="s2">&quot;.bin&quot;</span>
+  <span class="p">],</span>
+
+  <span class="c1"># Teasers are always included in the final result</span>
+  <span class="c1"># unless the title cannot be determined</span>
+  <span class="s2">&quot;sp_forced_article_urls&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="s2">&quot;https://www.example&quot;</span>
+  <span class="p">],</span>
+
+  <span class="c1"># URL normalization</span>
+  <span class="c1"># Query parameters are temporarily removed to detect duplicate URLs</span>
+  <span class="c1"># and later reattached.</span>
+  <span class="s2">&quot;sp_strip_query_params_active&quot;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+
+  <span class="s2">&quot;sp_strip_query_params&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="s2">&quot;page&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;p&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;offset&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;sort&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;view&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;print&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;fbclid&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;gclid&quot;</span>
+  <span class="p">]</span>
+</code></pre></div>
+<h3 id="parser">Parser<a class="headerlink" href="#parser" title="Permanent link">#</a></h3>
+<p>Default values should always be provided for selectors to ensure flexibility.
+The <abbr title="Symfony is a PHP framework for web applications and a set of reusable PHP components.">Symfony</abbr> CSS-Selector package is used to extract teaser content.
+The configured values are passed directly to the package.</p>
+<h4 id="example-css-selectors">Example CSS Selectors<a class="headerlink" href="#example-css-selectors" title="Permanent link">#</a></h4>
+<ul>
+<li>HTML tag: "h1"</li>
+<li>ID selector: "#content #page-title"</li>
+<li>Class selector: "#content .page-title"</li>
+</ul>
+<h4 id="title">Title<a class="headerlink" href="#title" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>  <span class="c1"># Title is mandatory; otherwise the article is not indexed</span>
+  <span class="s2">&quot;sp_title_present&quot;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+
+  <span class="c1"># Used to clearly identify the article&#39;s source</span>
+  <span class="s2">&quot;sp_title_prefix&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Pagename - &quot;</span><span class="p">,</span>
+
+  <span class="c1"># OpenGraph tags are preferred when extracting data</span>
+  <span class="s2">&quot;sp_title_opengraph&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="s2">&quot;og:title&quot;</span>
+  <span class="p">],</span>
+
+  <span class="c1"># CSS selectors (skipped if empty)</span>
+  <span class="c1"># Example CSS Selectors:</span>
+  <span class="c1"># - HTML tag: &quot;h1&quot;</span>
+  <span class="c1"># - ID selector: &quot;#content #page-title&quot;</span>
+  <span class="c1"># - Class selector: &quot;#content .page-title&quot;</span>
+  <span class="s2">&quot;sp_title_css&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="s2">&quot;h1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;.page-title&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;#content h2&quot;</span>
+  <span class="p">],</span>
+
+  <span class="c1"># Maximum character length (text is truncated and &quot;...&quot; appended)</span>
+  <span class="s2">&quot;sp_title_max_chars&quot;</span> <span class="o">=&gt;</span> <span class="mi">120</span>
+</code></pre></div>
+<h4 id="intro-text">Intro Text<a class="headerlink" href="#intro-text" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>  <span class="c1"># Intro text is optional</span>
+  <span class="s2">&quot;sp_introText_present&quot;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+
+  <span class="c1"># If false, the teaser can remain even if the field is missing</span>
+  <span class="s2">&quot;sp_introText_required_field&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+
+  <span class="c1"># Preferred OpenGraph tags</span>
+  <span class="s2">&quot;sp_introText_opengraph&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="s2">&quot;og:description&quot;</span>
+  <span class="p">],</span>
+
+  <span class="c1"># CSS selectors (skipped if empty)</span>
+  <span class="s2">&quot;sp_introText_css&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="s2">&quot;#content p&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;main p&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;.description&quot;</span>
+  <span class="p">],</span>
+
+  <span class="c1"># Maximum character length (text is truncated and &quot;...&quot; appended)</span>
+  <span class="c1"># null = no limit</span>
+  <span class="s2">&quot;sp_introText_max_chars&quot;</span> <span class="o">=&gt;</span> <span class="mi">200</span>
+</code></pre></div>
+<h4 id="datetime">DateTime<a class="headerlink" href="#datetime" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>  <span class="c1"># Enable DateTime extraction</span>
+  <span class="s2">&quot;sp_datetime_present&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+
+  <span class="c1"># If true, the teaser is excluded if no DateTime is found</span>
+  <span class="s2">&quot;sp_datetime_required_field&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+
+  <span class="c1"># If only a date is present, append 00:00:00</span>
+  <span class="c1"># Example:</span>
+  <span class="c1"># &quot;2026-01-21&quot; → &quot;2026-01-21 00:00:00&quot;</span>
+  <span class="c1"># Solr requires DateTime, not Date Type</span>
+  <span class="s2">&quot;sp_datetime_only_date&quot;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+
+  <span class="c1"># Preferred OpenGraph tags</span>
+  <span class="s2">&quot;sp_datetime_opengraph&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="s2">&quot;article:published_time&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;datePublished&quot;</span>
+  <span class="p">],</span>
+
+  <span class="c1"># CSS selectors (skipped if empty)</span>
+  <span class="s2">&quot;sp_datetime_css&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="s2">&quot;.published-date&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;.article-date&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;.created-at&quot;</span>
+  <span class="p">]</span>
+</code></pre></div>
+<h3 id="filter-function-utility-score-content-filter">Filter Function "Utility Score" (Content Filter)<a class="headerlink" href="#filter-function-utility-score-content-filter" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>  <span class="c1"># Enable content scoring</span>
+  <span class="s2">&quot;sp_content_scoring_active&quot;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+
+  <span class="c1"># Minimum required score for a teaser to be indexed</span>
+  <span class="s2">&quot;sp_content_scoring_min_score&quot;</span> <span class="o">=&gt;</span> <span class="mi">7</span><span class="p">,</span>
+
+  <span class="c1"># Positive signals (increase score)</span>
+  <span class="s2">&quot;sp_content_scoring_positive&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="p">[</span>
+          <span class="s2">&quot;sp_score&quot;</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">,</span>
+          <span class="s2">&quot;sp_match_any&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+              <span class="s2">&quot;vr-bis-detail/dienstleistung&quot;</span>
+          <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+          <span class="s2">&quot;sp_score&quot;</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+          <span class="s2">&quot;sp_match_any&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+              <span class="s2">&quot;onlinedienstleistung&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;online-antrag&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;online apply&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;onlineantrag&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;form&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;appointment booking&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;book appointment&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;submit application&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;apply digitally&quot;</span>
+          <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+          <span class="s2">&quot;sp_score&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&quot;sp_match_any&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+              <span class="s2">&quot;procedure&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;legal basis&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;forms and links&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;downloads&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;further information&quot;</span>
+          <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+          <span class="s2">&quot;sp_score&quot;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+          <span class="s2">&quot;sp_condition&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+              <span class="s2">&quot;sp_body_text_length&quot;</span> <span class="o">=&gt;</span> <span class="mi">350</span>
+          <span class="p">]</span>
+      <span class="p">]</span>
+  <span class="p">],</span>
+
+  <span class="c1"># Negative signals (decrease score)</span>
+  <span class="s2">&quot;sp_content_scoring_negative&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="p">[</span>
+          <span class="s2">&quot;sp_score&quot;</span> <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span>
+          <span class="s2">&quot;sp_match_any&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+              <span class="s2">&quot;vr-bis-detail/mitarbeiter&quot;</span>
+          <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+          <span class="s2">&quot;sp_score&quot;</span> <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span>
+          <span class="s2">&quot;sp_match_any&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+              <span class="s2">&quot;test service&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;asset publisher&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;newsletter&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;advertising&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;press office&quot;</span>
+          <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+          <span class="s2">&quot;sp_score&quot;</span> <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+          <span class="s2">&quot;sp_condition&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+              <span class="s2">&quot;sp_body_text_length&quot;</span> <span class="o">=&gt;</span> <span class="mi">150</span>
+          <span class="p">]</span>
+      <span class="p">]</span>
+  <span class="p">]</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
