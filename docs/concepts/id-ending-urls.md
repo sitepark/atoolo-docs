@@ -60,16 +60,16 @@ The Site Manifest is a generated, read-optimized file (in the PHP delivery conte
 
       // Exact redirects -> hash lookup, O(1)
       "exact" => [
-         "/old-campaign" => ["status" => 301, "type" => "path",    "target" => "/new-campaign"],
-         "/shop"         => ["status" => 302, "type" => "url",     "target" => "https://shop.example.com"],
-         "/info"         => ["status" => 301, "type" => "article", "target" => 16711]
+         "/old-campaign" => ["mode" => "REDIRECT_PERMANENT", "type" => "path",    "target" => "/new-campaign"],
+         "/shop"         => ["mode" => "REDIRECT_TEMPORARY", "type" => "url",     "target" => "https://shop.example.com"],
+         "/info"         => ["mode" => "REDIRECT_PERMANENT", "type" => "article", "target" => 16711]
       ],
 
       // Rule-based redirects -> ORDERED list, "first match wins"
       "rules" => [
-         ["status" => 301, "match" => "^/blog/(\\d+)$", "type" => "path", "target" => "/article/$1"],
-         ["status" => 301, "match" => "^/old/(.*)$",    "type" => "path", "target" => "/new/$1"],
-         ["status" => 302, "match" => "^/partner/.*$",  "type" => "url",  "target" => "https://partner.example.com"]
+         ["mode" => "REDIRECT_PERMANENT", "match" => "^/blog/(\\d+)$", "type" => "path", "target" => "/article/$1"],
+         ["mode" => "REDIRECT_PERMANENT", "match" => "^/old/(.*)$",    "type" => "path", "target" => "/new/$1"],
+         ["mode" => "REDIRECT_TEMPORARY", "match" => "^/partner/.*$",  "type" => "url",  "target" => "https://partner.example.com"]
       ]
    ]
 ];
@@ -81,7 +81,7 @@ The sections serve distinct purposes:
 - **`errors`** – the article IDs that render the standard HTTP error pages.
 - **`mappings`** – the exact path-to-content mappings. This is where the ID-ending URLs land: the slug-and-ID path is reduced to a stable key that points to a mapping entry. Delivering one of these means returning the content with HTTP 200. Each entry is an object describing the target:
   - **`id`** – the article ID of the data record to deliver.
-  - **`mode`** – how the target is delivered (e.g. `FORWARD`).
+  - **`mode`** – how the target is delivered. For content mappings this is `FORWARD` (serve directly, HTTP 200); see [Modes](#modes-the-shared-status-vocabulary) for the full vocabulary.
   - **`locale`** _(optional)_ – the locale the content is delivered in (e.g. `en_US`), used for translated URLs. When omitted, the publication's default locale applies.
 - **`redirects`** – centrally managed redirects that do not deliver content but send an HTTP redirect (301/302/…) to a new destination.
 
@@ -99,12 +99,26 @@ The manifest deliberately keeps two structurally different kinds of entries apar
 
 Exact entries are a hash map: _“does this path exist? → target”_, independent of order. Rule-based entries must be evaluated in a defined order, because the first matching rule wins. Mixing them would force the fast exact case through the expensive sequential evaluation, so the manifest keeps the ordered regex list as small as possible and routes everything that can be an exact key into the hash sections.
 
+### Modes – the shared status vocabulary
+
+Every manifest entry – a content mapping as well as a redirect – carries a **`mode`**. The mode is a single enum that expresses both _what_ should happen and _which HTTP status_ to send, so there is no separate `status` field. Its backing value is the HTTP status code itself:
+
+| Mode                               | HTTP | Meaning                                                                    |
+| ---------------------------------- | ---- | -------------------------------------------------------------------------- |
+| `FORWARD`                          | 200  | Alias – content is resolved internally and served directly (no redirect).  |
+| `REDIRECT_PERMANENT`               | 301  | Permanent redirect – the URL has moved, SEO value is passed on.            |
+| `REDIRECT_TEMPORARY`               | 302  | Temporary redirect – target may change again, no SEO transfer.             |
+| `REDIRECT_TEMPORARY_PRESERVE_METHOD` | 307 | Temporary redirect that preserves the HTTP method and body (POST stays POST). |
+| `REDIRECT_PERMANENT_PRESERVE_METHOD` | 308 | Permanent redirect that preserves the HTTP method and body.                |
+
+This is why content mappings and redirects share the same shape: `FORWARD` is simply the mode that delivers content instead of redirecting. The distinction "deliver vs. redirect" is `FORWARD` vs. any of the `REDIRECT_*` modes; the `301/302/…` nuance is the chosen redirect mode.
+
 ### Typed redirect targets
 
 Both `redirects.exact` and `redirects.rules` describe their target with two fields:
 
 - **`type`** – the target discriminator: `path` (an internal path), `article` (an article ID, resolved like any other mapping) or `url` (an external absolute URL).
-- **`status`** – the HTTP status code to send (`301` permanent, `302` temporary, …).
+- **`mode`** – the redirect mode to apply (`REDIRECT_PERMANENT`, `REDIRECT_TEMPORARY`, …), which also determines the HTTP status sent. See [Modes](#modes-the-shared-status-vocabulary).
 
 This covers the three redirect cases an editor can configure: redirect to another path, to a specific article, or to an external site.
 
