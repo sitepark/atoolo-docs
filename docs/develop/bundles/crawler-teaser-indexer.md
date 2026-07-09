@@ -4,7 +4,7 @@ This bundle provides a simple crawler designed to generate teasers from external
 
 ## Sources
 
-The sources can be accessed via the GitHub project [Crawler Teaser Indexer Bundle](https://github.com/sitepark/atoolo-crawler-teaser-indexer){:target=“_blank”}
+The sources can be accessed via the GitHub project [Crawler Teaser Indexer Bundle](https://github.com/sitepark/atoolo-crawler-teaser-indexer)
 
 ---
 
@@ -31,7 +31,7 @@ composer update
 ### Run the application
 
 ```sh
-  docker compose exec -u ${UID} fpm /var/www/fillTheBlank/www bin/console crawler:index -vvv
+  docker compose exec -u ${UID} fpm /var/www/fillTheBlank/www bin/console crawler:scheduler-atoolo-crawler-teaser-indexer -vvv
 ```
 
 [Atoolo Indexer Docs](../../operate/indexing.md)
@@ -39,7 +39,7 @@ composer update
 ### Run without indexing
 
 ```sh
-  bin/console crawler:index
+  bin/console crawler:scheduler-atoolo-crawler-teaser-indexer
 ```
 
 ---
@@ -152,10 +152,23 @@ Fill out the fields: sp_id, sp_url and sp_title_css.
 
 Search the Solr index for the value defined in the `sp_id` field of the PHP configuration array.
 
+---
+
+## Server
+
 ### Worker Configuration
 
 You need a Worker to run the Scheduler
 [Atoolo Scheduler Docs](../../operate/worker.md)
+
+### If you have an old Symony Version < 7
+
+The scheduler command must be registered in the worker configuration.
+
+Command: 
+```sh 
+scheduler_atoolo-crawler-teaser-indexer
+```
 
 ---
 
@@ -166,7 +179,7 @@ You need a Worker to run the Scheduler
 Location in your Project:  
 `config/packages/atoolo_crawler_master.yaml`
 
-An example configuration lay in: [PHP Array Config Example](https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php){:target=“_blank”}
+An example configuration lay in: [PHP Array Config Example](https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php)
 
 Purpose:
 
@@ -218,7 +231,7 @@ parameters:
 Warnings will be thrown in the test environment and at runtime if configurations are missing.
 This data is in a two-dimensional array.
 
-A full example configuration can be found in: [https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php](https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php){:target=“_blank”}
+A full example configuration can be found in: [https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php](https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php)
 
 ### Category
 
