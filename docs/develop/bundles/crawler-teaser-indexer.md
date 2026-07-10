@@ -4,7 +4,8 @@ This bundle provides a simple crawler designed to generate teasers from external
 
 ## Sources
 
-The sources can be accessed via the GitHub project [Crawler Teaser Indexer Bundle](https://github.com/sitepark/atoolo-crawler-teaser-indexer)
+The sources can be accessed via the GitHub project [Crawler Teaser Indexer Bundle](https://github.com/sitepark/atoolo-crawler-teaser-indexer){:target="\_blank"}
+
 
 ---
 
@@ -179,7 +180,7 @@ scheduler_atoolo-crawler-teaser-indexer
 Location in your Project:  
 `config/packages/atoolo_crawler_master.yaml`
 
-An example configuration lay in: [PHP Array Config Example](https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php)
+An example configuration lay in: [PHP Array Config Example](https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php){:target="\_blank"}
 
 Purpose:
 
@@ -231,7 +232,7 @@ parameters:
 Warnings will be thrown in the test environment and at runtime if configurations are missing.
 This data is in a two-dimensional array.
 
-A full example configuration can be found in: [https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php](https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php)
+A full example configuration can be found in: [https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php](https://github.com/sitepark/atoolo-crawler-teaser-indexer/blob/main/config/example/exampleConfig.php){:target="\_blank"}
 
 ### Category
 
