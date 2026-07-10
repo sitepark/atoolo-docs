@@ -115,7 +115,7 @@ Microsites have their own homepage and also their own error pages. Therefore, a 
 
 The media files provided via the CMS, such as images and PDFs, are stored in the `/resources/media` directory. There are two subdirectories: `public` and `protected`. Media files that are publicly accessible are stored in `public`. Media files that are only accessible to certain user groups are stored in `protected`.
 
-The publicly accessible media are delivered directly from the web server without the need for routing via PHP. The protected media are delivered via a PHP endpoint that checks the access rights before the file is delivered.
+A media URL contains the stable ID of the medium, but its path (slug) can change over time. Requests are therefore not simply served from the file system: they are resolved so that a changed URL can issue a redirect while the medium itself is always identified by the unchanged ID. For performance there is a _bypass_ that lets the web server (Apache) deliver media directly – in practice this is only used for images. Protected media are always delivered via a PHP endpoint that checks the access rights before the file is delivered. How media URLs are resolved, redirected and bypassed is described in [Media delivery](media-delivery.md).
 
 The file names of the media do not follow the ID scheme of the resource objects, as the file name of the media should be retained. The path in the file system also corresponds to the path used in the URL. For protected media, it is nevertheless necessary to know the ID of the medium in order to be able to check the necessary authorizations. The ID is therefore specified in the last path segment before the file name. The path of a medium can then be `/dir/1233/filename.pdf` where `1233` is the ID of the medium. Even if this ID is not necessary for the public media, it is also specified here in order to standardize the handling of the media.
 
@@ -132,6 +132,24 @@ The file names of the media do not follow the ID scheme of the resource objects,
                 └── 1234
                     └── filename.pdf
 ```
+
+### Scaled image variants
+
+Image media can have scaled variants (e.g. different display sizes). These variants are stored next to the original file in a directory named after the original file name with a `.scaled` suffix. The individual variants are named by a hash. For the medium `image.jpg` with the ID `1163`, the layout is:
+
+```
+/var/www/example.com/www/
+└── resources/
+    └── media/
+        └── public/
+            └── dir/
+                └── 1163/
+                    ├── image.jpg
+                    └── image.jpg.scaled/
+                        └── fb0918db219ac3539f2c82e83665a235.jpg
+```
+
+The exact on-disk layout is derived from the URL form (see [Media delivery](media-delivery.md#scaled-image-variants)); the hash naming should be confirmed against the implementation.
 
 ### Media meta file
 
@@ -189,6 +207,8 @@ The embedded media can also be translated automatically and have a `.translation
                                 └── nl_NL.php
 ```
 
+Embedded image media can also have scaled variants. As with central media, these are stored next to the embedded file in a `{file-name}.scaled/` directory whose entries are named by a hash, e.g. `article-filename.media/1123-432/image.jpg.scaled/<hash>.jpg`.
+
 ## Embedded media from media
 
 There is a special case when embedded media exist that are not subordinate to an article but to a medium. This can be the case, for example, if you want to store a preview image for a PDF in the CMS. In this case, the suffix of the medium is also part of the URL path.
@@ -199,9 +219,9 @@ There is a special case when embedded media exist that are not subordinate to an
     ├── media/
     │   └── public/
     │       └── dir/
-    │           └── 1233
-    │               └── filename.pdf
-    │                   └── 123-432
+    │           └── 123/
+    │               └── filename.pdf.media/
+    │                   └── 123-432/
     │                       └── preview.jpg
     └── objects/
         └── 000/
@@ -220,7 +240,7 @@ The CMS could be used to provide resource objects via a preview function that ar
 
 Temporary resources can also have embeddd meanings. The meta file for the embedded media is then saved under `/resources/objects/tmp/001.media/432.php`. The translated resources are saved under `/resources/objects/tmp/001.media/432.translations`.
 
-The resource can then be accessed via the web server using URLs of the form `/path/tmp-1`. The embedded media are then stored under paths such as `/dir/tmp-1.media/432/image.jpg`. They are then also stored accordingly under `media/public`.
+The resource can then be accessed via the web server using URLs of the form `/path/tmp-1`. As with permanent embedded media, the sub-directory carries a two-part ID `{tmp-counter}-{mediaId}` – the first part is the ID of the temporary resource (the counter), the second is the ID of the medium. The embedded media are then stored under paths such as `/dir/tmp-1.media/1-432/image.jpg`. They are then also stored accordingly under `media/public`.
 
 ```
 /var/www/example.com/www/
@@ -228,8 +248,8 @@ The resource can then be accessed via the web server using URLs of the form `/pa
     ├── media/
     │   └── public/
     │       └── dir/
-    │           └── tmp-1
-    │               └── 432
+    │           └── tmp-1.media/
+    │               └── 1-432/
     │                   └── image.jpg
     └── objects/
         └── tmp/

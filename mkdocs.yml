@@ -8,6 +8,7 @@ nav:
       - Resource: concepts/resource.md
       - Resource Channel: concepts/resource-channel.md
       - ID-ending URLs: concepts/id-ending-urls.md
+      - Media delivery: concepts/media-delivery.md
       - Navigation: concepts/navigation.md
       - Microsites: concepts/microsites.md
       - WebAccount: concepts/web-account.md

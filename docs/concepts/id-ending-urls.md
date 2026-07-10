@@ -18,6 +18,10 @@ A translated URL can also consist of Arabic and non-Arabic characters. Depending
 
 `/مسار_المشي/التحدث_عن_الطبيعة-vi/vii-123`
 
+## Media URLs
+
+Media (images, PDFs, downloads) follow the same ID principle: their URL carries the stable ID of the medium – for media inside the path rather than at the very end – so the descriptive part of the path can change while the ID stays constant. Just like content URLs, an outdated media URL is redirected to its current form. How these URLs are formed, resolved and (for images) bypassed for direct delivery is described in [Media delivery](media-delivery.md).
+
 ## Site Manifest
 
 The ID-ending URLs described above are resolved at request time by the delivery layer. The information needed for this resolution is not queried live against the editorial database on every request – that would be too slow and would couple the public website to the authoring system. Instead, publishing produces a **compiled artifact**: the _Site Manifest_.
