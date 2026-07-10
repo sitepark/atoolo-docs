@@ -26,7 +26,7 @@ Media (images, PDFs, downloads) follow the same ID principle: their URL carries 
 
 The ID-ending URLs described above are resolved at request time by the delivery layer. The information needed for this resolution is not queried live against the editorial database on every request – that would be too slow and would couple the public website to the authoring system. Instead, publishing produces a **compiled artifact**: the _Site Manifest_.
 
-The Site Manifest is a generated, read-optimized file (in the PHP delivery context a `manifest.php`) that the website loads to map an incoming path to its target. It is the bridge between the authoring world (where content, slugs and redirects are edited) and the delivery world (where a path has to be resolved as fast as possible).
+The Site Manifest is a generated, read-optimized file (in the PHP delivery context a `manifest.php`, located within the channel at [`/resources/configs/manifest.php`](resource-channel.md#manifest)) that the website loads to map an incoming path to its target. It is the bridge between the authoring world (where content, slugs and redirects are edited) and the delivery world (where a path has to be resolved as fast as possible).
 
 ### Structure of the manifest
 
@@ -126,6 +126,10 @@ Both `redirects.exact` and `redirects.rules` describe their target with two fiel
 
 This covers the three redirect cases an editor can configure: redirect to another path, to a specific article, or to an external site.
 
+## Resolution
+
+The manifest is the data; resolving an incoming path against it is the job of the delivery layer. Two aspects govern how a path is turned into a target: the order in which the manifest sections are queried, and the normalization applied before any lookup.
+
 ### Resolution order
 
 Because the manifest exposes several sections, the delivery layer queries them in a defined order. A typical order is:
@@ -145,7 +149,7 @@ flowchart TD
 
 There is a precedence decision behind this order: what wins if a path is matched by both a content mapping and a redirect rule? The common rule is **content mapping beats generic redirect rule** – existing content is delivered rather than redirected. Cases that need a forced redirect (e.g. a legal or deliberate block that must win over existing content) require an explicit priority/force marker and a different ordering.
 
-### Path normalization belongs to the resolver, not the patterns
+### Path normalization
 
 The incoming path is **normalized once, centrally, before any lookup** – lowercasing, trailing-slash policy, encoding and collapsing of multiple slashes. This is the same normalization that is applied when entries are written, so that the stored key and the looked-up key always match.
 

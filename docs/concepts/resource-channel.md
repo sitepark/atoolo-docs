@@ -79,16 +79,13 @@ The CMS can automatically translate the textual data of a resource. The complete
 
 ## Manifest
 
-If pages are accessed via a URL, the correct resource can be loaded with the help of [ID-ending URLs](id-ending-urls.md).
+The channel provides a compiled manifest file, located at `/resources/configs/manifest.php`, that the delivery layer uses to resolve incoming paths to their target. It covers system routes (such as the homepage and the error pages, which have no ID-ending URL to resolve), the exact path-to-content mappings behind [ID-ending URLs](id-ending-urls.md), and centrally managed redirects.
 
-However, there are special cases where no URL with ID is available and therefore no ID can be determined. This is the case with the homepage, for example. This should be accessible via a URL such as `https://www.example.com`.
-
-Another case is the error page. If the content for the 404 error page is to be loaded when a page called up does not exist, it must also be possible to load the data provided by the CMS for the error page.
-
-A manifest file is available for these cases, which is located in the directory `/resources/configs/manifest.php`. The IDs of the resources are stored in this file for special cases. For example, the manifest file could contain the following entries:
+The full structure and semantics of the manifest – mappings, redirects, delivery modes and resolution order – are described in [Site Manifest](id-ending-urls.md#site-manifest). The excerpt below shows the system routes (which make cases like the homepage `https://www.example.com` and the 404 error page resolvable at all) together with one exact path mapping:
 
 ```php
 <?php return [
+   // System routes
    "home" => 1118,
    "errors" => [
       "401" => 1140,
@@ -96,6 +93,14 @@ A manifest file is available for these cases, which is located in the directory 
       "403" => 1139,
       "500" => 1136,
       "410" => 1137
+   ],
+
+   // Exact path -> content mapping (redirects omitted, see Site Manifest)
+   "mappings" => [
+      "/kultur" => [
+         "id"   => 16711,
+         "mode" => "FORWARD"
+      ]
    ]
 ];
 ```
@@ -281,7 +286,7 @@ Here the CMS can store alias and redirect rules that are evaluated by the routin
 
 ## Configs
 
-Any configuration files provided by the CMS can be stored below `/resources/configs`. These are evaluated by various Atoolo bundles. For example, the manifest file, which is stored under `/resources/configs/manifest.php`, contains information about the IDs of the resources for special cases such as the homepage and the error pages.
+Any configuration files provided by the CMS can be stored below `/resources/configs`. These are evaluated by various Atoolo bundles. For example, the [Site Manifest](id-ending-urls.md#site-manifest) is stored under `/resources/configs/manifest.php` (see the [Manifest](#manifest) section above).
 
 Possible configuration directories can be:
 
