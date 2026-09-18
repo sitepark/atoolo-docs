@@ -252,12 +252,11 @@ name. Replace the namespace `Atoolo\Search` with `Atoolo\Index` for:
   `Exception\UnsupportedIndexLanguageException`
 - `Console\Application`, `Console\Command\Io\*`
 
-!!! warning
-
-    A deprecated name only satisfies a **type hint** once it has been loaded,
-    because PHP does not autoload for parameter type checks. If your code type
-    hints a moved class but never mentions it anywhere else, import the new
-    name instead.
+The aliases are registered eagerly when the search-bundle is autoloaded, not
+only when a deprecated name is first used. That is deliberate: PHP does not
+autoload for parameter and return type checks, so a method that type hints a
+deprecated name would otherwise reject an object of the new class. Existing
+indexer and enricher of a project therefore keep working unchanged.
 
 ### Service ids
 
