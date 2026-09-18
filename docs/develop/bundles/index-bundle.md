@@ -47,7 +47,11 @@ each language - Solr does, because stop words and stemming are language
 specific; a GenAI target usually does not, because embedding models are
 multilingual.
 
-The name is determined via the interface `IndexName`:
+The name is determined via the interface `IndexName`. The implementation this
+bundle ships, `ResourceChannelBasedIndexName`, appends the locale of a
+translated language (`<index>-<locale>`) - the convention of a target that
+keeps one index per language. A target with a single multilingual index
+implements `IndexName` itself.
 
 ```php
 $indexName = new ResourceChannelBasedIndexName($resourceChannel);
@@ -81,8 +85,18 @@ An index target implements four interfaces:
 | `IndexUpdateResult` | `isSuccess()` and `getErrorMessage()` of one transfer |
 | `IndexDocumentFactory` | creates the target's `IndexDocument` |
 
-Calls that only one target understands - Solr's delete-by-query for example -
-are deliberately not part of `IndexService`.
+`IndexService` carries only what a run of the indexer needs. Free-form target
+queries - Solr's delete-by-query for example - stay with the target. The one
+thing the port does expect of a document is that it keeps the process id of
+the run that wrote it, otherwise a full run cannot tell stale documents from
+current ones.
+
+**`IndexDocument` prescribes no structure.** It extends `\JsonSerializable`
+and nothing else: a document only has to represent itself as data, so that
+`index:dump-document` can show what a run would write. Whether that is a flat
+map of fields, a nested tree or a list of sections is up to the target - the
+indexer never looks inside the document, it only passes it from the factory
+through the enricher to the updater.
 
 An indexer that can index single paths instead of the whole tree implements
 `UpdatableIndexer`.
@@ -302,3 +316,18 @@ and stays as it is.
 | `search:indexer` | `index:indexer` |
 | `search:indexer:update-internal-resources` | `index:update` |
 | `search:dump-index-document` | `index:dump-document --source internal` |
+
+### Indexer status file
+
+The indexer status is cached under `%kernel.cache_dir%` and the file name lost
+its search-bundle prefix: `atoolo.search.index.<key>.status.json` is now
+`atoolo.index.<key>.status.json`. Right after the update the status of a
+source reads `UNKNOWN` until it runs once - the same thing that happens on
+every deploy, because the cache directory is cleared anyway.
+
+### Dumped document
+
+`IndexDocumentDumper::dump()` returns the documents instead of their field
+arrays, and the console command encodes them. For the Solr target that also
+means dates are now written as Solr dates instead of as a spelled out
+`DateTime` object.
