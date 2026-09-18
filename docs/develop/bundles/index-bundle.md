@@ -116,6 +116,7 @@ services:
       - "@atoolo_index.indexer.configuration_loader"
       - "mysource"
       - "@atoolo_index.index_name"
+      - false # see "CMS side configuration"
       - "@atoolo_index.indexer.php_limit_increaser"
       - "@logger"
     tags:
@@ -131,7 +132,15 @@ a tag of its own.
 Which sources exist and how they are indexed is configured by the CMS, one
 file per source under `configs/indexer/<source>.php`. A source without a file
 is not offered by the console. This is how a project enables the solr indexer
-(`internal.php`) and a GenAI indexer (`genai.php`) independently of each other.
+(`internal.php`) and a GenAI indexer (`genai.php`) independently of each
+other.
+
+The `$enabledWithoutConfig` constructor argument of
+`InternalResourceIndexer` overrides that: with `true` the indexer is offered
+even without a configuration file, and
+`IndexerConfigurationLoader::load()` falls back to defaults. Only the solr
+indexer of the search bundle uses it, so that projects that never wrote a
+`configs/indexer/internal.php` keep working as they did before 1.18.
 
 ### Custom Document Enricher
 
