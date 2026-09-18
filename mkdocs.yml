@@ -31,7 +31,9 @@ nav:
           - Deployment: develop/bundles/deployment.md
           - Runtime check: develop/bundles/runtime-check.md
           - Resource: develop/bundles/resource.md
+          - Index: develop/bundles/index-bundle.md
           - Search: develop/bundles/search/index.md
+          - GenAI: develop/bundles/genai.md
           - Security: develop/bundles/security.md
           - GraphQL search:
               - develop/bundles/graphql-search/index.md

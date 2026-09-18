@@ -20,34 +20,19 @@ composer require atoolo/search-bundle
 
 ## Index name
 
-The index name is used to determine which index should be searched. An index is always assigned to a [Resource Channel](../../../concepts/resource-channel.md). The name of the index can be determined via the `ResourceChannel`.
+The index name is used to determine which index should be searched. An index is always assigned to a [Resource Channel](../../../concepts/resource-channel.md), and for Solr a separate full text index is created for each language, so that language-specific features such as stop words and stemming are taken into account.
 
-The IES supports multilingual resource channels. Editorial content is only ever written in one language and is automatically translated into the other languages by the CMS. A multilingual resource channel then contains several resources for an article, each of which is published in a different language. For the search, a separate full text index is created for each language, which also takes into account language-specific features such as stop words and stemming.
-
-The name of the index can be determined via the interface `IndexName`. A method `IndexName::name(ResourceLanguage $lang): string` is made available for this purpose.
-
-Currently, only the class `ResourceChannelBasedIndexName` implements the interface `IndexName`. This class determines the index name based on the resource channel.
-See also: [Resource Channel](../resource.md#resourcechannel).
-
-```php
-$indexName = new ResourceChannelBasedIndexName($resourceChannel);
-$lang = ResourceLanguage::of('en');
-$index = $indexName->name($lang);
-```
-
-If there is no index for the specified language, the index for the base language of the resource channel is returned.
+The name is determined via the interface `IndexName` of the [index bundle](../index-bundle.md#index-name).
 
 ## Indexing
 
-To be able to search in a Solr index, it must first be filled. This is done via the indexer.
+The indexer core is provided by the [index bundle](../index-bundle.md). This bundle contributes the **Solr target**: `SolrIndexService`, `SolrIndexUpdater` and the schema 2.x document with its enricher. Everything that is independent of the target - the `Indexer` interface, the CMS side configuration under `configs/indexer/`, the enricher mechanics, status, abortion, the console commands and the scheduler - is documented there.
 
-[Resources](../resource.md#the-resource) are indexed. These are stored as files in the file system. The indexer can search an entire directory structure for the resources and thus rebuild an entire index. The resources are loaded via the files and mapped to index documents. The mapping is carried out via document enricher that read the resource data and set the corresponding fields of the index document. The index document are passed to Solr so that they can be indexed. Searches can then be performed on a Solr index created in this way.
+The Solr indexer runs under the source `internal` and is registered by this bundle as `atoolo_search.indexer.internal_resource_indexer`.
 
-An [Indexer service](https://github.com/sitepark/atoolo-search/blob/main/src/Indexer.php){:target="\_blank"} is available for indexing, which can be used to index and remove data from the index.
-
-### Internal Resource Indexer
-
-The Internal Resource Indexer is the standard indexer of this bundle and is used to index the internal resources. The internal resources are the resources that are usually managed in the CMS. The indexer can be used to index and remove the internal resources.
+```sh
+bin/console index:indexer --source internal
+```
 
 ### Protected Resources
 
@@ -63,29 +48,29 @@ Example of the integration of the SolrXMLIndexer:
 
 ```yaml
 customer.indexer.mysource_aborter:
-  class: Atoolo\Search\Service\Indexer\IndexingAborter
+  class: Atoolo\Index\Service\Indexer\IndexingAborter
   arguments:
     - "%kernel.project_dir%/var/cache/"
     - "mysource"
 
 customer.indexer.mysource_progress_state:
-  class: Atoolo\Search\Service\Indexer\IndexerProgressState
+  class: Atoolo\Index\Service\Indexer\IndexerProgressState
   arguments:
-    - "@atoolo_search.index_name"
-    - "@atoolo_search.indexer.status_store"
+    - "@atoolo_index.index_name"
+    - "@atoolo_index.indexer.status_store"
     - "mysource"
 
 customer.indexer.mysource_indexer:
   class: Atoolo\Search\Service\Indexer\SolrXmlIndexer
   arguments:
-    - "@atoolo_search.index_name"
+    - "@atoolo_index.index_name"
     - "@customer.indexer.mysource_progress_state"
     - "@customer.indexer.mysource_aborter"
     - "@atoolo_search.indexer.solr_index_service"
-    - "@atoolo_search.indexer.configuration_loader"
+    - "@atoolo_index.indexer.configuration_loader"
     - "@atoolo_search.indexer.solr_xml_reader"
     - "mysource"
-  tags: ["atoolo_search.indexer"]
+  tags: ["atoolo_index.indexer"]
 
 customer.indexer.mysource_indexer_scheduler:
   class: Atoolo\Search\Service\Indexer\SolrXmlIndexerScheduler
@@ -95,6 +80,14 @@ customer.indexer.mysource_indexer_scheduler:
   tags:
     - scheduler.schedule_provider: { name: "mysource-indexer-scheduler" }
 ```
+
+!!! warning
+
+    Up to `atoolo/search-bundle` 1.17 these services were named
+    `Atoolo\Search\Service\Indexer\IndexingAborter`,
+    `@atoolo_search.index_name` and so on, and the tag was
+    `atoolo_search.indexer`. The old names still work until 2.0; see the
+    [migration section](../index-bundle.md#migration-from-atoolosearch-bundle-117).
 
 ### Custom Document Enricher
 
@@ -108,8 +101,8 @@ declare(strict_types=1);
 namespace Atoolo\Examples\Search\Indexer\Enricher;
 
 use Atoolo\Resource\Resource;
-use Atoolo\Search\Service\Indexer\DocumentEnricher;
-use Atoolo\Search\Service\Indexer\IndexDocument;
+use Atoolo\Index\Service\Indexer\DocumentEnricher;
+use Atoolo\Index\Service\Indexer\IndexDocument;
 use Atoolo\Search\Service\Indexer\IndexSchema2xDocument;
 
 /**
@@ -151,49 +144,10 @@ services:
 
 ### Custom Content Matcher
 
-For the full-text search, the 'content' field is filled with all content relevant to the search. It may be necessary for special content to be extracted from the resources and written to the `content` field. A `ContentMatcher` can be implemented for this purpose.
-
-The `content` array of the resource is run through recursively and the `ContentMatcher` is called for each value. The `ContentMatcher` can then check whether the value should be written to the `content` field. The value can also be an array so that the `ContentMatcher` can extract the required value from the underlying structure.
-
-```php
-declare(strict_types=1);
-
-namespace Atoolo\Examples\Search\Indexer\Matcher;
-
-use Atoolo\Resource\Resource;
-
-class CustomContentMatcher implements ContentMatcher
-{
-    public function match(Resource $resource, string $key, $value): string:bool
-    {
-        $len = count($path);
-        if ($len < 2) {
-            return false;
-        }
-
-        if (
-            $path[$len - 2] !== 'items' ||
-            $path[$len - 1] !== 'model'
-        ) {
-            return false;
-        }
-
-        $headline = $value['headline'] ?? false;
-        return is_string($headline) ? $headline : false;
-    }
-}
-```
-
-So that your own content matcher can be used, it must be registered as [tagged Symfony service](https://symfony.com/doc/current/service_container/tags.html){:target="\_blank"}.
-
-`services.yaml`
-
-```yaml
-services:
-  Atoolo\Search\Service\Indexer\SiteKit\HeadlineMatcher:
-    tags:
-      - { name: "atoolo_search.indexer.sitekit.content_matcher", priority: 10 }
-```
+The `content` field of the Solr document is filled by the content collector of
+the [index bundle](../index-bundle.md#custom-content-matcher). Own matcher are
+registered there with the tag
+`atoolo_index.indexer.sitekit.content_matcher`.
 
 ## Searching
 
@@ -549,11 +503,15 @@ app/bin/console ...
 
 The following commands are then available via `bin/console`:
 
-| Command                                    | Description                               |
-| ------------------------------------------ | ----------------------------------------- |
-| `search:dump-index-document`               | Dump a index document                     |
-| `search:indexer`                           | Fill a search index                       |
-| `search:indexer:update-internal-resources` | Update internal resources in search index |
-| `search:mlt`                               | Performs a more-like-this search          |
-| `search:search`                            | Performs a search                         |
-| `search:suggest`                           | Performs a suggest search                 |
+| Command         | Description                      |
+| --------------- | -------------------------------- |
+| `search:mlt`    | Performs a more-like-this search |
+| `search:search` | Performs a search                |
+| `search:suggest`| Performs a suggest search        |
+
+The indexer commands come from the [index bundle](../index-bundle.md#console-commands):
+`index:indexer`, `index:update` and `index:dump-document`.
+
+The commands `search:indexer`,
+`search:indexer:update-internal-resources` and `search:dump-index-document`
+still exist as deprecated aliases of these and are removed in 2.0.

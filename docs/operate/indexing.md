@@ -1,11 +1,27 @@
 # Indexing
 
-Atoolo offers console tools via which the full text index can be created and updated.
+Atoolo offers console tools via which an index can be created and updated.
 
 The following command is used to create a completely new index:
 
 ```sh
-/var/www/example.com/www/app/bin/console search:indexer
+/var/www/example.com/www/app/bin/console index:indexer
 ```
 
-There may be several sources in a project that are used to fill the index. If this is the case, you are asked for which source the data should be re-indexed.
+There may be several sources in a project that are used to fill an index, and
+there may be several targets - the Solr index of the search and a GenAI
+application for example. If more than one indexer is available, you are asked
+which one to use. It can also be selected directly:
+
+```sh
+/var/www/example.com/www/app/bin/console index:indexer --source internal
+```
+
+Single resource paths are updated with `index:update`, and
+`index:dump-document` shows the document an indexer would write without
+sending it anywhere.
+
+!!! note
+
+    Up to `atoolo/search-bundle` 1.17 the command was called `search:indexer`.
+    That name still works and is removed in 2.0.
