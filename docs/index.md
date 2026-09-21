@@ -14,11 +14,11 @@ Atoolo facilitates the creation and deployment of GraphQL interfaces. These inte
 
 ### Full-text index integration
 
-Atoolo provides tools and methods for full-text indexing of data. This functionality enables large amounts of data to be searched efficiently and relevant information to be found quickly.
+Atoolo indexes the data of the CMS and keeps that index up to date. The full-text index is its established target: it makes large amounts of data searchable efficiently and relevant information quick to find. Collecting the content and mapping it to index documents is independent of the target it is written to, so the same mechanism serves other kinds of index as well.
 
 ### GenAI
 
-Atoolo can index the same data into an external GenAI application - embedding and vector database - and ask that application questions about it. The GenAI technology itself is not part of the suite, just as the search server is not: Atoolo prepares the content, keeps the index up to date and provides the interface to query it. A project decides per target which ones it feeds, so a GenAI index can be built next to a full-text index or on its own.
+A GenAI application - embedding and vector database - is such a target. Atoolo writes the same content there and asks that application questions about it. The GenAI technology itself is not part of the suite, just as the search server is not: Atoolo prepares the content, keeps the index up to date and provides the interface to query it. Which targets a project feeds is configured per target, so a GenAI index can be built next to a full-text index or on its own.
 
 ### Form processing
 
