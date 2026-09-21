@@ -16,6 +16,10 @@ Atoolo facilitates the creation and deployment of GraphQL interfaces. These inte
 
 Atoolo provides tools and methods for full-text indexing of data. This functionality enables large amounts of data to be searched efficiently and relevant information to be found quickly.
 
+### GenAI
+
+Atoolo can index the same data into an external GenAI application - embedding and vector database - and ask that application questions about it. The GenAI technology itself is not part of the suite, just as the search server is not: Atoolo prepares the content, keeps the index up to date and provides the interface to query it. A project decides per target which ones it feeds, so a GenAI index can be built next to a full-text index or on its own.
+
 ### Form processing
 
 Atoolo offers a comprehensive system for form processing. The forms defined by the CMS system are validated and the submitted form data is further processed. The form processing system is highly customizable and can be adapted to the specific requirements of the web application.
