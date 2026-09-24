@@ -296,11 +296,19 @@ The endpoint lies below `/api/admin/`, so it requires a JWT of a user with
 `ROLE_ADMIN` or `ROLE_API` (see [Security Bundle](security.md)). The IES logs
 in as the user `api` with the password of the webnode.
 
-The route is imported by the recipe of the bundle. A project that installed the
-bundle before has to add it itself:
+The route is imported by the recipe of the bundle. Symfony Flex applies a
+recipe only when a package is installed, so a project that installed the bundle
+before has to install the recipe itself. `cache:clear` - and with it every
+`composer install` and `update` - points this out as long as the route is
+missing:
+
+```sh
+composer recipes:install atoolo/resource-bundle --force -v
+```
+
+This creates `config/routes/resource.yaml`:
 
 ```yaml
-# config/routes/resource.yaml
 controller:
   resource: "@AtooloResourceBundle/Controller/"
   type: attribute
