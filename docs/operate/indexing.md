@@ -24,8 +24,8 @@ sending it anywhere.
 Resources that are published or depublished in the CMS are updated
 automatically: the IES notifies the website, and the
 [worker](worker.md) brings the changes into every index within a few seconds.
-Without a running worker the changes are collected in
-`var/resource-changes/` and only arrive once the worker runs again.
+Every channel needs a worker of its own. Without it the changes are collected in
+`var/spool/<anchor>/` and only arrive once the worker runs again.
 
 !!! note
 

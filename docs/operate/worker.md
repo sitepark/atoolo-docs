@@ -8,17 +8,35 @@ The workers are set up with the help of Supervisor. Supervisor is a process cont
 sudo apt-get install supervisor
 ```
 
-The workers are configured in a configuration file that is stored in `/etc/supervisor/conf.d/`. For `www`, the configuration could look like this:
+**Every channel needs a worker of its own.** A worker handles the messages of
+one channel only - the changes the CMS reports for `www` are handled by the
+worker of `www`. It knows its channel from the path `bin/console` is called by:
+`/var/www/example.com/www/app/bin/console` is the channel `www` of the host
+`example.com`, `/var/www/example.com/preview/app/bin/console` the channel
+`preview`. Alternatively the channel can be set with the environment variable
+`RESOURCE_ROOT`.
 
-`/etc/supervisor/conf.d/www-worker.conf`
+The workers are configured in a configuration file that is stored in `/etc/supervisor/conf.d/`. For `www` and `preview`, the configuration could look like this:
+
+`/etc/supervisor/conf.d/example.com-worker.conf`
 
 ```ini
-[program:www-worker]
+[program:example.com-www-worker]
 command=/var/www/example.com/www/app/bin/console messenger:consume --all
 user=www-data
 numprocs=2
 redirect_stderr=true
-stdout_logfile=/path/to/log/dir/www-worker.out.log
+stdout_logfile=/path/to/log/dir/example.com-www-worker.out.log
+autostart=true
+autorestart=true
+process_name=%(program_name)s_%(process_num)02d
+
+[program:example.com-preview-worker]
+command=/var/www/example.com/preview/app/bin/console messenger:consume --all
+user=www-data
+numprocs=1
+redirect_stderr=true
+stdout_logfile=/path/to/log/dir/example.com-preview-worker.out.log
 autostart=true
 autorestart=true
 process_name=%(program_name)s_%(process_num)02d

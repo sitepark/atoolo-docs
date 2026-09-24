@@ -257,18 +257,17 @@ a GenAI application, for example.
 sequenceDiagram
     participant IES as IES (webnode module)
     participant C as ResourceChangeController
-    participant S as Spool (var/resource-changes)
-    participant W as Worker (messenger:consume)
+    participant T as Transport atoolo_channel
+    participant W as Worker of the channel
     participant H as ResourceChangeHandler
     IES->>C: GET /api/admin/resource/changes
     C-->>IES: 200 {"version": 1}
     IES->>C: POST /api/admin/resource/changes
-    C->>S: store notification
+    C->>T: dispatch ResourceChangeMessage with ChannelStamp(anchor)
+    T->>T: file in var/spool/<anchor>/default/
     C-->>IES: 202 {"accepted": 2}
-    loop every 10 seconds (schedule atoolo_resource)
-        W->>S: drain
-        S->>H: handle(ResourceChanges)
-    end
+    W->>T: messenger:consume - reads var/spool/<own anchor>/default/
+    T->>H: handle(ResourceChanges)
 ```
 
 ### The endpoint
@@ -280,6 +279,7 @@ sequenceDiagram
 
 ```json
 {
+  "anchor": "www",
   "changed": [
     { "id": "1234", "path": "/news/foo.php" },
     { "id": "1234", "path": "/news/foo.php.translations/en_US.php" }
@@ -288,6 +288,9 @@ sequenceDiagram
 }
 ```
 
+- `anchor` is the anchor of the channel the changes belong to. It decides
+  which worker handles them, see
+  [Asynchronous messages per channel](#asynchronous-messages-per-channel).
 - `changed` names the published files, a translation by its own file.
 - `removed` names the resources that are no longer published or must not be
   found - in all their languages.
@@ -316,19 +319,18 @@ controller:
 
 ### Asynchronous handling
 
-A website has no message queue, so the controller only stores the notification
-in `var/resource-changes/` and answers at once. The schedule `atoolo_resource`
-drains the spool every 10 seconds in the [worker](../../operate/worker.md) and
-hands the changes, merged in the order they arrived, to every handler. The last
-action on a resource wins.
+The controller only dispatches a `ResourceChangeMessage` and answers at once.
+The message goes to the spool of the channel named by `anchor`, and the worker
+of that channel hands the changes to every handler, one notification after the
+other in the order they arrived.
 
-- If a handler throws, the changes stay in the spool and all handlers get them
-  again with the next drain. After five failed attempts a notification is moved
-  to `var/resource-changes/failed/`.
+- If a handler throws, the message is repeated - up to five times, with a
+  growing delay - and all handlers get it again. After that it is moved to the
+  transport `atoolo_channel_failed`.
 - A handler that cannot handle the changes yet throws a
-  `ResourceChangeDeferredException`. The changes are kept as long as it takes,
-  without counting as a failed attempt. The indexers do so while a full index
-  run is in progress.
+  `ResourceChangeDeferredException`. The message is then repeated every minute
+  as long as it takes, without counting as a failed attempt. The indexers do so
+  while a full index run is in progress.
 
 ### Custom handler
 
@@ -353,3 +355,54 @@ class CacheInvalidator implements ResourceChangeHandler
     }
 }
 ```
+
+## Asynchronous messages per channel
+
+A website has no message broker, and one application often serves several
+channels - `www` and `preview` of a host, for example. The bundle therefore
+brings a [Messenger](https://symfony.com/doc/current/messenger.html){:target="\_blank"}
+transport that keeps messages as files, apart for each channel:
+
+```
+var/spool/<anchor>/default/   pending messages of the channel
+var/spool/<anchor>/failed/    messages that failed too often
+```
+
+| Transport | DSN | Purpose |
+| --- | --- | --- |
+| `atoolo_channel` | `atoolo-channel://default` | messages for the worker of a channel, 5 retries with a growing delay |
+| `atoolo_channel_failed` | `atoolo-channel://failed` | failure transport of `atoolo_channel` |
+
+Both are registered by the bundle, a project needs no messenger configuration
+of its own.
+
+- **Sending:** a message belongs to the channel of the `ChannelStamp` it is
+  dispatched with, otherwise to the channel of the sending process.
+- **Receiving:** a worker reads only the spool of its own channel. It knows the
+  channel from the path `bin/console` is called by, see
+  [Worker](../../operate/worker.md).
+
+Any bundle can hand its messages to the worker of a channel. It routes them to
+`atoolo_channel` - in the `prependExtension()` of its bundle class or with the
+`#[AsMessage]` attribute - and dispatches them as usual:
+
+```php
+use Atoolo\Resource\Messenger\ChannelStamp;
+use Symfony\Component\Messenger\Attribute\AsMessage;
+
+#[AsMessage('atoolo_channel')]
+final class RebuildSitemap
+{
+}
+
+// the channel of the current process
+$bus->dispatch(new RebuildSitemap());
+
+// another channel
+$bus->dispatch(new RebuildSitemap(), [new ChannelStamp('preview')]);
+```
+
+A worker claims a message before it handles it, so several workers of one
+channel never handle the same message. A claim of a worker that died is
+released after an hour.
+
