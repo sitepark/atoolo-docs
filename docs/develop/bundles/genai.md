@@ -54,6 +54,10 @@ indexer (`internal.php`).
 bin/console index:indexer --source genai
 ```
 
+Resources the CMS publishes or depublishes reach the GenAI index through the
+[resource change notification](resource.md#resource-change-notification), the
+same way as the Solr index.
+
 **One index per channel.** Embedding models are multilingual, so the documents
 carry `language` and `locale` instead of being spread over language specific
 indices.

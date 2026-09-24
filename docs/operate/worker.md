@@ -24,4 +24,8 @@ autorestart=true
 process_name=%(program_name)s_%(process_num)02d
 ```
 
+The worker also handles the changes the CMS reports - see
+[Indexing](indexing.md). `messenger:consume --all` covers them; without a
+running worker, published articles do not reach the search index.
+
 See [`supervisorctl`](http://supervisord.org/running.html#running-supervisorctl){:target="\_blank"} for more information on how to manage Supervisor.

@@ -101,6 +101,20 @@ through the enricher to the updater.
 An indexer that can index single paths instead of the whole tree implements
 `UpdatableIndexer`.
 
+### Changes from the CMS
+
+`IndexerResourceChangeHandler` is a
+[resource change handler](resource.md#resource-change-notification). It brings
+the resources the CMS has published or depublished into every enabled indexer:
+`update()` for the changed paths of every `UpdatableIndexer`, `remove()` for
+the removed ids of every indexer. So the Solr index of the search and a GenAI
+application are updated alike.
+
+While a full run of an indexer is in progress, the handler defers the changes
+until the run is finished. An update during a full run would get lost: it
+writes its documents with a process id of its own, and the purge at the end of
+the run removes every document without the process id of the run.
+
 ### Registering an indexer
 
 Every target bundle registers its own indexer instance and tags it

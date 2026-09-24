@@ -16,6 +16,13 @@ mutation {
 
 ## Updating individual documents
 
+!!! note
+
+    The IES notifies up-to-date websites through the
+    [resource change notification](../../bundles/resource.md#resource-change-notification)
+    instead, which reaches every index - not only the Solr index. `indexUpdate`
+    and `indexRemove` remain for older IES versions.
+
 If new articles are created or updated in the CMS, they must also be created or updated in the index. This is also done via the mutation [`indexUpdate`](../reference.md#mutation-rootmutation). The paths of the resources to be updated are passed via an array.
 
 ```graphql

@@ -21,6 +21,12 @@ Single resource paths are updated with `index:update`, and
 `index:dump-document` shows the document an indexer would write without
 sending it anywhere.
 
+Resources that are published or depublished in the CMS are updated
+automatically: the IES notifies the website, and the
+[worker](worker.md) brings the changes into every index within a few seconds.
+Without a running worker the changes are collected in
+`var/resource-changes/` and only arrive once the worker runs again.
+
 !!! note
 
     Up to `atoolo/search-bundle` 1.17 the command was called `search:indexer`.

@@ -29,6 +29,11 @@ This bundle uses a user and role concept to control access. There are currently 
 1. `realm.properties` file
 2. PHP files for users and roles below the `RESOURCE_ROOT/security` directory
 
+Everything below `/api/admin/` - the deployment and the
+[resource change notification](resource.md#resource-change-notification), for
+example - requires the role `ROLE_ADMIN` or `ROLE_API`. The IES uses the user
+`api`.
+
 ## `realm.properties` file
 
 The property file is loaded via the `Atoolo\Security\RealmPropertiesUserLoader`. This expects a path to the property file.

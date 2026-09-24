@@ -245,3 +245,103 @@ $resource = $finder->findFirst(
     }
 );
 ```
+
+## Resource change notification
+
+The CMS tells the website which resources it has published, changed or
+depublished. The website reacts to it through handlers - the indexers of the
+[Index Bundle](index-bundle.md) bring the changes into the Solr index and into
+a GenAI application, for example.
+
+```mermaid
+sequenceDiagram
+    participant IES as IES (webnode module)
+    participant C as ResourceChangeController
+    participant S as Spool (var/resource-changes)
+    participant W as Worker (messenger:consume)
+    participant H as ResourceChangeHandler
+    IES->>C: GET /api/admin/resource/changes
+    C-->>IES: 200 {"version": 1}
+    IES->>C: POST /api/admin/resource/changes
+    C->>S: store notification
+    C-->>IES: 202 {"accepted": 2}
+    loop every 10 seconds (schedule atoolo_resource)
+        W->>S: drain
+        S->>H: handle(ResourceChanges)
+    end
+```
+
+### The endpoint
+
+| Request | Answer |
+| --- | --- |
+| `GET /api/admin/resource/changes` | `200 {"version": 1}` - the CMS asks for it to learn whether the website accepts notifications |
+| `POST /api/admin/resource/changes` | `202 {"accepted": <n>}`, `400` if the body is invalid |
+
+```json
+{
+  "changed": [
+    { "id": "1234", "path": "/news/foo.php" },
+    { "id": "1234", "path": "/news/foo.php.translations/en_US.php" }
+  ],
+  "removed": [{ "id": "5678" }]
+}
+```
+
+- `changed` names the published files, a translation by its own file.
+- `removed` names the resources that are no longer published or must not be
+  found - in all their languages.
+
+The endpoint lies below `/api/admin/`, so it requires a JWT of a user with
+`ROLE_ADMIN` or `ROLE_API` (see [Security Bundle](security.md)). The IES logs
+in as the user `api` with the password of the webnode.
+
+The route is imported by the recipe of the bundle. A project that installed the
+bundle before has to add it itself:
+
+```yaml
+# config/routes/resource.yaml
+controller:
+  resource: "@AtooloResourceBundle/Controller/"
+  type: attribute
+```
+
+### Asynchronous handling
+
+A website has no message queue, so the controller only stores the notification
+in `var/resource-changes/` and answers at once. The schedule `atoolo_resource`
+drains the spool every 10 seconds in the [worker](../../operate/worker.md) and
+hands the changes, merged in the order they arrived, to every handler. The last
+action on a resource wins.
+
+- If a handler throws, the changes stay in the spool and all handlers get them
+  again with the next drain. After five failed attempts a notification is moved
+  to `var/resource-changes/failed/`.
+- A handler that cannot handle the changes yet throws a
+  `ResourceChangeDeferredException`. The changes are kept as long as it takes,
+  without counting as a failed attempt. The indexers do so while a full index
+  run is in progress.
+
+### Custom handler
+
+A handler implements `ResourceChangeHandler` and is registered through
+autoconfiguration. It has to be idempotent, since it may see the same changes
+more than once.
+
+```php
+use Atoolo\Resource\Change\ResourceChangeHandler;
+use Atoolo\Resource\Change\ResourceChanges;
+
+class CacheInvalidator implements ResourceChangeHandler
+{
+    public function handle(ResourceChanges $changes): void
+    {
+        foreach ($changes->changedPaths() as $path) {
+            // invalidate the cache of the path
+        }
+        foreach ($changes->removedIds as $id) {
+            // invalidate the cache of the resource
+        }
+    }
+}
+```
