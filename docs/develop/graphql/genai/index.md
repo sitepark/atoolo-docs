@@ -165,6 +165,32 @@ the rating keeps what it has set itself.
 
 ## Errors
 
-If the GenAI application cannot be reached or rejects the request, the field
-fails with an error whose message names the cause. See also
-[Error handling](../error-handling.md).
+If a question cannot be asked or a feedback not be given, the field fails
+with an error in the `errors` array. Its `extensions.classification` says
+why, so that the frontend can tell the user what to do:
+
+| Classification | Meaning |
+| --- | --- |
+| `BAD_REQUEST` | The GenAI application does not accept the request, the message says why: the question is longer than 1000 characters, the language is no ISO 639 code like `de`, more than 20 categories are given, or nothing is indexed in the channel yet. |
+| `TOO_MANY_REQUESTS` | The visitor, or all visitors together, asked too many questions in the last minute. The question may be asked again later. |
+| `INTERNAL_ERROR` | The GenAI application cannot be reached or failed. The message is a general one, the cause is logged by the website. |
+
+```json
+{
+  "errors": [
+    {
+      "message": "Too many questions, please try again later",
+      "path": ["genAiQuestion"],
+      "extensions": {
+        "classification": "TOO_MANY_REQUESTS"
+      }
+    }
+  ],
+  "data": null
+}
+```
+
+An operation may ask only one question. Selecting `genAiQuestion` more than
+once, e.g. under aliases, fails with `BAD_REQUEST`.
+
+See also [Error handling](../error-handling.md).
