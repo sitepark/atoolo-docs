@@ -9,6 +9,10 @@ The request is not passed on to the GenAI application as it is. The bundle
 sends fixed operations of its own, so only the public part of the application
 can be reached, and the channel is always the one of the site.
 
+The GenAI application limits the requests per ip address of the visitor. See
+[Client ip](../../bundles/genai.md#client-ip) for what this requires of the
+setup.
+
 ## Ask a question
 
 ```graphql
