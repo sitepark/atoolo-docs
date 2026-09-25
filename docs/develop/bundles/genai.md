@@ -113,36 +113,69 @@ parameters:
 
 ## HTTP contract
 
-The GenAI application is addressed under `{GENAI_URL}/api/v1`:
+The bundle prepends nothing but `{GENAI_URL}` to the path, because the GenAI
+application serves its parts under different roots:
 
-| Purpose | Request | Response |
-| --- | --- | --- |
-| health | `GET /health` | 2xx |
-| managed indices | `GET /indices` | `{"indices":[{"name":"www","documents":123}]}` |
-| bulk update | `PUT /indices/{index}/documents` | `{"accepted":n,"rejected":m,"errors":{"<id>":"msg"}}` |
-| delete by id | `POST /indices/{index}/documents/delete` | `{"deleted":n}` |
-| cleanup by process id | `POST /indices/{index}/documents/cleanup` | `{"deleted":n}` |
-| commit | `POST /indices/{index}/commit` | 2xx/204 |
-| ask | `POST /indices/{index}/ask` | `{"answer":"…","conversation_id":"…","sources":[…]}` |
+| Purpose | Request |
+| --- | --- |
+| health | `GET /actuator/health` (`{"status":"UP"}`) |
+| bulk update | `POST /api/index/documents`, body is a bare list of documents, answers `{documents, chunks, unchanged}` |
+| delete by id | `POST /api/index/documents/delete` `{channel, source, ids}` |
+| purge by process id | `POST /api/index/purge` `{channel, source, keepProcessId}` |
+| ask | GraphQL `POST /graphql`, query `question(query!, language!, channel!, categoryIds)` |
+| feedback | GraphQL `POST /graphql`, mutation `answerFeedback(answerId!, feedback)` |
 
-An empty bulk sends no request at all.
+An empty bulk sends no request at all. The errors GraphQL reports with status
+200 are treated as a failed request as well.
 
 ## Assistant
+
+The assistant asks the GenAI application a question and passes on the
+feedback of a user on the answer. The answer is structured as the application
+delivers it: an `id` to give feedback with, `sections` - `TEXT` with `html`,
+`LINKS` with `links`, each with its `sources` - and an `error` when the
+indexed resources did not answer the question.
 
 ```php
 $answer = $assistant->ask(new Question(
     'When is the next council meeting?',
-    ResourceLanguage::of('de'),
+    ResourceLanguage::of('en'),
+    ['10'], // category ids, optional
 ));
 
-echo $answer->text;
-foreach ($answer->sources as $source) {
-    echo $source->url;
+if ($answer->error !== null) {
+    // the sections are hints how to ask more precisely
+}
+foreach ($answer->sections as $section) {
+    echo $section->headline;
+    echo $section->html;
+    foreach ($section->links as $link) {
+        echo $link->label . ': ' . $link->url;
+    }
+    foreach ($section->sources as $source) {
+        echo $source->url;
+    }
+}
+
+if ($answer->id !== null) {
+    $assistant->feedback($answer->id, AnswerFeedback::GOOD);
 }
 ```
 
-From the console:
+The question is asked in the channel of the site. A question without a
+language is asked in the language of the channel.
+
+### GraphQL
+
+Asking and giving feedback are also offered as the fields `genAiQuestion` and
+`genAiAnswerFeedback` of the [GraphQL API](../graphql/genai/index.md). They are
+only available when the GraphQL API is installed as well, see
+[GraphQL Search Bundle](graphql-search/index.md).
+
+### Console
 
 ```sh
-bin/console genai:ask "When is the next council meeting?" --lang de
+bin/console genai:ask "When is the next council meeting?" --lang en --category 10
 ```
+
+`--category` can be given several times.

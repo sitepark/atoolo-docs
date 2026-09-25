@@ -67,6 +67,7 @@ nav:
           - Search Events: develop/graphql/searchEvents/index.md
           - WebAccount:
               - develop/graphql/web-account/index.md
+          - GenAI: develop/graphql/genai/index.md
           - Customization: develop/graphql/customization/index.md
           - Error handling: develop/graphql/error-handling.md
           - Reference: develop/graphql/reference.md
