@@ -263,8 +263,8 @@ sequenceDiagram
     IES->>C: GET /api/admin/resource/changes
     C-->>IES: 200 {"version": 1}
     IES->>C: POST /api/admin/resource/changes
-    C->>T: dispatch ResourceChangeMessage with ChannelStamp(anchor)
-    T->>T: file in var/spool/<anchor>/default/
+    C->>T: dispatch ResourceChangeMessage
+    T->>T: file in var/spool/<anchor of the channel>/default/
     C-->>IES: 202 {"accepted": 2}
     W->>T: messenger:consume - reads var/spool/<own anchor>/default/
     T->>H: handle(ResourceChanges)
@@ -279,7 +279,6 @@ sequenceDiagram
 
 ```json
 {
-  "anchor": "www",
   "changed": [
     { "id": "1234", "path": "/news/foo.php" },
     { "id": "1234", "path": "/news/foo.php.translations/en_US.php" }
@@ -288,9 +287,6 @@ sequenceDiagram
 }
 ```
 
-- `anchor` is the anchor of the channel the changes belong to. It decides
-  which worker handles them, see
-  [Asynchronous messages per channel](#asynchronous-messages-per-channel).
 - `changed` names the published files, a translation by its own file.
 - `removed` names the resources that are no longer published or must not be
   found - in all their languages.
@@ -320,9 +316,12 @@ controller:
 ### Asynchronous handling
 
 The controller only dispatches a `ResourceChangeMessage` and answers at once.
-The message goes to the spool of the channel named by `anchor`, and the worker
-of that channel hands the changes to every handler, one notification after the
-other in the order they arrived.
+The CMS sends the notification to the host of the channel, and every host is
+mapped to exactly one channel. So the message goes to the spool of the channel
+of the request, see
+[Asynchronous messages per channel](#asynchronous-messages-per-channel), and
+the worker of that channel hands the changes to every handler, one
+notification after the other in the order they arrived.
 
 - If a handler throws, the message is repeated - up to five times, with a
   growing delay - and all handlers get it again. After that it is moved to the
