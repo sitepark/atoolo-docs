@@ -1,0 +1,166 @@
+[project]
+site_name = "Atoolo Docs"
+site_dir = "public"
+repo_url = "https://github.com/sitepark/atoolo-docs"
+extra_css = ["stylesheets/extra.css"]
+watch = ["includes"]
+
+nav = [
+  { "Home" = "index.md" },
+  { "Concepts" = [
+    "concepts/index.md",
+    { "Resource" = "concepts/resource.md" },
+    { "Resource Channel" = "concepts/resource-channel.md" },
+    { "ID-ending URLs" = "concepts/id-ending-urls.md" },
+    { "Media delivery" = "concepts/media-delivery.md" },
+    { "Navigation" = "concepts/navigation.md" },
+    { "Microsites" = "concepts/microsites.md" },
+    { "WebAccount" = "concepts/web-account.md" },
+    { "Extranet" = "concepts/extranet.md" },
+    { "Teaser" = "concepts/teaser.md" },
+  ] },
+  { "Operate" = [
+    "operate/index.md",
+    { "Console Command" = "operate/console-command.md" },
+    { "IES Webnode" = "operate/ies-webnode.md" },
+    { "Runtime check" = "operate/runtime-check.md" },
+    { "Indexing" = "operate/indexing.md" },
+    { "Worker" = "operate/worker.md" },
+  ] },
+  { "Develop" = [
+    "develop/index.md",
+    { "Components" = [
+      "develop/components/index.md",
+      { "Runtime" = "develop/components/runtime.md" },
+    ] },
+    { "Bundle" = [
+      "develop/bundles/index.md",
+      { "Deployment" = "develop/bundles/deployment.md" },
+      { "Runtime check" = "develop/bundles/runtime-check.md" },
+      { "Resource" = "develop/bundles/resource.md" },
+      { "Index" = "develop/bundles/index-bundle.md" },
+      { "Search" = "develop/bundles/search/index.md" },
+      { "GenAI" = "develop/bundles/genai.md" },
+      { "Security" = "develop/bundles/security.md" },
+      { "GraphQL search" = [
+        "develop/bundles/graphql-search/index.md",
+        { "Configuration" = "develop/bundles/graphql-search/config.md" },
+        { "Customization" = "develop/bundles/graphql-search/customization.md" },
+        { "Server-Side queries" = "develop/bundles/graphql-search/server-side-queries.md" },
+      ] },
+      { "Form" = "develop/bundles/form.md" },
+      { "CityGov" = "develop/bundles/citygov.md" },
+      { "CityCall" = "develop/bundles/citycall.md" },
+      { "Events Calendar" = "develop/bundles/events-calendar.md" },
+      { "Translator" = "develop/bundles/translator.md" },
+      { "Seo" = "develop/bundles/seo.md" },
+      { "Micosite" = "develop/bundles/microsite.md" },
+      { "Rewrite" = "develop/bundles/rewrite.md" },
+      { "WebAccount" = "develop/bundles/web-account.md" },
+      { "Extranet" = "develop/bundles/extranet.md" },
+      { "Crawler Teaser Indexer" = "develop/bundles/crawler-teaser-indexer.md" },
+    ] },
+    { "GraphQL API" = [
+      "develop/graphql/index.md",
+      { "Getting started" = "develop/graphql/getting-started.md" },
+      { "Search" = [
+        "develop/graphql/search/index.md",
+        { "Filtered search" = "develop/graphql/search/filtered-search.md" },
+        { "Faceted search" = "develop/graphql/search/faceted-search.md" },
+        { "Resolve resource" = "develop/graphql/search/resolve-resource.md" },
+        { "Resolve navigation" = "develop/graphql/search/resolve-navigation-hierarchy.md" },
+        { "Resolve teaser" = "develop/graphql/search/resolve-teaser.md" },
+        { "Suggest" = "develop/graphql/search/suggest.md" },
+        { "More like this" = "develop/graphql/search/more-like-this.md" },
+        { "Indexing" = "develop/graphql/search/indexing.md" },
+      ] },
+      { "Search Events" = "develop/graphql/searchEvents/index.md" },
+      { "WebAccount" = [
+        "develop/graphql/web-account/index.md",
+      ] },
+      { "GenAI" = "develop/graphql/genai/index.md" },
+      { "Customization" = "develop/graphql/customization/index.md" },
+      { "Error handling" = "develop/graphql/error-handling.md" },
+      { "Reference" = "develop/graphql/reference.md" },
+    ] },
+    { "Form API" = [
+      "develop/form/index.md",
+      { "Controls" = "develop/form/controls.md" },
+      { "Annotations" = "develop/form/annotations.md" },
+      { "Layouts" = "develop/form/layouts.md" },
+    ] },
+    { "ICal API" = [
+      "develop/ical/index.md",
+    ] },
+    { "Symfony Flex integration" = "develop/symfony-flex-integration.md" },
+  ] },
+  { "Contribute" = [
+    "contribute/index.md",
+  ] },
+]
+
+[project.extra.status]
+draft = "Draft"
+
+# https://zensical.org/docs/setup/basics/
+[project.theme]
+variant = "modern"
+favicon = "images/favicon.ico"
+logo = "images/favicon.ico"
+features = [
+  "navigation.indexes",
+  "content.code.copy",
+  "content.code.select",
+  "content.code.annotate",
+]
+
+[project.theme.icon]
+admonition.note = "material/alert-circle-outline"
+repo = "fontawesome/brands/github"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+primary = "custom"
+accent = "amber"
+toggle.icon = "material/brightness-auto"
+toggle.name = "Switch to light mode"
+
+# Palette toggle for light mode
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"
+accent = "amber"
+toggle.icon = "material/brightness-7"
+toggle.name = "Switch to dark mode"
+
+# Palette toggle for dark mode
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"
+accent = "amber"
+toggle.icon = "material/brightness-4"
+toggle.name = "Switch to system preference"
+
+[project.markdown_extensions]
+toc.title = "On this page"
+toc.permalink = "#"
+pymdownx.inlinehilite = {}
+pymdownx.snippets.auto_append = ["includes/abbreviations.md"]
+pymdownx.highlight.extend_pygments_lang = [
+  { name = "php", lang = "php", options = { startinline = true } },
+]
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+pymdownx.tabbed.alternate_style = true
+pymdownx.tabbed.slugify = { object = "pymdownx.slugs.slugify", kwds = { case = "lower" } }
+attr_list = {}
+def_list = {}
+md_in_html = {}
+abbr = {}
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+admonition = {}
+pymdownx.details = {}
