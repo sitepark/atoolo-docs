@@ -1,4 +1,4 @@
-:root {
+:root > * {
 
   --md-primary-fg-color:               #fbba00;
   --md-primary-fg-color--light:        #fbba00;
@@ -7,7 +7,7 @@
   --md-primary-bg-color--light:        #3c3c3b;
 
   --md-accent-fg-color:                #fbba00;
-  --md-accent-fg-color--transparent:   #ffbb00;
+  --md-accent-fg-color--transparent:   #fbba0033;
   --md-accent-bg-color:                #FFFFFF;
   --md-accent-bg-color--light:         #FFFFFF;
 
@@ -28,4 +28,19 @@ https://mkdocs-material.github.io/examples/page-status/
 .md-status--draft::after {
     mask-image: var(--md-status--draft);
     -webkit-mask-image: var(--md-status--draft);
+}
+
+/* yellow text is not readable on the light accent background of the active nav item */
+.md-nav--primary .md-nav__item .md-nav__link--active {
+    color: var(--md-default-fg-color);
+}
+
+/* the modern theme renders a neutral header, keep the brand color instead */
+.md-header {
+    color: var(--md-primary-bg-color);
+    background-color: var(--md-primary-fg-color);
+}
+
+.md-header__button {
+    outline-color: var(--md-primary-bg-color);
 }
