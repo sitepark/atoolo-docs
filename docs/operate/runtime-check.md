@@ -55,7 +55,7 @@ After activating the new PHP version and restarting the worker, `runtime:check` 
 curl -H "Authorization: Bearer ${JWT}" https://www.example.com/api/runtime-check
 ```
 
-A `JWT` (Json Web Token) is required for the request. This can be created via a command line call. It is also necessary that a corresponding user has been created in the [`realm.properties`](ies-webnode.md/#realm-properties-file) file. The user must be assigned the role `SYSTEM_AUDITOR`.
+A `JWT` (Json Web Token) is required for the request. This can be created via a command line call. It is also necessary that a corresponding user has been created in the [`realm.properties`](ies-webnode.md#realm-properties-file) file. The user must be assigned the role `SYSTEM_AUDITOR`.
 
 `realm.properties`
 

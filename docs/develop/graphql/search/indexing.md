@@ -35,7 +35,7 @@ mutation {
 
 ## Get Indexing status
 
-While the indexer is indexing the documents, the current status can be queried using the query [`indexerStatus`](../reference.md/#query-rootquery). For example, to show how many documents have already been indexed.
+While the indexer is indexing the documents, the current status can be queried using the query [`indexerStatus`](../reference.md#query-rootquery). For example, to show how many documents have already been indexed.
 
 ```graphql
 query {
@@ -47,7 +47,7 @@ query {
 
 ## Remove documents
 
-The mutation [`indexRemove`](../reference.md/#mutation-rootmutation) is used to remove documents from the index. The corresponding documents are removed from the index by specifying `idList`, which is used to specify a list of resource IDs.
+The mutation [`indexRemove`](../reference.md#mutation-rootmutation) is used to remove documents from the index. The corresponding documents are removed from the index by specifying `idList`, which is used to specify a list of resource IDs.
 
 ```graphql
 mutation {
@@ -57,7 +57,7 @@ mutation {
 
 ## Abort indexing
 
-Indexing can be canceled. A check is made after each chunk as to whether the process should be aborted. The mutation [`indexAbort`](../reference.md/#mutation-rootmutation) is used to ensure that indexing is interrupted.
+Indexing can be canceled. A check is made after each chunk as to whether the process should be aborted. The mutation [`indexAbort`](../reference.md#mutation-rootmutation) is used to ensure that indexing is interrupted.
 
 ```graphql
 mutation {
