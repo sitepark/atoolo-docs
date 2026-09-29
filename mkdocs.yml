@@ -92,6 +92,7 @@ watch:
 # https://squidfunk.github.io/mkdocs-material/reference/
 theme:
   name: material
+  variant: modern
   palette:
     - media: "(prefers-color-scheme)"
       primary: custom
@@ -118,6 +119,7 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
   favicon: images/favicon.ico
+  logo: images/favicon.ico
   icon:
     admonition:
       note: material/alert-circle-outline
@@ -157,10 +159,8 @@ markdown_extensions:
   - def_list
   - md_in_html
   - abbr
-  - pymdownx.snippets
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
