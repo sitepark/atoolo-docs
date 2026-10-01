@@ -18,6 +18,16 @@
 <td></td>
 </tr>
 <tr>
+<td colspan="2" valign="top"><strong id="rootquery.search">search</strong></td>
+<td valign="top"><a href="#searchresult">SearchResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#searchinput">SearchInput</a>!</td>
+<td></td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong id="rootquery.suggest">suggest</strong></td>
 <td valign="top"><a href="#suggestresult">SuggestResult</a>!</td>
 <td></td>
@@ -33,7 +43,42 @@
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="rootquery.search">search</strong></td>
+<td colspan="2" valign="top"><strong id="rootquery.morelikethis">moreLikeThis</strong></td>
+<td valign="top"><a href="#searchresult">SearchResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#morelikethisinput">MoreLikeThisInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.suggestcitygovpersonfield">suggestCitygovPersonField</strong></td>
+<td valign="top"><a href="#suggestresult">SuggestResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">field</td>
+<td valign="top"><a href="#citygovpersonfield">CitygovPersonField</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#suggestcitygovpersoninput">SuggestCitygovPersonInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.searchcitygovperson">searchCitygovPerson</strong></td>
+<td valign="top"><a href="#searchresult">SearchResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#searchcitygovpersoninput">SearchCitygovPersonInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootquery.searchevents">searchEvents</strong></td>
 <td valign="top"><a href="#searchresult">SearchResult</a>!</td>
 <td></td>
 </tr>
@@ -43,14 +88,40 @@
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="rootquery.morelikethis">moreLikeThis</strong></td>
-<td valign="top"><a href="#searchresult">SearchResult</a>!</td>
-<td></td>
+<td colspan="2" valign="top"><strong id="rootquery.genaiquestion">genAiQuestion</strong></td>
+<td valign="top"><a href="#genaiquestionresult">GenAiQuestionResult</a>!</td>
+<td>
+
+Answers a question using the resources indexed in the GenAI application: a GenAiAnswer, or an error that says why the question was not answered.
+
+</td>
 </tr>
 <tr>
-<td colspan="2" align="right" valign="top">input</td>
-<td valign="top"><a href="#morelikethisinput">MoreLikeThisInput</a>!</td>
-<td></td>
+<td colspan="2" align="right" valign="top">query</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The question.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">lang</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Language of the question, the one of the channel if not given.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">categoryIds</td>
+<td valign="top">[<a href="#string">String</a>!]</td>
+<td>
+
+Restricts the retrieved resources to these categories; a parent category also matches its subcategories, several ids are combined with OR.
+
+</td>
 </tr>
 </tbody>
 </table>
@@ -105,43 +176,26 @@ list of id's of the entries to be deleted
 <td></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="rootmutation.webaccountstartpasswordrecovery">webAccountStartPasswordRecovery</strong></td>
-<td valign="top"><a href="#startpasswordrecoveryresult">StartPasswordRecoveryResult</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">input</td>
-<td valign="top"><a href="#startpasswordrecoveryinput">StartPasswordRecoveryInput</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong id="rootmutation.webaccountfinishpasswordrecovery">webAccountFinishPasswordRecovery</strong></td>
+<td colspan="2" valign="top"><strong id="rootmutation.genaianswerfeedback">genAiAnswerFeedback</strong></td>
 <td valign="top"><a href="#boolean">Boolean</a>!</td>
-<td></td>
+<td>
+
+Sets the feedback of the answer the feedbackToken was given for; null withdraws it. Works only while the token is valid, 15 minutes by default. False if the token is unknown or expired, or the content of the answer was deleted.
+
+</td>
 </tr>
 <tr>
-<td colspan="2" align="right" valign="top">input</td>
-<td valign="top"><a href="#finishpasswordrecoveryinput">FinishPasswordRecoveryInput</a>!</td>
-<td></td>
+<td colspan="2" align="right" valign="top">feedbackToken</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The feedbackToken the answer came with.
+
+</td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong id="rootmutation.webaccountstartregistration">webAccountStartRegistration</strong></td>
-<td valign="top"><a href="#startregistrationresult">StartRegistrationResult</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">input</td>
-<td valign="top"><a href="#startregistrationinput">StartRegistrationInput</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong id="rootmutation.webaccountfinishregistration">webAccountFinishRegistration</strong></td>
-<td valign="top"><a href="#finishuserregistrationresulttype">FinishUserRegistrationResultType</a>!</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">input</td>
-<td valign="top"><a href="#finishregistrationinput">FinishRegistrationInput</a>!</td>
+<td colspan="2" align="right" valign="top">feedback</td>
+<td valign="top"><a href="#genaianswerfeedback">GenAiAnswerFeedback</a></td>
 <td></td>
 </tr>
 <tr>
@@ -167,6 +221,46 @@ list of id's of the entries to be deleted
 <tr>
 <td colspan="2" valign="top"><strong id="rootmutation.webaccountunsetjwtcookie">webAccountUnsetJwtCookie</strong></td>
 <td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountstartregistration">webAccountStartRegistration</strong></td>
+<td valign="top"><a href="#startregistrationresult">StartRegistrationResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#startregistrationinput">StartRegistrationInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountfinishregistration">webAccountFinishRegistration</strong></td>
+<td valign="top"><a href="#finishuserregistrationresulttype">FinishUserRegistrationResultType</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#finishregistrationinput">FinishRegistrationInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountstartpasswordrecovery">webAccountStartPasswordRecovery</strong></td>
+<td valign="top"><a href="#startpasswordrecoveryresult">StartPasswordRecoveryResult</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#startpasswordrecoveryinput">StartPasswordRecoveryInput</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="rootmutation.webaccountfinishpasswordrecovery">webAccountFinishPasswordRecovery</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">input</td>
+<td valign="top"><a href="#finishpasswordrecoveryinput">FinishPasswordRecoveryInput</a>!</td>
 <td></td>
 </tr>
 </tbody>
@@ -564,6 +658,381 @@ Downlaod url for the event scheduling as an .ics file
 <td colspan="2" valign="top"><strong id="finishregistrationresult.email">email</strong></td>
 <td valign="top"><a href="#string">String</a>!</td>
 <td></td>
+</tr>
+</tbody>
+</table>
+
+### GenAiAnswer
+
+The answer of the GenAI application to a question.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswer.id">id</strong></td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+Id of the answer; null if it was not stored.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswer.feedbacktoken">feedbackToken</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Token to give feedback on the answer with genAiAnswerFeedback, valid for 15 minutes by default; null if the answer cannot be rated.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswer.sections">sections</strong></td>
+<td valign="top">[<a href="#genaianswersection">GenAiAnswerSection</a>!]!</td>
+<td>
+
+The parts of the answer.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswer.duration">duration</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td>
+
+Runtime of the request in seconds.
+
+</td>
+</tr>
+</tbody>
+</table>
+
+### GenAiAnswerCutOffError
+
+The model reached the maximum number of tokens of the channel (answer.maxTokens, finish reason LENGTH or MODEL_LENGTH). The incomplete answer is discarded.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswercutofferror.id">id</strong></td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+Id of the stored error; null if it was not stored.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswercutofferror.feedbacktoken">feedbackToken</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Token to give feedback on the error with genAiAnswerFeedback, valid for 15 minutes by default; null if it cannot be rated.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswercutofferror.duration">duration</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td>
+
+Runtime of the request in seconds.
+
+</td>
+</tr>
+</tbody>
+</table>
+
+### GenAiAnswerLink
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswerlink.url">url</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswerlink.label">label</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The text to link with, empty if the source offers none.
+
+</td>
+</tr>
+</tbody>
+</table>
+
+### GenAiAnswerSource
+
+A resource the content of a section comes from.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswersource.url">url</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswersource.title">title</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### GenAiLinksSection
+
+A list of links of an answer, each with a label.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="genailinkssection.headline">headline</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genailinkssection.links">links</strong></td>
+<td valign="top">[<a href="#genaianswerlink">GenAiAnswerLink</a>!]!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genailinkssection.sources">sources</strong></td>
+<td valign="top">[<a href="#genaianswersource">GenAiAnswerSource</a>!]!</td>
+<td>
+
+The resources the content comes from, empty if it comes from none in particular.
+
+</td>
+</tr>
+</tbody>
+</table>
+
+### GenAiNoDocumentsError
+
+The search found no chunk in the channel, restricted to the categoryIds. The similarity search found none with a similarity of at least answer.similarityThreshold, and the full text search found none with words of the question and a similarity of at least answer.fullTextSimilarityThreshold, if the channel uses it (answer.fullTextTopK > 0). The model was not asked.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="genainodocumentserror.id">id</strong></td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+Id of the stored error; null if it was not stored.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genainodocumentserror.feedbacktoken">feedbackToken</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Token to give feedback on the error with genAiAnswerFeedback, valid for 15 minutes by default; null if it cannot be rated.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genainodocumentserror.duration">duration</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td>
+
+Runtime of the request in seconds.
+
+</td>
+</tr>
+</tbody>
+</table>
+
+### GenAiNoMatchingDocumentsError
+
+The model was given chunks as context, but according to the model none of them answers the question. It returns hints and suggested questions, both possibly empty.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="genainomatchingdocumentserror.id">id</strong></td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+Id of the stored error; null if it was not stored.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genainomatchingdocumentserror.feedbacktoken">feedbackToken</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Token to give feedback on the error with genAiAnswerFeedback, valid for 15 minutes by default; null if it cannot be rated.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genainomatchingdocumentserror.duration">duration</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td>
+
+Runtime of the request in seconds.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genainomatchingdocumentserror.hints">hints</strong></td>
+<td valign="top">[<a href="#genaitextsection">GenAiTextSection</a>!]!</td>
+<td>
+
+How to ask more precisely, possibly none.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genainomatchingdocumentserror.suggestedquestions">suggestedQuestions</strong></td>
+<td valign="top">[<a href="#string">String</a>!]!</td>
+<td>
+
+Questions the user probably meant, at most three, to be offered for asking with one click.
+
+</td>
+</tr>
+</tbody>
+</table>
+
+### GenAiTextSection
+
+Prose, lists or tables of an answer, delivered as HTML.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="genaitextsection.headline">headline</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaitextsection.html">html</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaitextsection.sources">sources</strong></td>
+<td valign="top">[<a href="#genaianswersource">GenAiAnswerSource</a>!]!</td>
+<td>
+
+The resources the content comes from, empty if it comes from none in particular.
+
+</td>
+</tr>
+</tbody>
+</table>
+
+### GenAiUnansweredError
+
+An error of the GenAI application this version of the bundle does not know yet. The question was not answered.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="genaiunanswerederror.id">id</strong></td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+Id of the stored error; null if it was not stored.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaiunanswerederror.feedbacktoken">feedbackToken</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Token to give feedback on the error with genAiAnswerFeedback, valid for 15 minutes by default; null if it cannot be rated.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaiunanswerederror.duration">duration</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td>
+
+Runtime of the request in seconds.
+
+</td>
 </tr>
 </tbody>
 </table>
@@ -1701,6 +2170,99 @@ additional, context dependent teaser features indicating information about the u
 </tbody>
 </table>
 
+### CitygovPerson
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovperson.firstname">firstname</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovperson.lastname">lastname</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovperson.product">product</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovperson.function">function</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovperson.organisation">organisation</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovperson.address">address</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovperson.phonenumber">phonenumber</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### CitygovPersonCompetence
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovpersoncompetence.prefix">prefix</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovpersoncompetence.tin">tin</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovpersoncompetence.file">file</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovpersoncompetence.licenseplateletter">licensePlateLetter</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovpersoncompetence.licenseplateregion">licensePlateRegion</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="citygovpersoncompetence.licenseplatenumber">licensePlateNumber</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ### FinishPasswordRecoveryInput
 
 <table>
@@ -2240,7 +2802,7 @@ Defaults to the current datetime if null
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
 <td>
 
-Sets the lower date boundary. Implicitely directed toward the past.
+Sets the lower date boundary. Implicitly directed toward the past.
 
 </td>
 </tr>
@@ -2249,7 +2811,7 @@ Sets the lower date boundary. Implicitely directed toward the past.
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
 <td>
 
-Sets the upper date boundary. Implicitely directed toward the future.
+Sets the upper date boundary. Implicitly directed toward the future.
 
 </td>
 </tr>
@@ -2319,7 +2881,7 @@ Defaults to the current datetime if null
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
 <td>
 
-Sets the lower date boundary. Implicitely directed toward the past.
+Sets the lower date boundary. Implicitly directed toward the past.
 
 </td>
 </tr>
@@ -2328,7 +2890,7 @@ Sets the lower date boundary. Implicitely directed toward the past.
 <td valign="top"><a href="#dateinterval">DateInterval</a></td>
 <td>
 
-Sets the upper date boundary. Implicitely directed toward the future.
+Sets the upper date boundary. Implicitly directed toward the future.
 
 </td>
 </tr>
@@ -2358,6 +2920,50 @@ Sets the upper date boundary
 <tr>
 <td colspan="2" valign="top"><strong id="relativedaterangeinputfilter.roundend">roundEnd</strong></td>
 <td valign="top"><a href="#daterangeround">DateRangeRound</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### SearchCitygovPersonInput
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcitygovpersoninput.person">person</strong></td>
+<td valign="top"><a href="#citygovperson">CitygovPerson</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcitygovpersoninput.personcompetence">personCompetence</strong></td>
+<td valign="top"><a href="#citygovpersoncompetence">CitygovPersonCompetence</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcitygovpersoninput.offset">offset</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcitygovpersoninput.limit">limit</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcitygovpersoninput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="searchcitygovpersoninput.sort">sort</strong></td>
+<td valign="top">[<a href="#inputsortcriteria">InputSortCriteria</a>!]</td>
 <td></td>
 </tr>
 </tbody>
@@ -2640,6 +3246,40 @@ Sets the upper date boundary
 </tbody>
 </table>
 
+### SuggestCitygovPersonInput
+
+<table>
+<thead>
+<tr>
+<th colspan="2" align="left">Field</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestcitygovpersoninput.person">person</strong></td>
+<td valign="top"><a href="#citygovperson">CitygovPerson</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestcitygovpersoninput.personcompetence">personCompetence</strong></td>
+<td valign="top"><a href="#citygovpersoncompetence">CitygovPersonCompetence</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestcitygovpersoninput.limit">limit</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestcitygovpersoninput.lang">lang</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ### SuggestInput
 
 <table>
@@ -2674,6 +3314,11 @@ Sets the upper date boundary
 <tr>
 <td colspan="2" valign="top"><strong id="suggestinput.archive">archive</strong></td>
 <td valign="top"><a href="#boolean">Boolean</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="suggestinput.minhitcount">minHitCount</strong></td>
+<td valign="top"><a href="#int">Int</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -2740,6 +3385,47 @@ Sets the upper date boundary
 </tbody>
 </table>
 
+### CitygovPersonField
+
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>FIRSTNAME</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>LASTNAME</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>PRODUCT</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>FUNCTION</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>ORGANISATION</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>ADDRESS</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>PHONENUMBER</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 ### DateRangeRound
 
 <table>
@@ -2796,6 +3482,27 @@ Sets the upper date boundary
 </tr>
 <tr>
 <td valign="top"><strong>END_OF_PREVIOUS_YEAR</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+### GenAiAnswerFeedback
+
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>GOOD</strong></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><strong>BAD</strong></td>
 <td></td>
 </tr>
 </tbody>
@@ -2985,6 +3692,85 @@ represent free-form human-readable text.
 
 **Possible Types:** [Image](#image), [Svg](#svg)
 
+### GenAiAnswerSection
+
+One part of an answer: a GenAiTextSection or a GenAiLinksSection.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswersection.headline">headline</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaianswersection.sources">sources</strong></td>
+<td valign="top">[<a href="#genaianswersource">GenAiAnswerSource</a>!]!</td>
+<td>
+
+The resources the content comes from, empty if it comes from none in particular.
+
+</td>
+</tr>
+</tbody>
+</table>
+
+**Possible Types:** [GenAiTextSection](#genaitextsection), [GenAiLinksSection](#genailinkssection)
+
+### GenAiAnsweredQuestion
+
+What every result of a question carries. Every result is stored and can be rated, an error as well as an answer; only an answer is cached.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong id="genaiansweredquestion.id">id</strong></td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+Id of the result; null if it was not stored.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaiansweredquestion.feedbacktoken">feedbackToken</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Token to give feedback on the result with genAiAnswerFeedback, valid for 15 minutes by default; null if it cannot be rated.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong id="genaiansweredquestion.duration">duration</strong></td>
+<td valign="top"><a href="#float">Float</a>!</td>
+<td>
+
+Runtime of the request in seconds.
+
+</td>
+</tr>
+</tbody>
+</table>
+
+**Possible Types:** [GenAiAnswer](#genaianswer), [GenAiNoDocumentsError](#genainodocumentserror), [GenAiNoMatchingDocumentsError](#genainomatchingdocumentserror), [GenAiAnswerCutOffError](#genaianswercutofferror), [GenAiUnansweredError](#genaiunanswerederror)
+
 ### Teaser
 
 <table>
@@ -3069,6 +3855,61 @@ FinishRegistrationResult and EmailAlreadyExistsError
 <tr>
 <td valign="top"><strong><a href="#emailalreadyexistserror">EmailAlreadyExistsError</a></strong></td>
 <td></td>
+</tr>
+</tbody>
+</table>
+
+### GenAiQuestionResult
+
+The result of a question: an answer, or an error that says why the question was not answered. Further errors of the GenAI application are a GenAiUnansweredError.
+
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong><a href="#genaianswer">GenAiAnswer</a></strong></td>
+<td valign="top">
+
+The answer of the GenAI application to a question.
+
+</td>
+</tr>
+<tr>
+<td valign="top"><strong><a href="#genainodocumentserror">GenAiNoDocumentsError</a></strong></td>
+<td valign="top">
+
+The search found no chunk in the channel, restricted to the categoryIds. The similarity search found none with a similarity of at least answer.similarityThreshold, and the full text search found none with words of the question and a similarity of at least answer.fullTextSimilarityThreshold, if the channel uses it (answer.fullTextTopK > 0). The model was not asked.
+
+</td>
+</tr>
+<tr>
+<td valign="top"><strong><a href="#genainomatchingdocumentserror">GenAiNoMatchingDocumentsError</a></strong></td>
+<td valign="top">
+
+The model was given chunks as context, but according to the model none of them answers the question. It returns hints and suggested questions, both possibly empty.
+
+</td>
+</tr>
+<tr>
+<td valign="top"><strong><a href="#genaianswercutofferror">GenAiAnswerCutOffError</a></strong></td>
+<td valign="top">
+
+The model reached the maximum number of tokens of the channel (answer.maxTokens, finish reason LENGTH or MODEL_LENGTH). The incomplete answer is discarded.
+
+</td>
+</tr>
+<tr>
+<td valign="top"><strong><a href="#genaiunanswerederror">GenAiUnansweredError</a></strong></td>
+<td valign="top">
+
+An error of the GenAI application this version of the bundle does not know yet. The question was not answered.
+
+</td>
 </tr>
 </tbody>
 </table>
