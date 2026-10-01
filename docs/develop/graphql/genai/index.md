@@ -13,26 +13,49 @@ The GenAI application limits the requests per ip address of the visitor. See
 [Client ip](../../bundles/genai.md#client-ip) for what this requires of the
 setup.
 
+The fields follow the [errors as data](../error-handling.md#errors-as-data)
+pattern of the Atoolo GraphQL API: a question the indexed resources do not
+answer is no failure but a result of its own type, a
+[domain error](../error-handling.md#domain-errors) the frontend tells the user
+about. Only a question that cannot be asked at all is a
+[system error](../error-handling.md#system-errors) in the `errors` array, see
+[Errors](#errors).
+
 ## Ask a question
 
 ```graphql
 query {
   genAiQuestion(query: "When is the citizens' office open?", lang: "en") {
-    id
-    error
-    sections {
-      type
-      headline
-      html
-      links {
-        url
-        label
+    __typename
+    ... on GenAiAnsweredQuestion {
+      id
+      feedbackToken
+    }
+    ... on GenAiAnswer {
+      sections {
+        __typename
+        headline
+        sources {
+          url
+          title
+        }
+        ... on GenAiTextSection {
+          html
+        }
+        ... on GenAiLinksSection {
+          links {
+            url
+            label
+          }
+        }
       }
-      sources {
-        url
-        title
+    }
+    ... on GenAiNoMatchingDocumentsError {
+      hints {
+        headline
+        html
       }
-      questions
+      suggestedQuestions
     }
   }
 }
@@ -44,90 +67,66 @@ query {
 | `lang` | Language of the question, e.g. `en`. Without it, the language of the channel is used. |
 | `categoryIds` | Restricts the retrieved resources to these categories. A parent category also matches its subcategories, several ids are combined with OR. |
 
-The answer is made up of sections, each of which is one of two types:
+`genAiQuestion` returns the union `GenAiQuestionResult`. `__typename` says
+which of its types the result is:
 
-- `TEXT` - prose, lists or tables in `html`. E-mail addresses and phone
-  numbers are links with `mailto:` and `tel:`.
-- `LINKS` - a list of links in `links`, each with a `label`, which is empty
-  if the source offers none.
+| Type | Meaning |
+| --- | --- |
+| `GenAiAnswer` | The answer to the question. |
+| `GenAiNoDocumentsError` | No resource was similar enough to the question. |
+| `GenAiNoMatchingDocumentsError` | Resources were found, but none of them answers the question. |
+| `GenAiAnswerCutOffError` | The answer became longer than the GenAI application allows and was discarded. |
+| `GenAiUnansweredError` | Any other reason the GenAI application did not answer, one this version of the bundle does not know yet. |
 
-The field that does not apply to the type is empty. `sources` names the
-resources the content of a section comes from, so that the frontend can link
-them.
+All of them implement the interface `GenAiAnsweredQuestion` with `id`,
+`feedbackToken` and `duration`, the runtime in seconds. `id` is the id under
+which the GenAI application stored the result, `null` if it was not stored.
+The `feedbackToken` is needed to [give feedback](#give-feedback); an
+unanswered question can be rated as well. Request the fields of the types
+you handle; a frontend should also handle a type it does not know, as the
+list may grow.
+
+### The answer
+
+A `GenAiAnswer` is made up of sections. Each implements the interface
+`GenAiAnswerSection` with `headline` and `sources` and is one of two types:
+
+- `GenAiTextSection` - prose, lists or tables in `html`. E-mail addresses and
+  phone numbers are links with `mailto:` and `tel:`.
+- `GenAiLinksSection` - a list of links in `links`, each with a `label`, which
+  is empty if the source offers none.
+
+`sources` names the resources the content of a section comes from, so that
+the frontend can link them.
 
 ```json
 {
   "data": {
     "genAiQuestion": {
+      "__typename": "GenAiAnswer",
       "id": "8f1c2a4e-3b7d-4e0a-9c55-1d2e3f4a5b6c",
-      "error": null,
+      "feedbackToken": "q4Zr8vK2pT1nX7bL0sYwE5mH",
       "sections": [
         {
-          "type": "TEXT",
+          "__typename": "GenAiTextSection",
           "headline": "Opening hours",
-          "html": "<p>The citizens' office is open Monday to Friday from 8 am to 4 pm.</p>",
-          "links": [],
           "sources": [
             {
               "url": "https://www.example.com/citizens-office.php",
               "title": "Citizens' office"
             }
           ],
-          "questions": []
+          "html": "<p>The citizens' office is open Monday to Friday from 8 am to 4 pm.</p>"
         },
         {
-          "type": "LINKS",
+          "__typename": "GenAiLinksSection",
           "headline": "More information",
-          "html": "",
+          "sources": [],
           "links": [
             {
               "url": "https://www.example.com/appointments.php",
               "label": "Book an appointment"
             }
-          ],
-          "sources": [],
-          "questions": []
-        }
-      ]
-    }
-  }
-}
-```
-
-`id` is the id under which the GenAI application stored the answer. It is
-needed to [give feedback](#give-feedback) and is `null` if the answer was not
-stored.
-
-### Unanswered questions
-
-If the indexed resources do not answer the question, `error` says why:
-
-| Error | Meaning |
-| --- | --- |
-| `NO_DOCUMENTS` | No resource was similar enough to the question. |
-| `NO_MATCHING_DOCUMENTS` | Resources were found, but none of them answers the question. |
-
-What the user is told about it is up to the frontend. The sections of such an
-answer are hints how to ask more precisely, possibly none. `questions` lists
-questions the user probably meant, which can be offered for asking with one
-click.
-
-```json
-{
-  "data": {
-    "genAiQuestion": {
-      "id": "0b9e7d6c-5a4f-4321-8e7d-6c5b4a3f2e1d",
-      "error": "NO_MATCHING_DOCUMENTS",
-      "sections": [
-        {
-          "type": "TEXT",
-          "headline": "",
-          "html": "<p>Please say which office you mean.</p>",
-          "links": [],
-          "sources": [],
-          "questions": [
-            "When is the citizens' office open?",
-            "When is the registry office open?"
           ]
         }
       ]
@@ -136,21 +135,53 @@ click.
 }
 ```
 
-## Give feedback
+### Unanswered questions
 
-A user can rate an answer as `GOOD` or `BAD`:
+What the user is told about an unanswered question is up to the frontend.
+Only a `GenAiNoMatchingDocumentsError` carries more than the common fields:
+`hints` are text sections how to ask more precisely, and
+`suggestedQuestions` lists at most three questions the user probably meant,
+which can be offered for asking with one click. Both may be empty.
 
-```graphql
-mutation {
-  genAiAnswerFeedback(
-    answerId: "8f1c2a4e-3b7d-4e0a-9c55-1d2e3f4a5b6c"
-    feedback: GOOD
-  )
+```json
+{
+  "data": {
+    "genAiQuestion": {
+      "__typename": "GenAiNoMatchingDocumentsError",
+      "id": "0b9e7d6c-5a4f-4321-8e7d-6c5b4a3f2e1d",
+      "feedbackToken": "Hn3Wc9aQ6xR0uJ4mZ8kD2fVt",
+      "hints": [
+        {
+          "headline": "",
+          "html": "<p>Please say which office you mean.</p>"
+        }
+      ],
+      "suggestedQuestions": [
+        "When is the citizens' office open?",
+        "When is the registry office open?"
+      ]
+    }
+  }
 }
 ```
 
-Without `feedback` a rating given before is withdrawn. The result is `false`
-if the GenAI application knows no answer with this id.
+## Give feedback
+
+A user can rate a result as `GOOD` or `BAD` with the `feedbackToken` it came
+with:
+
+```graphql
+mutation {
+  genAiAnswerFeedback(feedbackToken: "q4Zr8vK2pT1nX7bL0sYwE5mH", feedback: GOOD)
+}
+```
+
+The token is valid for 15 minutes by default. Within that time the feedback
+can be set, changed or withdrawn as often as wanted; without `feedback` a
+rating given before is withdrawn. Afterwards, or if the content of the answer
+was deleted, the result is `false`. A result without a token (`null`) cannot
+be rated. The token binds the feedback to the user who asked: keep it in the
+memory of the page only, never in `localStorage` or the URL.
 
 ```json
 {
@@ -193,4 +224,5 @@ why, so that the frontend can tell the user what to do:
 An operation may ask only one question. Selecting `genAiQuestion` more than
 once, e.g. under aliases, fails with `BAD_REQUEST`.
 
-See also [Error handling](../error-handling.md).
+See [Error handling](../error-handling.md) for how a client handles both
+kinds of error.

@@ -175,7 +175,7 @@ application serves its parts under different roots:
 | delete by id | `POST /api/index/documents/delete` `{channel, source, ids}` |
 | purge by process id | `POST /api/index/purge` `{channel, source, keepProcessId}` |
 | ask | GraphQL `POST /graphql`, query `question(query!, language!, channel!, categoryIds)` |
-| feedback | GraphQL `POST /graphql`, mutation `answerFeedback(answerId!, feedback)` |
+| feedback | GraphQL `POST /graphql`, mutation `answerFeedback(feedbackToken!, feedback)` |
 
 An empty bulk sends no request at all. The errors GraphQL reports with status
 200 are treated as a failed request as well. The GraphQL requests carry the
@@ -184,36 +184,52 @@ An empty bulk sends no request at all. The errors GraphQL reports with status
 ## Assistant
 
 The assistant asks the GenAI application a question and passes on the
-feedback of a user on the answer. The answer is structured as the application
-delivers it: an `id` to give feedback with, `sections` - `TEXT` with `html`,
-`LINKS` with `links`, each with its `sources` - and an `error` when the
-indexed resources did not answer the question.
+feedback of a user on the answer. Following the
+[errors as data](../graphql/error-handling.md#errors-as-data) pattern, the
+result is modelled as the application delivers it: `ask()` returns a
+`QuestionResult`, which is an `Answer` or one of the errors that say why the
+question was not answered - `NoDocumentsError`, `NoMatchingDocumentsError`,
+`AnswerCutOffError` or `UnansweredError` for an error of the application the
+bundle does not know yet. Every result carries an `id` and a `feedbackToken`
+to give feedback with. The `sections` of an answer are an
+`AnswerTextSection` with `html` or an `AnswerLinksSection` with `links`, each
+with its `sources`. Only a `NoMatchingDocumentsError` has `hints` how to ask
+more precisely and `suggestedQuestions`.
 
 ```php
-$answer = $assistant->ask(new Question(
+$result = $assistant->ask(new Question(
     'When is the next council meeting?',
     ResourceLanguage::of('en'),
     ['10'], // category ids, optional
 ));
 
-if ($answer->error !== null) {
-    // the sections are hints how to ask more precisely
-}
-foreach ($answer->sections as $section) {
-    echo $section->headline;
-    echo $section->html;
-    foreach ($section->links as $link) {
-        echo $link->label . ': ' . $link->url;
+if ($result instanceof Answer) {
+    foreach ($result->sections as $section) {
+        echo $section->headline;
+        if ($section instanceof AnswerTextSection) {
+            echo $section->html;
+        }
+        if ($section instanceof AnswerLinksSection) {
+            foreach ($section->links as $link) {
+                echo $link->label . ': ' . $link->url;
+            }
+        }
+        foreach ($section->sources as $source) {
+            echo $source->url;
+        }
     }
-    foreach ($section->sources as $source) {
-        echo $source->url;
-    }
+} elseif ($result instanceof NoMatchingDocumentsError) {
+    // $result->hints, $result->suggestedQuestions
 }
 
-if ($answer->id !== null) {
-    $assistant->feedback($answer->id, AnswerFeedback::GOOD);
+if ($result->feedbackToken !== null) {
+    $assistant->feedback($result->feedbackToken, AnswerFeedback::GOOD);
 }
 ```
+
+A question that cannot be asked at all - not accepted by the application,
+too many requests, the application not available - throws an
+`AssistantException` with its `AssistantErrorType`.
 
 The question is asked in the channel of the site. A question without a
 language is asked in the language of the channel.
