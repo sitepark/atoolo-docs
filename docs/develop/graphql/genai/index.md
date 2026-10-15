@@ -36,6 +36,7 @@ query {
         __typename
         headline
         sources {
+          kind
           url
           title
         }
@@ -96,8 +97,15 @@ A `GenAiAnswer` is made up of sections. Each implements the interface
 - `GenAiLinksSection` - a list of links in `links`, each with a `label`, which
   is empty if the source offers none.
 
-`sources` names the resources the content of a section comes from, so that
-the frontend can link them.
+`sources` names what the content of a section comes from, so that the
+frontend can show and link it. Its `kind` is one of two values:
+
+- `DOCUMENT` - a resource of the website; link its `title` to its `url`.
+- `KNOWLEDGE` - the internal knowledge base: a knowledge entry the editors
+  maintain without a page of its own, e.g. which citizens' office lies in
+  which district. Its `url` is null and its `title` is "Interne
+  Wissensbasis"; show it without link. An answer may come from knowledge
+  entries alone.
 
 ```json
 {
@@ -112,8 +120,14 @@ the frontend can link them.
           "headline": "Opening hours",
           "sources": [
             {
+              "kind": "DOCUMENT",
               "url": "https://www.example.com/citizens-office.php",
               "title": "Citizens' office"
+            },
+            {
+              "kind": "KNOWLEDGE",
+              "url": null,
+              "title": "Interne Wissensbasis"
             }
           ],
           "html": "<p>The citizens' office is open Monday to Friday from 8 am to 4 pm.</p>"

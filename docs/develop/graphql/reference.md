@@ -790,7 +790,7 @@ The text to link with, empty if the source offers none.
 
 ### GenAiAnswerSource
 
-A resource the content of a section comes from.
+What the content of a section comes from: a resource of the website, or the internal knowledge base, a knowledge entry without a page of its own.
 
 <table>
 <thead>
@@ -803,9 +803,22 @@ A resource the content of a section comes from.
 </thead>
 <tbody>
 <tr>
+<td colspan="2" valign="top"><strong id="genaianswersource.kind">kind</strong></td>
+<td valign="top"><a href="#genaianswersourcekind">GenAiAnswerSourceKind</a>!</td>
+<td>
+
+DOCUMENT for a resource with a URL, KNOWLEDGE for the internal knowledge base.
+
+</td>
+</tr>
+<tr>
 <td colspan="2" valign="top"><strong id="genaianswersource.url">url</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The URL of the resource, null for the internal knowledge base, which is shown without link.
+
+</td>
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong id="genaianswersource.title">title</strong></td>
@@ -3504,6 +3517,37 @@ Sets the upper date boundary
 <tr>
 <td valign="top"><strong>BAD</strong></td>
 <td></td>
+</tr>
+</tbody>
+</table>
+
+### GenAiAnswerSourceKind
+
+What a GenAiAnswerSource is.
+
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>DOCUMENT</strong></td>
+<td>
+
+A document of the website, linked by its URL.
+
+</td>
+</tr>
+<tr>
+<td valign="top"><strong>KNOWLEDGE</strong></td>
+<td>
+
+A knowledge entry: a text without a page of its own, named as the internal knowledge base and not linked.
+
+</td>
 </tr>
 </tbody>
 </table>
