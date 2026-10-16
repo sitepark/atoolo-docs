@@ -116,7 +116,7 @@ the channel are indexed, translations are left out.
 
 ### The document
 
-The GenAI application knows two kinds of document, told apart by `type`:
+The GenAI application knows four kinds of document, told apart by `type`:
 
 - `article` - a page, made of the sections the editor arranged: text blocks
   keep their HTML, link lists their links. The contact point and its opening
@@ -124,9 +124,18 @@ The GenAI application knows two kinds of document, told apart by `type`:
   carries a `kicker` - inherited from the navigation if the page has none -
   and an `intro`.
 - `media` - a binary asset with the text the CMS extracted from it.
+- `knowledge` - a knowledge entry: one HTML `text` without page of its own,
+  so without url, date, categories or archive. The application finds it with
+  a search of its own and cites it as the internal knowledge base. Resources
+  of the object types in `GENAI_KNOWLEDGE_OBJECT_TYPES` are knowledge
+  entries, and so are the files of `configs/genai/knowledge` (see below).
+- `glossary` - the `entries` of a glossary, each with `terms` and an
+  `expansion`, from the files of `configs/genai/glossary`. The glossaries of
+  a channel together are the glossary the application normalizes and
+  searches its questions with; a glossary is neither chunked nor embedded.
 
-Both carry `id`, `channel`, `source`, `processId`, `objectType`, `title`,
-`url`, `date`, `categories`, `keywords` and `hash`. The url is absolute, as the
+Articles and media carry `id`, `channel`, `source`, `processId`,
+`objectType`, `title`, `url`, `date`, `categories`, `keywords` and `hash`. The url is absolute, as the
 application links it as the source of an answer. `keywords` are terms the
 document is to be found by although its text may not contain them - the
 keywords of the metadata, and the synonyms other bundles add. Fields that are
@@ -137,6 +146,40 @@ To dump what an index run would send:
 ```sh
 bin/console index:dump-document --indexer genai /path/to/resource.php
 ```
+
+### Glossary and knowledge entries of the configuration
+
+The CMS keeps a glossary and knowledge entries as configuration of the
+resource channel. Every file returns an array and carries the id of its CMS
+resource, which is the id of the document:
+
+```php
+// configs/genai/glossary/<name>.php: one glossary
+<?php return [
+    'id' => 40540,
+    'title' => 'Stadtteile',           // optional, else the file name
+    'definitions' => [
+        ['terms' => ['OB'], 'definition' => 'Oberbürgermeister'],
+        ['terms' => ['perso', 'persi'], 'definition' => 'Personalausweis'],
+    ],
+];
+
+// configs/genai/knowledge/<name>.php: one knowledge entry
+<?php return [
+    'id' => 40541,
+    'headline' => 'Stuttgart 21 – Aktueller Stand',
+    'keywords' => ['S21'],             // optional
+    'text' => ['modelType' => 'html.richText', 'text' => '<p>…</p>'],
+];
+```
+
+They are data of the internal resource channel and are sent with the source
+`internal`: a full run of the GenAI indexer sends all of them with its process
+id, so that the purge closing the run keeps them; a
+[resource change notification](resource.md#resource-change-notification) of
+one of the files sends them again, and a removed one is deleted by the id of
+its resource. Only the German files are read, the translations are left out.
+A term must contain neither a comma nor an equals sign.
 
 ### Custom Document Enricher
 
