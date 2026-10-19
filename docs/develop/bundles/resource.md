@@ -280,14 +280,31 @@ sequenceDiagram
 ```json
 {
   "changed": [
-    { "id": "1234", "path": "/news/foo.php" },
-    { "id": "1234", "path": "/news/foo.php.translations/en_US.php" }
+    { "id": "1234", "path": "/news/foo.php", "publicationType": "OBJECT" },
+    {
+      "id": "1234",
+      "path": "/news/foo.php.translations/en_US.php",
+      "publicationType": "OBJECT"
+    },
+    {
+      "id": "40540",
+      "path": "/genai/glossary/stadtteile.php",
+      "publicationType": "CONFIG"
+    }
   ],
   "removed": [{ "id": "5678" }]
 }
 ```
 
 - `changed` names the published files, a translation by its own file.
+- `publicationType` is the publication type of the CMS: `OBJECT`, `MEDIA` or
+  `EMBEDDED_MEDIA` for a file of the resource directory, `CONFIG` for a file
+  of the configuration directory `configs`, for example. The path is relative
+  to the directory of the type, so only the type tells a configuration from a
+  resource. It is optional: a change without type is one of a resource, as an
+  older CMS reports it. The CMS reports the publication type since IES 3.27
+  with the ies-webnode admin module, and it reports a published configuration
+  as a change, while an older one reports it as a removal.
 - `removed` names the resources that are no longer published or must not be
   found - in all their languages.
 
@@ -345,7 +362,7 @@ class CacheInvalidator implements ResourceChangeHandler
 {
     public function handle(ResourceChanges $changes): void
     {
-        foreach ($changes->changedPaths() as $path) {
+        foreach ($changes->changedResourcePaths() as $path) {
             // invalidate the cache of the path
         }
         foreach ($changes->removedIds as $id) {
@@ -354,6 +371,11 @@ class CacheInvalidator implements ResourceChangeHandler
     }
 }
 ```
+
+`changedResourcePaths()` names the paths of the changed resources only,
+`changedPaths()` all of them. A handler of other files reads the
+`ResourceChange`s in `$changes->changed`, with their `publicationType` - the
+GenAI Bundle sends the glossaries of `configs/genai` again this way.
 
 ## Asynchronous messages per channel
 

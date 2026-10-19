@@ -178,7 +178,10 @@ They are data of the internal resource channel and are sent with the source
 id, so that the purge closing the run keeps them; a
 [resource change notification](resource.md#resource-change-notification) of
 one of the files sends them again, and a removed one is deleted by the id of
-its resource. Only the German files are read, the translations are left out.
+its resource. The CMS reports a change of such a file with the publication
+type `CONFIG`, since IES 3.27 with the ies-webnode admin module; an older CMS
+reports the publication of a configuration as a removal. Only the German
+files are read, the translations are left out.
 A term must contain neither a comma nor an equals sign.
 
 ### Custom Document Enricher
