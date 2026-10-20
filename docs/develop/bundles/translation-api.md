@@ -10,7 +10,7 @@ used by
 
 The bundle only delivers existing translations. It does not create or
 translate them — for automatic translations see the
-[Translator Bundle](translator.md).
+[Translator Bundle](translator.md) (machine translation).
 
 ## Sources
 
