@@ -53,6 +53,7 @@ nav = [
       { "CityCall" = "develop/bundles/citycall.md" },
       { "Events Calendar" = "develop/bundles/events-calendar.md" },
       { "Translator" = "develop/bundles/translator.md" },
+      { "Translation API" = "develop/bundles/translation-api.md" },
       { "Seo" = "develop/bundles/seo.md" },
       { "Micosite" = "develop/bundles/microsite.md" },
       { "Rewrite" = "develop/bundles/rewrite.md" },
