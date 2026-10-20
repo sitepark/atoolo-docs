@@ -42,6 +42,7 @@ nav = [
       { "Search" = "develop/bundles/search/index.md" },
       { "GenAI" = "develop/bundles/genai.md" },
       { "Security" = "develop/bundles/security.md" },
+      { "Translation API" = "develop/bundles/translation-api.md" },
       { "GraphQL search" = [
         "develop/bundles/graphql-search/index.md",
         { "Configuration" = "develop/bundles/graphql-search/config.md" },
@@ -53,7 +54,6 @@ nav = [
       { "CityCall" = "develop/bundles/citycall.md" },
       { "Events Calendar" = "develop/bundles/events-calendar.md" },
       { "Machine Translation" = "develop/bundles/translator.md" },
-      { "Translation API" = "develop/bundles/translation-api.md" },
       { "Seo" = "develop/bundles/seo.md" },
       { "Micosite" = "develop/bundles/microsite.md" },
       { "Rewrite" = "develop/bundles/rewrite.md" },
@@ -92,6 +92,9 @@ nav = [
     ] },
     { "ICal API" = [
       "develop/ical/index.md",
+    ] },
+    { "Translation API" = [
+      "develop/translation/index.md",
     ] },
     { "Symfony Flex integration" = "develop/symfony-flex-integration.md" },
   ] },
