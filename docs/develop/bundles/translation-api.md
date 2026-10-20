@@ -71,17 +71,16 @@ atoolo_translation_api:
 
 ## Access
 
-Without full access only the domains listed in `domains` of the allowed
-`locales` can be fetched; everything else responds with `404`. Users with one
-of the `full_access_roles` can fetch and list every domain of every
-well-formed locale. These responses are private, so that shared caches do not
-store them.
+`domains` and `locales` define what is public. Users with one of the
+`full_access_roles` can fetch and list every domain of every well-formed
+locale; how clients authenticate is described in the
+[Translation API](../translation/index.md#access).
 
-With the [Security Bundle](security.md) the `api` firewall (`^/api`, JWT)
-covers the endpoints. Clients get a token via `POST /api/login_check` and send
-it as `Authorization: Bearer <token>`. The IES uses the user `api` with the
-role `ROLE_API`, so `full_access_roles: [ROLE_API, ROLE_ADMIN]` gives the IES
-access without an additional user.
+The bundle does not authenticate users itself. With the
+[Security Bundle](security.md) its `api` firewall (`^/api`, JWT) covers the
+endpoints. The IES uses the user `api` with the role `ROLE_API`, so
+`full_access_roles: [ROLE_API, ROLE_ADMIN]` gives the IES access without an
+additional user.
 
 ## CORS
 
