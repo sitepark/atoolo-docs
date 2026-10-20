@@ -64,7 +64,7 @@ query {
 
 | Argument | Description |
 | --- | --- |
-| `query` | The question. |
+| `query` | The question, at most 1000 characters. The whitespace around it is removed and does not count. |
 | `lang` | Language of the question, e.g. `en`. Without it, the language of the channel is used. |
 | `categoryIds` | Restricts the retrieved resources to these categories. A parent category also matches its subcategories, several ids are combined with OR. |
 
@@ -217,8 +217,14 @@ why, so that the frontend can tell the user what to do:
 | Classification | Meaning |
 | --- | --- |
 | `BAD_REQUEST` | The GenAI application does not accept the request, the message says why: the question is longer than 1000 characters, the language is no ISO 639 code like `de`, more than 20 categories are given, or nothing is indexed in the channel yet. |
-| `TOO_MANY_REQUESTS` | The visitor, or all visitors together, asked too many questions in the last minute. The question may be asked again later. |
+| `TOO_MANY_REQUESTS` | The visitor, or all visitors together, asked too many questions in the last minute, or too many are being answered right now. The question may be asked again later. |
+| `SERVICE_UNAVAILABLE` | The GenAI application answers no questions at the moment, e.g. an admin switched the answers off. The question may be asked again later. |
 | `INTERNAL_ERROR` | The GenAI application cannot be reached or failed. The message is a general one, the cause is logged by the website. |
+
+A question longer than 1000 characters is refused by the website itself,
+without asking the GenAI application. An HTTP status `413`, `429` or `503`
+of the application, or of a proxy in front of it, is reported as
+`BAD_REQUEST`, `TOO_MANY_REQUESTS` or `SERVICE_UNAVAILABLE`.
 
 ```json
 {
@@ -235,8 +241,9 @@ why, so that the frontend can tell the user what to do:
 }
 ```
 
-An operation may ask only one question. Selecting `genAiQuestion` more than
-once, e.g. under aliases, fails with `BAD_REQUEST`.
+Ask one question per operation. Every selection of `genAiQuestion`, also
+under an alias, asks a question of its own and counts to the rate limit of
+the visitor.
 
 See [Error handling](../error-handling.md) for how a client handles both
 kinds of error.

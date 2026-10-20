@@ -92,7 +92,7 @@
 <td valign="top"><a href="#genaiquestionresult">GenAiQuestionResult</a>!</td>
 <td>
 
-Answers a question using the resources indexed in the GenAI application: a GenAiAnswer, or an error that says why the question was not answered.
+Answers a question using the resources indexed in the GenAI application: a GenAiAnswer, or an error that says why the question was not answered. A question that cannot be asked fails with the classification BAD_REQUEST (e.g. too long), TOO_MANY_REQUESTS (too many questions, ask again later), SERVICE_UNAVAILABLE (no answers at the moment, ask again later) or INTERNAL_ERROR.
 
 </td>
 </tr>
@@ -101,7 +101,7 @@ Answers a question using the resources indexed in the GenAI application: a GenAi
 <td valign="top"><a href="#string">String</a>!</td>
 <td>
 
-The question.
+The question, at most 1000 characters without the whitespace around it.
 
 </td>
 </tr>
