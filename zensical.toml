@@ -110,13 +110,18 @@ draft = "Draft"
 [project.theme]
 variant = "modern"
 favicon = "images/favicon.ico"
-logo = "images/favicon.ico"
+logo = "images/sitepark-logo.svg"
 features = [
   "navigation.indexes",
   "content.code.copy",
   "content.code.select",
   "content.code.annotate",
 ]
+
+# Source Sans 3 is the successor of Source Sans Pro used on www.sitepark.com
+[project.theme.font]
+text = "Source Sans 3"
+code = "JetBrains Mono"
 
 [project.theme.icon]
 admonition.note = "material/alert-circle-outline"
@@ -125,7 +130,7 @@ repo = "fontawesome/brands/github"
 [[project.theme.palette]]
 media = "(prefers-color-scheme)"
 primary = "custom"
-accent = "amber"
+accent = "custom"
 toggle.icon = "material/brightness-auto"
 toggle.name = "Switch to light mode"
 
@@ -134,7 +139,7 @@ toggle.name = "Switch to light mode"
 media = "(prefers-color-scheme: light)"
 scheme = "default"
 primary = "custom"
-accent = "amber"
+accent = "custom"
 toggle.icon = "material/brightness-7"
 toggle.name = "Switch to dark mode"
 
@@ -143,7 +148,7 @@ toggle.name = "Switch to dark mode"
 media = "(prefers-color-scheme: dark)"
 scheme = "slate"
 primary = "custom"
-accent = "amber"
+accent = "custom"
 toggle.icon = "material/brightness-4"
 toggle.name = "Switch to system preference"
 

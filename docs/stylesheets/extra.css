@@ -1,24 +1,125 @@
+/*
+Corporate design of www.sitepark.com (see the custom properties in its
+stylesheet /_astro/Layout.*.css). Brand colors are defined only in the
+brand token block below; everything else refers to these tokens.
+*/
+
+/* brand tokens */
+:root {
+    --sp-color-primary:   #fbba00;
+    --sp-color-secondary: #3c3c3b;
+    --sp-color-black:     #000000;
+    --sp-color-white:     #ffffff;
+    --sp-color-gray:      #e2e2e1;
+    --sp-color-lightgray: #f0f1f2;
+
+    --sp-radius: 3px;
+}
+
+/* theme mapping, shared by both schemes */
 :root > * {
+    --md-accent-fg-color:              var(--sp-color-primary);
+    --md-accent-fg-color--transparent: color-mix(in srgb, var(--sp-color-primary) 20%, transparent);
+    --md-accent-bg-color:              var(--sp-color-black);
+    --md-accent-bg-color--light:       var(--sp-color-secondary);
 
-  --md-primary-fg-color:               #fbba00;
-  --md-primary-fg-color--light:        #fbba00;
-  --md-primary-fg-color--dark:         #3c3c3b;
-  --md-primary-bg-color:               #000000;
-  --md-primary-bg-color--light:        #3c3c3b;
+    --md-status--draft: url('data:image/svg+xml;charset=utf-8,<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M863.99296 0c88.369433 0 160.00704 71.637607 160.00704 160.00704 0 36.0236-11.919122 69.261975-32.0096 96.00832l-63.99872 63.99872-224.00576-224.00576 63.99872-63.99872c26.746345-20.090478 59.98472-32.0096 96.00832-32.0096zM63.99872 735.99552l-63.99872 288.00448 288.00448-63.99872 591.98304-591.98304-224.00576-224.00576-591.98304 591.98304zM715.556889 363.574169l-447.99104 447.99104-55.151537-55.151537 447.99104-447.99104 55.151537 55.151537z"  /></svg>')
+}
 
-  --md-accent-fg-color:                #fbba00;
-  --md-accent-fg-color--transparent:   #fbba0033;
-  --md-accent-bg-color:                #FFFFFF;
-  --md-accent-bg-color--light:         #FFFFFF;
+/* light scheme: white header like www.sitepark.com, yellow as accent */
+[data-md-color-scheme="default"] {
+    --md-primary-fg-color:        var(--sp-color-white);
+    --md-primary-fg-color--light: var(--sp-color-lightgray);
+    --md-primary-fg-color--dark:  var(--sp-color-secondary);
+    --md-primary-bg-color:        var(--sp-color-black);
+    --md-primary-bg-color--light: var(--sp-color-secondary);
 
-  --md-status--draft: url('data:image/svg+xml;charset=utf-8,<svg class="svg-icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M863.99296 0c88.369433 0 160.00704 71.637607 160.00704 160.00704 0 36.0236-11.919122 69.261975-32.0096 96.00832l-63.99872 63.99872-224.00576-224.00576 63.99872-63.99872c26.746345-20.090478 59.98472-32.0096 96.00832-32.0096zM63.99872 735.99552l-63.99872 288.00448 288.00448-63.99872 591.98304-591.98304-224.00576-224.00576-591.98304 591.98304zM715.556889 363.574169l-447.99104 447.99104-55.151537-55.151537 447.99104-447.99104 55.151537 55.151537z"  /></svg>')
+    --md-typeset-a-color:         var(--sp-color-black);
+    --md-code-bg-color:           var(--sp-color-lightgray);
 
+    --sp-header-bg-color:         var(--sp-color-white);
+    --sp-header-fg-color:         var(--sp-color-black);
+    --sp-header-border-color:     var(--sp-color-gray);
+}
+
+/* dark scheme: www.sitepark.com has none, the secondary color takes the header */
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color:        var(--sp-color-secondary);
+    --md-primary-fg-color--light: var(--sp-color-secondary);
+    --md-primary-fg-color--dark:  var(--sp-color-black);
+    --md-primary-bg-color:        var(--sp-color-white);
+    --md-primary-bg-color--light: var(--sp-color-gray);
+
+    --md-typeset-a-color:         var(--sp-color-primary);
+
+    --sp-header-bg-color:         var(--sp-color-secondary);
+    --sp-header-fg-color:         var(--sp-color-white);
+    --sp-header-border-color:     var(--sp-color-secondary);
+}
+
+::selection {
+    color: var(--sp-color-black);
+    background-color: var(--sp-color-primary);
+}
+
+/* the modern theme renders a translucent neutral header */
+.md-header {
+    color: var(--sp-header-fg-color);
+    background-color: var(--sp-header-bg-color);
+    border-bottom: 1px solid var(--sp-header-border-color);
+}
+
+.md-header__button {
+    outline-color: var(--sp-header-fg-color);
+}
+
+/* the logo is wider than the square icon the theme expects */
+.md-header__button.md-logo img,
+.md-nav__title .md-logo img {
+    width: auto;
+}
+
+.md-nav .md-nav__title[for=__drawer] .md-logo {
+    width: auto;
+}
+
+/* the dark parts of the logo would vanish on the dark header */
+[data-md-color-scheme="slate"] .md-logo img {
+    filter: brightness(0) invert(1);
 }
 
 .md-typeset a {
-    color: var(--md-typeset-color, #000000);
-    font-style: italic;
+    color: var(--md-typeset-a-color);
     text-decoration: underline;
+    text-decoration-color: var(--sp-color-primary);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+}
+
+.md-typeset a:hover,
+.md-typeset a:focus {
+    text-decoration-color: currentColor;
+}
+
+/* the heading permalinks are links too, but must stay unobtrusive */
+.md-typeset .headerlink {
+    text-decoration: none;
+}
+
+/* yellow text is not readable on the light accent background of the active nav item */
+.md-nav--primary .md-nav__item .md-nav__link--active {
+    color: var(--md-default-fg-color);
+}
+
+/* www.sitepark.com uses flat shapes with small corners */
+.md-typeset .admonition,
+.md-typeset details,
+.md-typeset pre > code,
+.md-typeset .tabbed-set,
+.md-typeset .md-button,
+.md-nav__link,
+.md-search__form {
+    border-radius: var(--sp-radius);
 }
 
 /*
@@ -28,19 +129,4 @@ https://mkdocs-material.github.io/examples/page-status/
 .md-status--draft::after {
     mask-image: var(--md-status--draft);
     -webkit-mask-image: var(--md-status--draft);
-}
-
-/* yellow text is not readable on the light accent background of the active nav item */
-.md-nav--primary .md-nav__item .md-nav__link--active {
-    color: var(--md-default-fg-color);
-}
-
-/* the modern theme renders a neutral header, keep the brand color instead */
-.md-header {
-    color: var(--md-primary-bg-color);
-    background-color: var(--md-primary-fg-color);
-}
-
-.md-header__button {
-    outline-color: var(--md-primary-bg-color);
 }
