@@ -60,6 +60,7 @@ nav = [
       { "WebAccount" = "develop/bundles/web-account.md" },
       { "Extranet" = "develop/bundles/extranet.md" },
       { "Crawler Teaser Indexer" = "develop/bundles/crawler-teaser-indexer.md" },
+      { "OParl" = "develop/bundles/oparl.md" },
     ] },
     { "GraphQL API" = [
       "develop/graphql/index.md",
