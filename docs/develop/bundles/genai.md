@@ -293,4 +293,6 @@ only available when the GraphQL API is installed as well, see
 bin/console genai:ask "When is the next council meeting?" --lang en --category 10
 ```
 
-`--category` can be given several times.
+`--category` can be given several times. `--archive` also answers from archived
+resources, `--no-archive` only from the others; without either, the server
+setting `answer.archive` of the channel applies.

@@ -67,6 +67,7 @@ query {
 | `query` | The question, at most 1000 characters. The whitespace around it is removed and does not count. |
 | `lang` | Language of the question, e.g. `en`. Without it, the language of the channel is used. |
 | `categoryIds` | Restricts the retrieved resources to these categories. A parent category also matches its subcategories, several ids are combined with OR. |
+| `archive` | Optional `Boolean`. `true` also answers from archived resources, `false` only from the others. Without it, the server setting `answer.archive` of the channel applies, which includes archived resources unless an admin changed it. |
 
 `genAiQuestion` returns the union `GenAiQuestionResult`. `__typename` says
 which of its types the result is:

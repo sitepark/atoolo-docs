@@ -123,6 +123,15 @@ Restricts the retrieved resources to these categories; a parent category also ma
 
 </td>
 </tr>
+<tr>
+<td colspan="2" align="right" valign="top">archive</td>
+<td valign="top"><a href="#boolean">Boolean</a></td>
+<td>
+
+true also answers from archived resources, false only from the others; without it the server setting answer.archive of the channel applies (archived resources included unless an admin changed it).
+
+</td>
+</tr>
 </tbody>
 </table>
 
