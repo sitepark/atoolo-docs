@@ -219,7 +219,7 @@ why, so that the frontend can tell the user what to do:
 | --- | --- |
 | `BAD_REQUEST` | The GenAI application does not accept the request, the message says why: the question is longer than 1000 characters, the language is no ISO 639 code like `de`, more than 20 categories are given, or nothing is indexed in the channel yet. |
 | `TOO_MANY_REQUESTS` | The visitor, or all visitors together, asked too many questions in the last minute, or too many are being answered right now. The question may be asked again later. |
-| `SERVICE_UNAVAILABLE` | The GenAI application answers no questions at the moment, e.g. an admin switched the answers off. The question may be asked again later. |
+| `SERVICE_UNAVAILABLE` | The GenAI application answers no questions at the moment, e.g. an admin switched the answers off, or the questions reached a cost limit of the last hour, five hours or day. The question may be asked again later; until then the website should not offer the AI search. |
 | `INTERNAL_ERROR` | The GenAI application cannot be reached or failed. The message is a general one, the cause is logged by the website. |
 
 A question longer than 1000 characters is refused by the website itself,
