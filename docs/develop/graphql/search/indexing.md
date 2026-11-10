@@ -16,6 +16,13 @@ mutation {
 
 ## Updating individual documents
 
+!!! note
+
+    The IES notifies up-to-date websites through the
+    [resource change notification](../../bundles/resource.md#resource-change-notification)
+    instead, which reaches every index - not only the Solr index. `indexUpdate`
+    and `indexRemove` remain for older IES versions.
+
 If new articles are created or updated in the CMS, they must also be created or updated in the index. This is also done via the mutation [`indexUpdate`](../reference.md#mutation-rootmutation). The paths of the resources to be updated are passed via an array.
 
 ```graphql
@@ -28,7 +35,7 @@ mutation {
 
 ## Get Indexing status
 
-While the indexer is indexing the documents, the current status can be queried using the query [`indexerStatus`](../reference.md/#query-rootquery). For example, to show how many documents have already been indexed.
+While the indexer is indexing the documents, the current status can be queried using the query [`indexerStatus`](../reference.md#query-rootquery). For example, to show how many documents have already been indexed.
 
 ```graphql
 query {
@@ -40,7 +47,7 @@ query {
 
 ## Remove documents
 
-The mutation [`indexRemove`](../reference.md/#mutation-rootmutation) is used to remove documents from the index. The corresponding documents are removed from the index by specifying `idList`, which is used to specify a list of resource IDs.
+The mutation [`indexRemove`](../reference.md#mutation-rootmutation) is used to remove documents from the index. The corresponding documents are removed from the index by specifying `idList`, which is used to specify a list of resource IDs.
 
 ```graphql
 mutation {
@@ -50,7 +57,7 @@ mutation {
 
 ## Abort indexing
 
-Indexing can be canceled. A check is made after each chunk as to whether the process should be aborted. The mutation [`indexAbort`](../reference.md/#mutation-rootmutation) is used to ensure that indexing is interrupted.
+Indexing can be canceled. A check is made after each chunk as to whether the process should be aborted. The mutation [`indexAbort`](../reference.md#mutation-rootmutation) is used to ensure that indexing is interrupted.
 
 ```graphql
 mutation {

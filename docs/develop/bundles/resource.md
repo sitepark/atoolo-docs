@@ -245,3 +245,185 @@ $resource = $finder->findFirst(
     }
 );
 ```
+
+## Resource change notification
+
+The CMS tells the website which resources it has published, changed or
+depublished. The website reacts to it through handlers - the indexers of the
+[Index Bundle](index-bundle.md) bring the changes into the Solr index and into
+a GenAI application, for example.
+
+```mermaid
+sequenceDiagram
+    participant IES as IES (webnode module)
+    participant C as ResourceChangeController
+    participant T as Transport atoolo_channel
+    participant W as Worker of the channel
+    participant H as ResourceChangeHandler
+    IES->>C: GET /api/admin/resource/changes
+    C-->>IES: 200 {"version": 1}
+    IES->>C: POST /api/admin/resource/changes
+    C->>T: dispatch ResourceChangeMessage
+    T->>T: file in var/spool/<anchor of the channel>/default/
+    C-->>IES: 202 {"accepted": 2}
+    W->>T: messenger:consume - reads var/spool/<own anchor>/default/
+    T->>H: handle(ResourceChanges)
+```
+
+### The endpoint
+
+| Request | Answer |
+| --- | --- |
+| `GET /api/admin/resource/changes` | `200 {"version": 1}` - the CMS asks for it to learn whether the website accepts notifications |
+| `POST /api/admin/resource/changes` | `202 {"accepted": <n>}`, `400` if the body is invalid |
+
+```json
+{
+  "changed": [
+    { "id": "1234", "path": "/news/foo.php", "publicationType": "OBJECT" },
+    {
+      "id": "1234",
+      "path": "/news/foo.php.translations/en_US.php",
+      "publicationType": "OBJECT"
+    },
+    {
+      "id": "40540",
+      "path": "/genai/glossary/stadtteile.php",
+      "publicationType": "CONFIG"
+    }
+  ],
+  "removed": [{ "id": "5678" }]
+}
+```
+
+- `changed` names the published files, a translation by its own file.
+- `publicationType` is the publication type of the CMS: `OBJECT`, `MEDIA` or
+  `EMBEDDED_MEDIA` for a file of the resource directory, `CONFIG` for a file
+  of the configuration directory `configs`, for example. The path is relative
+  to the directory of the type, so only the type tells a configuration from a
+  resource. It is optional: a change without type is one of a resource, as an
+  older CMS reports it. The CMS reports the publication type since IES 3.27
+  with the ies-webnode admin module, and it reports a published configuration
+  as a change, while an older one reports it as a removal.
+- `removed` names the resources that are no longer published or must not be
+  found - in all their languages.
+
+The endpoint lies below `/api/admin/`, so it requires a JWT of a user with
+`ROLE_ADMIN` or `ROLE_API` (see [Security Bundle](security.md)). The IES logs
+in as the user `api` with the password of the webnode.
+
+The route is imported by the recipe of the bundle. Symfony Flex applies a
+recipe only when a package is installed, so a project that installed the bundle
+before has to install the recipe itself. `cache:clear` - and with it every
+`composer install` and `update` - points this out as long as the route is
+missing:
+
+```sh
+composer recipes:install atoolo/resource-bundle --force -v
+```
+
+This creates `config/routes/resource.yaml`:
+
+```yaml
+controller:
+  resource: "@AtooloResourceBundle/Controller/"
+  type: attribute
+```
+
+### Asynchronous handling
+
+The controller only dispatches a `ResourceChangeMessage` and answers at once.
+The CMS sends the notification to the host of the channel, and every host is
+mapped to exactly one channel. So the message goes to the spool of the channel
+of the request, see
+[Asynchronous messages per channel](#asynchronous-messages-per-channel), and
+the worker of that channel hands the changes to every handler, one
+notification after the other in the order they arrived.
+
+- If a handler throws, the message is repeated - up to five times, with a
+  growing delay - and all handlers get it again. After that it is moved to the
+  transport `atoolo_channel_failed`.
+- A handler that cannot handle the changes yet throws a
+  `ResourceChangeDeferredException`. The message is then repeated every minute
+  as long as it takes, without counting as a failed attempt. The indexers do so
+  while a full index run is in progress.
+
+### Custom handler
+
+A handler implements `ResourceChangeHandler` and is registered through
+autoconfiguration. It has to be idempotent, since it may see the same changes
+more than once.
+
+```php
+use Atoolo\Resource\Change\ResourceChangeHandler;
+use Atoolo\Resource\Change\ResourceChanges;
+
+class CacheInvalidator implements ResourceChangeHandler
+{
+    public function handle(ResourceChanges $changes): void
+    {
+        foreach ($changes->changedResourcePaths() as $path) {
+            // invalidate the cache of the path
+        }
+        foreach ($changes->removedIds as $id) {
+            // invalidate the cache of the resource
+        }
+    }
+}
+```
+
+`changedResourcePaths()` names the paths of the changed resources only,
+`changedPaths()` all of them. A handler of other files reads the
+`ResourceChange`s in `$changes->changed`, with their `publicationType` - the
+GenAI Bundle sends the glossaries of `configs/genai` again this way.
+
+## Asynchronous messages per channel
+
+A website has no message broker, and one application often serves several
+channels - `www` and `preview` of a host, for example. The bundle therefore
+brings a [Messenger](https://symfony.com/doc/current/messenger.html){:target="\_blank"}
+transport that keeps messages as files, apart for each channel:
+
+```
+var/spool/<anchor>/default/   pending messages of the channel
+var/spool/<anchor>/failed/    messages that failed too often
+```
+
+| Transport | DSN | Purpose |
+| --- | --- | --- |
+| `atoolo_channel` | `atoolo-channel://default` | messages for the worker of a channel, 5 retries with a growing delay |
+| `atoolo_channel_failed` | `atoolo-channel://failed` | failure transport of `atoolo_channel` |
+
+Both are registered by the bundle, a project needs no messenger configuration
+of its own.
+
+- **Sending:** a message belongs to the channel of the `ChannelStamp` it is
+  dispatched with, otherwise to the channel of the sending process.
+- **Receiving:** a worker reads only the spool of its own channel. It knows the
+  channel from the path `bin/console` is called by, see
+  [Worker](../../operate/worker.md).
+
+Any bundle can hand its messages to the worker of a channel. It routes them to
+`atoolo_channel` - in the `prependExtension()` of its bundle class or with the
+`#[AsMessage]` attribute - and dispatches them as usual:
+
+```php
+use Atoolo\Resource\Messenger\ChannelStamp;
+use Symfony\Component\Messenger\Attribute\AsMessage;
+
+#[AsMessage('atoolo_channel')]
+final class RebuildSitemap
+{
+}
+
+// the channel of the current process
+$bus->dispatch(new RebuildSitemap());
+
+// another channel
+$bus->dispatch(new RebuildSitemap(), [new ChannelStamp('preview')]);
+```
+
+A worker claims a message before it handles it, so several workers of one
+channel never handle the same message. A claim of a worker that died is
+released after an hour.
+

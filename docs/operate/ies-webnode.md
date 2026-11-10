@@ -30,6 +30,33 @@ sudo ies-webnode update
 sudo systemctl start ies-webnode
 ```
 
+## Resource change notification
+
+The IES notifies the websites of a webnode about published and depublished
+resources, so that their indices are updated. How is configured per webnode in
+the IES administration:
+
+| Setting | Meaning |
+| --- | --- |
+| Direct | changes are collected for about 10 seconds and sent as one notification |
+| Interval | changes are held back for the configured number of minutes |
+| Disabled | the website is not notified |
+
+**Interval** is meant for web servers that receive the published files by a
+rsync: at the moment of publishing, the file is not yet on the web server, so
+the website would index the old version. Choose a delay that covers the rsync.
+
+A website that does not know the notification yet is left to the solr module,
+which updates its Solr index through GraphQL as before. The IES detects this by
+itself.
+
+!!! warning
+
+    Up to now the delay for rsync setups is configured in the solr index
+    configuration (`adHocSynchronizationInterval`). Take the value over to the
+    webnode before the website is updated to a version that accepts the
+    notification - otherwise the changes are sent too early.
+
 ## Logs
 
 The IES-Webnode logs are stored in the directory `/var/log/sitepark/ies-webnode/`.
