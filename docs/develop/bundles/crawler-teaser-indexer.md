@@ -166,6 +166,15 @@ ps aux | grep "messenger:consume"
 !!! note
     If the worker does not consume the transport, the schedule is never executed and nothing is logged.
 
+Several worker processes (e.g. `numprocs=2`) may consume the transport. The schedule is locked per search index, so only one of them starts the crawler. The lock uses the lock store of the project (`framework.lock`, default `flock`), which only works across processes on the same host. If the workers run on several hosts, configure a shared store (e.g. Redis or a database).
+
+#### Missed runs
+
+The scheduler stores its state (the last scheduled date it handled) in the application cache (`cache.app`). If no worker was running at a scheduled date, e.g. during a restart or a downtime, the crawler catches up as soon as a worker runs again, **once**, even if several dates were missed. A date that becomes due while a crawl is still running is not covered by it and leads to one more crawl afterwards.
+
+!!! note
+    By default `cache.app` lives in the cache directory of the project, and `bin/console cache:clear` empties it. A date missed during a deployment is therefore not caught up; the crawler runs again at the next scheduled date. Configure a persistent adapter for `cache.app` (e.g. Redis) if this matters.
+
 ---
 
 ## How it works
@@ -188,6 +197,7 @@ URLCollector ──▶ Parser ──▶ Processor ──▶ Indexer
 - A failing site never stops the run: the remaining sites are still crawled.
 - Old documents of a site are only removed if **more than** `sp_cleanup_threshold` teasers were indexed. Otherwise the run of this site counts as failed and the old documents stay in the index. This protects the index if the external site is down or its markup changed.
 - Invalid cron expressions in `atoolo.crawler.schedule` stop the scheduler with an error.
+- Only one worker starts the scheduled crawl, and missed dates are caught up with a single crawl (see [Missed runs](#missed-runs)). A skipped date is logged as `Crawler run due at … skipped`.
 - A site without `sp_id` is invalid and skipped.
 
 ---
